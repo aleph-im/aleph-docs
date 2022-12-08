@@ -1,3 +1,5 @@
 site_name: Aleph.im Documentation
 theme:
   name: material
+  features:
+    - navigation.expand
