@@ -56,8 +56,17 @@ jobs:
 
       - name: Upload
         run: |
-          pipenv run ./utils/publish-on-aleph.py
-          pipenv run ./utils/publish-on-aleph.py >> $GITHUB_STEP_SUMMARY
+          export IPFS_CID=$(pipenv run --quiet ./utils/publish-on-aleph.py)
+          echo $IPFS_CID >> $GITHUB_STEP_SUMMARY
+          echo "ipfs_cid=$IPFS_CID" >> $GITHUB_ENV
+        env:
+          PIPENV_IGNORE_VIRTUALENVS: 1
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Deployed (not pinned) on https://ipfs-2.aleph.im/ipfs/${{ env.ipfs_cid }}
 
       - uses: actions/upload-artifact@v3
         with:
