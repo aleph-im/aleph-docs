@@ -63,6 +63,7 @@ jobs:
           PIPENV_IGNORE_VIRTUALENVS: 1
 
       - name: Comment PR
+        if: ${{ github.event_name == 'pull_request' }}
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
