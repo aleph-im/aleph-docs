@@ -3,7 +3,7 @@
 ## Introduction
 
 The Aleph.im network machines needs to run a runtime filesystem as a base operating system with all the libraries
-and all de dependencies that you need for your VMs.
+and all de dependencies that you need to run your VMs code.
 
 ## Types of runtimes
 
