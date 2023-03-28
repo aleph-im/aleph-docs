@@ -1,19 +1,24 @@
-# Immutable volumes
+# Immutable Volumes
 
-An immutable volume is a file that contains a [Squashfs filesystem](https://www.kernel.org/doc/html/latest/filesystems/squashfs.html) and can be mounted read-only inside the virtual machine that runs programs in [on-demand](../on_demand.md) or [persistent](../persistent.md) execution modes.
+An immutable volume is a file containing
+a [Squashfs filesystem](https://www.kernel.org/doc/html/latest/filesystems/squashfs.html) that can be mounted read-only
+inside the virtual machine running programs in [on-demand](../on_demand.md) or [persistent](../persistent.md) execution
+modes. This type of volume is typically used to provide additional libraries or data to the program.
 
-Such volume is typically used to provide additional libraries or data to the program. 
+Immutable volumes have the following properties:
 
-Such volume can be published and updated independently of the program. This allows different processes or entities
-to manage the lifecycle of different components of the programs.
+- `comment`: A custom comment from the user about the volume.
+- `mount`: The path on the filesystem of the virtual machine to mount the volume.
+- `ref`: The `item_hash` of the STORE message that references the uploaded filesystem.
+- `use_latest`: A flag indicating that the program should be restarted to use the last version of the volume.
 
-> ℹ️ Squashfs is a standard Linux format. You can always mount it on a Linux system to test things out.
+> ℹ️ Squashfs is a standard Linux format and can be mounted on any Linux system to test.
 
-## Providing additional data
+## Providing Additional Data
 
-You can provide additional data to your program by bundling them in an immutable volume.
+Additional data can be provided to a program by bundling it in an immutable volume.
 
-### 1. Create a Squashfs volume from the additional data
+### 1. Create a Squashfs volume from the data
 
 ```shell
 mksquashfs ./custom-data data.squashfs
@@ -25,14 +30,15 @@ mksquashfs ./custom-data data.squashfs
 aleph file pin ./data.squashfs
 ```
 
-This command will provide you with the `item_hash` of the immutable volume, 
-that you can then use when creating the program.
+This command will provide you with the `item_hash` of the immutable volume, which you can then use to create the
+program.
 
-## Providing additional Python libraries
+## Providing Additional Python Libraries
 
-You can provide additional Python libraries to your program by bundling them in an immutable volume mounted on `/opt/packages`.
+Additional Python libraries can be provided to a program by bundling them in an immutable volume mounted
+on `/opt/packages`.
 
-### 1. Create a directory containing the dependencies
+### 1. Create a directory that contains the dependencies
 
 ```shell
 mkdir ./packages
@@ -51,8 +57,5 @@ mksquashfs ./packages packages.squashfs
 aleph file pin ./packages.squashfs
 ```
 
-This command will provide you with the `item_hash` of the immutable volume, 
-that you can then use when creating the program.
-
-[//]: # (## Providing additional Node libraries)
-
+This command will provide you with the `item_hash` of the immutable volume, which you can then use to create the
+program.
