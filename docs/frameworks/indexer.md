@@ -1,0 +1,32 @@
+# Indexing Framework
+
+The [Aleph Indexer Framework](https://github.com/aleph-im/aleph-indexer-framework) is a node.js and
+[moleculer](https://moleculer.services/) based framework for building multithreaded indexers to be deployed
+on the Aleph.im network.
+
+## Documentation
+
+The documentation for the framework can be found [here](https://aleph-im.github.io/aleph-indexer-framework/).
+Examples of working indexers can be found in the [Aleph Indexer Library](https://github.com/aleph-im/aleph-indexer-library).
+
+## Features
+
+- Indexing of data from multiple blockchains
+- Fetching historical event data based on:
+    - Transactions
+    - Blocks
+    - Logs
+    - State
+- Aggregating data points into buckets
+- Indexing multiple accounts and their events
+- Theoretically indexing and aggregating across multiple blockchains at the same time
+
+### Supported Blockchains
+
+The framework currently supports indexing data from the following blockchains:
+
+- Ethereum
+- Solana
+- BSC
+
+New blockchains can be easily added by implementing a new blockchain adapter.
