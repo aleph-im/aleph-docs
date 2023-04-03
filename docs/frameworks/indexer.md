@@ -18,8 +18,8 @@ Examples of working indexers can be found in the [Aleph Indexer Library](https:/
     - Logs
     - State
 - Aggregate data points into buckets
-- Indexing multiple accounts and their events
-- Theoretically indexing and aggregating across multiple blockchains at the same time
+- Index multiple accounts and their events
+- Index and aggregate across multiple blockchains at the same time
 
 ### Supported Blockchains
 
