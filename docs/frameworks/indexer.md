@@ -11,7 +11,7 @@ Examples of working indexers can be found in the [Aleph Indexer Library](https:/
 
 ## Features
 
-- Indexing of data from multiple blockchains
+- Index data from multiple blockchains
 - Fetching historical event data based on:
     - Transactions
     - Blocks
