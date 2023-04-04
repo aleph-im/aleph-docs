@@ -1,6 +1,6 @@
-# Tutorial: Creating a non-Python program on Aleph-VM
+# Tutorial: Creating a Rust microVM
 
-> This tutorial follows up the first tutorial [Creating and hosting a program on Aleph-VM](./README.md).
+> This tutorial follows up the first tutorial [Creating and hosting a Python program on Aleph-VM](../python/getting_started.md).
 
 ## 0. Welcome
 

@@ -1,4 +1,4 @@
-# Tutorial: Creating and hosting a program on Aleph-VM
+# Tutorial: Creating and hosting a Python program on Aleph-VM
 
 This is the tutorial for Creating and hosting a program on Aleph-VM, which has been developed and maintained by [Aleph.im](https://www.aleph.im).
 
@@ -91,8 +91,7 @@ Aleph provides a supported runtime to launch programs written in Python or binar
 * Python programs must support the [ASGI interface](https://asgi.readthedocs.io/en/latest/), described in the example below.
 * Binaries must listen for HTTP requests on port 8080
 
-The runtime currently supported by Aleph is 
-[aleph-debian-11-python](../runtimes/aleph-debian-11-python).
+The runtime currently supported by Aleph is __aleph-debian-11-python__.
 
 ### Volumes
 
@@ -217,7 +216,7 @@ This is common and usually not an issue.
 > ℹ The second URL uses a hostname dedicated to your VM. Aleph identifiers are too long to work
 > for URL subdomains, so a base32 encoded version of the identifier is used instead.
 
-> ℹ You can make your own domain point to the VM. See the [ADVANCED](./ADVANCED.md) section.
+> ℹ You can make your own domain point to the VM. See the [advanced](./advanced.md) section.
 
 ## 5. Running
 
@@ -249,9 +248,9 @@ program to work, else they will be ignored.
 
 ## Next steps
 
-Check out the [Requirements](./REQUIREMENTS.md) page to add additional Python packages to your 
+Check out the [requirements](./requirements.md) page to add additional Python packages to your 
 program from the Python Package Index ([PyPI](https://www.pypi.org)). 
 
-Check out the [Writing a non-Python program](./SERVER.md) page to run a program written in another language than Python.
+Check out the [Writing a non-Python program](../rust/rust_microvm.md) page to run a program written in another language than Python.
 
-Check out the [Advanced usage](./ADVANCED.md) page for more options and capabilities.
+Check out the [Advanced usage](./advanced.md) page for more options and capabilities.
