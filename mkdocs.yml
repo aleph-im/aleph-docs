@@ -6,3 +6,11 @@ theme:
     - navigation.tracking
     - navigation.sections
     - navigation.path
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
