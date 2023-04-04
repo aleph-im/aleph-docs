@@ -55,7 +55,7 @@ python3 -m vm_supervisor --print-settings --very-verbose --system-logs --fake-da
 
 ### 2.a. Install the system requirements
 
-See [../vm_supervisor/README.md](../vm_supervisor/README.md) to install the system requirements.
+See [the aleph.im VM supervisor documentation](https://github.com/aleph-im/aleph-vm/blob/main/vm_supervisor/README.md) to install the system requirements.
 
 ### 2.b. Run the supervisor with fake data:
 
