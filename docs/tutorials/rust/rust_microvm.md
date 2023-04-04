@@ -1,34 +1,26 @@
-# Tutorial: Creating a Rust microVM
+# Building a Rust microVM
 
 > This tutorial follows up the first tutorial [Creating and hosting a Python program on Aleph-VM](../python/getting_started.md).
 
-## 0. Welcome
-
-In this second tutorial, we will guide you on how to run programs written in any programming language on Aleph Virtual Machines.
+In this tutorial, we will build and deploy a Rust application on the aleph.im network.
 
 In addition to running Python programs using ASGI as covered in the first tutorial, 
-Aleph VMs also support any program that listens for HTTP requests on port 8080.
+Aleph.im VMs also support any program as long as it listens for HTTP requests on port 8080.
 
-This can be used to run existing programs on Aleph VMs, or to use other programming languages to write programs and run them on Aleph-VM.
-
-### What we will cover
-
-Since Python is the only language currently supported, this tutorial we will cover two other languages: [Rust](https://www.rust-lang.org/) and Javascript ([NodeJS](https://nodejs.org/)).
-
-## 1. Rust
+## The application
 
 In this first section, you will run a program written in Rust on an Aleph VM.
 
-### 1.a. Requirements
+### Requirements
 
 You need a Rust compiler. You can install one using the [official Install Rust guide](https://www.rust-lang.org/tools/install) 
 or via your favourite package manager.
 
   $ sudo apt install rustc cargo
 
-### 1.b. Writing a Rust program
+## Write a Rust program
 
-Let's use a very simple HTTP server inspired by the [Building a Single-Threaded Web Server](https://doc.rust-lang.org/book/ch20-01-single-threaded.html)
+Let's build a very simple HTTP server inspired by the [Building a Single-Threaded Web Server](https://doc.rust-lang.org/book/ch20-01-single-threaded.html)
 section of The Rust Programming Language Book:
 
 ```shell
@@ -72,25 +64,40 @@ fn handle_connection(mut stream: TcpStream) {
 }
 ```
 
+## Test it locally
+
+It is usually easy to test Rust programs on your machine.
+
 ```shell
 cargo run
 ```
 
-Open http://127.0.0.1:8080 in your browser to test your new server.
+Open `http://127.0.0.1:8080` in your browser to test your new server.
 
-### 1.c. Publishing a Rust program
+## Upload your program on aleph.im
 
-Compile your program:
+Let's upload our program.
+
+Compile your program in release mode:
 ```shell
 cargo build --release
 ```
 
-Publish it on Aleph using the same procedure as with the Python example, except the entrypoint refers to the name of the binary to execute. 
+After installing [aleph-client](https://github.com/aleph-im/aleph-client), you should have access to the `aleph` command:
+
+```shell
+aleph --help
+```
+
+The `aleph program CODE_DIR ENTRYPOINT` command will package the `CODE_DIR` code directory and configure the program
+to run the `ENTRYPOINT` command.
+For our program, the code directory is the build directory and the entrypoint is the name of our executable.
 
 ```shell
 aleph program ./target/release/example_http_rust example_http_rust
 ```
 
-If your program takes some arguments, pass them in the entrypoint by using quotes: `"example_http_rust --help`.
+If your program takes arguments, pass them in the entrypoint by using quotes: `"example_http_rust --help"`.
 
-ℹ️ If you get the error `Invalid zip archive`, you are probably missing the Squashfs user tool `mksquashfs`. In that case, first create the squashfs archive and then upload it using `aleph program ./target/release/example_http_rust.squashfs example_http_rust`
+> ℹ️ If you get the error `Invalid zip archive`, you are probably missing the Squashfs user tool `mksquashfs`. 
+> In that case, first create the squashfs archive and then upload it using `aleph program ./target/release/example_http_rust.squashfs example_http_rust`.
