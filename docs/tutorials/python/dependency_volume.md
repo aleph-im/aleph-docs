@@ -1,8 +1,8 @@
 # Add Python dependencies to a program
 
 Many Python programs require additional packages beyond those present on the system by default.
-You could of course create your own runtime, but there is a faster and easier solution.
-The official aleph.im Python runtimes detect if a volume is mounted on `/opt/packages` and add it to
+While you could of course create your own runtime, there is a faster and easier solution.
+The official aleph.im Python runtimes automatically include `/opt/packages` in the Python search path. Mounting a volume on this path will make any Python module or package present in that volume importable from your program.
 the Python search path (`PYTHONPATH`).
 
 Using a dedicated volume for your dependencies has several advantages:
@@ -28,7 +28,7 @@ sudo apt install python3-pip python3-venv squashfs-tools
 ```
 
 ```shell
-pip3 install aleph-client
+pip install aleph-client
 ```
 
 ## Create the volume
@@ -53,7 +53,7 @@ this volume, meaning that we need to upload the volume to aleph.im first.
 ### Without IPFS (small size)
 
 ```shell
-aleph upload packages.squashfs
+aleph file upload packages.squashfs
 ```
 
 ### With IPFS
