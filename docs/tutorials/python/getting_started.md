@@ -26,7 +26,7 @@ Archiving programs and volumes requires
 
 - Linux: 
 ``` 
-sudo apt-get install -y python3-pip libsecp256k1-dev squashfs-tools
+sudo apt-get install -y python-pip libsecp256k1-dev squashfs-tools
 ``` 
 
 - macOs: 
@@ -139,7 +139,7 @@ vagrant ssh
 Then go to your working repository and launch:
 
 ```shell
-python3 -m uvicorn main:app --reload --host=0.0.0.0
+python -m uvicorn main:app --reload --host=0.0.0.0
 ```
 
 Then open `http://127.0.0.1:8000`. 
@@ -151,7 +151,7 @@ The `--reload` option will automatically reload your app when the code changes.
 > Then open your browser on http://1.2.3.4:8000 instead.
 
 > ℹ Installing uvicorn should add the `uvicorn` command to your shell. If it does not, use
-> `python3 -m uvicorn` to run it.
+> `python -m uvicorn` to run it.
 
 ## Upload your program on aleph.im
 

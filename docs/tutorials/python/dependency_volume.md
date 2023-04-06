@@ -24,7 +24,7 @@ You could also reuse the same dependencies for multiple programs.
 > ℹ If you use macOS, see the section at the end of this tutorial to set up your environment.
 
 ```shell
-sudo apt install python3-pip python3-venv squashfs-tools
+sudo apt install python-pip python-venv squashfs-tools
 ```
 
 ```shell
