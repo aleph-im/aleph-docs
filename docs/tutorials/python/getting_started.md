@@ -66,8 +66,9 @@ The base of each VM is a Linux
 to run programs on the aleph.im platform. 
 
 Aleph.im provides a supported runtime to launch programs written in Python or binaries. 
-* Python programs must support the [ASGI interface](https://asgi.readthedocs.io/en/latest/), described in the example below.
-* Binaries must listen for HTTP requests on port 8080
+
+- Python programs must support the [ASGI interface](https://asgi.readthedocs.io/en/latest/), described in the example below.
+- Binaries must listen for HTTP requests on port 8080
 
 The runtime currently supported by aleph.im is __aleph-debian-11-python__.
 
