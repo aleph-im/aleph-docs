@@ -1,6 +1,6 @@
 # Add Python dependencies to a program
 
-Most Python programs require additional packages in addition to the ones installed on the system.
+Many Python programs require additional packages beyond those present on the system by default.
 You could of course create your own runtime, but there is a faster and easier solution.
 The official aleph.im Python runtimes detect if a volume is mounted on `/opt/packages` and add it to
 the Python search path (`PYTHONPATH`).
