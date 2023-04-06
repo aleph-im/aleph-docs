@@ -1,6 +1,6 @@
-# Tutorial: Advanced usage of Aleph-VM
+# Advanced Python program features
 
-## Aleph messages
+## Aleph.im messages
 
 The [aleph-client](https://github.com/aleph-im/aleph-client) library is pre-installed and 
 pre-configured in the official Aleph-VM Python runtime. It is tweaked to work even
@@ -13,26 +13,26 @@ Use `aleph_client.asynchronous.get_messages` to get messages from the Aleph netw
 ```python
 from aleph_client.asynchronous import get_messages
 
-(...)
+...
 messages = await get_messages(
     hashes=["f246f873c3e0f637a15c566e7a465d2ecbb83eaa024d54ccb8fb566b549a929e"]
 )
 ```
 
-## Post Aleph messages
+## Post Aleph.im messages
 
-ℹ️ Messages posted by VMs may not be authorized by the Aleph network yet.
+ℹ️ Messages posted by VMs may not be authorized by the aleph.im network yet.
 
-Posting messages on the Aleph network requires signing them using a valid account.
-Since programs on Aleph-VM are public, they should not contain secrets. Instead of signing messages
+Posting messages on the aleph.im network requires signing them using a valid account.
+Since programs are public, they should not contain secrets. Instead of signing messages
 themselves, programs should therefore ask their execution host to sign messages on their behalf
-using a `RemoteAccount`. The hash of the VM will be referenced in the message content `'address'` 
+using a `RemoteAccount`. The hash of the VM will be referenced in the message content `address` 
 field.
 
 ```python
 from aleph_client.chains.remote import RemoteAccount
 
-(...)
+...
 
 account = await RemoteAccount.from_crypto_host(
     host="http://localhost", unix_socket="/tmp/socat-socket")
@@ -61,7 +61,7 @@ be useful to persist between executions but can be recovered from other sources.
 The cache is specific to one program on one execution node.
 
 The persistence of the cache should not be relied on - its content can be deleted anytime when
-the program is not running. Important data must be persisted on the Aleph network. 
+the program is not running. Important data must be persisted on the aleph.im network. 
 
 To use the cache, you can use the following methods:
 ```python
@@ -76,13 +76,13 @@ async def f():
 
 ## Volumes
 
-Volumes consist in extra storage that can be used by programs on Aleph-VM. If a `mount` point
+Volumes consist in extra storage that can be used by programs. If a `mount` point
 is specified, they will be mounted on the virtual machine filesystem before your program is
 started.
 
 ### Immutable volumes
 
-Immutable volumes contain extra files that can be used by a program and are stored on the Aleph 
+Immutable volumes contain extra files that can be used by a program and are stored on the aleph.im 
 network. They can be shared by multiple programs and updated independently of the code of the program.
 
 You can use them to store Python libraries that your program depends on, use them in multiple
@@ -109,7 +109,7 @@ ipfs add extra-lib.squashfs
 ```
 and retrieve the printed IPFS hash.
 
-Pin the volume on Aleph using `aleph pin`:
+Pin the volume on aleph.im using `aleph pin`:
 ```shell
 aleph pin $IPFS_HASH --channel TEST
 ```
@@ -122,7 +122,7 @@ Follow the same procedure you used to create an immutable volume, but pin it wit
 reference to the original using:
 
 ```shell
-aleph pin $IPFS_HASH --channel TEST --ref $ORIGINAL_HASH
+aleph pin $IPFS_HASH --ref $ORIGINAL_HASH
 ```
 
 ### Host persistent volumes
@@ -134,7 +134,7 @@ Like the cache, host persistent volumes are specific to one program on one execu
 Unlike the cache, you can use these volumes to store any kind of files, including databases.
 
 There is no guarantee that these volumes will not be deleted anytime when the
-program is not running and important data must be persisted on the Aleph network.
+program is not running and important data must be persisted on the aleph.im network.
 
 Host persistent volumes have a fixed size and must be named. The name will be used in the future
 to allow changing the mount point of a volume.
