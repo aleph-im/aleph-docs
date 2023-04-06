@@ -6,9 +6,10 @@ The official aleph.im Python runtimes automatically include `/opt/packages` in t
 the Python search path (`PYTHONPATH`).
 
 Using a dedicated volume for your dependencies has several advantages:
-* No need to create a custom runtime
-* Update your dependencies without updating all your program
-* Use the same dependencies for multiple programs.s
+
+- No need to create a custom runtime
+- Update your dependencies without updating all your program
+- Use the same dependencies for multiple programs.s
 
 This tutorial will teach you how to create a volume for your Python dependencies
 and add it to your program.
