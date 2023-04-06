@@ -217,28 +217,6 @@ This is because the official aleph.im runtime is already pre-configured with sev
 Of course, you can customize your program to add your own requirements.
 Refer to [Adding Python dependencies to a program](./dependency_volume.md) for more information.
 
-## Uploading updates
- 
-`"Hello World"` is a fine message, but wouldn't it be nice to have something more friendly, such
-as `"Hello Friend"` ? Update the program with the message of your choice.
-
-You could upload the new version as a new program, but this would break the URL above, and you
-would have to give the updated URL to all your friends. While aleph.im messages cannot be edited, 
-there is a solution to this issue: you can publish _amend_ messages that reference the original
-message to add some changes to it.
-
-The `aleph update` command is similar to `aleph program`, except it requires the hash of the 
-program to update.
-
-```shell
-aleph update $HASH ./my-program
-```
-
-Note that _amend_ messages must be sent from the same aleph.im address as the original 
-program to work, otherwise they will be ignored.
-
-> ℹ️ Back up your private key, else you may lose the ability to update a program.
-
 ## Next steps
 
 Check out the [dependency volume](./dependency_volume.md) page to add additional Python packages to your 
