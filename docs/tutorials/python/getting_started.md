@@ -185,7 +185,7 @@ Add volume ? [y/N]
 
 You should then get a response similar to the following: 
 ```
-Your program has been uploaded on Aleph .
+Your program has been uploaded on aleph.im .
 
 Available on:
   https://aleph.sh/vm/1d3842fc4257c0fd4f9c7d5c55bba16264de8d44f47265a14f8f6eb4d542dda2

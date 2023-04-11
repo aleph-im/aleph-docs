@@ -1,6 +1,6 @@
 # Testing your VMs locally
 
-You can test your VM locally without uploading each version on the Aleph network.
+You can test your VM locally without uploading each version on the aleph.im network.
 
 To do this, you'll want to use the `--fake-data-program` or `-f` argument of the VM Supervisor.
 

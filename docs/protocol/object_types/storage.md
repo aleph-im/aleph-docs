@@ -6,9 +6,9 @@ By publishing a STORE message, users can:
 * store a file in the native aleph.im storage system
 * pin an IPFS CID on the aleph.im network.
 
-STORE messages tell the Aleph network to store data on behalf of the
+STORE messages tell the aleph.im network to store data on behalf of the
 user. The data can either be pinned to IPFS or stored in the native
-Aleph storage system depending on the content item type.
+aleph.im storage system depending on the content item type.
 
 ## STORE message content format
 

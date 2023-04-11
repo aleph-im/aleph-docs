@@ -8,7 +8,7 @@ for programs with the access to internet disabled.
 
 ### Get messages
 
-Use `aleph_client.asynchronous.get_messages` to get messages from the Aleph network.
+Use `aleph_client.asynchronous.get_messages` to get messages from the aleph.im network.
 
 ```python
 from aleph_client.asynchronous import get_messages

@@ -58,7 +58,7 @@ Messages are uniquely identified by the `item_hash` field.
 This value is obtained by computing the hash of the `content` field. 
 Currently, the hash can be obtained in one of two ways. 
 If the content of the message is stored on IPFS, the `item_hash` of the message will be the CIDv0 of this content. 
-Otherwise, if the message is stored on Aleph native storage or is included in the message, the item hash will be 
+Otherwise, if the message is stored on aleph.im native storage or is included in the message, the item hash will be 
 the SHA256 hash of the message in hexadecimal encoding. 
 In the first case, the item type will be set to `ipfs`. 
 In the second case, the item type will either be `inline` if the content is included in the message (serialized as a

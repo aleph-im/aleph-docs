@@ -1,13 +1,13 @@
 # Indexing Framework
 
-The [Aleph Indexer Framework](https://github.com/aleph-im/aleph-indexer-framework) is a node.js and
+The [aleph.im Indexer Framework](https://github.com/aleph-im/aleph-indexer-framework) is a node.js and
 [moleculer](https://moleculer.services/) based framework for building multithreaded indexers to be deployed
 on the Aleph.im network.
 
 ## Documentation
 
 The documentation for the framework can be found [here](https://aleph-im.github.io/aleph-indexer-framework/).
-Examples of working indexers can be found in the [Aleph Indexer Library](https://github.com/aleph-im/aleph-indexer-library).
+Examples of working indexers can be found in the [aleph.im Indexer Library](https://github.com/aleph-im/aleph-indexer-library).
 
 ## Features
 

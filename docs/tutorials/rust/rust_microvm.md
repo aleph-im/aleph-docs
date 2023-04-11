@@ -9,7 +9,7 @@ Aleph.im VMs also support any program as long as it listens for HTTP requests on
 
 ## The application
 
-In this first section, you will run a program written in Rust on an Aleph VM.
+In this first section, you will run a program written in Rust on an aleph.im VM.
 
 ### Requirements
 

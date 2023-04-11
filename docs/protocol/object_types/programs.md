@@ -1,6 +1,6 @@
 # Programs
 
-PROGRAM messages create a new application that can then be run on Aleph VMs.
+PROGRAM messages create a new application that can then be run on aleph.im VMs.
 
 ## Content format
 
@@ -33,7 +33,7 @@ The `content` field of a PROGRAM message must contain the following fields:
 },
 "runtime": {
   "address": "0x4cB66fDf10971De5c7598072024FFd33482907a5",
-  "comment": "Aleph Alpine Linux with Python 3.8"
+  "comment": "Aleph.im Alpine Linux with Python 3.8"
 },
 "data": {
   "encoding": "tar.gzip",
