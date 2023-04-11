@@ -2,7 +2,7 @@
 
 A program runtime is an operating system and software stack that enables your program to run on the aleph.im network.
 
-Runtimes are customized Linux root filesystems that integrate with the Aleph.im infrastructure and provide access to
+Runtimes are customized Linux root filesystems that integrate with the aleph.im infrastructure and provide access to
 APIs, as well as quick responses to HTTP requests and other events.
 
 The project provides official runtimes with all you need for most programs. Additionally, you can build and publish
@@ -24,5 +24,5 @@ Use these in your custom runtime by copying them to `/rootfs/sbin/init` and
 `/mnt/rootfs/root/init1.py` respectively.
 
 [Persistent Execution](../persistent.md) may use the same init process, but this is not required. If you do not make use
-of the capabilities provided by the Aleph.im ecosystem, using the default of your distribution 
+of the capabilities provided by the aleph.im ecosystem, using the default of your distribution 
 (ex: [systemd](https://systemd.io/), [OpenRC](https://github.com/OpenRC/openrc), ...) should work as well.

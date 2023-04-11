@@ -24,7 +24,7 @@ Additional data can be provided to a program by bundling it in an immutable volu
 mksquashfs ./custom-data data.squashfs
 ```
 
-### 2. Publish the file on Aleph
+### 2. Publish the file on aleph.im
 
 ```shell
 aleph file pin ./data.squashfs
@@ -51,7 +51,7 @@ pip3 install -t ./packages -r ./requirements.txt
 mksquashfs ./packages packages.squashfs
 ```
 
-### 3. Publish the file on Aleph
+### 3. Publish the file on aleph.im
 
 ```shell
 aleph file pin ./packages.squashfs

@@ -7,7 +7,7 @@ Custom runtimes can be created by customizing the filesystem of Linux distributi
 
 Refer to the installation guide of your distribution for the procedure to obtain a base root filesystem.
 
-> ⚠️ Only x86-64 is currently supported on the network. Make sure you use build runtimes on that architecture.
+> ⚠️ Only 64-bit Intel/AMD processors (x86_64) are supported on the network at the moment . Make sure you build runtimes on that architecture.
 
 ### Debian Bullseye
 
@@ -60,7 +60,7 @@ Running the script `create_disk_image.sh` as root will create a file named `root
 sudo ./create_disk_image.sh
 ```
 
-## 4. Publish the runtime on Aleph.im
+## 4. Publish the runtime on aleph.im
 
 ```shell
 aleph file pin ./rootfs.squashfs
