@@ -2,14 +2,14 @@
 
 ## Introduction
 
-The Aleph.im network can run programs in two different manners:
+The aleph.im network can run programs in two different manners:
 
 * [on-demand execution](on_demand.md) runs programs only when needed, saving on resources. This is great to run programs
   that are responding to user requests or API calls and can shutdown after processing the event.
 * __persistent execution__ runs programs continuously.  These are always running and great to run programs that cannot
   afford to stop or need to handle incoming connections such as polling data from a websocket or AMQP API.
 
-When a program is created with persistent execution enabled, the Aleph.im scheduler will find a Compute Resource Node
+When a program is created with persistent execution enabled, the aleph.im scheduler will find a Compute Resource Node
 (CRN) with enough resources to run the program and schedule the program to start on that node.
 
 Persistent programs are designed to always run exactly once, and the scheduler will reallocate the program on another
@@ -75,7 +75,7 @@ uvicorn main:app --reload
 
 ## Step 2: Run a program in a persistent manner
 
-To run the program in a persistent manner on the Aleph.im network, use: 
+To run the program in a persistent manner on the aleph.im network, use: 
 
 ```shell
 aleph program upload --persistent ./src/ main:app
@@ -93,4 +93,4 @@ TODO: Locate the CRN where your program is running.
 
 ## Conclusion
 
-In this tutorial, you learned how to create and deploy persistent Virtual Machines on the Aleph.im network. You should now have a better understanding of how to use Aleph.im for distributed computing.
+In this tutorial, you learned how to create and deploy persistent Virtual Machines on the aleph.im network. You should now have a better understanding of how to use aleph.im for distributed computing.
