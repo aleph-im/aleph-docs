@@ -1,6 +1,6 @@
 # Scores
 
-For each node, a global score is computed from the [metrics](./metrics.md). The global score is computed as a value
+For each node, a global score is computed from the [metrics](metrics.md). The global score is computed as a value
 between 0 and 1, and is rounded to a percentage when displayed.
 
 A score below 20% indicates that the node is dysfunctional and should not be used.
