@@ -4,8 +4,8 @@ Node operators and stakers receive rewards for contributing to the aleph.im netw
 
 ## Core Channel Nodes
 
-A [Core Channel Node](../nodes/core_channel.md) (CCN) is active when it is registered on the [aleph.im account page](
-https://account.aleph.im), has enough ALEPH token staked on it and has a [score](./scores.md) non null.
+A [Core Channel Node](../core_channel.md) (CCN) is active when it is registered on the [aleph.im account page](
+https://account.aleph.im), has enough ALEPH token staked on it and has a [score](scores.md) non null.
 
 The performance score of a CCN affects the rewards distributed to the operator and stakers of the node the following way:
 
