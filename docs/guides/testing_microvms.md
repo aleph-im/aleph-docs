@@ -1,4 +1,4 @@
-# Testing your VMs locally
+# How to test your VM locally
 
 You can test your VM locally without uploading each version on the aleph.im network.
 

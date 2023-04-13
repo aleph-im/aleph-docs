@@ -4,7 +4,7 @@ Node operators and stakers receive rewards for contributing to the aleph.im netw
 
 ## Core Channel Nodes
 
-A [Core Channel Node](../core_channel.md) (CCN) is active when it is registered on the [aleph.im account page](
+A [Core Channel Node](../core.md) (CCN) is active when it is registered on the [aleph.im account page](
 https://account.aleph.im), has enough ALEPH token staked on it and has a [score](scores.md) non null.
 
 The performance score of a CCN affects the rewards distributed to the operator and stakers of the node the following way:
@@ -13,8 +13,12 @@ The performance score of a CCN affects the rewards distributed to the operator a
 - A direct proportion of the reward is distributed when the score is between 20% and 80%.
 - The complete reward is distributed when the score is equal to or greater than 80%
 
-The rewards distribured does not depend on the score of other nodes in the network. Less token from the pool
-will be distributed.
+The second factor that affects the rewards of a CCN is its linking to
+[Compute Resource Nodes](../compute.md) (CRN).  A CCN can have up to 3 CRNs linked to it, and a the CCN
+will incur a penalty of 10% of the rewards for each spot unfilled or filled with a defaulting CRN (score of 0).
+
+The rewards distributed does not depend on the score of other nodes in the network. Less token from the pool
+will be distributed when nodes do not perform well enough.
 
 ### Node Operators
 
@@ -31,7 +35,11 @@ max\_rewards = \frac{15 000 ALEPH}{count(core\_channel\_nodes)}
 $$
 
 $$
-rewards = max\_rewards * multiplier(score(node), 20\%, 80\%)
+linkage(node) = 70 \% + \sum_{crn}^{linked\_CRNs(node)}{10 \%\ if\ score(crn) > 0\ else\ 0 \%}
+$$
+
+$$
+rewards = max\_rewards * linkage * multiplier(score(node), 20\%, 80\%)
 $$
 
 ### Stakers
@@ -51,7 +59,11 @@ balance\_ratio = \frac{balance}{\sum_{staker}^{stakers}{balance(staker)} * count
 $$
 
 $$
-rewards = 15 000 ALEPH * \sum_{node}^{nodes\_staked}{multiplier(score(node), 20\%, 80\%) * balance\_ratio}
+linkage(node) = 70 \% + \sum_{crn}^{linked\_CRNs(node)}{10 \%\ if\ score(crn) > 0\ else\ 0 \%}
+$$
+
+$$
+rewards = 15 000 ALEPH * \sum_{node}^{nodes\_staked}{multiplier(score(node), 20\%, 80\%) * balance\_ratio * linkage(node)}
 $$
 
 ## Compute Resource Nodes
