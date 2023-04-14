@@ -21,6 +21,16 @@ points of failure, as the removal of one node does not impact the overall functi
 Furthermore, aleph.im employs advanced cryptographic techniques and consensus algorithms to ensure that the compute
 resource nodes
 
+## Hardware requirements:
+
+- **Platform**: A bare metal server is required since virtual servers are often too slow and unable to run nested virtualization.
+- **Processor** using x86_64 (alias amd64) architecture (2 options):
+    - Min. 8 cores / 16 threads, 3.0ghz+ CPU (gaming CPU for fast boot-up of microVMs)
+    - Min. 12 core / 24 threads, 2.4ghz+ CPU (datacenter CPU for multiple concurrent loads)
+- **Memory**: Min. 64GB of RAM
+- **Storage**: 1TB (NVME SSD preferred, datacenter fast HDD possible under conditions, you’ll want a big and fast cache)
+- **Connectivity**: Minimum of 500 Mbit/s, both IPv4 and IPv6 configured
+
 ## Requirements
 
 ### 1. Installation

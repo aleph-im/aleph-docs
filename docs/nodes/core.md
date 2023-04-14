@@ -22,6 +22,13 @@ resource node, participants need to stake ALEPH tokens, which serve as a form of
 ensure that the node operators remain honest and provide reliable services. Node operators are
 rewarded with ALEPH tokens for their contribution to the network, which further motivates them to maintain
 
+## Hardware requirements:
+
+- **Processor**: Recent cpu with at least 4 cores
+- **Memory**: 32 GB of RAM minimum (64 GB recommended)
+- **Storage**: 4+ TB HDD or SSD (ideally with at least the system on an SSD)
+- **Connectivity**: 100 MB upload bandwidth minimum (ideally 1 GB)
+
 ## Requirements
 
 ### 1. Installation
