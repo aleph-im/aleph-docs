@@ -68,7 +68,7 @@ $$
 
 ## Compute Resource Nodes
 
-Rewards for running a compute resource node (CRN) will follow the [Tokenomics update](and the
+Rewards for running a compute resource node (CRN) will follow the
 [Tokenomics update](https://medium.com/aleph-im/aleph-im-tokenomics-update-nov-2022-fd1027762d99) we published in
 November. 
 
