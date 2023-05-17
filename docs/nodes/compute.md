@@ -34,6 +34,7 @@ resource nodes
 ## Requirements
 
 ### 1. Installation
+Follow the [installation guide](https://github.com/aleph-im/aleph-vm/#1-install-aleph-vm-from-packages) to install the server.
 
 ### 2. Registration
-
+Follow the [registration](https://medium.com/aleph-im/step-by-step-on-how-to-create-and-register-your-compute-resource-node-e5308130fbf7) guide first.
