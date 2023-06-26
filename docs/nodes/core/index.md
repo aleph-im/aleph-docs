@@ -40,3 +40,6 @@ Follow [the installation guide](https://pyaleph.readthedocs.io/en/latest/guides/
 Follow [the registration guide](
 https://medium.com/aleph-im/aleph-im-node-registration-guide-ea2badb84e75) first.
 
+### 3. Backups
+
+Read our [recommendations to backup Core Channel Nodes](./backups.md).
