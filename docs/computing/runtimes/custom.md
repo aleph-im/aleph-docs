@@ -35,7 +35,7 @@ First you need to install the required tools to be able to generate you own runt
 Using Debian and Ubuntu systems:
 
 ```shell
-sudo apt-get install debootstrap squashfs-toolssquashfs-tools
+sudo apt-get install debootstrap squashfs-tools
 ```
 
 Using Nix:
