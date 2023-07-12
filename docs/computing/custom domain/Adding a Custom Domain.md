@@ -56,14 +56,9 @@ Save your changes before moving on to the next step.
 
 ## Step 3: Test the Domain Setup
 
-After you've set up the DNS records, you can use the Aleph.im domain test page to check if the setup was successful.
+After you've set up the DNS records, you can go to the domain detail page to check if the setup was successful.
 
-1. **Navigate to the [Aleph.im domain test page](https://checkdomain.aleph.im).**
-2. **Enter your domain in the provided field.**
-3. **Click the "Test" button.** 
+1. **Navigate to the dashboard.**
+2. **Select the domain you added.**
+3. **Verify that all checks are successful.** 
 
-The site will test if the records were set up correctly.
-
-## Future Improvements
-
-In the future, we plan to integrate these checks directly into our instance creation flow. This will make the process of adding a custom domain even smoother.
