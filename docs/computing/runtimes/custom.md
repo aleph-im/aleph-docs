@@ -35,7 +35,7 @@ First you need to install the required tools to be able to generate you own runt
 Using Debian and Ubuntu systems:
 
 ```shell
-sudo apt-get install debootstrap chroot mksquashfs
+sudo apt-get install debootstrap squashfs-tools
 ```
 
 Using Nix:
@@ -63,7 +63,12 @@ sudo ./create_disk_image.sh
 ## 4. Publish the runtime on aleph.im
 
 ```shell
-aleph file pin ./rootfs.squashfs
+aleph file upload ./rootfs.squashfs
+```
+If this command fails due to an HTTP 413 `Request Entity Too Large`, then upload your `root.squashfs` using the [IPFS desktop app](https://docs.ipfs.tech/install/ipfs-desktop/#windows) or similar client. Then use the obtained CID with this command to pin it with the Aleph network:
+
+```shell
+aleph file pin <CID>
 ```
 
 This command will provide you with the `item_hash` of the custom runtime, 
