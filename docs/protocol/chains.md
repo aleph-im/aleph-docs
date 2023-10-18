@@ -27,12 +27,12 @@ functionalities are supported.
 
 | Chain     | Message signature | Wallet support | Token availability | Balance support | Staking support |
 |-----------|-------------------|----------------|--------------------|-----------------|-----------------|
-| Ethereum  | ✅                 | Metamask       | ✅                  | ✅               | ✅               |
-| Polygon   | ✅                 | Metamask       |                    |                 |                 |
-| Solana    | ✅                 |                |                    | ❌               | ❌               |
-| Tezos     | ✅                 |                |                    |                 |                 |
-| Cosmos    | ✅                 |                |                    |                 |                 |
-| Nuls1     | Python only       |                |                    |                 |                 |
-| Nuls2     | Python only       |                |                    |                 |                 |
-| Substrate | ✅                 |                |                    |                 |                 |
-| Avalanche | TypeScript only   |                |                    |                 |                 |
+| Ethereum  | ✅                 | Metamask       | ✅                 | ✅              | ✅               |
+| Polygon   | ✅                 | Metamask       |                    |                |                 |
+| Solana    | ✅                 |                | ✅                  | ❌             | ❌               |
+| Tezos     | ✅                 |                |                    |                |                 |
+| Cosmos    | ✅                 |                |                    |                |                 |
+| Nuls1     | Python only        |                |                    |                 |                 |
+| Nuls2     | Python only        |                |                    |                 |                 |
+| Substrate | ✅                 |                |                    |                |                 |
+| Avalanche | TypeScript only    |                |                    |                 |                 |
