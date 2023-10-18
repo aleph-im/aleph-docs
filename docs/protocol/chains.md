@@ -18,7 +18,7 @@ functionalities are supported.
    Exchanging that token on a blockchain requires that token to be available on that chain first. 
 4. **Balance support** \
    The aleph.im network needs to be aware of user's tokens on each supported chain in order to allow
-   users to allocate resources on the network.
+   users to allocate resources on the network. Some services are not available without balance support.
 5. **Staking support**: \
    Users can help securing the aleph.im network by holding tokens and _staking_ them on 
    [Core Channel Nodes](../nodes/core/index.md) they consider trustworthy. The aleph.im network
