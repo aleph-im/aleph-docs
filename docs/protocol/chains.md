@@ -25,14 +25,14 @@ functionalities are supported.
    interacts with blockchains to achieve this mechanism.
 
 
-| Chain     | Symbol | Message signature | Wallet support | Token availability | Balance support | Staking support |
-|-----------|--------|-------------------|----------------|--------------------|-----------------|-----------------|
-| Ethereum  | ETH    | ✅                 | Metamask       | ✅                  | ✅               | ✅               |
-| Polygon   |        | ✅                 | Metamask       |                    |                 |                 |
-| Solana    | Sol    | ✅                 |                |                    | ❌               | ❌               |
-| Tezos     |        | ✅                 |                |                    |                 |                 |
-| Cosmos    |        | ✅                 |                |                    |                 |                 |
-| Nuls1     |        | Python only       |                |                    |                 |                 |
-| Nuls2     |        | Python only       |                |                    |                 |                 |
-| Substrate |        | ✅                 |                |                    |                 |                 |
-| Avalanche |        | TypeScript only   |                |                    |                 |                 |
+| Chain     | Message signature | Wallet support | Token availability | Balance support | Staking support |
+|-----------|-------------------|----------------|--------------------|-----------------|-----------------|
+| Ethereum  | ✅                 | Metamask       | ✅                  | ✅               | ✅               |
+| Polygon   | ✅                 | Metamask       |                    |                 |                 |
+| Solana    | ✅                 |                |                    | ❌               | ❌               |
+| Tezos     | ✅                 |                |                    |                 |                 |
+| Cosmos    | ✅                 |                |                    |                 |                 |
+| Nuls1     | Python only       |                |                    |                 |                 |
+| Nuls2     | Python only       |                |                    |                 |                 |
+| Substrate | ✅                 |                |                    |                 |                 |
+| Avalanche | TypeScript only   |                |                    |                 |                 |
