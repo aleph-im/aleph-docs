@@ -170,17 +170,12 @@ For Python programs, `ENTRYPOINT` can be the module path to an ASGI application.
 This command will upload our Python code and configure `main:app` as the ASGI application.
 
 ```shell
-aleph program ./my-program main:app
+aleph program upload ./my-program main:app
 ```
 
 Press Enter at the following prompt to use the default runtime:
 ```
 Ref of runtime ? [bd79839bf96e595a06da5ac0b6ba51dea6f7e2591bb913deccded04d831d29f4]
-```
-
-Press Enter again to skip adding extra volumes to your program:
-``` 
-Add volume ? [y/N]
 ```
 
 You should then get a response similar to the following: 
