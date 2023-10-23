@@ -41,3 +41,4 @@ extra_css:
   - stylesheets/aleph-branding.css
 
 repo_url: https://github.com/aleph-im/aleph-docs
+edit_uri: edit/main/docs/
