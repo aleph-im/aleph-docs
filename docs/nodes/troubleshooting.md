@@ -8,7 +8,7 @@ Setting up a [Core Channel Node](./core/index.md) or a [Compute Resource Node](.
 - Document each step taken for future reference or for support if needed.
 - If you are unable to resolve the issue, please reach out to the Aleph.im team on [Telegram](https://t.me/alephim) for support.
 
-### SQUASHFS Errors in Diagnostic VM
+### 1. SQUASHFS Errors in Diagnostic VM
 #### Issue Summary:
 Users may encounter SQUASHFS errors indicating a failure to decompress data, suggesting possible corruption of the runtime diagnostic VM.
 
@@ -39,9 +39,10 @@ The runtime of the new diagnostic VM appears to be improperly downloaded or corr
 
 5. By following these steps, the error should be resolved as the system acquires a fresh, uncorrupted version of the runtime. If the problem persists, further investigation into network stability or hardware integrity may be necessary.
 
-### Missing Diagnostic VM Data
+### 2. Missing Diagnostic VM Data
 #### Issue Summary:
 The `diagnostic_vm_latency` data is missing for your CRN, even though virtualization is reportedly operational.
+Users can check the raw network metrics data for their node on the [Message Explorer](https://explorer.aleph.im/messages?showAdvancedFilters=1&channels=aleph-scoring&type=POST&page=1).
 
 #### Symptoms:
 
@@ -73,7 +74,7 @@ The `diagnostic_vm_latency` data is missing for your CRN, even though virtualiza
       - "I tried to enable IPv6 forwarding on my server. This makes my machine unreachable over IPv6. Why is that?"
 
 
-### IPv6 Unreachable
+### 3. IPv6 Unreachable
 #### Issue Summary:
 When using IPv6 on a node, the network is unreachable.
 
