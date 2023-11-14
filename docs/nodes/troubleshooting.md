@@ -39,10 +39,11 @@ The runtime of the new diagnostic VM appears to be improperly downloaded or corr
 
 5. By following these steps, the error should be resolved as the system acquires a fresh, uncorrupted version of the runtime. If the problem persists, further investigation into network stability or hardware integrity may be necessary.
 
-### 2. Missing Diagnostic VM Data
+### 2. Missing Diagnostic VM Metrics
 #### Issue Summary:
-The `diagnostic_vm_latency` data is missing for your CRN, even though virtualization is reportedly operational.
+The `diagnostic_vm_latency` metrics data is missing for your CRN, even though virtualization is reportedly operational.
 Users can check the raw network metrics data for their node on the [Message Explorer](https://explorer.aleph.im/messages?showAdvancedFilters=1&channels=aleph-scoring&type=POST&page=1).
+For more info on the data found there, see [Metrics](./reliability/metrics.md).
 
 #### Symptoms:
 
