@@ -5,6 +5,7 @@ All the data that transits on the network is represented by aleph.im messages th
 all the possible operations on the network.
 
 With aleph.im messages, you can, for example:
+
 * store files
 * pin content on IPFS
 * create decentralized programs
