@@ -52,7 +52,7 @@ The runtime of the new diagnostic VM appears to be improperly downloaded or corr
    - Remove the file: `sudo rm -f $RUNTIME_HASH`.
 2. **Restart Supervisor**: After deleting the problematic file, restart the supervisor system. This should trigger the re-download of the runtime file.
    - Restart the supervisor: `sudo systemctl restart supervisor` (or the equivalent command for your system).
-3. **Re-download**: Upon restart, the system should attempt to re-download the runtime, replacing the corrupted file.
+3. **Re-download**: Upon restart, the system will automatically attempt to re-download the runtime, replacing the corrupted file.
    - If the problem persists, further investigation into network stability or hardware integrity may be necessary.
 
 ## 3) Missing Diagnostic VM Metrics
