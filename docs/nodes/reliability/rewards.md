@@ -14,7 +14,7 @@ The performance score of a CCN affects the rewards distributed to the operator a
 - The complete reward is distributed when the score is equal to or greater than 80%
 
 The second factor that affects the rewards of a CCN is its linking to
-[Compute Resource Nodes](../compute.md) (CRN).  A CCN can have up to 3 CRNs linked to it, and a the CCN
+[Compute Resource Nodes](../compute/index.md) (CRN).  A CCN can have up to 3 CRNs linked to it, and a the CCN
 will incur a penalty of 10% of the rewards for each spot unfilled or filled with a defaulting CRN (score of 0).
 
 The rewards distributed does not depend on the score of other nodes in the network. Less token from the pool
