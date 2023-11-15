@@ -1,19 +1,39 @@
 # Troubleshooting Guide
-Setting up a [Core Channel Node](./core/index.md) or a [Compute Resource Node](./compute.md) can be a daunting task. This page is here to help you troubleshoot the most common issues.
-
-## Core Resource Nodes
+Setting up a [Compute Resource Node](index.md) can be a daunting task. This page is here to help you troubleshoot the most common issues.
 
 - Ensure to backup configuration files before making changes.
 - Monitor the node after each troubleshooting step to check for resolution.
 - Document each step taken for future reference or for support if needed.
-- If you are unable to resolve the issue, please reach out to the Aleph.im team on [Telegram](https://t.me/alephim) for support.
+- If you are unable to resolve the issue, then please check out the latest issues on the [Discourse Forum](https://community.aleph.im/c/node-operators/7) for support.
 
-### 1. SQUASHFS Errors in Diagnostic VM
-#### Issue Summary:
+## 1) 404: Invalid message reference
+### Issue Summary
+After setting up a CRN, users may encounter a `404: Invalid message reference` error when attempting to connect to the node's diagnostic page.
+
+### Probable Cause
+
+- SSL configuration may be incomplete or incorrect, despite successful SSL activation.
+- The hostname might not be correctly configured in the aleph-vm settings.
+
+### Troubleshooting Steps
+1. **Recheck SSL Configuration:**
+   - Confirm that SSL certificates are correctly installed and configured.
+   - Review the SSL configuration in the web server (e.g., Caddy, Nginx) to ensure it's correctly pointing to the intended ports with the right certificate paths.
+2. **Configure Hostname Correctly:**
+   - Ensure the hostname is properly configured as per the [CRN installation guide](./installation/Debian-11.md#2-installation).
+   - Make sure the domain name in the supervisor.env file matches the domain used in your SSL configuration.
+3. **Restart Services:**
+   - After updating the hostname, restart the relevant services to apply the changes.
+   - This may include restarting the Docker container and the web server service.
+4. **Review Log Files:**
+   - If the problem still persists, check the log files of both the Docker container and the web server for any specific error messages related to SSL or hostname configurations.
+
+## 2) SQUASHFS Errors in Diagnostic VM
+### Issue Summary
 Users may encounter SQUASHFS errors indicating a failure to decompress data, suggesting possible corruption of the runtime diagnostic VM.
 
-#### Symptoms:
-Repeated SQUASHFS errors such as
+#### Symptoms
+Repeated SQUASHFS errors in the logs such as
 
 - `Failed to read block`
 - `Unable to read data cache entry`
@@ -21,37 +41,33 @@ Repeated SQUASHFS errors such as
 
 related to a specific block.
 
-#### Probable Cause:
+### Probable Cause
 The runtime of the new diagnostic VM appears to be improperly downloaded or corrupted.
 
-#### Recommended Solution:
+### Troubleshooting Steps
 
-1. **Clear Cache**: Remove the cache of the problematic file using the diagnostic VM hash. This can be done by deleting the file located at /var/cache/aleph/runtime/RUNTIME_HASH.
+1. **Clear Cache**: Remove the cache of the problematic file using the diagnostic VM hash. This can be done by deleting the file located at `/var/cache/aleph/runtime/$RUNTIME_HASH`.
+   - Navigate to the cache directory: `cd /var/cache/aleph/runtime/`.
+   - Locate the file with the corresponding `$RUNTIME_HASH`.
+   - Remove the file: `sudo rm -f $RUNTIME_HASH`.
 2. **Restart Supervisor**: After deleting the problematic file, restart the supervisor system. This should trigger the re-download of the runtime file.
+   - Restart the supervisor: `sudo systemctl restart supervisor` (or the equivalent command for your system).
 3. **Re-download**: Upon restart, the system should attempt to re-download the runtime, replacing the corrupted file.
+   - If the problem persists, further investigation into network stability or hardware integrity may be necessary.
 
-#### Steps to Perform:
-
-1. Navigate to the cache directory: cd /var/cache/aleph/runtime/.
-2. Locate the file with the corresponding RUNTIME_HASH.
-3. Remove the file: sudo rm -f <RUNTIME_HASH>.
-4. Restart the supervisor: sudo systemctl restart supervisor (or the equivalent command for your system).
-
-5. By following these steps, the error should be resolved as the system acquires a fresh, uncorrupted version of the runtime. If the problem persists, further investigation into network stability or hardware integrity may be necessary.
-
-### 2. Missing Diagnostic VM Metrics
-#### Issue Summary:
+## 3) Missing Diagnostic VM Metrics
+### Issue Summary
 The `diagnostic_vm_latency` metrics data is missing for your CRN, even though virtualization is reportedly operational.
 Users can check the raw network metrics data for their node on the [Message Explorer](https://explorer.aleph.im/messages?showAdvancedFilters=1&channels=aleph-scoring&type=POST&page=1).
-For more info on the data found there, see [Metrics](./reliability/metrics.md).
+For more info on the data found there, see [Metrics](../reliability/metrics.md).
 
-#### Symptoms:
+#### Symptoms
 
 - No `diagnostic_vm_latency` entry in the node's diagnostic data.
 - Node appears functional, and virtualization is reportedly operational.
 - Previous cache clearing solution was ineffective.
 
-#### Troubleshooting Steps:
+### Troubleshooting Steps
 
 1. **Upgrade Node Software:**
     - Ensure the node is running the latest CRN version.
@@ -75,22 +91,22 @@ For more info on the data found there, see [Metrics](./reliability/metrics.md).
       - "I tried to enable IPv6 forwarding on my server. This makes my machine unreachable over IPv6. Why is that?"
 
 
-### 3. IPv6 Unreachable
-#### Issue Summary:
+## 4) IPv6 Unreachable
+### Issue Summary
 When using IPv6 on a node, the network is unreachable.
 
-#### Symptoms:
+#### Symptoms
 
 - `ping6` command fails to connect to an IPv6 address.
 - The system returns the error "Network is unreachable."
 
-#### Common Causes:
+### Common Causes
 
 - Incorrect IPv6 configuration.
 - Network interface not configured for IPv6.
 - IPv6 connectivity issues with the network.
 
-#### Troubleshooting Steps:
+### Troubleshooting Steps
 1. **Check IPv6 Configuration:**
     - Ensure that IPv6 is enabled on the network interface.
     - Verify that the IPv6 address is correctly assigned to the interface.

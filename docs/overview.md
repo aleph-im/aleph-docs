@@ -7,7 +7,7 @@ Aleph.im also includes bridges to many major blockchain networks, such as Ethere
 
 ### The Aleph.im project has the following components:
 
-* The Aleph peer-to-peer network, comprised of [Compute Resource Nodes or CRNs](./nodes/compute.md) and [Core Channel Nodes, or CCNs](./nodes/core/index.md)
+* The Aleph peer-to-peer network, comprised of [Compute Resource Nodes or CRNs](nodes/compute/index.md) and [Core Channel Nodes, or CCNs](./nodes/core/index.md)
 * [Python](./libraries/python.md) and [Typescript](./libraries/typescript.md) SDKs to integrate Aleph.im's decentralized compute and storage solutions into your project
 * A [Python CLI tool](https://aleph-client.readthedocs.io/en/latest/) to interact with the Aleph.im network directly from a terminal
 * A [web GUI dashboard](https://console.aleph.im/)
@@ -20,7 +20,7 @@ Aleph.im also includes bridges to many major blockchain networks, such as Ethere
 The Aleph.im network is composed of 2 sets of nodes:
 
 * [CCNs](./nodes/core/index.md), the backbone of the P2P network. They serve as an entry point into the network through an API (similar to a blockchain node's RPC).
-* [CRNs](./nodes/compute.md), responsible for the actual compute and storage available on Aleph.im. CRNs must be tied manually to a single CCN, and each CCN is incentivized to tie up to 3 CRNs.
+* [CRNs](nodes/compute/index.md), responsible for the actual compute and storage available on Aleph.im. CRNs must be tied manually to a single CCN, and each CCN is incentivized to tie up to 3 CRNs.
 
 ### Messages
 In Aleph.im terminology, a "message" is similar to a "transaction" for a blockchain: it is a set of data sent by an end user, propagated through the entire peer-to-peer network.
