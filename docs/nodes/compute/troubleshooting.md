@@ -61,6 +61,15 @@ The `diagnostic_vm_latency` metrics data is missing for your CRN, even though vi
 Users can check the raw network metrics data for their node on the [Message Explorer](https://explorer.aleph.im/messages?showAdvancedFilters=1&channels=aleph-scoring&type=POST&page=1).
 For more info on the data found there, see [Metrics](../reliability/metrics.md).
 
+Two urls are used to check this marker:
+
+- `/vm/67705389842a0a1b95eaa408b009741027964edc805997475e95c505d642edd8` (legacy runtime)
+- `/vm/3fc0aa9569da840c43e7bd2033c3c580abb46b007527d6d20f2d4e98e867f7af` (current runtime)
+
+Check that both work on your node, on an URL similar to
+
+`https://my-compute-node.example/vm/3fc0aa9569da840c43e7bd2033c3c580abb46b007527d6d20f2d4e98e867f7af`
+
 #### Symptoms
 
 - No `diagnostic_vm_latency` entry in the node's diagnostic data.
