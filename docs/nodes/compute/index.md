@@ -1,6 +1,4 @@
-# Compute Resource Nodes
-
-## Introduction
+# Introduction
 
 Aleph.im compute resource nodes are decentralized computing infrastructure components that form a vital part of the
 aleph.im network. These nodes work collectively to provide distributed and secure computing power, storage, and other
@@ -34,7 +32,7 @@ resource nodes
 ## Requirements
 
 ### 1. Installation
-Follow the [installation guide](https://github.com/aleph-im/aleph-vm/#1-install-aleph-vm-from-packages) to install the server.
+Follow the [installation guide](./installation/Debian-11.md) to install the server.
 
 ### 2. Registration
 Follow the [registration](https://medium.com/aleph-im/step-by-step-on-how-to-create-and-register-your-compute-resource-node-e5308130fbf7) guide first.
