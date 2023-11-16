@@ -65,7 +65,7 @@ The runtime of the new diagnostic VM appears to be improperly downloaded or corr
 
 2. **Restart Supervisor**: After deleting the problematic file, restart the supervisor system. This should trigger the re-download of the runtime file.
 
-    - Restart the supervisor: `sudo systemctl restart aleph-vm-supervisor.service` (or the equivalent command for your system).
+    - Restart the supervisor: `sudo systemctl restart supervisor` (or `aleph-vm-supervisor.service` when installing from source).
 
 3. **Re-download**: Upon restart, the system will automatically attempt to re-download the runtime, replacing the corrupted file.
 
