@@ -1,4 +1,4 @@
-# Debian 12 Bookworm
+# Debian 11 Bullseye
 
 ## 0. Introduction
 
@@ -6,7 +6,7 @@ For production using official Debian packages.
 
 ## 1. Requirements
 
-- A [supported Linux server](../src/aleph/vm/orchestrator/README.md#1-supported-platforms)
+- A [supported Linux server](https://github.com/aleph-im/aleph-vm/tree/main/src/aleph/vm/orchestrator#1-supported-platforms)
 - A public domain name from a registrar and top level domain you trust. 
 
 In order to run an official Aleph.im Compute Resource Node (CRN), you will also need the following resources:
@@ -26,7 +26,7 @@ You will need a public domain name with access to add TXT and wildcard records.
 
 Run the following commands as `root`:
 
-First install the [VM-Connector](../vm_connector/README.md) using Docker:
+First install the [VM-Connector](https://github.com/aleph-im/aleph-vm/tree/main/vm_connector) using Docker:
 ```shell
 apt update
 apt upgrade
@@ -34,11 +34,11 @@ apt install -y docker.io apparmor-profiles
 docker run -d -p 127.0.0.1:4021:4021/tcp --restart=always --name vm-connector alephim/vm-connector:alpha
 ```
 
-Then install the [VM-Supervisor](../src/aleph/vm/orchestrator/README.md) using the official Debian package.
+Then install the [VM-Supervisor](https://github.com/aleph-im/aleph-vm/tree/main/src/aleph/vm/orchestrator) using the official Debian package.
 The procedure is similar for updates.
 ```shell
-wget -P /opt https://github.com/aleph-im/aleph-vm/releases/download/0.3.0/aleph-vm.debian-12.deb
-apt install /opt/aleph-vm.debian-12.deb
+wget -P /opt https://github.com/aleph-im/aleph-vm/releases/download/0.3.0/aleph-vm.debian-11.deb
+apt install /opt/aleph-vm.debian-11.deb
 ```
 
 Reboot if required (new kernel, ...).
@@ -56,19 +56,18 @@ ALEPH_VM_DOMAIN_NAME=vm.example.org
 
 #### Network configuration
 
-The network configuration is detected automatically.
-
-The default network interface is detected automatically from the IP routes. 
-You can configure the default interface manually instead by adding:
+On some systems, the default network interface is not `eth0` and you will want to configure the default interface
+by adding:
 ```
 ALEPH_VM_NETWORK_INTERFACE=enp0s1
 ```
 (don't forget to replace `enp0s1` with the name of your default network interface).
 
-You can configure the DNS resolver manually by using one of the following options:
+Debian 11 by default uses `/etc/resolv.conf` for DNS resolution. The VM Supervisor uses this by default.
+If your system uses [systemd-resolved](https://manpages.debian.org/bullseye/systemd/systemd-resolved.8.en.html)
+instead, uncomment and add the following setting:
 ```
-ALEPH_VM_DNS_RESOLUTION=resolvectl
-ALEPH_VM_DNS_RESOLUTION=resolv.conf
+#ALEPH_VM_DNS_RESOLUTION=resolvctl
 ```
 
 > 💡 You can instead specify the DNS resolvers used by the VMs using `ALEPH_VM_DNS_NAMESERVERS=["1.2.3.4", "5.6.7.8"]`.
@@ -100,7 +99,7 @@ HTTPS/TLS certificates on time.
 
 First, create a domain name that points to the server on IPv4 (A) and IPv6 (AAAA).
 
-This is a simple configuration. For more options, check [CONFIGURE_CADDY.md](CONFIGURE_CADDY.md).
+This is a simple configuration. For more options, check [CONFIGURE_CADDY.md](configure_caddy.md).
 
 Again, run these commands as `root`:
 ```shell

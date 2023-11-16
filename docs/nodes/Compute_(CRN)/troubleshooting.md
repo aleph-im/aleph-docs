@@ -16,17 +16,25 @@ After setting up a CRN, users may encounter a `404: Invalid message reference` e
 - The hostname might not be correctly configured in the aleph-vm settings.
 
 ### Troubleshooting Steps
+
 1. **Recheck SSL Configuration:**
-   - Confirm that SSL certificates are correctly installed and configured.
-   - Review the SSL configuration in the web server (e.g., Caddy, Nginx) to ensure it's correctly pointing to the intended ports with the right certificate paths.
+    - Confirm that SSL certificates are correctly installed and configured.
+    - Review the SSL configuration in the web server (e.g., Caddy, Nginx) to ensure it's correctly pointing to the intended ports with the right certificate paths.
+
 2. **Configure Hostname Correctly:**
-   - Ensure the hostname is properly configured as per the [CRN installation guide](./installation/Debian-11.md#2-installation).
-   - Make sure the domain name in the supervisor.env file matches the domain used in your SSL configuration.
+
+    - Ensure the hostname is properly configured as per the [CRN installation guide](./installation/Debian-11.md#2-installation).
+    - Make sure the domain name in the supervisor.env file matches the domain used in your SSL configuration.
+
 3. **Restart Services:**
-   - After updating the hostname, restart the relevant services to apply the changes.
-   - This may include restarting the Docker container and the web server service.
+
+    - After updating the hostname, restart the relevant services to apply the changes.
+    - This may include restarting the Docker container and the web server service.
+
 4. **Review Log Files:**
-   - If the problem still persists, check the log files of both the Docker container and the web server for any specific error messages related to SSL or hostname configurations.
+
+    - If the problem still persists, check the log files of both the Docker container and the web server for any specific error messages related to SSL or hostname configurations.
+
 
 ## 2) SQUASHFS Errors in Diagnostic VM
 ### Issue Summary
@@ -47,13 +55,22 @@ The runtime of the new diagnostic VM appears to be improperly downloaded or corr
 ### Troubleshooting Steps
 
 1. **Clear Cache**: Remove the cache of the problematic file using the diagnostic VM hash. This can be done by deleting the file located at `/var/cache/aleph/runtime/$RUNTIME_HASH`.
-   - Navigate to the cache directory: `cd /var/cache/aleph/runtime/`.
-   - Locate the file with the corresponding `$RUNTIME_HASH`.
-   - Remove the file: `sudo rm -f $RUNTIME_HASH`.
+
+    - Navigate to the cache directory: `cd /var/cache/aleph/vm/runtime/`.
+    - Locate the file with the corresponding `$RUNTIME_HASH`.
+    - Remove the file:
+   ```shell
+   sudo rm -f $RUNTIME_HASH
+   ```
+
 2. **Restart Supervisor**: After deleting the problematic file, restart the supervisor system. This should trigger the re-download of the runtime file.
-   - Restart the supervisor: `sudo systemctl restart supervisor` (or the equivalent command for your system).
+
+    - Restart the supervisor: `sudo systemctl restart supervisor` (or `aleph-vm-supervisor.service` when installing from source).
+
 3. **Re-download**: Upon restart, the system will automatically attempt to re-download the runtime, replacing the corrupted file.
-   - If the problem persists, further investigation into network stability or hardware integrity may be necessary.
+
+    - If the problem persists, further investigation into network stability or hardware integrity may be necessary.
+
 
 ## 3) Missing Diagnostic VM Metrics
 ### Issue Summary
@@ -79,25 +96,30 @@ Check that both work on your node, on an URL similar to
 ### Troubleshooting Steps
 
 1. **Upgrade Node Software:**
+
     - Ensure the node is running the latest CRN version.
 
 2. **Disable IPv6 Forwarding:**
+
     - If upgrading does not resolve the issue, try disabling IPv6 forwarding:
         - Set `ALEPH_VM_IPV6_FORWARDING_ENABLED=False` in `/etc/aleph-vm/supervisor.env`.
         - Manually check if IPv6 forwarding is still active:
             ```shell
             cat /proc/sys/net/ipv6/conf/all/forwarding
             ```
-            If the output is 1, disable it with:
+          If the output is 1, disable it with:
             ```shell
             echo 0 > /proc/sys/net/ipv6/conf/all/forwarding
             ```
 
 3. **Clear Cache:**
-    See [SQUASHFS Errors in running diagnostic VM](#squashfs-errors-in-running-diagnostic-vm). 
+
+    - See [SQUASHFS Errors in running diagnostic VM](#squashfs-errors-in-running-diagnostic-vm).
+
 4. **Contact Cloud Provider:**
+
     - If the issue persists, ask your Cloud Provider:
-      - "I tried to enable IPv6 forwarding on my server. This makes my machine unreachable over IPv6. Why is that?"
+      "I tried to enable IPv6 forwarding on my server. This makes my machine unreachable over IPv6. Why is that?"
 
 
 ## 4) IPv6 Unreachable
@@ -117,9 +139,11 @@ When using IPv6 on a node, the network is unreachable.
 
 ### Troubleshooting Steps
 1. **Check IPv6 Configuration:**
+
     - Ensure that IPv6 is enabled on the network interface.
     - Verify that the IPv6 address is correctly assigned to the interface.
     - Confirm that the gateway for IPv6 is set up correctly.
+
 2. **Review Netplan Configuration (for Ubuntu systems):**
 
     - Open the Netplan configuration file located typically at /etc/netplan/*.yaml.
@@ -138,9 +162,13 @@ When using IPv6 on a node, the network is unreachable.
           nameservers:
             addresses: ["2001:4860:4860::8888", "2001:4860:4860::8844"]
     ```
-    After making changes, apply them with `sudo netplan apply`.
-3. **Check Network Interface:** 
+   After making changes, apply them with `sudo netplan apply`.
+
+3. **Check Network Interface:**
+
     - Use `ip -6 addr show` to check if the IPv6 address is assigned to the network interface.
     - Use `ip -6 route show` to verify the default route for IPv6.
+
 4. **Test Network Connectivity:**
+
     - Use `ping6` to ping the local IPv6 gateway or known IPv6 addresses like Google's DNS `2001:4860:4860::8888` to test connectivity.

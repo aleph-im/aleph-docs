@@ -7,8 +7,8 @@ and resistance to censorship, aiming to improve data storage and sharing.
 ### How To Use
 Aleph.im's decentralized IPFS pinning is available to all users, using Aleph.im's:
 
-- [Python SDK](./libraries/python.md)
-- [Typescript SDK](./libraries/typescript.md)
+- [Python SDK](../libraries/python.md)
+- [Typescript SDK](../libraries/typescript.md)
 
 ## IPFS Pinning Explained
 IPFS pinning is a process in the distributed file system, IPFS, which links computing devices with a unified file system.
@@ -20,7 +20,7 @@ Traditional IPFS pinning often uses a centralized model, relying on a single nod
 This approach can pose risks to data availability and integrity in case of node failures or service disruptions.
 
 ### Aleph.im's Decentralized Approach
-Aleph.im adopts a decentralized pinning method, spreading data across multiple [Core Channel Nodes](../nodes/core.md) in its network.
+Aleph.im adopts a decentralized pinning method, spreading data across multiple [Core Channel Nodes](../nodes/Core_(CCN)/index.md) in its network.
 This strategy enhances data redundancy and resilience, mitigating risks associated with single-node failures.
 
 This approach to decentralized pinning is part of Aleph.im's commitment to full decentralization.
