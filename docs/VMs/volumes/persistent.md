@@ -1,7 +1,7 @@
 ## Persistent Volumes
 
 Persistent volumes are logical block disks that are attached to virtual machines running programs
-in [on-demand](../on_demand.md) or [persistent](../persistent.md) execution modes. They are typically used to store
+in [on-demand](../index.md#on-demand-execution) or [persistent](../index.md#persistent-execution) execution modes. They are typically used to store
 mutable data such as databases and persist data. Currently, persistent volumes are only stored on
 the [Compute Resource Node](../../nodes/Compute_(CRN)/index.md) (CRN) that is executing the program. Automatic backups and restoration
 in case of failure of the CRN is a feature that is planned to be added in the future, and is currently left to the user.

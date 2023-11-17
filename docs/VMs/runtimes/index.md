@@ -14,7 +14,7 @@ custom runtimes, and use any available runtime on the network for your program.
 
 ## Init process
 
-[On-demand Execution](../on_demand.md) relies on a custom [Linux init](https://en.wikipedia.org/wiki/Init) process,
+[On-demand Execution](../index.md#on-demand-execution) relies on a custom [Linux init](https://en.wikipedia.org/wiki/Init) process,
 optimized to launch the right endpoint in response to events such as HTTP requests. This custom init consists in two
 simple programs, 
 [init0.sh](https://raw.githubusercontent.com/aleph-im/aleph-vm/main/runtimes/aleph-alpine-3.13-python/init0.sh) 
@@ -23,6 +23,6 @@ and [init1.py](https://raw.githubusercontent.com/aleph-im/aleph-vm/main/runtimes
 Use these in your custom runtime by copying them to `/rootfs/sbin/init` and 
 `/mnt/rootfs/root/init1.py` respectively.
 
-[Persistent Execution](../persistent.md) may use the same init process, but this is not required. If you do not make use
+[Persistent Execution](../index.md#persistent-execution) may use the same init process, but this is not required. If you do not make use
 of the capabilities provided by the aleph.im ecosystem, using the default of your distribution 
 (ex: [systemd](https://systemd.io/), [OpenRC](https://github.com/OpenRC/openrc), ...) should work as well.
