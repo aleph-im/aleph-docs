@@ -47,14 +47,14 @@ body {
 
 /* Navigation menu styles */
 .md-sidebar--primary, .md-nav--primary {
-    padding-top: 10px;
+    padding-top: 24px;
     background-color: var(--color-background);
     font-size: large;
     color: var(--color-text);
 }
 
 .md-sidebar--secondary, .md-nav--secondary {
-    padding-top: 10px;
+    padding-top: 24px;
     background-color: var(--color-background);
 }
 
