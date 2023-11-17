@@ -1,0 +1,96 @@
+/* Base styles */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #333333;
+    background-color: #f7f7f7;
+    line-height: 1.6;
+}
+
+/* Header styles */
+.header, .md-header {
+    background-color: #ffffff;
+    color: #333333;
+    border-bottom: 1px solid #eaecef;
+}
+
+/* Navigation menu styles */
+.md-sidebar--primary, .md-nav--primary {
+    background-color: #f7f7f7;
+    color: #333333;
+    border-right: 1px solid #eaecef;
+}
+
+.md-nav__title {
+    color: #333333;
+    background-color: #029AFF;
+}
+
+.md-nav__source {
+    color: #333333;
+    background-color: #ffffff;
+}
+
+.md-nav__link {
+    color: #333333; /* Default state */
+    text-decoration: none;
+}
+
+.md-nav__link--active {
+    /* force this color when active */
+    color: #029AFF !important;
+    font-weight: bold;
+}
+
+/* Hide the title in the page navigation */
+.md-content .md-nav__title {
+    display: none;
+}
+
+label.md-nav__title {
+    display: none;
+}
+
+/* Main content area styles */
+.md-content {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Code block styles */
+.md-code, pre code {
+    background-color: #f7f7f7;
+    border: 1px solid #eaecef;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #333333;
+}
+
+/* Link styling */
+a:not(.md-nav__link) {
+    color: #029AFF; /* Non-nav links */
+}
+
+/* Button styling */
+.md-button, button {
+    background-color: #f7f7f7; /* Light background for buttons */
+    color: #333333;
+    border: 1px solid #eaecef; /* Add border to match the style */
+    padding: 6px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-transform: uppercase; /* Optional: if you want button text to be uppercase */
+}
+
+.md-button:hover, button:hover {
+    background-color: #eaecef; /* Slightly darker on hover */
+}
+
+/* Footer styles */
+.footer, .md-footer {
+    background-color: #ffffff;
+    color: #333333;
+    border-top: 1px solid #eaecef;
+}
