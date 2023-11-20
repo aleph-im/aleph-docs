@@ -22,7 +22,6 @@ theme:
     - navigation.tracking
     - navigation.sections
     - navigation.path
-    - navigation.tabs
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
