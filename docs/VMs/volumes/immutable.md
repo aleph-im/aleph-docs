@@ -2,7 +2,7 @@
 
 An immutable volume is a file containing
 a [Squashfs filesystem](https://www.kernel.org/doc/html/latest/filesystems/squashfs.html) that can be mounted read-only
-inside the virtual machine running programs in [on-demand](../on_demand.md) or [persistent](../persistent.md) execution
+inside the virtual machine running programs in [on-demand](../index.md#on-demand-execution) or [persistent](../index.md#persistent-execution) execution
 modes. This type of volume is typically used to provide additional libraries or data to the program.
 
 Immutable volumes have the following properties:

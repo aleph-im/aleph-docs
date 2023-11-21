@@ -1,6 +1,7 @@
 site_name: Aleph.im Documentation
 theme:
   name: material
+  logo: assets/images/square-logo-color.png
   palette:
 
     # Palette toggle for light mode
@@ -38,7 +39,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
-  - stylesheets/aleph-branding.css
+  - assets/stylesheets/aleph-branding.css
 
 repo_url: https://github.com/aleph-im/aleph-docs
 edit_uri: edit/main/docs/

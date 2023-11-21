@@ -1,13 +1,37 @@
-# Persistent Execution
+# Computing on Aleph.im
 
-## Introduction
+Aleph.im offers a decentralized computing framework that allows users to run
+programs on the network. This is done by creating a virtual machine (VM) that
+executes the program.
 
-The aleph.im network can run programs in two different manners:
+## Overview of VMs
 
-* [on-demand execution](on_demand.md) runs programs only when needed, saving on resources. This is great to run programs
-  that are responding to user requests or API calls and can shutdown after processing the event.
-* __persistent execution__ runs programs continuously.  These are always running and great to run programs that cannot
-  afford to stop or need to handle incoming connections such as polling data from a websocket or AMQP API.
+There are several types of VMs available on the network:
+
+- [On-demand VM](#on-demand-execution)
+- [Persistent VM](#persistent-execution)
+- [Instance VM](#instance-vms)
+
+An [On-demand VM](#on-demand-execution) is created on a [Compute Resource Node](../nodes/Compute_(CRN)/index.md)
+(CRN) and is destroyed once the program has finished executing. This is great
+for programs that are responding to user requests or API calls (using ASGI) and can shutdown
+after processing the event. They are also cheaper to run as they only require
+one tenth of the $ALEPH tokens to hold, compared to a [Persistent VM](#persistent-execution).
+
+A [Persistent VM](#persistent-execution) can be used to run programs that cannot afford to stop or need
+to handle incoming connections such as polling data from a websocket or AMQP API.
+
+Instances are similar to Persistent VMs, but are specifically designed to run with
+a SSH key supplied by the user. This allows the user to connect to the VM and
+interact with it directly. They do not rely on code execution, but rather on
+the user's ability to connect to the VM and run commands on it.
+They cost as much as Persistent VMs.
+
+## On-demand Execution
+
+On how to deploy a simple Python microVM, see our [Python microVM guide](../guides/python/getting_started.md)
+
+## Persistent Execution
 
 When a program is created with persistent execution enabled, the aleph.im scheduler will find a Compute Resource Node
 (CRN) with enough resources to run the program and schedule the program to start on that node.
@@ -17,7 +41,7 @@ CRN would the current one go offline.
 
 > ⚠️ Automatic data migration across hosts in case such events happen is not available yet.
 
-## Message Specification
+### Message Specification
 
 The execution model of a program is defined in the field `message.content.on` of messages of type `PROGRAM` and is 
 non exclusive. The same program can therefore be available as both persistent instance and on demand at the same time.
@@ -39,7 +63,7 @@ message = {
 }
 ```
 
-## Prerequisites
+### Prerequisites
 
 Before you begin this tutorial, ensure that you have the following:
 
@@ -73,7 +97,7 @@ cd ./src/
 uvicorn main:app --reload
 ```
 
-## Step 2: Run a program in a persistent manner
+### Step 2: Run a program in a persistent manner
 
 To run the program in a persistent manner on the aleph.im network, use: 
 
@@ -87,10 +111,10 @@ You can stop the execution of the program using:
 aleph unpersist $MESSAGE_ID
 ```
 
-## Find your program
+### Find your program
 
 TODO: Locate the CRN where your program is running.
 
-## Conclusion
+## Instance VMs
 
-In this tutorial, you learned how to create and deploy persistent Virtual Machines on the aleph.im network. You should now have a better understanding of how to use aleph.im for distributed computing.
+TODO: Document Instance VMs

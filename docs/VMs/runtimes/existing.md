@@ -9,7 +9,7 @@ This runtime is built with software available in the distribution, including Pyt
 
 To optimize performance, this runtime uses a custom [Linux init](https://en.wikipedia.org/wiki/Init) process. This
 process is specially designed to quickly launch the right endpoint in response to events such as HTTP requests. This is
-especially useful when using [on-demand execution](../on_demand.md).
+especially useful when using [on-demand execution](../index.md#on-demand-execution).
 
 [//]: # (Not available yet)
 
