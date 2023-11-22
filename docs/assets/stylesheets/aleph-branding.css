@@ -1,0 +1,129 @@
+[data-md-color-scheme="default"] {
+    --md-primary-fg-color: #029AFF; /* Primary color */
+    --color-text: #333333; /* Text color for light mode */
+    --color-background: #f7f7f7; /* Background color for light mode */
+    --color-border: #eaecef; /* Border color for light mode */
+    --color-button-background: #f7f7f7; /* Button background for light mode */
+    --md-default-bg-color: #ffffff; /* Footer background for light mode */
+}
+
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color: #029AFF; /* Primary color */
+    --color-text: #dddddd; /* Text color for dark mode */
+    --color-background: #424242; /* Background color for dark mode */
+    --color-border: #616161; /* Border color for dark mode */
+    --color-button-background: #5a5a5a; /* Button background for dark mode */
+    --md-default-bg-color: #333333; /* Footer background for dark mode */
+}
+
+/* Base styles */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    line-height: 1.6;
+}
+
+/* Header styles */
+.header, .md-header {
+    background-color: var(--md-default-bg-color);
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.md-tabs {
+    background-color: var(--md-default-bg-color);
+    color: var(--color-text);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.md-tabs__link {
+    font-weight: bold;
+}
+
+.md-tabs__link--active {
+    font-weight: bolder;
+}
+
+/* Navigation menu styles */
+.md-sidebar--primary, .md-nav--primary {
+    padding-top: 24px;
+    background-color: var(--color-background);
+    font-size: large;
+    color: var(--color-text);
+}
+
+.md-sidebar--secondary, .md-nav--secondary {
+    padding-top: 24px;
+    background-color: var(--color-background);
+}
+
+.md-sidebar--secondary, .md-nav--secondary label {
+    font-size: large;
+}
+
+.md-nav__source {
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+.md-nav__link {
+    color: var(--color-text); /* Default state */
+    text-decoration: none;
+}
+
+.md-nav__link:hover {
+    color: var(--md-primary-fg-color) !important;
+}
+
+.md-nav__link--active {
+    color: var(--md-primary-fg-color) !important;
+    font-weight: bold;
+}
+
+.md-nav a {
+    margin: 10px;
+}
+
+/* Main content area styles */
+.md-content {
+    background-color: var(--md-default-bg-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 10px var(--color-background);
+}
+
+/* Code block styles */
+.md-code, pre code {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text);
+}
+
+/* Link styling */
+a:not(.md-nav__link) {
+    color: var(--md-primary-fg-color);
+}
+
+/* Button styling */
+.md-button, button {
+    background-color: var(--color-background); /* Light background for buttons */
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+}
+
+.md-button:hover, button:hover {
+    background-color: var(--color-background);
+}
+
+/* Footer styles */
+.footer, .md-footer {
+    background-color: var(--md-default-bg-color);
+    color: var(--color-text);
+    border-top: 1px solid var(--color-border);
+}
