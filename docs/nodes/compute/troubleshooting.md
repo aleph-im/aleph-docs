@@ -23,7 +23,7 @@ After setting up a CRN, users may encounter a `404: Invalid message reference` e
 
 2. **Configure Hostname Correctly:**
 
-    - Ensure the hostname is properly configured as per the [CRN installation guide](./installation/Debian-11.md#2-installation).
+    - Ensure the hostname is properly configured as per the [CRN installation guide](./installation/debian-11.md#2-installation).
     - Make sure the domain name in the supervisor.env file matches the domain used in your SSL configuration.
 
 3. **Restart Services:**

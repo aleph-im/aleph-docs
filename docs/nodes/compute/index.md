@@ -32,7 +32,7 @@ resource nodes
 ## Requirements
 
 ### 1. Installation
-Follow the [installation guide](./installation/Debian-11.md) to install the server.
+Follow the [installation guide](./installation/debian-11.md) to install the server.
 
 ### 2. Registration
 Follow the [registration](https://medium.com/aleph-im/step-by-step-on-how-to-create-and-register-your-compute-resource-node-e5308130fbf7) guide first.
