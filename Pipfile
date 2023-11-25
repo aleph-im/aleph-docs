@@ -1,7 +1,8 @@
 [packages]
-mkdocs-material = "~=8.5.11"
-aioipfs = "~=0.6.2"
+mkdocs-material = "==8.5.11"
+aioipfs = "==0.6.2"
+async-timeout = "==4.0.3"
 
 [dev-packages]
-mypy = "*"
-black = "*"
+mypy = "==1.7.1"
+black = "==23.11.0"

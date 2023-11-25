@@ -21,7 +21,7 @@ functionalities are supported.
    users to allocate resources on the network. Some services are not available without balance support.
 5. **Staking support**:
    Users can help securing the aleph.im network by holding tokens and _staking_ them on 
-   [Core Channel Nodes](../nodes/Core_(CCN)/index.md) they consider trustworthy. The aleph.im network
+   [Core Channel Nodes](../nodes/core/index.md) they consider trustworthy. The aleph.im network
    interacts with blockchains to achieve this mechanism.
 
 

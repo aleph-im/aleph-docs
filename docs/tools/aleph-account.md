@@ -7,8 +7,8 @@ on [https://account.aleph.im/](https://account.aleph.im/).
 Access information about the nodes that make the network, and their performance.
 
 Connect your wallet using Metamask or Wallet Connect in order to stake or
-manage [Core Channel Nodes](../nodes/Core_(CCN)/index.md) and
-[Compute Resource Nodes](../nodes/Compute_(CRN)/index.md) that you operate.
+manage [Core Channel Nodes](../nodes/core/index.md) and
+[Compute Resource Nodes](../nodes/compute/index.md) that you operate.
 
 The account page also provides you with tools to [store files on IPFS](https://account.aleph.im/#/ipfs),
 access you [decentralized NFT storage](https://account.aleph.im/#/nfts)

@@ -12,7 +12,7 @@ There are several types of VMs available on the network:
 - [Persistent VM](#persistent-execution)
 - [Instance VM](#instance-vms)
 
-An [On-demand VM](#on-demand-execution) is created on a [Compute Resource Node](../nodes/Compute_(CRN)/index.md)
+An [On-demand VM](#on-demand-execution) is created on a [Compute Resource Node](../nodes/compute/index.md)
 (CRN) and is destroyed once the program has finished executing. This is great
 for programs that are responding to user requests or API calls (using ASGI) and can shutdown
 after processing the event. They are also cheaper to run as they only require

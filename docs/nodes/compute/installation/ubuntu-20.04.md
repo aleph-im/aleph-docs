@@ -6,5 +6,5 @@ the NFTables firewall introduced in version
 
 We recommend upgrading to the newest Ubuntu LTS version 
 and then use the 
-[following instructions on Ubuntu 22.04](./Ubuntu-22.04.md)
+[following instructions on Ubuntu 22.04](./ubuntu-22.04.md)
 ).
