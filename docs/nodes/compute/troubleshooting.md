@@ -54,7 +54,9 @@ The runtime of the new diagnostic VM appears to be improperly downloaded or corr
 
 ### Troubleshooting Steps
 
-1. **Clear Cache**: Remove the cache of the problematic file using the diagnostic VM hash. This can be done by deleting the file located at `/var/cache/aleph/runtime/$RUNTIME_HASH`.
+1. **Stop the Supervisor**: It is important to stop the VMs first when doing the operations below.
+
+2. **Clear Cache**: Remove the cache of the problematic file using the diagnostic VM hash. This can be done by deleting the file located at `/var/cache/aleph/runtime/$RUNTIME_HASH`.
 
     - Navigate to the cache directory: `cd /var/cache/aleph/vm/runtime/`.
     - Locate the file with the corresponding `$RUNTIME_HASH`.
@@ -63,11 +65,11 @@ The runtime of the new diagnostic VM appears to be improperly downloaded or corr
    sudo rm -f $RUNTIME_HASH
    ```
 
-2. **Restart Supervisor**: After deleting the problematic file, restart the supervisor system. This should trigger the re-download of the runtime file.
+3. **Restart Supervisor**: After deleting the problematic file, restart the supervisor system. This should trigger the re-download of the runtime file.
 
     - Restart the supervisor: `sudo systemctl restart supervisor` (or `aleph-vm-supervisor.service` when installing from source).
 
-3. **Re-download**: Upon restart, the system will automatically attempt to re-download the runtime, replacing the corrupted file.
+4. **Re-download**: Upon restart, the system will automatically attempt to re-download the runtime, replacing the corrupted file.
 
     - If the problem persists, further investigation into network stability or hardware integrity may be necessary.
 
