@@ -27,7 +27,7 @@ mksquashfs ./custom-data data.squashfs
 ### 2. Publish the file on aleph.im
 
 ```shell
-aleph file pin ./data.squashfs
+aleph file upload ./data.squashfs
 ```
 
 This command will provide you with the `item_hash` of the immutable volume, which you can then use to create the
@@ -54,7 +54,7 @@ mksquashfs ./packages packages.squashfs
 ### 3. Publish the file on aleph.im
 
 ```shell
-aleph file pin ./packages.squashfs
+aleph file upload ./packages.squashfs
 ```
 
 This command will provide you with the `item_hash` of the immutable volume, which you can then use to create the
