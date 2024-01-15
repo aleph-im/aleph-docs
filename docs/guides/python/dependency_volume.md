@@ -68,13 +68,13 @@ ipfs add packages.squashfs
 | added QmWWX6BaaRkRSr2iNdwH5e29ACPg2nCHHXTRTfuBmVm3Ga venv.squashfs
 
 ```shell
-aleph pin QmWWX6BaaRkRSr2iNdwH5e29ACPg2nCHHXTRTfuBmVm3Ga
+aleph file pin QmWWX6BaaRkRSr2iNdwH5e29ACPg2nCHHXTRTfuBmVm3Ga
 ```
 
 ## Create your program
 
 ```shell
-aleph program ./my-program main:app
+aleph program upload ./my-program main:app
 ```
 
 Press Enter at the following prompt to use the default runtime:
