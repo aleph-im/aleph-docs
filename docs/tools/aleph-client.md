@@ -36,7 +36,7 @@ aleph --help
 
 ## Test using Docker
 
-Use the Aleph client and it's CLI from within Docker or Podman with:
+Use the aleph.im client from within Docker or Podman with:
 
 ```shell
 docker run --rm -ti -v $(pwd)/data:/data ghcr.io/aleph-im/aleph-client/aleph-client:master --help
