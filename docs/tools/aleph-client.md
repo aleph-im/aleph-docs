@@ -1,8 +1,7 @@
 # Command line
 
 Access all the features of aleph.im from your terminal using the 
-[aleph-client](https://github.com/aleph-im/aleph-client/)
-command-line interface.
+[aleph-client](https://github.com/aleph-im/aleph-client/) command-line interface.
 
 ## Requirements
 

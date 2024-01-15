@@ -13,7 +13,7 @@ The first chapters of the [FastAPI Tutorial](https://fastapi.tiangolo.com/tutori
 enough to get started.
 
 To complete this tutorial, you will use the `aleph` command from 
-[aleph-client](https://github.com/aleph-im/aleph-client), the `fastapi` framework to create a
+[aleph-client](../../tools/aleph-client.md), the `fastapi` framework to create a
 simple API and the `uvicorn` server to test your program on your desktop before uploading it on 
 aleph.im.
 
@@ -156,7 +156,7 @@ The `--reload` option will automatically reload your app when the code changes.
 
 ## Upload your program on aleph.im
 
-After installing [aleph-client](https://github.com/aleph-im/aleph-client), you should have access to the `aleph` command:
+After installing [aleph-client](../../tools/aleph-client.md), you should have access to the `aleph` command:
 
 ```shell
 aleph --help

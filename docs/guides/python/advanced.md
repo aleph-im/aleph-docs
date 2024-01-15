@@ -2,26 +2,31 @@
 
 ## Aleph.im messages
 
-The [aleph-client](https://github.com/aleph-im/aleph-client) library is pre-installed and 
+The [aleph-sdk-python](https://github.com/aleph-im/aleph-sdk-python) library is pre-installed and 
 pre-configured in the official Aleph-VM Python runtime. It is tweaked to work even
 for programs with the access to internet disabled.
 
 ### Get messages
 
-Use `aleph_client.asynchronous.get_messages` to get messages from the aleph.im network.
+Use `aleph.sdk.client.AlephHttpClient` to get messages from the aleph.im network.
 
 ```python
-from aleph_client.asynchronous import get_messages
+from aleph.sdk.client import AlephHttpClient
+from aleph.sdk.query.filters import MessageFilter
 
-...
-messages = await get_messages(
-    hashes=["f246f873c3e0f637a15c566e7a465d2ecbb83eaa024d54ccb8fb566b549a929e"]
-)
+async def get_messages():
+    async with AlephHttpClient() as client:
+        resp, status = await client.get_messages(
+            message_filter=MessageFilter(
+                channels=["TEST"],
+            )
+        )
+        return resp.messages
 ```
 
 ## Post Aleph.im messages
 
-ℹ️ Messages posted by VMs may not be authorized by the aleph.im network yet.
+Messages posted by VMs may not be authorized by the aleph.im network yet.
 
 Posting messages on the aleph.im network requires signing them using a valid account.
 Since programs are public, they should not contain secrets. Instead of signing messages
@@ -30,28 +35,29 @@ using a `RemoteAccount`. The hash of the VM will be referenced in the message co
 field.
 
 ```python
-from aleph_client.chains.remote import RemoteAccount
+from datetime import datetime
+from aleph.sdk.chains.remote import RemoteAccount
+from aleph.sdk.client import AuthenticatedAlephHttpClient
 
-...
-
-account = await RemoteAccount.from_crypto_host(
-    host="http://localhost", unix_socket="/tmp/socat-socket")
-
-content = {
-    "date": datetime.utcnow().isoformat(),
-    "test": True,
-    "answer": 42,
-    "something": "interesting",
-}
-response = await create_post(
-    account=account,
-    post_content=content,
-    post_type="test",
-    ref=None,
-    channel="TEST",
-    inline=True,
-    storage_engine="storage",
-)
+async def create_post():
+    account = await RemoteAccount.from_crypto_host(
+        host="http://localhost", unix_socket="/tmp/socat-socket")
+    
+    content = {
+        "date": datetime.utcnow().isoformat(),
+        "test": True,
+        "answer": 42,
+        "something": "interesting",
+    }
+    
+    async with AuthenticatedAlephHttpClient(account) as client:
+        message, status = await client.create_post(
+            post_content=content,
+            post_type="test",
+            ref=None,
+            channel="TEST",
+            inline=True,
+        )
 ```
 
 ## Shared cache
@@ -65,7 +71,7 @@ the program is not running. Important data must be persisted on the aleph.im net
 
 To use the cache, you can use the following methods:
 ```python
-from aleph_client.vm.cache import VmCache
+from aleph.sdk.vm.cache import VmCache
 cache = VmCache()
 
 async def f():
