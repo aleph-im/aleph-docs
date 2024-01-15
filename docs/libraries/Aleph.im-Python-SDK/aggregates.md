@@ -114,6 +114,7 @@ outputs:
 This way you can audit the trail of changes to the aggregate.
 
 !!! note
+
     For more information on the authorizations model, see the [permissions section](../../protocol/permissions.md).
     For more general information on messages and their types, see the [messages section](../../protocol/messages.md).
 
