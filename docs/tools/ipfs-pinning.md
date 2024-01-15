@@ -7,7 +7,7 @@ and resistance to censorship, aiming to improve data storage and sharing.
 ### How To Use
 Aleph.im's decentralized IPFS pinning is available to all users, using Aleph.im's:
 
-- [Python SDK](../libraries/python.md)
+- [Python SDK](../libraries/Aleph.im-Python-SDK/index.md)
 - [Typescript SDK](../libraries/typescript.md)
 
 ## IPFS Pinning Explained

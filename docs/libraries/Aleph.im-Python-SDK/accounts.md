@@ -70,7 +70,7 @@ account = DOTAccount("payment shy team bargain chest fold bless artwork identify
 You can also change the address_type (0 for polkadot, 2 for canary, 42 generic...).
 
 ```python
-from aleph_client.chains.substrate import DOTAccount
+from aleph.sdk.chains.substrate import DOTAccount
 account = DOTAccount("payment shy team bargain chest fold bless artwork identify breeze pelican category")
 account.get_address()  # '5CGNMKCscqN2QNcT7Jtuz23ab7JUxh8wTEtXhECZLJn5vCGX'
 account = DOTAccount("payment shy team bargain chest fold bless artwork identify breeze pelican category", 
