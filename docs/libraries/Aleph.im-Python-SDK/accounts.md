@@ -6,6 +6,7 @@ This account can be made using any of the supported wallet providers.
 ## Supported chains
 
 As of version 0.8.0, the following chains are supported:
+
 - Ethereum (and all EVM compatible chains)
 - Solana
 - Polkadot / Substrate
@@ -23,6 +24,7 @@ If you don't want to handle the private key yourself, you can use the
 ALEPH_CONFIG_HOME's "private-keys" directory (default: `~/.aleph.im/private-keys/`).
 
 !!! note
+
     `get_fallback_account` will use the same private key file as for Ethereum as for every other chain that uses the same 64-bytes format.
 
 ## Usage

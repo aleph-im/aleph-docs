@@ -23,6 +23,7 @@ theme:
     - navigation.sections
     - navigation.path
 markdown_extensions:
+  - admonition
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span

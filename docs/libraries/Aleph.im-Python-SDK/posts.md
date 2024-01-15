@@ -142,5 +142,6 @@ async def main():
 ```
 
 !!! note
+
     More information on posts and messages in general can be found in the
     [protocol section](../../protocol/messages.md).
