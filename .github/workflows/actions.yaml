@@ -67,7 +67,32 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            Deployed (not pinned) on https://ipfs-2.aleph.im/ipfs/${{ env.ipfs_cid }}
+            Deployed (not pinned) on:
+             * https://ipfs-2.aleph.im/ipfs/${{ env.ipfs_cid }}
+             * https://beta.docs.aleph.im/ (may be overriden anytime by another PR)
+ 
+
+      # TODO: Move this to a decicated GitHub Action on https://github.com/aleph-im/aleph-github-actions
+      - name: Update Beta docs on https://beta.docs.aleph.im
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          mkdir --parents /home/runner/.aleph-im/private-keys
+          echo ${{ secrets.ALEPH_PRIVATE_KEY }} | xxd -r -p > /home/runner/.aleph-im/private-keys/ethereum.key
+          
+          pip install 'aleph-client==0.6.0'
+          ITEM_HASH=$(aleph file pin ${{ env.ipfs_cid }} | jq -r '.item_hash')
+          echo 'y' | aleph domain attach beta.docs.aleph.im --item-hash $ITEM_HASH
+
+      # TODO: Move this to a decicated GitHub Action on https://github.com/aleph-im/aleph-github-actions
+      - name: Update the main docs on https://docs.aleph.im
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        run: |
+          mkdir --parents /home/runner/.aleph-im/private-keys
+          echo ${{ secrets.ALEPH_PRIVATE_KEY }} | xxd -r -p > /home/runner/.aleph-im/private-keys/ethereum.key
+          
+          pip install 'aleph-client==0.6.0'
+          ITEM_HASH=$(aleph file pin ${{ env.ipfs_cid }} | jq -r '.item_hash')
+          echo 'y' | aleph domain attach main.branch.docs.aleph.im --item-hash $ITEM_HASH
 
       - uses: actions/upload-artifact@v3
         with:
