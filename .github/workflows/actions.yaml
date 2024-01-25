@@ -92,7 +92,7 @@ jobs:
           
           pip install 'aleph-client==0.6.0'
           ITEM_HASH=$(aleph file pin ${{ env.ipfs_cid }} | jq -r '.item_hash')
-          echo 'y' | aleph domain attach main.branch.docs.aleph.im --item-hash $ITEM_HASH
+          echo 'y' | aleph domain attach docs.aleph.im --item-hash $ITEM_HASH
 
       - uses: actions/upload-artifact@v3
         with:
