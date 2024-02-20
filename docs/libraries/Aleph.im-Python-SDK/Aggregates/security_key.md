@@ -53,6 +53,8 @@ The way to structure a security key:
 | `chains`        | String | Only accept the passed address on a specific chain                                    |
 | `channels`      | String | Only messages from these channels will be accepted                                    |
 
+### Exemple
+
 Here is an example of how to create a security key:
 
 ```python
@@ -78,4 +80,3 @@ import { ETHAccount } from 'aleph-sdk-ts/dist/chains/ethereum';
 ```
 
 As you can see, we specified the delegate account will only be able to update the testkey field of the owner's aggregates.`
-
