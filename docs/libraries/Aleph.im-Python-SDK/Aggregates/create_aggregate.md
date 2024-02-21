@@ -23,11 +23,11 @@ You must be connected to an account and authenticated to use this function. You 
 
 #### Required Parameters
 
-| Parameter | Description                        |
-|-----------|------------------------------------|
-| `account` | The account to use for the request |
-| `key`     | The key of the aggregate           |
-| `content` | The content of the aggregate       |
+| Parameter | Description                                                                                            |
+|-----------|--------------------------------------------------------------------------------------------------------|
+| `account` | The account to use for the request                                                                     |
+| `key`     | The key of the aggregate                                                                               |
+| `content` | The content of the aggregate<br> [More information](/protocol/object_types/aggregates/#content-format) |
 
 
 #### Optional Parameters
@@ -45,18 +45,18 @@ You must be connected to an account and authenticated to use this function. You 
 Here is a simple example of how to use the `create_aggregate` function:
 
 ```python
-    from aleph.sdk.chains.ethereum import ETHAccount
-    from aleph.sdk.client import AuthenticatedAlephHttpClient
-    
-    async def main():
-        prv = bytes.fromhex("xxxxxx")
-        account = ETHAccount(prv)
-        async with AuthenticatedAlephHttpClient(account) as client:
-            message, status = await client.create_aggregate(
-                "profile",
-                {"bio": "tester", "name": "MY_NAME on Ethereum"},
-            )
-            print(message.content)
+from aleph.sdk.chains.ethereum import ETHAccount
+from aleph.sdk.client import AuthenticatedAlephHttpClient
+
+async def main():
+    prv = bytes.fromhex("xxxxxx")
+    account = ETHAccount(prv)
+    async with AuthenticatedAlephHttpClient(account) as client:
+        message, status = await client.create_aggregate(
+            "profile",
+            {"bio": "tester", "name": "MY_NAME on Ethereum"},
+        )
+        print(message.content)
 ```
 
 ### Output
