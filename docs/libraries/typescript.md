@@ -1,3 +1,3 @@
-# Aleph.im Typescript SDK
+# Aleph.im TypeScript SDK
 
-[Typescript SDK ➝](https://aleph-im.gitbook.io/ts-sdk/)
+[TypeScript SDK ➝](https://aleph-im.gitbook.io/ts-sdk/)
