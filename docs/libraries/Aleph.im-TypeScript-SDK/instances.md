@@ -24,3 +24,4 @@ const instance = await client.createInstance({
         amount: 1000,
     },
 });
+```
