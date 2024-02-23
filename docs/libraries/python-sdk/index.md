@@ -1,6 +1,7 @@
 # Introduction
 
-The Aleph.im Python SDK is a Python library that allows you to interact with the Aleph.im network by sending messages to the network, reading messages from it, and more.
+The Aleph.im Python SDK is a Python library that allows you to interact with the Aleph.im network by 
+sending signed messages to the network, reading messages from it, and more.
 
 ## Installation
 
