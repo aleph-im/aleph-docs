@@ -1,3 +1,17 @@
+Posts are unique data entries. For example:
+
+- Events
+- Blog posts
+- Comments
+- and even be used to emulate a [public database](https://github.com/aleph-im/active-record-sdk)
+
+!!! note
+
+    More information on posts and messages in general can be found in the
+    [protocol section](../../protocol/messages.md).
+
+--- 
+
 Creating a post by calling `create_post()` function on the client.
 
 Call this same function if you want to update / amend a post. see [below](#update-amending-a-post) for more information.
