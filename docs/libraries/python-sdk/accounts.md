@@ -29,53 +29,98 @@ ALEPH_CONFIG_HOME's "private-keys" directory (default: `~/.aleph.im/private-keys
 
 ## Usage
 
+#### Create an account
+
 All chains provide a `get_fallback_account` function. Example using Ethereum:
 
 ```python
+
 from aleph.sdk.chains.ethereum import get_fallback_account
 
-account = get_fallback_account()
-```
-
-Another example setting the private key manually as raw bytes:
-
-```python
-from aleph.sdk.chains.ethereum import ETHAccount
-
-prv = bytes.fromhex("xxxxxx")
-account = ETHAccount(prv)
-```
-
-### Polkadot / Substrate
-
-DOT/Substrate accounts are a bit different. You pass them mnemonics, and optionally an address_type.
-
-Example using Substrate (if you already used a fallback on ethereum or nuls, you might consider deleting the private key file):
-
-```python
-from aleph.sdk.chains.substrate import get_fallback_account
 
 account = get_fallback_account()
 ```
 
-Another example setting the mnemonics manually:
+> Best practice would be creating an account using a key.
+> See below
 
-```python
-from aleph.sdk.chains.substrate import DOTAccount
+#### Import an account from a private key
 
-account = DOTAccount("payment shy team bargain chest fold bless artwork identify breeze pelican category")
-```
+=== "Ethereum"
 
-!!! warning
-    Do not use this dummy private key, it's just an example!
+    ```python
+    from aleph.sdk.chains.ethereum import ETHAccount
 
-You can also change the address_type (0 for polkadot, 2 for canary, 42 generic...).
+    prv = bytes.fromhex("xxxxxx")
+    account = ETHAccount(prv)
+    ```
 
-```python
-from aleph.sdk.chains.substrate import DOTAccount
-account = DOTAccount("payment shy team bargain chest fold bless artwork identify breeze pelican category")
-account.get_address()  # '5CGNMKCscqN2QNcT7Jtuz23ab7JUxh8wTEtXhECZLJn5vCGX'
-account = DOTAccount("payment shy team bargain chest fold bless artwork identify breeze pelican category", 
-                     address_type=0)
-account.get_address()  # '1CfVeTwUcdVqucy4wwv8AsjSjJ8ezh5Xjd1rXButPoc6WJY'
-```
+=== "Solana"
+
+    ```python
+    from aleph.sdk.chains.solana import SOLAccount
+
+    prv = bytes.fromhex("xxxxxx")
+    account = SOLAccount(prv)
+    ```
+
+=== "NULS 1 & 2"
+    
+    ```python
+    from aleph.sdk.chains.nuls import NULSAccount
+
+    prv = bytes.fromhex("xxxxxx")
+    account = NULSAccount(prv)
+    ```
+
+=== "Tezos"
+
+    ```python
+    from aleph.sdk.chains.tezos import XTZAccount
+
+    prv = bytes.fromhex("xxxxxx")
+    account = XTZAccount(prv)
+    ```
+
+=== "Cosmos / Tendermint"
+
+    ```python
+    from aleph.sdk.chains.cosmos import CosmosAccount
+
+    prv = bytes.fromhex("xxxxxx")
+    account = CosmosAccount(prv)
+    ```
+
+=== "Polkadot / Substrate"
+
+    DOT/Substrate accounts are a bit different. You pass them mnemonics, and optionally an address_type.
+    
+    Example using Substrate (if you already used a fallback on ethereum or nuls, you might consider deleting the private key file):
+    
+    ```python
+    from aleph.sdk.chains.substrate import get_fallback_account
+    
+    account = get_fallback_account()
+    ```
+    
+    Another example setting the mnemonics manually:
+    
+    ```python
+    from aleph.sdk.chains.substrate import DOTAccount
+    
+    account = DOTAccount("payment shy team bargain chest fold bless artwork identify breeze pelican category")
+    ```
+    
+    !!! warning
+        Do not use this dummy private key, it's just an example!
+    
+    You can also change the address_type (0 for polkadot, 2 for canary, 42 generic...).
+    
+    ```python
+    from aleph.sdk.chains.substrate import DOTAccount
+    account = DOTAccount("payment shy team bargain chest fold bless artwork identify breeze pelican category")
+    account.get_address()  # '5CGNMKCscqN2QNcT7Jtuz23ab7JUxh8wTEtXhECZLJn5vCGX'
+    account = DOTAccount("payment shy team bargain chest fold bless artwork identify breeze pelican category", 
+                         address_type=0)
+    account.get_address()  # '1CfVeTwUcdVqucy4wwv8AsjSjJ8ezh5Xjd1rXButPoc6WJY'
+    ```
