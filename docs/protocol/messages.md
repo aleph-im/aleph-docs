@@ -46,11 +46,11 @@ An aleph.im message is made of multiple fields that can be split between header 
 
 Actual content sent by regular users can currently be of five types:
 
-- AGGREGATE: [aggregates](./object_types/aggregates.md) provide a decentralized key/value storage.
+- AGGREGATE: [aggregates](object-types/aggregates.md) provide a decentralized key/value storage.
 - FORGET: delete other messages (see below).
-- POST: [posts](./object_types/posts.md) provide JSON documents (unique data points, events).
-- PROGRAM: create and update [programs](./object_types/programs.md) running in VMs (ex: lambda functions).
-- STORE: [file storage](./object_types/storage.md).
+- POST: [posts](object-types/posts.md) provide JSON documents (unique data points, events).
+- PROGRAM: create and update [programs](object-types/programs.md) running in VMs (ex: lambda functions).
+- STORE: [file storage](object-types/storage.md).
 
 
 ## Item hash, type and content

@@ -1,6 +1,6 @@
 # Create
 
-An [aggregate](../../../protocol/object_types/aggregates.md) is a form of key-value store on the distributed  using `AuthenticatedAlephHttpClient.create_aggregate` as described below.
+An [aggregate](../../../protocol/object-types/aggregates.md) is a form of key-value store on the distributed  using `AuthenticatedAlephHttpClient.create_aggregate` as described below.
 aleph.im database.
 
 Initialize an `AuthenticatedAlephHttpClient` with an [account](../accounts.md) to write to aleph.im.
