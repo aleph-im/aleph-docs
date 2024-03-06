@@ -46,3 +46,74 @@ extra_css:
 
 repo_url: https://github.com/aleph-im/aleph-docs
 edit_uri: edit/main/docs/
+
+nav:
+  - Overview: index.md
+  - 'Protocol':
+      - 'Chains': protocol/chains.md
+      - 'Messages': protocol/messages.md
+      - 'Permissions': protocol/permissions.md
+      - 'Object Types':
+          - 'Aggregates': protocol/object-types/aggregates.md
+          - 'Posts': protocol/object-types/posts.md
+          - 'Programs': protocol/object-types/programs.md
+          - 'Storage': protocol/object-types/storage.md
+  - 'Tools':
+      - 'Aleph Account': tools/aleph-account.md
+      - 'Aleph Client': tools/aleph-client.md
+      - 'Aleph Tooling': tools/aleph-tooling.md
+      - 'Indexer': tools/indexer.md
+      - 'IPFS Pinning': tools/ipfs-pinning.md
+  - Libraries:
+      - 'Typescript SDK':
+          - 'Index': libraries/Aleph.im-TypeScript-SDK/index.md
+          - 'Account': libraries/Aleph.im-TypeScript-SDK/accounts.md
+          - 'Aggregates': libraries/Aleph.im-TypeScript-SDK/aggregates.md
+          - 'Instances': libraries/Aleph.im-TypeScript-SDK/instances.md
+          - 'Posts': libraries/Aleph.im-TypeScript-SDK/posts.md
+      - 'Python SDK':
+          - 'Index': libraries/python-sdk/index.md
+          - 'Account': libraries/python-sdk/accounts.md
+          - 'Posts': libraries/python-sdk/posts.md
+          - 'Aggregates':
+              - 'Create': libraries/python-sdk/aggregates/create.md
+              - 'Query': libraries/python-sdk/aggregates/query.md
+              - 'Delegate': libraries/python-sdk/aggregates/delegate.md
+  - Guides:
+      - 'Testing microVMs': guides/testing_microvms.md
+      - 'Update a program': guides/update_a_program.md
+      - Python:
+          - 'Getting Started': guides/python/getting_started.md
+          - 'Advanced': guides/python/advanced.md
+          - 'Dependency volume': guides/python/dependency_volume.md
+      - Rust:
+          - 'Rust microVMs': guides/rust/rust_microvm.md
+  - Nodes:
+      - 'Compute':
+          - 'Index': nodes/compute/index.md
+          - 'Installations':
+                - 'Configure Caddy': nodes/compute/installation/configure-caddy.md
+                - 'Debian 11': nodes/compute/installation/debian-11.md
+                - 'Debian 12': nodes/compute/installation/debian-12.md
+                - 'Ubuntu 20.04': nodes/compute/installation/ubuntu-20.04.md
+                - 'Ubuntu 22.04': nodes/compute/installation/ubuntu-22.04.md
+          - 'Troubleshooting': nodes/compute/troubleshooting.md
+      - 'Core':
+          - 'Index': nodes/core/index.md
+          - 'Backups': nodes/core/backups.md
+      - 'Reliability':
+          - 'Index': nodes/reliability/index.md
+          - 'Metrics': nodes/reliability/metrics.md
+          - 'Rewards': nodes/reliability/rewards.md
+          - 'Scores': nodes/reliability/scores.md
+  - Computing:
+      - 'Index': computing/index.md
+      - Custom Domain:
+          - 'Add a Custom Domain': computing/custom_domain/setup.md
+      - Runtimes:
+          - 'Index': computing/runtimes/index.md
+          - 'Custom': computing/runtimes/custom.md
+          - 'Existing': computing/runtimes/existing.md
+      - Volumes:
+          - 'Immutable': computing/volumes/immutable.md
+          - Persistent: computing/volumes/persistent.md

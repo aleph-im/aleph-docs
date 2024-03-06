@@ -99,7 +99,7 @@ HTTPS/TLS certificates on time.
 
 First, create a domain name that points to the server on IPv4 (A) and IPv6 (AAAA).
 
-This is a simple configuration. For more options, check [CONFIGURE_CADDY.md](configure_caddy.md).
+This is a simple configuration. For more options, check [CONFIGURE_CADDY.md](configure-caddy).
 
 Again, run these commands as `root`:
 ```shell
