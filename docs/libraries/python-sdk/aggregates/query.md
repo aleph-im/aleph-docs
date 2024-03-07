@@ -80,4 +80,4 @@ aggregate = asyncio.run(main())
 
 !!! note
 
-    It is also possible to retrieve an aggregate from the API endpoint [like this](/protocol/object_types/aggregates/#retrieve-aggregates).
+    It is also possible to retrieve an aggregate from the API endpoint [like this](../../../protocol/object-types/aggregates.md#retrieve-aggregates).

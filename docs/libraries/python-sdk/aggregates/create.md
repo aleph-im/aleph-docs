@@ -30,10 +30,10 @@ class AuthenticatedAlephHttpClient:
 
 #### Required arguments
 
-| Parameter | Description                                                                                                            |
-|-----------|------------------------------------------------------------------------------------------------------------------------|
-| `key`     | An identifier you define for this aggregate                                                                            |
-| `content` | The data to store as a dictionary<br> [More information](../../../../protocol/object_types/aggregates/#content-format) |
+| Parameter | Description                                                                                                           |
+|-----------|-----------------------------------------------------------------------------------------------------------------------|
+| `key`     | An identifier you define for this aggregate                                                                           |
+| `content` | The data to store as a dictionary<br> [More information](../../../protocol/object-types/aggregates.md#content-format) |
 
 #### Optional arguments
 

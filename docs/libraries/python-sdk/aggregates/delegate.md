@@ -3,7 +3,7 @@ This can be done by with the security key
 
 !!! note
     This section will give an example of how to create a security key.
-    <br>More information about the security key in the [permissions section](../../../../protocol/permissions/#the-security-aggregate).
+    <br>More information about the security key in the [permissions section](../../../protocol/permissions.md#the-security-aggregate).
 
 ## Create a security key
 
