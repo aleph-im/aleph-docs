@@ -118,3 +118,20 @@ nav:
       - Volumes:
           - 'Immutable': computing/volumes/immutable.md
           - Persistent: computing/volumes/persistent.md
+
+plugins:
+  - redirects:
+      redirect_maps:
+        'protocol/object_types/aggregates.md': 'protocol/object-types/aggregates.md'
+        'protocol/object_types/posts.md': 'protocol/object-types/posts.md'
+        'protocol/object_types/programs.md': 'protocol/object-types/programs.md'
+        'protocol/object_types/storage.md': 'protocol/object-types/storage.md'
+
+        'libraries/Aleph.im-TypeScript-SDK/index.md': 'libraries/typescript-sdk/index.md'
+        'libraries/Aleph.im-TypeScript-SDK/accounts.md': 'libraries/typescript-sdk/accounts.md'
+        'libraries/Aleph.im-TypeScript-SDK/aggregates.md': 'libraries/typescript-sdk/aggregates.md'
+        'libraries/Aleph.im-TypeScript-SDK/instances.md': 'libraries/typescript-sdk/instances.md'
+        'libraries/Aleph.im-TypeScript-SDK/posts.md': 'libraries/typescript-sdk/posts.md'
+
+        'nodes/compute/installation/configure_caddy.md': 'nodes/compute/installation/configure-caddy.md'
+
