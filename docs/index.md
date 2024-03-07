@@ -19,7 +19,7 @@ by leveraging the Aleph.im network's decentralized storage and compute capabilit
 ### The Aleph.im project has the following components:
 
 * The Aleph peer-to-peer network, comprised of [Compute Resource Nodes or CRNs](nodes/compute/index.md) and [Core Channel Nodes, or CCNs](nodes/core/index.md)
-* [Python](libraries/Aleph.im-Python-SDK/index.md) and [TypeScript](./libraries/typescript.md) SDKs to integrate Aleph.im's decentralized compute and storage solutions into your project
+* [Python](libraries/python-sdk/index.md) and [TypeScript](libraries/typescript-sdk/index.md) SDKs to integrate Aleph.im's decentralized compute and storage solutions into your project
 * A [Python command-line tool](tools/aleph-client.md) to interact with the Aleph.im network directly from a terminal
 * A [Web Console](https://console.twentysix.cloud/) to create and manage cloud resources
 * A [Node Operator Dashboard](https://account.aleph.im/)
@@ -36,9 +36,9 @@ The Aleph.im network is composed of 2 sets of nodes:
 
 ### Messages
 In Aleph.im terminology, a "_message_" is similar to a "_transaction_" for a blockchain: it is a set of data sent by an end user, propagated through the entire peer-to-peer network.
-A message can be generated using either the [Python SDK](libraries/Aleph.im-Python-SDK/index.md) or [TypeScript SDK](./libraries/typescript.md), or through [aleph-client](tools/aleph-client.md) or the [Console](https://console.aleph.im/).
+A message can be generated using either the [Python SDK](libraries/python-sdk/index.md) or [TypeScript SDK](./libraries/typescript-sdk/index.md), or through [aleph-client](tools/aleph-client.md) or the [Console](https://console.aleph.im/).
 
-These messages can contain several different instructions, such as reading or writing [posts](libraries/Aleph.im-Python-SDK/posts.md), [programs/functions](computing/index.md), or [indexing data](tools/indexer.md) created on external blockchains.
+These messages can contain several different instructions, such as reading or writing [posts](libraries/python-sdk/posts.md), [programs/functions](computing/index.md), or [indexing data](tools/indexer.md) created on external blockchains.
 
 ### Payment
 
@@ -68,7 +68,7 @@ Let's take the example of a user who wants to run a program on the Aleph.im netw
 
 ## Where to start?
 
-- Use our [Python SDK](libraries/Aleph.im-Python-SDK/index.md) and [TypeScript SDK](./libraries/typescript.md).
+- Use our [Python SDK](libraries/python-sdk/index.md) and [TypeScript SDK](./libraries/typescript-sdk/index.md).
 - Follow a [Tutorial to run Python code on aleph.im](guides/python/getting_started.md).
 - Become part of the network by managing a [Core Channel Node](nodes/core/index.md) or a [Compute Resource Node](nodes/compute/index.md).
 - Trouble setting up your node? Check out our [Troubleshooting Guide](nodes/compute/troubleshooting.md).

@@ -1,6 +1,6 @@
 # Introduction
 
-Similar to the [Python SDK](../Aleph.im-Python-SDK/index.md), the TypeScript SDK provides a set of tools to interact with the Aleph.im network.
+Similar to the [Python SDK](../python-sdk/index.md), the TypeScript SDK provides a set of tools to interact with the Aleph.im network.
 
 Since the release of the newly refactored [Aleph TypeScript SDK](https://github.com/aleph-im/aleph-sdk-ts), the original [aleph-ts-sdk](https://npmjs.com/package/aleph-ts-sdk) has been deprecated and split into smaller, more manageable packages.
 

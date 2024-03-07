@@ -66,15 +66,16 @@ nav:
       - 'IPFS Pinning': tools/ipfs-pinning.md
   - Libraries:
       - 'Typescript SDK':
-          - 'Index': libraries/Aleph.im-TypeScript-SDK/index.md
-          - 'Account': libraries/Aleph.im-TypeScript-SDK/accounts.md
-          - 'Aggregates': libraries/Aleph.im-TypeScript-SDK/aggregates.md
-          - 'Instances': libraries/Aleph.im-TypeScript-SDK/instances.md
-          - 'Posts': libraries/Aleph.im-TypeScript-SDK/posts.md
+          - 'Index': libraries/typescript-sdk/index.md
+          - 'Account': libraries/typescript-sdk/accounts.md
+          - 'Aggregates': libraries/typescript-sdk/aggregates.md
+          - 'Instances': libraries/typescript-sdk/instances.md
+          - 'Posts': libraries/typescript-sdk/posts.md
       - 'Python SDK':
           - 'Index': libraries/python-sdk/index.md
           - 'Account': libraries/python-sdk/accounts.md
           - 'Posts': libraries/python-sdk/posts.md
+          - 'Errors': libraries/python-sdk/error.md
           - 'Aggregates':
               - 'Create': libraries/python-sdk/aggregates/create.md
               - 'Query': libraries/python-sdk/aggregates/query.md
