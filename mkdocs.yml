@@ -58,6 +58,24 @@ nav:
           - 'Posts': protocol/object-types/posts.md
           - 'Programs': protocol/object-types/programs.md
           - 'Storage': protocol/object-types/storage.md
+  - Nodes:
+      - 'Compute':
+          - 'Index': nodes/compute/index.md
+          - 'Installations':
+                - 'Configure Caddy': nodes/compute/installation/configure-caddy.md
+                - 'Debian 11': nodes/compute/installation/debian-11.md
+                - 'Debian 12': nodes/compute/installation/debian-12.md
+                - 'Ubuntu 20.04': nodes/compute/installation/ubuntu-20.04.md
+                - 'Ubuntu 22.04': nodes/compute/installation/ubuntu-22.04.md
+          - 'Troubleshooting': nodes/compute/troubleshooting.md
+      - 'Core':
+          - 'Index': nodes/core/index.md
+          - 'Backups': nodes/core/backups.md
+      - 'Reliability':
+          - 'Index': nodes/reliability/index.md
+          - 'Metrics': nodes/reliability/metrics.md
+          - 'Rewards': nodes/reliability/rewards.md
+          - 'Scores': nodes/reliability/scores.md
   - 'Tools':
       - 'Aleph Account': tools/aleph-account.md
       - 'Aleph Client': tools/aleph-client.md
@@ -80,33 +98,6 @@ nav:
               - 'Create': libraries/python-sdk/aggregates/create.md
               - 'Query': libraries/python-sdk/aggregates/query.md
               - 'Delegate': libraries/python-sdk/aggregates/delegate.md
-  - Guides:
-      - 'Testing microVMs': guides/testing_microvms.md
-      - 'Update a program': guides/update_a_program.md
-      - Python:
-          - 'Getting Started': guides/python/getting_started.md
-          - 'Advanced': guides/python/advanced.md
-          - 'Dependency volume': guides/python/dependency_volume.md
-      - Rust:
-          - 'Rust microVMs': guides/rust/rust_microvm.md
-  - Nodes:
-      - 'Compute':
-          - 'Index': nodes/compute/index.md
-          - 'Installations':
-                - 'Configure Caddy': nodes/compute/installation/configure-caddy.md
-                - 'Debian 11': nodes/compute/installation/debian-11.md
-                - 'Debian 12': nodes/compute/installation/debian-12.md
-                - 'Ubuntu 20.04': nodes/compute/installation/ubuntu-20.04.md
-                - 'Ubuntu 22.04': nodes/compute/installation/ubuntu-22.04.md
-          - 'Troubleshooting': nodes/compute/troubleshooting.md
-      - 'Core':
-          - 'Index': nodes/core/index.md
-          - 'Backups': nodes/core/backups.md
-      - 'Reliability':
-          - 'Index': nodes/reliability/index.md
-          - 'Metrics': nodes/reliability/metrics.md
-          - 'Rewards': nodes/reliability/rewards.md
-          - 'Scores': nodes/reliability/scores.md
   - Computing:
       - 'Index': computing/index.md
       - Custom Domain:
@@ -118,6 +109,15 @@ nav:
       - Volumes:
           - 'Immutable': computing/volumes/immutable.md
           - Persistent: computing/volumes/persistent.md
+  - Tutorials:
+      - 'Testing microVMs': guides/testing_microvms.md
+      - 'Update a program': guides/update_a_program.md
+      - Python:
+          - 'Getting Started': guides/python/getting_started.md
+          - 'Advanced': guides/python/advanced.md
+          - 'Dependency volume': guides/python/dependency_volume.md
+      - Rust:
+          - 'Rust microVMs': guides/rust/rust_microvm.md
 
 plugins:
   - redirects:
