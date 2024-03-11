@@ -72,4 +72,5 @@ output:
 ```
 
 !!! note
-More information in the [deleting message section](../../protocol/messages.md#deleting-messages).
+
+    More information in the [deleting message section](../../protocol/messages.md#deleting-messages).
