@@ -84,13 +84,13 @@ nav:
       - 'IPFS Pinning': tools/ipfs-pinning.md
   - Libraries:
       - 'Typescript SDK':
-          - 'Index': libraries/typescript-sdk/index.md
+          - 'Introduction': libraries/typescript-sdk/index.md
           - 'Account': libraries/typescript-sdk/accounts.md
           - 'Aggregates': libraries/typescript-sdk/aggregates.md
           - 'Instances': libraries/typescript-sdk/instances.md
           - 'Posts': libraries/typescript-sdk/posts.md
       - 'Python SDK':
-          - 'Index': libraries/python-sdk/index.md
+          - 'Introduction': libraries/python-sdk/index.md
           - 'Account': libraries/python-sdk/accounts.md
           - 'Posts': libraries/python-sdk/posts.md
           - 'Errors': libraries/python-sdk/error.md
