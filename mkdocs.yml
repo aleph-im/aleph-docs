@@ -92,8 +92,11 @@ nav:
       - 'Python SDK':
           - 'Index': libraries/python-sdk/index.md
           - 'Account': libraries/python-sdk/accounts.md
-          - 'Posts': libraries/python-sdk/posts.md
+          - 'Forget': libraries/python-sdk/forget.md
           - 'Errors': libraries/python-sdk/error.md
+          - Posts:
+                - 'Create': libraries/python-sdk/posts/create.md
+                - 'Query': libraries/python-sdk/posts/query.md
           - 'Aggregates':
               - 'Create': libraries/python-sdk/aggregates/create.md
               - 'Query': libraries/python-sdk/aggregates/query.md

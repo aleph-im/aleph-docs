@@ -1,14 +1,4 @@
-Posts are unique data entries. For example:
-
-- Events
-- Blog posts
-- Comments
-- and even be used to emulate a [public database](https://github.com/aleph-im/active-record-sdk)
-
-!!! note
-
-    More information on posts and messages in general can be found in the
-    [protocol section](../../protocol/messages.md).
+Posts are unique data entries. See more information [Post object type](../../../protocol/object-types/posts.md).
 
 --- 
 
@@ -36,10 +26,10 @@ async def create_post(
 
 #### Required arguments
 
-| Parameter      | Description                                                                                                        |
-|----------------|--------------------------------------------------------------------------------------------------------------------|
-| `post_content` | The data to store as a dictionary.<br> [More information](../../../../protocol/object_types/posts/#content-format) |
-| `post_type`    | An arbitrary content type that helps to describe the post_content. <br> ex: `ammend` / `blog` / `chat` `comment`.  |
+| Parameter      | Description                                                                                                       |
+|----------------|-------------------------------------------------------------------------------------------------------------------|
+| `post_content` | The data to store as a dictionary.<br> [More information](../../../protocol/object-types/posts.md#content-format) |
+| `post_type`    | An arbitrary content type that helps to describe the post_content. <br> ex: `ammend` / `blog` / `chat` `comment`. |
 
 #### Optional arguments
 
@@ -57,6 +47,8 @@ async def create_post(
 ```python
 from aleph.sdk.chains.ethereum import get_fallback_account
 from aleph.sdk.client import AuthenticatedAlephHttpClient
+from pprint import pprint
+import asyncio
 
 async def main():
     account = get_fallback_account()
@@ -68,14 +60,17 @@ async def main():
         )
         return message, status
 
-import asyncio
 message, status = asyncio.run(main())
-print(message.content)
+pprint(message.content.dict())
 ```
 
 outputs:
 ```
-address='0x...' time=1709023369.209453 content={'hello': 'world'} ref=None type='testtype'
+{'address': '0x...',
+ 'content': {'hello': 'world'},
+ 'ref': None,
+ 'time': 1709623431.41251,
+ 'type': 'testtype'}
 ```
 
 ## Update / amending a post
@@ -90,6 +85,7 @@ Example:
 ```python
 from aleph.sdk.chains.ethereum import get_fallback_account
 from aleph.sdk.client import AuthenticatedAlephHttpClient
+from pprint import pprint
 
 async def main():
     account = get_fallback_account()
@@ -104,10 +100,14 @@ async def main():
 
 import asyncio
 message, status = asyncio.run(main())
-print(message.content)
+pprint(message.content.dict())
 ```
 
 outputs:
 ```
-address='0xbC80BeEcBd67549E70cb1C729e903818E6370D37' time=1709025582.8660538 content={'hello': 'aleph'} ref='02afdbf33ff2c6ddb46349298a4598a8801cec61dbaa8f3a17ba9d1ad6dd8cb1' type='amend'
+{'address': '0x...',
+ 'content': {'hello': 'aleph'},
+ 'ref': '02afdbf33ff2c6ddb46349298a4598a8801cec61dbaa8f3a17ba9d1ad6dd8cb1',
+ 'time': 1709623543.108896,
+ 'type': 'amend'}
 ```
