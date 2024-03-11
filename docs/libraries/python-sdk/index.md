@@ -14,7 +14,7 @@ pip install aleph-sdk-python
 ## Usage
 
 - [Creating an account](accounts.md)
-- [Sending & reading POST messages](posts.md)
+- [Sending & reading POST messages](posts/create.md)
 - [Sending & reading AGGREGATE messages](aggregates/create.md)
 
 ## Further links

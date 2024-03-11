@@ -38,7 +38,7 @@ The Aleph.im network is composed of 2 sets of nodes:
 In Aleph.im terminology, a "_message_" is similar to a "_transaction_" for a blockchain: it is a set of data sent by an end user, propagated through the entire peer-to-peer network.
 A message can be generated using either the [Python SDK](libraries/python-sdk/index.md) or [TypeScript SDK](./libraries/typescript-sdk/index.md), or through [aleph-client](tools/aleph-client.md) or the [Console](https://console.aleph.im/).
 
-These messages can contain several different instructions, such as reading or writing [posts](libraries/python-sdk/posts.md), [programs/functions](computing/index.md), or [indexing data](tools/indexer.md) created on external blockchains.
+These messages can contain several different instructions, such as reading or writing [posts](libraries/python-sdk/posts/create.md), [programs/functions](computing/index.md), or [indexing data](tools/indexer.md) created on external blockchains.
 
 ### Payment
 
