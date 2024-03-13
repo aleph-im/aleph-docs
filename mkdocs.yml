@@ -138,3 +138,5 @@ plugins:
 
         'nodes/compute/installation/configure_caddy.md': 'nodes/compute/installation/configure-caddy.md'
 
+        'libraries/Aleph.im-Python-SDK/index.md': 'libraries/python-sdk/index.md'
+
