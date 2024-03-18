@@ -29,7 +29,7 @@ Aleph.im supports two popular and high-performance hypervisors for virtualizatio
 
    **a) Modifying the Systemd Service File:**
 
-    1. Locate the Aleph VM orchestrator service file, typically found at `/etc/systemd/system/aleph-vm-orchestrator.service`.
+    1. Locate the Aleph VM orchestrator service file, typically found at `/etc/systemd/system/aleph-vm-supervisor.service`.
     2. Edit the file and add the `--developer-ssh-keys` argument to the `ExecStart` line. It should look something like this:
 
        ```
