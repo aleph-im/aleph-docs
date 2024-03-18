@@ -57,12 +57,13 @@ Aleph.im supports two popular and high-performance hypervisors for virtualizatio
 
      ```bash
      curl --retry 5 --max-time 10 --fail -X POST -H "Content-Type: application/json" \
-     -H "X-Auth-Signature: test" \
+     -H "X-Auth-Signature: ALLOCATION_TOKEN" \
      -d '{"persistent_vms": [], "instances": ["INSTANCE_ID"]}' \
-     "[http://ovh.staging.aleph.sh/control/allocations](http://ovh.staging.aleph.sh/control/allocations)"
+     "http://CRN_URL/control/allocations"
      ```
 
-    - Replace `INSTANCE_ID` with the actual ID of the instances you want to launch.
+    - Replace `INSTANCE_ID` with the actual ID of the instances you want to launch and also the `CRN_URL` by your own.
+    - Replace `ALLOCATION_TOKEN` with you allocation token source of the hash previously configured.
 
 ## Running a Qemu Instance
 
@@ -86,10 +87,13 @@ To run an instance using the Qemu hypervisor, follow these additional steps:
 
 3. **Launch a Qemu Instance:**
 
-   The `curl` command remains almost the same, but ensure the instance you're launching has a Qemu runtime. Replace `QEMU_INSTANCE_ID` with the actual ID of the Qemu instance:
+   The `curl` command remains almost the same, but ensure the instance you're launching has a Qemu runtime:
 
      ```bash
      curl --retry 5 --max-time 10 --fail -X POST -H "Content-Type: application/json" \
-     -H "X-Auth-Signature: test" \
+     -H "X-Auth-Signature: ALLOCATION_TOKEN" \
      -d '{"persistent_vms": [], "instances": ["QEMU_INSTANCE_ID"]}' \
-     "[invalid URL removed]
+     "http://CRN_URL/control/allocations"
+     ```
+   
+   - Replace `QEMU_INSTANCE_ID` with the actual ID of the Qemu instance
