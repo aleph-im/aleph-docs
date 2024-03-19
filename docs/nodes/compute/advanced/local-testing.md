@@ -13,8 +13,11 @@ Aleph.im supports two popular and high-performance hypervisors for virtualizatio
 - Edit the `/etc/aleph/supervisor.env` file and add the following lines:
 
   ``` bash
-  # Encrypted allocation token hash in sha1 format
+  # Encrypted allocation token hash in sha256 format
   ALEPH_VM_ALLOCATION_TOKEN_HASH=YOUR_ALLOCATION_TOKEN_HASH
+  
+  # Demo allocation hash for "test" allocation token
+  # ALEPH_VM_ALLOCATION_TOKEN_HASH=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08
 
   # List of authorized SSH public keys (replace "YOUR_SSH_PUBLIC_KEY" with your actual key)
   ALEPH_VM_DEVELOPER_SSH_KEYS=["YOUR_SSH_PUBLIC_KEY"]
@@ -56,7 +59,7 @@ You can simply append the `--developer-ssh-keys` argument when running the orche
 Use the following `curl` command to launch an instance locally:
 
  ``` bash
- curl --retry 5 --max-time 10 --fail -X POST -H "Content-Type: application/json" \
+ curl --verbose --include -X POST -H "Content-Type: application/json" \
  -H "X-Auth-Signature: ALLOCATION_TOKEN" \
  -d '{"persistent_vms": [], "instances": ["INSTANCE_ID"]}' \
  "http://CRN_URL/control/allocations"
@@ -90,7 +93,7 @@ If you primarily use Qemu, you can set it as the default hypervisor:
 The `curl` command remains almost the same, but ensure the instance you're launching has a Qemu runtime:
 
  ``` bash
- curl --retry 5 --max-time 10 --fail -X POST -H "Content-Type: application/json" \
+ curl --verbose --include -X POST -H "Content-Type: application/json" \
  -H "X-Auth-Signature: ALLOCATION_TOKEN" \
  -d '{"persistent_vms": [], "instances": ["QEMU_INSTANCE_ID"]}' \
  "http://CRN_URL/control/allocations"
