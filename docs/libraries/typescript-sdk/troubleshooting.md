@@ -3,7 +3,7 @@
 As of now, the SDK is in beta and we are working on improving it.
 If you encounter any issues, please let us know by creating an issue on the [GitHub repository](https://github.com/aleph-im/aleph-sdk-ts/issues).
 
-## 1. Vite: Module externalized for browser compatibility
+## Vite: Module externalized for browser compatibility
 
 If you are using the SDK in a browser environment, you may encounter the following error:
 
