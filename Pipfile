@@ -1,6 +1,8 @@
 [packages]
 mkdocs-material = "==8.5.11"
 mkdocs-redirects = "==1.2.1"
+pytest = "~=8.0.2"
+mktestdocs = "~=0.2.1"
 aioipfs = "==0.6.2"
 async-timeout = "==4.0.3"
 
