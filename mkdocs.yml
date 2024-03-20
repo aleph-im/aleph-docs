@@ -89,6 +89,7 @@ nav:
           - 'Aggregates': libraries/typescript-sdk/aggregates.md
           - 'Instances': libraries/typescript-sdk/instances.md
           - 'Posts': libraries/typescript-sdk/posts.md
+          - 'Troubleshooting': libraries/typescript-sdk/troubleshooting.md
       - 'Python SDK':
           - 'Introduction': libraries/python-sdk/index.md
           - 'Account': libraries/python-sdk/accounts.md
