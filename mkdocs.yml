@@ -80,7 +80,10 @@ nav:
       - 'Aleph Account': tools/aleph-account.md
       - 'Aleph Client': tools/aleph-client.md
       - 'Aleph Tooling': tools/aleph-tooling.md
-      - 'Indexer': tools/indexer.md
+      - 'Multichain Indexer':
+            - 'Introduction': tools/indexer/index.md
+            - 'Generate Solana Indexers from IDL': tools/indexer/indexer-generator.md
+            - 'EVM Indexer Guide': tools/indexer/evm-indexer.md
       - 'IPFS Pinning': tools/ipfs-pinning.md
   - Libraries:
       - 'Typescript SDK':
