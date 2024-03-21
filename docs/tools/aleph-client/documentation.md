@@ -479,7 +479,7 @@ $ aleph file pin [OPTIONS] ITEM_HASH
 * `--channel TEXT`: Aleph.im network channel where the message is located
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  [default: /home/mhh/.aleph-im/private-keys/ethereum.key]
-* `--ref TEXT`: Checkout https://aleph-im.gitbook.io/aleph-js/api-resources-reference/posts
+* `--ref TEXT`: A reference hash to pass along. Checkout [this section in the POSTS documentation](../../protocol/object-types/posts.md)
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -502,7 +502,7 @@ $ aleph file upload [OPTIONS] PATH
 * `--channel TEXT`: Aleph.im network channel where the message is located
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  [default: /home/mhh/.aleph-im/private-keys/ethereum.key]
-* `--ref TEXT`: Checkout https://aleph-im.gitbook.io/aleph-js/api-resources-reference/posts
+* `--ref TEXT`: A reference hash to pass along. Checkout [this section in the POSTS documentation](../../protocol/object-types/posts.md)
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -552,7 +552,7 @@ $ aleph instance create [OPTIONS]
 * `--debug / --no-debug`: [default: no-debug]
 * `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
 
-Requires at least a "mount" and "size_mib". For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
+Requires at least a "mount" and "size_mib". For more info, see the docs: [https://docs.aleph.im/computing/volumes/persistent/](../../computing/volumes/persistent.md)
 
 Example: --persistent_volume persistence=host,size_mib=100,mount=/opt/data
 * `--ephemeral-volume TEXT`: Ephemeral volumes are allocated on the host machine when the VM is started and deleted when the VM is stopped.
@@ -560,7 +560,7 @@ Example: --persistent_volume persistence=host,size_mib=100,mount=/opt/data
 Example: --ephemeral-volume size_mib=100,mount=/tmp/data
 * `--immutable-volume TEXT`: Immutable volumes are pinned on the network and can be used by multiple VMs at the same time. They are read-only and useful for setting up libraries or other dependencies.
 
-Requires at least a "ref" (message hash) and "mount" path. "use_latest" is True by default, to use the latest version of the volume, if it has been amended. See the docs for more info: https://docs.aleph.im/computing/volumes/immutable/
+Requires at least a "ref" (message hash) and "mount" path. "use_latest" is True by default, to use the latest version of the volume, if it has been amended. See the docs for more info: [https://docs.aleph.im/computing/volumes/immutable/](../../computing/volumes/immutable.md)
 
 Example: --immutable-volume ref=25a393222692c2f73489dc6710ae87605a96742ceef7b91de4d7ec34bb688d94,mount=/lib/python3.8/site-packages
 * `--help`: Show this message and exit.
@@ -731,7 +731,7 @@ $ aleph message post [OPTIONS]
 
 * `--path PATH`: Path to the content you want to post. If omitted, you can input your content directly
 * `--type TEXT`: Text representing the message object type  [default: test]
-* `--ref TEXT`: Checkout https://aleph-im.gitbook.io/aleph-js/api-resources-reference/posts
+* `--ref TEXT`: A reference hash to pass along. Checkout [this section in the POSTS documentation](../../protocol/object-types/posts.md)
 * `--channel TEXT`: Aleph.im network channel where the message is located
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  [default: /home/mhh/.aleph-im/private-keys/ethereum.key]
@@ -897,7 +897,7 @@ $ aleph program update [OPTIONS] ITEM_HASH PATH
 
 ### `program upload`
 
-Register a program to run on aleph.im. For more information, see https://docs.aleph.im/computing/
+Register a program to run on aleph.im. For more information, see [https://docs.aleph.im/computing/](../../computing/index.md)
 
 **Usage**:
 
@@ -927,7 +927,7 @@ $ aleph program upload [OPTIONS] PATH ENTRYPOINT
 * `--persistent / --no-persistent`: [default: no-persistent]
 * `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
 
-Requires at least a "mount" and "size_mib". For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
+Requires at least a "mount" and "size_mib". For more info, see the docs: [https://docs.aleph.im/computing/volumes/persistent/](../../computing/volumes/persistent.md)
 
 Example: --persistent_volume persistence=host,size_mib=100,mount=/opt/data
 * `--ephemeral-volume TEXT`: Ephemeral volumes are allocated on the host machine when the VM is started and deleted when the VM is stopped.
