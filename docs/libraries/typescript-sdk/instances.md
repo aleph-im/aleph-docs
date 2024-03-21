@@ -49,6 +49,10 @@ const sshKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC3...";
 
 const instance = await client.createInstance({
     authorized_keys: [sshKey],
+    resources: {
+      vcpus: 1,
+      memory: 2000,
+    },
     payment: {
         chain: "ETH",
         type: "hold",
@@ -106,6 +110,10 @@ const client = authenticatedAlephHttpClient(account);
 await account.increaseALEPHFlow(streamRewardAddress, 0.88);
 await client.createInstance({
     authorized_keys: [sshKey],
+    resources: {
+      vcpus: 8,
+      memory: 16000,
+    },
     payment: {
         chain: "AVAX",
         type: "superfluid",
