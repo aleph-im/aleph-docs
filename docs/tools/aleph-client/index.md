@@ -56,7 +56,7 @@ aleph --help
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
-Or check out the [documentation page](documentation.md).
+Or check out the [documentation page](usage).
 
 ## Test using Docker
 

@@ -80,7 +80,7 @@ nav:
       - 'Aleph Account': tools/aleph-account.md
       - 'Aleph Client':
             - 'Introduction': tools/aleph-client/index.md
-            - 'Docs': tools/aleph-client/documentation.md
+            - 'Usage': tools/aleph-client/usage.md
       - 'Aleph Tooling': tools/aleph-tooling.md
       - 'Indexer': tools/indexer.md
       - 'IPFS Pinning': tools/ipfs-pinning.md

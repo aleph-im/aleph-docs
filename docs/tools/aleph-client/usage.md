@@ -1,4 +1,4 @@
-# Aleph CLI
+# Aleph CLI Documentation
 
 **Usage**:
 
