@@ -550,19 +550,9 @@ $ aleph instance create [OPTIONS]
 * `--rootfs-name TEXT`: Name of the rootfs to use for your instance. If not set, content.metadata.name of the --rootfs store message will be used.  [default: main-rootfs]
 * `--rootfs-size INTEGER`: Size of the rootfs to use for your instance. If not set, content.size of the --rootfs store message will be used.  [default: 2000]
 * `--debug / --no-debug`: [default: no-debug]
-* `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
-
-Requires at least a "mount" and "size_mib". For more info, see the docs: [https://docs.aleph.im/computing/volumes/persistent/](../../computing/volumes/persistent.md)
-
-Example: --persistent_volume persistence=host,size_mib=100,mount=/opt/data
-* `--ephemeral-volume TEXT`: Ephemeral volumes are allocated on the host machine when the VM is started and deleted when the VM is stopped.
-
-Example: --ephemeral-volume size_mib=100,mount=/tmp/data
-* `--immutable-volume TEXT`: Immutable volumes are pinned on the network and can be used by multiple VMs at the same time. They are read-only and useful for setting up libraries or other dependencies.
-
-Requires at least a "ref" (message hash) and "mount" path. "use_latest" is True by default, to use the latest version of the volume, if it has been amended. See the docs for more info: [https://docs.aleph.im/computing/volumes/immutable/](../../computing/volumes/immutable.md)
-
-Example: --immutable-volume ref=25a393222692c2f73489dc6710ae87605a96742ceef7b91de4d7ec34bb688d94,mount=/lib/python3.8/site-packages
+* `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped. Requires at least a "mount" and "size_mib". For more info, see the docs: [https://docs.aleph.im/computing/volumes/persistent/](../../computing/volumes/persistent.md) **Example:** --persistent_volume persistence=host,size_mib=100,mount=/opt/data
+* `--ephemeral-volume TEXT`: Ephemeral volumes are allocated on the host machine when the VM is started and deleted when the VM is stopped. **Example:** --ephemeral-volume size_mib=100,mount=/tmp/data
+* `--immutable-volume TEXT`: Immutable volumes are pinned on the network and can be used by multiple VMs at the same time. They are read-only and useful for setting up libraries or other dependencies. Requires at least a "ref" (message hash) and "mount" path. "use_latest" is True by default, to use the latest version of the volume, if it has been amended. See the docs for more info: https://docs.aleph.im/computing/volumes/immutable/ **Example:** --immutable-volume ref=25a393222692c2f73489dc6710ae87605a96742ceef7b91de4d7ec34bb688d94,mount=/lib/python3.8/site-packages
 * `--help`: Show this message and exit.
 
 ### `instance delete`
@@ -925,18 +915,8 @@ $ aleph program upload [OPTIONS] PATH ENTRYPOINT
 * `--beta / --no-beta`: If true, you will be prompted to add message subscriptions to your program  [default: no-beta]
 * `--debug / --no-debug`: [default: no-debug]
 * `--persistent / --no-persistent`: [default: no-persistent]
-* `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
-
-Requires at least a "mount" and "size_mib". For more info, see the docs: [https://docs.aleph.im/computing/volumes/persistent/](../../computing/volumes/persistent.md)
-
-Example: --persistent_volume persistence=host,size_mib=100,mount=/opt/data
-* `--ephemeral-volume TEXT`: Ephemeral volumes are allocated on the host machine when the VM is started and deleted when the VM is stopped.
-
-Example: --ephemeral-volume size_mib=100,mount=/tmp/data
-* `--immutable-volume TEXT`: Immutable volumes are pinned on the network and can be used by multiple VMs at the same time. They are read-only and useful for setting up libraries or other dependencies.
-
-Requires at least a "ref" (message hash) and "mount" path. "use_latest" is True by default, to use the latest version of the volume, if it has been amended. See the docs for more info: https://docs.aleph.im/computing/volumes/immutable/
-
-Example: --immutable-volume ref=25a393222692c2f73489dc6710ae87605a96742ceef7b91de4d7ec34bb688d94,mount=/lib/python3.8/site-packages
+* `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped. Requires at least a "mount" and "size_mib". For more info, see the docs: [https://docs.aleph.im/computing/volumes/persistent/](../../computing/volumes/persistent.md) **Example:** --persistent_volume persistence=host,size_mib=100,mount=/opt/data
+* `--ephemeral-volume TEXT`: Ephemeral volumes are allocated on the host machine when the VM is started and deleted when the VM is stopped. **Example:** --ephemeral-volume size_mib=100,mount=/tmp/data
+* `--immutable-volume TEXT`: Immutable volumes are pinned on the network and can be used by multiple VMs at the same time. They are read-only and useful for setting up libraries or other dependencies. Requires at least a "ref" (message hash) and "mount" path. "use_latest" is True by default, to use the latest version of the volume, if it has been amended. See the docs for more info: https://docs.aleph.im/computing/volumes/immutable/ **Example:** --immutable-volume ref=25a393222692c2f73489dc6710ae87605a96742ceef7b91de4d7ec34bb688d94,mount=/lib/python3.8/site-packages
 * `--help`: Show this message and exit.
 
