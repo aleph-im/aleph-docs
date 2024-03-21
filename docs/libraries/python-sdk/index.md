@@ -21,4 +21,4 @@ pip install aleph-sdk-python
 
 - [PyPi package](https://pypi.org/project/aleph-sdk-python/)
 - [GitHub repository](https://github.com/aleph-im/aleph-sdk-python)
-- [Aleph CLI](../../tools/aleph-client.md)
+- [Aleph CLI](../../tools/aleph-client/index.md)
