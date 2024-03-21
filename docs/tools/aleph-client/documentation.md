@@ -14,7 +14,7 @@ $ aleph aleph [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `about`: Display the informations of Aleph CLI
+* `about`: Display information of the aleph.im CLI
 * `account`: Manage account
 * `aggregate`: Manage aggregate messages on aleph.im
 * `domain`: Manage custom Domain (dns) on aleph.im
@@ -26,7 +26,7 @@ $ aleph aleph [OPTIONS] COMMAND [ARGS]...
 
 ## `about`
 
-Display the informations of Aleph CLI
+Display information of the aleph.im CLI
 
 **Usage**:
 
