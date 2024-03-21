@@ -18,9 +18,9 @@ $ aleph aleph [OPTIONS] COMMAND [ARGS]...
 * `account`: Manage account
 * `aggregate`: Manage aggregate messages on aleph.im
 * `domain`: Manage custom Domain (dns) on aleph.im
-* `file`: File uploading and pinning on IPFS and...
+* `file`: File uploading and pinning on IPFS and aleph.im
 * `instance`: Manage instances (VMs) on aleph.im network
-* `message`: Post, amend, watch and forget messages on...
+* `message`: Post, amend, watch and forget messages on aleph.im
 * `node`: Get node info on aleph.im network
 * `program`: Upload and update programs on aleph.im VM
 
@@ -188,7 +188,7 @@ $ aleph aggregate [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `forget`: Forget all the messages composing an...
+* `forget`: Forget all the messages composing an aggregate.
 * `get`: Fetch an aggregate by key and content.
 * `post`: Create or Update aggregate
 
@@ -523,8 +523,8 @@ $ aleph instance [OPTIONS] COMMAND [ARGS]...
 **Commands**:
 
 * `create`: Register a new instance on aleph.im
-* `delete`: Delete an instance, unallocating all...
-* `list`: List all instances associated with your...
+* `delete`: Delete an instance, unallocating all resources
+* `list`: List all instances associated with your private key
 
 ### `instance create`
 
@@ -619,7 +619,7 @@ $ aleph message [OPTIONS] COMMAND [ARGS]...
 * `get`
 * `post`: Post a message on aleph.im.
 * `sign`: Sign an aleph message with a private key.
-* `watch`: Watch a hash for amends and print amend...
+* `watch`: Watch a hash for amends and print amend messages.
 
 ### `message amend`
 
@@ -837,8 +837,8 @@ $ aleph program [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `unpersist`: Stop a persistent virtual machine by...
-* `update`: Update the code of an existing program
+* `unpersist`: Stop a persistent virtual machine.
+* `update`: Update the code of an existing program.
 * `upload`: Register a program to run on aleph.im.
 
 ### `program unpersist`
