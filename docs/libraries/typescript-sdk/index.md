@@ -23,4 +23,4 @@ npm install @aleph-sdk/client
 
 - [NPM package](https://www.npmjs.com/package/@aleph-sdk/client)
 - [GitHub repository](https://github.com/aleph-im/aleph-sdk-python)
-- [Aleph CLI](../../tools/aleph-client.md)
+- [Aleph CLI](../../tools/aleph-client/index.md)
