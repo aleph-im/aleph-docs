@@ -102,19 +102,22 @@ Return global stats about the amount of accounts and total amount of instruction
 }
 ```
 
-| Property                 | Description                                                                        |
-|--------------------------|------------------------------------------------------------------------------------|
-| totalAccounts            | The amount of indexed accounts by account type                                     |
-| totalAccesses            | The total amount of events registered across all program accounts                  |
-| totalAccessesByProgramId | The amount of events registered by each signer (user) interacting with the program |
-| startTimestamp           | The timestamp of the first indexed event                                           |
-| endTimestamp             | The timestamp of the last indexed event                                            |
+| Property                   | Description                                                                        |
+|----------------------------|------------------------------------------------------------------------------------|
+| `totalAccounts`            | The amount of indexed accounts by account type                                     |
+| `totalAccesses`            | The total amount of events registered across all program accounts                  |
+| `totalAccessesByProgramId` | The amount of events registered by each signer (user) interacting with the program |
+| `startTimestamp`           | The timestamp of the first indexed event                                           |
+| `endTimestamp`             | The timestamp of the last indexed event                                            |
 
 ### Accounts
-Get all accounts, their addresses, Anchor type and contents:
+Get all accounts, their addresses, Anchor IDL type and contents:
+
 ```graphql
 {
   accounts {
+    name
+    programId
     address
     type
     data {
@@ -146,9 +149,18 @@ Get all accounts, their addresses, Anchor type and contents:
 }
 ```
 
+| Property    | Description                                                            |
+|-------------|------------------------------------------------------------------------|
+| `name`      | Indexer-assigned name of the account. By default, it is the `address`. |
+| `address`   | Address of the account.                                                |
+| `type`      | Type of the account. Possible types depend on the IDLs definitions.    |
+| `programId` | Which program created the account. Usually the one the IDL belongs to. |
+| `data`      | Parsed data from the account. Properties depend on its `type`.         |
+
 ### Indexing state
-Get the current progress of the indexer. Accurate means that the indexer fetched all transaction signatures belonging to
-that account, progress tells you how much percent of all transactions have been fetched and processed.
+Get the current progress of the indexer. The indexer first fetches all transaction signatures recorded involving given account,
+then fetches the actual transactions and processes them as events into the database.
+
 ```graphql
 {
   accountState(account: "8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC", blockchain: "solana", type: transaction) {
@@ -160,11 +172,20 @@ that account, progress tells you how much percent of all transactions have been 
 }
 ```
 
+| Property    | Description                                                                                                                   |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------|
+| `accurate`  | If the indexer has fetched all transactions signatures in order for the progress to be accurate.                              |
+| `progress`  | How much percent of all transactions have been fetched and processed. Is measured relative to fetched transaction signatures. |
+| `pending`   | Shows which time spans of transactions are waiting to be fetched and processed.                                               |
+| `processed` | Shows which time span has already been processed.                                                                             |
+
 ### General account stats
-Get accesses in the last hour, day, week or in total:
+By default, the generator creates code to calculate stats for the last 1 hour, 24 hours, 7 days, and total for how many times
+an account has been accessed, meaning how many times an instruction has been invoked involving the account:
+
 ```graphql
 {
-  accountStats(account: "7ekbc8F72Zm4KKQwbgSe7UTaiprHb8nkmbA2ti5hKoCX", blockchain: "solana") {
+  accountStats(account: "7ekbc8F72Zm4KKQwbgSe7UTaiprHb8nkmbA2ti5hKoCX", blockchain: "solana", type: "access") {
     stats {
       last1h {
         accesses
@@ -177,22 +198,39 @@ Get accesses in the last hour, day, week or in total:
       }
       total {
         accesses
+        accessesByProgramId
+        startTimestamp
+        endTimestamp
       }
     }
   }
 }
 ```
 
+| Property              | Description                                                     |
+|-----------------------|-----------------------------------------------------------------|
+| `last1h`              | Stats for the last hour.                                        |
+| `last24h`             | Stats for the last 24 hours.                                    |
+| `last7d`              | Stats for the last 7 days.                                      |
+| `total`               | Total aggregated stats.                                         |
+| `accesses`            | Amount of accesses. Available on all time spans.                |
+| `accessesByProgramId` | Amount of accesses by each signer. Available on all time spans. |
+| `startTimestamp`      | The timestamp of the first indexed event during the time span.  |
+| `endTimestamp`        | The timestamp of the last indexed event during the time span.   |
+
 ### Account time series stats
-Get aggregated accesses by signing wallet and month:
+Similar to the general account stats, but returns a time series of stats for a given account and time frame:
 ```graphql
 {
-  accountTimeSeriesStats(timeFrame:Month, account: "7ekbc8F72Zm4KKQwbgSe7UTaiprHb8nkmbA2ti5hKoCX", type: "access", blockchain: "solana") {
+  accountTimeSeriesStats(timeFrame: Month, account: "7ekbc8F72Zm4KKQwbgSe7UTaiprHb8nkmbA2ti5hKoCX", type: "access", blockchain: "solana") {
     series {
       date
       value {
         ...on AccessTimeStats {
+          accesses
           accessesByProgramId
+          startTimestamp
+          endTimestamp
         }
       }
     }
@@ -200,8 +238,14 @@ Get aggregated accesses by signing wallet and month:
 }
 ```
 
+| Property | Description                                       |
+|----------|---------------------------------------------------|
+| `date`   | The beginning timestamp of the time series entry. |
+| `value`  | The stats for the given timestamp.                |
+
 ### Processed instructions (Events)
-Get the latest 1000 processed instructions:
+Get the latest ten processed `OrderUnstake` instructions (events) for a given account:
+
 ```graphql
 {
   events(account: "7ekbc8F72Zm4KKQwbgSe7UTaiprHb8nkmbA2ti5hKoCX", types: OrderUnstake, limit: 10) {
@@ -221,6 +265,14 @@ Get the latest 1000 processed instructions:
   }
 }
 ```
+
+| Property       | Description                         |
+|----------------|-------------------------------------|
+| `id`           | The unique identifier of the event. |
+| `timestamp`    | The timestamp of the event.         |
+| `type`         | The Anchor IDL type of the event.   |
+| `signer`       | The signer of the event.            |
+| `info`         | The parsed data of the event.       |
 
 ## Architecture
 The indexer generator creates all the necessary files to run a Solana indexer without any additional coding required.
