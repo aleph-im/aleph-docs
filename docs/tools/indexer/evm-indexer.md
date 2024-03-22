@@ -373,7 +373,7 @@ export default class WorkerDomain extends IndexerWorkerDomain {
     this.eventsDAL = createEventDAL(context.dataPath)
   }
 
-  ...
+  // [...] Other methods
 
   async indexEVMLogs(blockchainId, context, entities) {
     console.log(`Index ${blockchainId} logs`, JSON.stringify(entities, null, 2))
@@ -616,9 +616,9 @@ npm install @aleph-indexer/oasys-verse
 import indexer, { BlockchainChain } from '@aleph-indexer/framework'
 
 indexer.init({
-  ...
+  // [...]
   supportedBlockchains: [
-    ...,
+    // [...],
     { chain: BlockchainChain.OasysVerse, id: 'homeverse-mainnet' },
     { chain: BlockchainChain.OasysVerse, id: 'homeverse-testnet' }
   ],
@@ -635,7 +635,7 @@ export default class MainDomain extends IndexerMainDomain {
   async init() {
     await super.init()
     await this.indexAccounts([
-      ...,
+      // [...],
       {
         // The `Tokibune NFT (TBN)` contract on the network with id `homeverse-mainnet`
         blockchainId: 'homeverse-mainnet',
@@ -673,7 +673,7 @@ HOMEVERSE_MAINNET_EXPLORER_URL=https://explorer.oasys.homeverse.games/api?module
 import { IndexerWorkerDomain } from '@aleph-indexer/framework'
 
 export default class WorkerDomain extends IndexerWorkerDomain {
-  ...
+  // [...]
   
   async homeverseTestnetFilterLog(context, entity) {
     return this.filterEVMLog('homeverse-testnet', context, entity)
