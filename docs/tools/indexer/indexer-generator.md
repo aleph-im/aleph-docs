@@ -284,7 +284,7 @@ The indexer generator creates the following directories/files in the `src` direc
 - [`dal` ](#data-access-layer): Contains the data access layer and database models
 - [`domain`](#business-logic): Contains the business logic (worker loop, account discovery, statistics calculation)
 - [`parsers`](#event-parser): Contains the event parser which transforms a parsed Solana instruction into a business event
-- `utils/layouts`: Contains the basic Solana layout definitions and types for accounts and instructions, generated from the IDL
+- [`utils/layouts`](#layouts): Contains the basic Solana layout definitions and types for accounts and instructions, generated from the IDL
 - `constants.ts`: Contains the indexer's constants, like the program ID
 - `types.ts`: Contains the extended types, like account and statistics types
 
