@@ -55,9 +55,19 @@ npm run generate <program-address>
 ``` 
 
 ## Run the indexer
+1. Navigate to the generate package directory
+```bash
+cd packages/<idl-name>
+```
+2. Install dependencies and build the package
 ```bash
 npm i && npm run build
-npm run start <program-name>
+```
+3. Add your RPC on SOLANA_RPC env
+4. Grant execution permission to the script and run it
+```bash
+chmod +x run.sh
+./run.sh
 ```
 
 If you wait for a moment you will see a message warning you that it is now running a GraphQL server on [http://localhost:8080](http://localhost:8080).
@@ -122,7 +132,7 @@ Get the current progress of the indexer. Accurate means that the indexer fetched
 that account, progress tells you how much percent of all transactions have been fetched and processed.
 ```graphql
 {
-  accountState(account: "8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC", blockchain: solana, type: transaction) {
+  accountState(account: "8szGkuLTAux9XMgZ2vtY39jVSowEcpBfFfD8hXSEqdGC", blockchain: "solana", type: transaction) {
     accurate
     progress
     pending
@@ -135,7 +145,7 @@ that account, progress tells you how much percent of all transactions have been 
 Get accesses in the last hour, day, week or in total:
 ```graphql
 {
-  accountStats(account: "7ekbc8F72Zm4KKQwbgSe7UTaiprHb8nkmbA2ti5hKoCX", blockchain: solana) {
+  accountStats(account: "7ekbc8F72Zm4KKQwbgSe7UTaiprHb8nkmbA2ti5hKoCX", blockchain: "solana") {
     stats {
       last1h {
         accesses
@@ -158,7 +168,7 @@ Get accesses in the last hour, day, week or in total:
 Get aggregated accesses by signing wallet and month:
 ```graphql
 {
-  accountTimeSeriesStats(timeFrame:Month, account: "7ekbc8F72Zm4KKQwbgSe7UTaiprHb8nkmbA2ti5hKoCX", type: "access", blockchain: solana) {
+  accountTimeSeriesStats(timeFrame:Month, account: "7ekbc8F72Zm4KKQwbgSe7UTaiprHb8nkmbA2ti5hKoCX", type: "access", blockchain: "solana") {
     series {
       date
       value {
