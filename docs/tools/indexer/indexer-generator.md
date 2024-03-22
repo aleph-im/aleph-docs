@@ -282,18 +282,21 @@ The indexer generator creates the following directories/files in the `src` direc
 
 - [`api`](#graphql-schema): Contains the GraphQL schema and resolvers
 - [`dal` ](#data-access-layer): Contains the data access layer and database models
-- `domain`: Contains the business logic (worker loop, account discovery, statistics calculation)
-- `parsers`: Contains the event parser which transforms a parsed Solana instruction into a business event
+- [`domain`](#business-logic): Contains the business logic (worker loop, account discovery, statistics calculation)
+- [`parsers`](#event-parser): Contains the event parser which transforms a parsed Solana instruction into a business event
 - `utils/layouts`: Contains the basic Solana layout definitions and types for accounts and instructions, generated from the IDL
 - `constants.ts`: Contains the indexer's constants, like the program ID
 - `types.ts`: Contains the extended types, like account and statistics types
+
+**Note:** If you want to add more functionality from scratch to the indexer, you should also check out the [EVM Indexer Guide](evm-indexer.md#3-indexer-services-and-architecture).
+This architecture overview only covers the basic structure of the generated Solana indexer.
 
 ### GraphQL Schema
 The GraphQL schema is generated from the IDL and contains basic queries and types to interact with the indexer.
 Example queries are provided in the [Supported Queries](#supported-queries) section.
 
-#### `schema.ts`
-The generated `APISchema` class inherits from the `IndexerAPISchema` class, provided by the Aleph Indexer Framework.
+#### APISchema
+The generated `APISchema` class in `schema.ts` inherits from the `IndexerAPISchema` class, provided by the Aleph Indexer Framework.
 
 Three types of queries are defined by the Indexer Generator:
 
@@ -316,7 +319,11 @@ The `customTimeSeriesTypesMap` is a map of the stats type identifier to the corr
 customTimeSeriesTypesMap: { access: Types.AccessTimeStats }
 ```
 
-See [domain/stats](
+#### Resolvers
+The resolvers are defined in the `resolvers.ts` file and are responsible for fetching the data from the [`MainDomain`](#maindomain) class and returning it to the client.
+
+#### Types
+The `types.ts` file contains the `GraphQLObjectType` definitions for the queries and types defined in the schema.
 
 ### Data Access Layer
 The Data Access Layer (DAL) is responsible for interacting with the database and storing the indexed data.
@@ -325,6 +332,7 @@ The DAL is based on [LevelDB](https://github.com/google/leveldb), a fast key-val
 #### Define a DAL
 By default, the Indexer Generator only creates the `EventStorage` class, which is responsible for storing the events in the database.
 A DAL needs a name, path, primary key, optionally indexes, and potentially a map function to correctly store and retrieve BigNumbers/BNs.
+The generated `EventStorage` class is very similar to the [basic example](evm-indexer.md#6-data-storage) provided in the EVM Indexer Guide.
 
 ```typescript
 export type EventStorage = EntityStorage<MarinadeFinanceEvent>
@@ -359,7 +367,7 @@ const eventStorage = createEventDAL('path/to/db')
 await eventStorage.save(event)
 ```
 
-Query the events from an index like in this example:
+Query the events from an index like in this example of the generated `AccountDomain` class:
 
 ```typescript
 export class AccountDomain {
@@ -400,3 +408,83 @@ for await (const event of accountDomain.getEventsByTime(0, Date.now(), opts)) {
 ```
 
 The passed arrays are the start and end keys of the index, in which between (and including) the two keys the events are fetched.
+
+### Business Logic
+The `domain` directory contains multiple central classes that are responsible for the business logic of the indexer.
+
+#### MainDomain
+The `MainDomain` class is the central class of the indexer and is responsible for the worker loop, account discovery, and statistics calculation.
+
+It configures the `discoveryInterval` and `stats` interval, which are the intervals in milliseconds in which the account discovery and statistics calculation are executed.
+
+Furthermore, a `discoverAccounts` method is provided, which is called in the worker loop and is responsible for discovering new accounts and adding them to be indexed in their own `AccountDomain`.
+Usually, the discovery process is more complex and therefore has its own discoverer class. A working example is generated in the `domain/discoverer` directory.
+
+See [the EVM Guide's section on event handling](evm-indexer.md#4-event-tracking-and-handling) for more information on how these domain classes work.
+
+#### WorkerDomain
+The `WorkerDomain` class takes actual care of the worker loop and is responsible for the worker's lifecycle.
+This includes filtering and parsing instructions, adding new accounts to the indexer and retrieving their `AccountDomain`s.
+
+An interesting method in the `WorkerDomain` class is `onNewAccount`:
+
+```typescript
+export default class WorkerDomain
+  extends IndexerWorkerDomain
+  implements SolanaIndexerWorkerDomainI, IndexerWorkerDomainWithStats {
+  
+  // [...] generated methods and constructor
+  
+  async onNewAccount(
+    config: AccountIndexerConfigWithMeta<MarinadeFinanceAccountInfo>,
+  ): Promise<void> {
+    const {blockchainId, account, meta} = config
+    const {apiClient} = this.context
+
+    const accountTimeSeries = await createAccountStats(
+      blockchainId,
+      account,
+      apiClient,
+      this.eventDAL,
+      this.statsStateDAL,
+      this.statsTimeSeriesDAL,
+    )
+
+    this.accounts[account] = new AccountDomain(
+      meta,
+      this.eventDAL,
+      accountTimeSeries,
+    )
+
+    console.log('Account indexing', this.context.instanceName, account)
+  }
+}
+```
+
+It is called when a new account is discovered and is responsible for creating a new `AccountDomain` for the account and storing it in the `accounts` object.
+You can trigger additional actions here, like setting up additional stats calculations, sending a notification or logging the event.
+
+See [the EVM Guide's section on implementing event handling](evm-indexer.md#52-implementing-event-handlers) for more information on how to implement event handlers in the `WorkerDomain`.
+
+#### AccountDomain
+The `AccountDomain` class is responsible for the business logic of a single account.
+It contains methods to fetch account events, calculate retrieve account statistics, and holds the DAL as well stats classes.
+
+#### Statistics Calculation
+The `domain/stats` directory contains classes that are responsible for calculating the accounts' recent statistics and time series statistics.
+
+While the `statsAggregator.ts` and `timeSeries.ts` both define which events should be aggregated to generate certain stats objects,
+the `timeSeriesAggregator.ts` class is responsible for calculating the time series stats from the events.
+
+This happens in the `processAccessStats` method, which has a monadic signature:
+
+```typescript
+  protected processAccessStats(
+    acc: AccessTimeStats,
+    curr: MarinadeFinanceEvent | AccessTimeStats,
+  ): AccessTimeStats
+```
+
+You need to make sure that everything that goes into the `curr` object is correctly handles and integrated into the `acc` object, which will be the final result of the aggregation.
+
+**Note:** Events can sometimes be out of order, so you need to make sure that the aggregation is idempotent and can handle out-of-order events!
