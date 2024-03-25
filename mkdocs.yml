@@ -82,6 +82,7 @@ nav:
       - 'Aleph Client':
             - 'Introduction': tools/aleph-client/index.md
             - 'Usage': tools/aleph-client/usage.md
+            - 'Documentation': tools/aleph-client/documentation.md
       - 'Aleph Tooling': tools/aleph-tooling.md
       - 'Multichain Indexer':
             - 'Introduction': tools/indexer/index.md
