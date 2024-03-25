@@ -52,7 +52,7 @@ import asyncio
 
 async def main():
     account = get_fallback_account()
-    async with AuthenticatedAlephHttpClient(accoun) as client:
+    async with AuthenticatedAlephHttpClient(account) as client:
         message, status = await client.create_post(
             {"hello": "world"},
             post_type="amend",
