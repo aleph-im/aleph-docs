@@ -60,12 +60,12 @@ jobs:
           hatch run mkdocs build
 
       - name: Run tests
-        run: | 
-        pytest -vv
-        if [ $? -ne 0 ]; then
-          echo "Certains tests ont échoué."
-          exit 1
-        fi
+        run: |
+          pytest -vv
+          if [ $? -ne 0 ]; then
+            echo "Certains tests ont échoué."
+            exit 1
+          fi
 
       - name: Upload
         run: |
