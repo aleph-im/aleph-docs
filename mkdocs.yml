@@ -72,10 +72,11 @@ nav:
           - 'Index': nodes/core/index.md
           - 'Backups': nodes/core/backups.md
       - 'Reliability':
-          - 'Index': nodes/reliability/index.md
+          - 'Introduction': nodes/reliability/index.md
+          - 'Monitoring': nodes/reliability/monitoring.md
           - 'Metrics': nodes/reliability/metrics.md
-          - 'Rewards': nodes/reliability/rewards.md
           - 'Scores': nodes/reliability/scores.md
+          - 'Rewards': nodes/reliability/rewards.md
   - 'Tools':
       - 'Aleph Account': tools/aleph-account.md
       - 'Aleph Client':
