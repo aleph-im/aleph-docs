@@ -4,7 +4,7 @@
 This script uploads the build SPA to IPFS.
 It does not ping it or do anything else yet, so the result can only be accessed
  as long as the files are not garbage collected.
-Requires: 'aioipfs>=0.6.2'
+Requires: 'aioipfs>=0.6.6'
 """
 
 import asyncio
