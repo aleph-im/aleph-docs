@@ -6,7 +6,7 @@ Using `get_message_error()` will show you the error code and some details about 
 
 ## Usage
 
-```python
+```py
 async def get_message_error(
         self,
         item_hash: str,

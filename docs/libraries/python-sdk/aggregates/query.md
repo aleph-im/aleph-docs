@@ -5,7 +5,7 @@ It exists two methods to query an aggregate:
 - `fetch_aggregate`: Query a single key
 - `fetch_aggregates`: Query all keys.
 
-```python
+```py
 def fetch_aggregate(
     self,
     address: str,
@@ -13,7 +13,7 @@ def fetch_aggregate(
 )
 ```
 
-```python
+```py
 def fetch_aggregates(
     self,
     address: str,

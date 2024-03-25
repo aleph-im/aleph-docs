@@ -9,7 +9,7 @@ Since version 0.8.0, `get_posts` uses a PostFilter object to specify the filters
 
 ## Usage
 
-```python
+```py
 async def get_posts(
         self,
         page_size: int = DEFAULT_PAGE_SIZE, # Default is 200
@@ -69,7 +69,7 @@ outputs something akin to:
 
 ## Usage
 
-```python
+```py
 async def get_message(
         self,
         item_hash: str,

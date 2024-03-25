@@ -7,7 +7,7 @@ of the post you want to delete. You may also forget multiple posts at a time.
 
 ## Usage
 
-```python
+```py
 async def forget(
         self,
         hashes: List[str],

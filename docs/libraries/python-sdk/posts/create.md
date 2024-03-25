@@ -8,7 +8,7 @@ Call this same function if you want to update / amend a post. see [below](#updat
 
 ## Usage
 
-```python
+```py
 async def create_post(
         self,
         post_content,
