@@ -55,6 +55,7 @@ jobs:
         run: |
           pip install hatch
           pip install pytest
+          pip install mktestdocs
 
       - name: Build
         run: |
