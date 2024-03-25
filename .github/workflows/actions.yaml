@@ -54,6 +54,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install hatch
+          pip install pytest
 
       - name: Build
         run: |
