@@ -1,0 +1,69 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+# Disable the `build-backend` since this project is not a package
+#build-backend = "hatchling.build"
+
+[project]
+name = "aleph-docs"
+dynamic = ["version"]
+description = "Aleph.im official documentation"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE.txt"}
+keywords = ["aleph", "aleph.im", "documentation", "ipfs", "p2p"]
+authors = [
+    {name = "Hugo Herter", email = "git@hugoherter.com"},
+    {name = "Mike Hukiewitz", email = "mike.hukiewitz@robotter.ai"},
+    {name = "Antonyjin", email = "antony.jin@epitech.eu"},
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: System :: Distributed Computing",
+]
+dependencies = [
+    "mkdocs-material==8.5.11",
+    "mkdocs-redirects==1.2.1",
+    "aioipfs==0.6.6",
+    "async-timeout==4.0.3"
+]
+
+[project.urls]
+Homepage = "https://docs.aleph.im/"
+Source = "https://github.com/aleph-im/aleph-docs"
+Issues = "https://github.com/aleph-im/aleph-docs/issues"
+Discussions = "https://community.aleph.im/"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.envs.testing]
+dependencies = [
+    "mypy==1.9.0",
+    "black==24.3.0",
+    "isort==5.13.2",
+    "ruff==0.3.4",
+]
+
+[tool.hatch.envs.testing.scripts]
+lint = "mypy . && black --check . && isort --check . && ruff check ."
+typing = "mypy ."
+
+[tool.black]
+target-version = ["py311"]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+python_version = "3.11"
+install_types = true
+non_interactive = true
+ignore_missing_imports = true
+check_untyped_defs = true
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
