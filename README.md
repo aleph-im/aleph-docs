@@ -4,20 +4,26 @@ Based on _Material for MkDocs_
 
 https://squidfunk.github.io/mkdocs-material/getting-started/
 
-## Install from source
+## Install Hatch
+
+[Hatch](https://hatch.pypa.io/latest/) is a tool for managing Python projects.
 
 ```shell
-pipenv install --dev
+pip install hatch
 ```
 
 ## Run the development server
-By running the following command, you will get a server that will automatically update the docs pages whenever you edit the sources.
+
+Run the following command to get a server that will automatically update the docs pages whenever you edit the sources.
+
 ```shell
-pipenv run mkdocs serve
+hatch run mkdocs serve
 ```
 
-## JSON schemas
+## Build the static site
 
-Using a Jetbrain IDE, you can manage loading JSON schemas using the Languages & Frameworks | Schemas and DTDs | Remote
-JSON Schemas page of the Settings/Preferences dialog (Ctrl+Alt+S).
+Run the following command to build the static site. The result will be in the `site` directory.
 
+```shell
+hatch run mkdocs build
+```

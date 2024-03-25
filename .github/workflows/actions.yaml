@@ -17,21 +17,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.11.4'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          pip install pipenv
-          pipenv install --dev
+          pip install hatch
 
-      - name: Black
-        run: pipenv run black --check .
+      - name: Lint
+        run: |
+          hatch run testing:lint
 
       - name: Mypy
-        run: pipenv run mypy --ignore-missing-imports .
+        run: |
+          hatch run testing:typing
 
 
   build:
@@ -41,22 +44,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          pip install pipenv
-          pipenv install --dev
+          pip install hatch
 
       - name: Build
-        run: pipenv run mkdocs build
+        run: |
+          hatch run mkdocs build
 
       - name: Upload
         run: |
-          export IPFS_CID=$(pipenv run --quiet ./utils/publish-on-aleph.py)
+          export IPFS_CID=$(hatch run ./utils/publish-on-aleph.py)
           echo $IPFS_CID >> $GITHUB_STEP_SUMMARY
           echo "ipfs_cid=$IPFS_CID" >> $GITHUB_ENV
         env:
