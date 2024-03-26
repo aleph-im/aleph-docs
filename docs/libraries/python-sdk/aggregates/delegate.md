@@ -7,7 +7,7 @@ This can be done by with the security key
 
 ## Create a security key
 
-```python
+```py
 from aleph.sdk.chains.ethereum import get_fallback_account
 from aleph.sdk.client import AuthenticatedAlephHttpClient
 
@@ -39,7 +39,7 @@ At this moment, `TARGET_ADDRESS` should be able to update your aggregate by usin
 
 You can verify this by fetching the security aggregate:
 
-```python
+```py
 from aleph.sdk.client import AlephHttpClient
 import asyncio
 

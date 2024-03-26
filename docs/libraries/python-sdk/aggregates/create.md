@@ -12,7 +12,7 @@ Initialize an `AuthenticatedAlephHttpClient` with an [account](../accounts.md) t
 
 ## Usage
 
-```python
+```py
 class AuthenticatedAlephHttpClient:
     ...
     async def create_aggregate(
