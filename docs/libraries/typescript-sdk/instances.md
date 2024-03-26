@@ -91,7 +91,7 @@ const node = resourceNodes[0];
 const streamRewardAddress = node["stream_reward"];
 ```
 
-This address can also be retrieved using the [aleph.im CLI](../../tools/aleph-client/documentation.md#node-compute).
+This address can also be retrieved using the [aleph.im CLI](../../tools/aleph-client/usage.md#node-compute).
 
 #### Create a payment stream
 
