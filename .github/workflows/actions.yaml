@@ -38,7 +38,7 @@ jobs:
 
       - name: Test Python code samples
         run: |
-          hatch run mkdocs testing:test
+          hatch run testing:test
 
 
   build:
