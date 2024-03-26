@@ -54,9 +54,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install hatch
-          pip install pytest
-          pip install mktestdocs
-          pip install aleph-sdk-python
 
       - name: Build
         run: |
@@ -64,11 +61,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -vv
-          if [ $? -ne 0 ]; then
-            echo "Certains tests ont échoué."
-            exit 1
-          fi
+          hatch run mkdocs testing:pytest
 
       - name: Upload
         run: |

@@ -44,11 +44,15 @@ dependencies = [
     "black==24.3.0",
     "isort==5.13.2",
     "ruff==0.3.4",
+    "pytest==8.1.1",
+    "mktestdocs==0.2.1",
+    "aleph-sdk-python==0.9.1",
 ]
 
 [tool.hatch.envs.testing.scripts]
 lint = "mypy . && black --check . && isort --check . && ruff check ."
 typing = "mypy ."
+pytest = "pytest -vv"
 
 [tool.black]
 target-version = ["py311"]
