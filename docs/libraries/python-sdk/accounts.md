@@ -33,7 +33,7 @@ ALEPH_CONFIG_HOME's "private-keys" directory (default: `~/.aleph.im/private-keys
 
 All chains provide a `get_fallback_account` function. Example using Ethereum:
 
-```python
+```py
 
 from aleph.sdk.chains.ethereum import get_fallback_account
 
@@ -48,7 +48,7 @@ account = get_fallback_account()
 
 === "Ethereum"
 
-    ```python
+    ```py
     from aleph.sdk.chains.ethereum import ETHAccount
 
     prv = bytes.fromhex("xxxxxx")
@@ -57,7 +57,7 @@ account = get_fallback_account()
 
 === "Solana"
 
-    ```python
+    ```py
     from aleph.sdk.chains.solana import SOLAccount
 
     prv = bytes.fromhex("xxxxxx")
@@ -66,7 +66,7 @@ account = get_fallback_account()
 
 === "NULS 1 & 2"
     
-    ```python
+    ```py
     from aleph.sdk.chains.nuls import NULSAccount
 
     prv = bytes.fromhex("xxxxxx")
@@ -75,7 +75,7 @@ account = get_fallback_account()
 
 === "Tezos"
 
-    ```python
+    ```py
     from aleph.sdk.chains.tezos import XTZAccount
 
     prv = bytes.fromhex("xxxxxx")
@@ -84,7 +84,7 @@ account = get_fallback_account()
 
 === "Cosmos / Tendermint"
 
-    ```python
+    ```py
     from aleph.sdk.chains.cosmos import CosmosAccount
 
     prv = bytes.fromhex("xxxxxx")
@@ -97,7 +97,7 @@ account = get_fallback_account()
     
     Example using Substrate (if you already used a fallback on ethereum or nuls, you might consider deleting the private key file):
     
-    ```python
+    ```py
     from aleph.sdk.chains.substrate import get_fallback_account
     
     account = get_fallback_account()
@@ -105,7 +105,7 @@ account = get_fallback_account()
     
     Another example setting the mnemonics manually:
     
-    ```python
+    ```py
     from aleph.sdk.chains.substrate import DOTAccount
     
     account = DOTAccount("payment shy team bargain chest fold bless artwork identify breeze pelican category")
@@ -116,7 +116,7 @@ account = get_fallback_account()
     
     You can also change the address_type (0 for polkadot, 2 for canary, 42 generic...).
     
-    ```python
+    ```py
     from aleph.sdk.chains.substrate import DOTAccount
     account = DOTAccount("payment shy team bargain chest fold bless artwork identify breeze pelican category")
     account.get_address()  # '5CGNMKCscqN2QNcT7Jtuz23ab7JUxh8wTEtXhECZLJn5vCGX'

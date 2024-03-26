@@ -27,3 +27,13 @@ Run the following command to build the static site. The result will be in the `s
 ```shell
 hatch run mkdocs build
 ```
+
+## Run test suites
+
+This project uses [mktestdocs](https://github.com/koaning/mktestdocs) to check the validity of python code samples.
+Code prefixed with `python` will be tested while code prefixed with `py` is not supposed to be a valid code (example: function signatures).
+
+```shell
+hatch run testing:test
+```
+
