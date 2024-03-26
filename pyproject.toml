@@ -52,7 +52,7 @@ dependencies = [
 [tool.hatch.envs.testing.scripts]
 lint = "mypy . && black --check . && isort --check . && ruff check ."
 typing = "mypy ."
-pytest = "pytest -vv"
+test = "pytest -vv"
 
 [tool.black]
 target-version = ["py311"]
