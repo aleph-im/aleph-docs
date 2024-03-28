@@ -113,6 +113,10 @@ nav:
       - 'Index': computing/index.md
       - Custom Domain:
           - 'Add a Custom Domain': computing/custom_domain/setup.md
+      - Execute Your Code:
+          - 'Index': computing/code_to_execute/index.md
+          - 'Upload': computing/code_to_execute/upload.md
+          - 'Write your code': computing/code_to_execute/write_your_code.md
       - Runtimes:
           - 'Index': computing/runtimes/index.md
           - 'Custom': computing/runtimes/custom.md
