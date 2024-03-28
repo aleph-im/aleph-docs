@@ -6,7 +6,7 @@ This guide provides a comprehensive overview of how to prepare and upload your c
 
 Before uploading, it's essential to ensure your code is correctly prepared to meet our requirements. This includes selecting the right language, packaging your project, and defining the entry point.
 
-![Execute Code](../../assets/images/execute-code.png)
+![Execute Code](../../assets/images/execute_code/upload.png)
 
 ### Selecting Your Language
 
@@ -41,9 +41,9 @@ Different languages and frameworks have unique conventions for entry points. It'
 
 Once your code is prepared, follow these steps to upload it to our platform:
 
-1. Navigate to the code upload section on our platform.
+1. Navigate to the code upload section on our platform by creating a new function.
 2. Choose your prepared `.zip` or `.sqsh` file.
-3. Select the language your code is written in (Python or Node.js).
+3. Select the language your code is written in.
 4. Specify the entry point for your code based on the guidelines provided above.
 5. Upload your code package.
 
@@ -51,4 +51,6 @@ After uploading, our platform will process your code and prepare it for executio
 
 ## Conclusion
 
-Uploading your code to our platform is a straightforward process designed to be as smooth and user-friendly as possible. By preparing your code according to the guidelines outlined in this document, you'll ensure a seamless integration and a great start to using our services. Whether you're working with Python or Node.js, we're excited to see what you'll build!
+Uploading your code to our platform is a straightforward process designed to be as smooth and user-friendly as possible. By preparing your code according to the guidelines outlined in this document, you'll ensure a seamless integration and a great start to using our services. 
+
+We're excited to see what you'll build!
