@@ -17,7 +17,7 @@ following fields:
 
 * `address [str]`: The address to which the file belongs. See [permissions](../permissions.md).
 * `time [float]`: The epoch timestamp of the message.
-* `item_type `str``: `storage` or `ipfs`. Determines the network to use to fetch and store the file.
+* `item_type [str]`: `storage` or `ipfs`. Determines the network to use to fetch and store the file.
 * `item_hash [str]`: Hash of the file to store. Must be a CIDv0 for IPFS, or a SHA256 hash for native storage.
 * `ref [Optional[str]]`: Optional reference to another file/STORE message. See `Updating files`.
 
