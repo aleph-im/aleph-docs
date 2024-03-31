@@ -115,6 +115,6 @@ vm.yourdomain.org:443 {
 EOL
 ```
 
-Finally, restard Caddy:
+Finally, restart Caddy:
 ```shell
 sudo systemctl restart caddy
