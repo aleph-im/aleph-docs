@@ -44,7 +44,7 @@ aleph --help
 │ --help                                                       Show this message and exit.                │
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ╭─ Commands ──────────────────────────────────────────────────────────────────────────────────────────────╮
-│ about             Display the informations of Aleph CLI                                                 │
+│ about             Display the information of Aleph CLI                                                 │
 │ account           Manage account                                                                        │
 │ aggregate         Manage aggregate messages on aleph.im                                                 │
 │ domain            Manage custom Domain (dns) on aleph.im                                                │

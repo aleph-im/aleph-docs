@@ -603,7 +603,7 @@ After setting up the ethereum indexer we can add as many other networks and acco
 
 Here are the steps to add tracking of some homeverse accounts in both testnet and mainnet
 
-### 11.1 In step 1.3 install this packages aditionally
+### 11.1 In step 1.3 install this packages additionally
 
 ```sh
 npm install @aleph-indexer/oasys-verse
