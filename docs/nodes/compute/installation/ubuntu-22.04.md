@@ -37,7 +37,7 @@ docker run -d -p 127.0.0.1:4021:4021/tcp --restart=always --name vm-connector al
 Then install the [VM-Supervisor](https://github.com/aleph-im/aleph-vm/tree/main/src/aleph/vm/orchestrator) using the official Debian package.
 The procedure is similar for updates.
 ```shell
-sudo wget -P /opt https://github.com/aleph-im/aleph-vm/releases/download/0.3.0/aleph-vm.ubuntu-22.04.deb
+sudo wget -P /opt https://github.com/aleph-im/aleph-vm/releases/download/0.4.0/aleph-vm.ubuntu-22.04.deb
 sudo apt install /opt/aleph-vm.ubuntu-22.04.deb
 ```
 
