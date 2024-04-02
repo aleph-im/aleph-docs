@@ -32,7 +32,7 @@ by leveraging the Aleph.im network's decentralized storage and compute capabilit
 The Aleph.im network is composed of 2 sets of nodes:
 
 * [CCNs](nodes/core/index.md), the backbone of the P2P network. They serve as an entry point into the network through an API (similar to a blockchain node's RPC).
-* [CRNs](nodes/compute/index.md), responsible for the actual compute and storage available on Aleph.im. CRNs must be tied manually to a single CCN, and each CCN is incentivized to tie up to 5 CRNs.
+* [CRNs](nodes/compute/index.md), responsible for the actual compute and storage available on Aleph.im. CRNs must be tied manually to a single CCN, and each CCN is incentivized to tie up to 3 CRNs.
 
 ### Messages
 In Aleph.im terminology, a "_message_" is similar to a "_transaction_" for a blockchain: it is a set of data sent by an end user, propagated through the entire peer-to-peer network.
