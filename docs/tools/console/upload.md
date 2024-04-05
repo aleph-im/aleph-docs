@@ -20,7 +20,7 @@ Ensure your project is developed in one of these languages before proceeding wit
 
 ### Packaging Your Project
 
-Your code should be compressed into a `.zip` or `.sqsh` (squashfs) file for the upload. This step is crucial for a successful integration. Here are some tips for packaging your project:
+Your code should be compressed into a `.zip` or `.squashfs` (squashfs) file for the upload. This step is crucial for a successful integration. Here are some tips for packaging your project:
 
 - Place your main file (e.g., `main.py` for Python projects or `run.sh` for Node.js projects) at the root of your package.
 - Ensure all necessary dependencies are included in your package. For Python, a `requirements.txt` file is recommended. For Node.js, include the `node_modules` folder or provide a `package.json` file.
@@ -42,7 +42,7 @@ Different languages and frameworks have unique conventions for entry points. It'
 Once your code is prepared, follow these steps to upload it to our platform:
 
 1. Navigate to the code upload section on our platform by creating a new function.
-2. Choose your prepared `.zip` or `.sqsh` file.
+2. Choose your prepared `.zip` or `.squashfs` file.
 3. Select the language your code is written in.
 4. Specify the entry point for your code based on the guidelines provided above.
 5. Upload your code package.
