@@ -33,7 +33,7 @@ The entry point is the name of the script or file used to invoke your function, 
 - Example: If your main file is `main.py` and it contains a function named `app`, your entry point would be `main:app`.
 
 #### Node.js
-- Example: If your primary file is `index.js`, your entry point is simply `index.js`.
+- Example: If your primary file is `index.js`, your entry point is simply your `run.sh` file.
 
 Different languages and frameworks have unique conventions for entry points. It's essential to follow the specific guidance for your chosen language or framework.
 
