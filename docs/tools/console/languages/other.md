@@ -4,21 +4,6 @@ Concerning Other section let's try with Rust program. Confirm that your project 
 
 Here is an example [Rust Sample](https://github.com/aleph-im/aleph-vm/tree/main/examples/example_http_rust)
 
-### Create the `run.sh` Script (Optionnal)
-
-Even though Rust applications compile to a binary, you can still use a `run.sh` script to execute the binary within the correct environment. The script should look something like this:
-
-```bash
-#!/bin/sh
-
-set -euf
-
-cd /opt/code
-./your_executable_name
-```
-
-Replace `your_executable_name` with the name of the binary produced by compiling your Rust project.
-
 ### Structuring Your Project
 
 Here’s a sample structure for a Rust project ready for packaging:
@@ -30,7 +15,6 @@ my_rust_project/
 │   └── main.rs  # Your main application file.
 ├── Cargo.toml  # Describes your project and its dependencies.
 ├── Cargo.lock  # Ensures consistent builds.
-└── run.sh
 ```
 
 1. **Main File**: Place your main Rust file, such as `main.rs`, inside the `src` directory. This file is the entry point to your application.
@@ -79,9 +63,9 @@ fn handle_connection(mut stream: TcpStream) {
 To upload your Rust application to the platform, follow these steps:
 
 1. **Navigate to Code Upload**: Access the code upload section by creating a new function.
-2. **Choose File**: Select your packaged file containing the compiled binary and `run.sh` script.
+2. **Choose File**: Select your packaged file containing the compiled binary.
 3. **Select Language**: Choose Rust as the language.
-4. **Specify Entry Point**: The entry point is defined in your `Cargo.toml` and implemented in `src/main.rs`. Ensure your Rust binary is correctly referenced in `run.sh`.
+4. **Specify Entry Point**: The entry point is defined in your `Cargo.toml` and implemented in `src/main.rs`. 
 5. **Upload**: Submit your package for processing.
 
 By following these steps, your Rust application will be correctly packaged and configured for deployment on the platform.

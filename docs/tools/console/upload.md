@@ -22,7 +22,7 @@ Ensure your project is developed in one of these languages before proceeding wit
 
 Your code should be compressed into a `.zip` or `.sqsh` (squashfs) file for the upload. This step is crucial for a successful integration. Here are some tips for packaging your project:
 
-- Place your main file (e.g., `main.py` for Python projects or `index.js` for Node.js projects) at the root of your package.
+- Place your main file (e.g., `main.py` for Python projects or `run.sh` for Node.js projects) at the root of your package.
 - Ensure all necessary dependencies are included in your package. For Python, a `requirements.txt` file is recommended. For Node.js, include the `node_modules` folder or provide a `package.json` file.
 
 ### Defining the Entry Point
