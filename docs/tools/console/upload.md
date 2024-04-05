@@ -6,7 +6,7 @@ This guide provides a comprehensive overview of how to prepare and upload your c
 
 Before uploading, it's essential to ensure your code is correctly prepared to meet our requirements. This includes selecting the right language, packaging your project, and defining the entry point.
 
-![Execute Code](../../assets/images/execute_code/upload.png)
+![Execute Code](../../assets/images/console/upload.png)
 
 ### Selecting Your Language
 
