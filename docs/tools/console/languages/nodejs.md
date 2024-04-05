@@ -45,7 +45,7 @@ my_nodejs_project/
 
 1. **Main File**: Place your main Node.js file, such as `index.js`, at the root of your package. This file is the entry point to your application.
 2. **Dependencies**: Include a `package.json` file in your project root. This file should list all dependencies needed for your project. After defining your `package.json`, run `npm install` to generate a `node_modules` directory and a `package-lock.json` file. However, for uploading, it's often recommended to exclude the `node_modules` folder and ensure your platform installs dependencies from `package.json`.
-3. **Compression**: Compress your project directory into a `.zip` or `.sqsh` file. Include the `index.js`, `package.json`, and `package-lock.json`. Omitting the `node_modules` directory can significantly reduce the size of your upload package.
+3. **Compression**: Compress your project directory into a `.zip` or `.squashfs` file. Include the `index.js`, `package.json`, and `package-lock.json`. Omitting the `node_modules` directory can significantly reduce the size of your upload package.
 
 ### Defining the Entry Point
 
@@ -76,7 +76,7 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 To upload your Node.js application to our platform, follow these steps:
 
 1. **Navigate to Code Upload**: Access the code upload section by creating a new function.
-2. **Choose File**: Select your packaged `.zip` or `.sqsh` file.
+2. **Choose File**: Select your packaged `.zip` or `.squashfs` file.
 3. **Select Language**: Choose Node.js as the language.
 4. **Specify Entry Point**: Ensure your `package.json` has the correct entry point defined.
 5. **Upload**: Submit your package for processing.

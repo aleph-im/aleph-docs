@@ -30,7 +30,7 @@ my_project/
    fastapi==0.68.0
    uvicorn==0.15.0
    ```
-3. **Compression**: Compress your project directory into a `.zip` or `.sqsh` file. Make sure the compression includes the `main.py` file and `requirements.txt`.
+3. **Compression**: Compress your project directory into a `.zip` or `.squashfs` file. Make sure the compression includes the `main.py` file and `requirements.txt`.
 
 ### Defining the Entry Point
 
@@ -61,7 +61,7 @@ async def root():
 After preparing your code, follow the platform's upload process:
 
 1. **Navigate to Code Upload**: Go to the code upload section by creating a new function on our platform.
-2. **Choose File**: Select your `.zip` or `.sqsh` file containing the FastAPI project.
+2. **Choose File**: Select your `.zip` or `.squashfs` file containing the FastAPI project.
 3. **Select Language**: Choose Python as the language.
 4. **Specify Entry Point**: Enter `main:app` as the entry point.
 5. **Upload**: Complete the upload process.
