@@ -117,6 +117,10 @@ nav:
           - 'Index': computing/code_to_execute/index.md
           - 'Upload': computing/code_to_execute/upload.md
           - 'Write your code': computing/code_to_execute/write_your_code.md
+          - Langages:
+            - 'Python': computing/code_to_execute/langages/python.md
+            - 'NodeJs': computing/code_to_execute/langages/nodejs.md
+            - 'Other': computing/code_to_execute/langages/other.md
       - Runtimes:
           - 'Index': computing/runtimes/index.md
           - 'Custom': computing/runtimes/custom.md
