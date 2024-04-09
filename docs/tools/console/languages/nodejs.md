@@ -1,18 +1,18 @@
 ## Preparing Your Node.js Code
 
-Before uploading your Node.js application, make sure it's properly set up according to our platform's requirements.
+Before uploading a Node.js application, ensure it meets the platform's requirements for a seamless deployment process.
 
 Here is an example [NodeJs Sample](https://github.com/aleph-im/aleph-vm/tree/main/examples/example_http_js)
 
 ### Selecting Your Language
 
-Confirm that your project is developed in Node.js.
+Ensure the project is developed in Node.js.
 
-To prepare your Node.js application for deployment on the specified platform, follow these steps:
+To ready a Node.js application for deployment, follow these outlined steps:
 
 ### Create the `run.sh` Script
 
-Create a shell script named `run.sh` with the following content, which sets the working directory to `/opt/code` and starts the Node.js server:
+Craft a shell script named run.sh to set the working directory and initiate the Node.js server:
 
    ```bash
    #!/bin/sh
@@ -23,11 +23,11 @@ Create a shell script named `run.sh` with the following content, which sets the 
    node /opt/code/server.js
    ```
 
-   This script ensures that your application starts within the correct directory and executes the Node.js server file.
+   This script positions the application in the correct directory for server file execution.
 
 ### Packaging Your Project
 
-Here’s a sample structure for a Node.js project ready for packaging:
+Consider this structure for a Node.js project packaging:
 
 ```plaintext
 my_nodejs_project/
@@ -43,17 +43,18 @@ my_nodejs_project/
 └── node_modules/  # Contains all your npm dependencies, can be omitted if using package.json correctly.
 ```
 
-1. **Main File**: Place your main Node.js file, such as `index.js`, at the root of your package. This file is the entry point to your application.
-2. **Dependencies**: Include a `package.json` file in your project root. This file should list all dependencies needed for your project. After defining your `package.json`, run `npm install` to generate a `node_modules` directory and a `package-lock.json` file. However, for uploading, it's often recommended to exclude the `node_modules` folder and ensure your platform installs dependencies from `package.json`.
-3. **Compression**: Compress your project directory into a `.zip` or `.squashfs` file. Include the `index.js`, `package.json`, and `package-lock.json`. Omitting the `node_modules` directory can significantly reduce the size of your upload package.
+1. **Main File**: The main Node.js file, like `index.js`, should be easily accessible at the package's root.
+2. **run.sh**: Acts as the project's entry point.
+2. **Dependencies**: The `package.json` at the project's root must list necessary dependencies. After setting up `package.jso`n, execute `npm install` to create a node_modules directory and a package-lock.json. 
+3. **Compression**: Compress your project directory into a `.zip` or `.squashfs` file.
 
 ### Defining the Entry Point
 
-For Node.js projects, the entry point is specified in the `package.json` file under the `main` field. It typically points to your main application file (e.g., `index.js`).
+For Node.js projects, the entry point is specified in the `package.json` file under the `main` field. It typically points to the main application file (e.g., `index.js`).
 
 ## Example Code
 
-Assuming your `index.js` file looks like this:
+Given an `index.js:
 
 ```javascript
 const express = require('express');
@@ -73,12 +74,10 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 ## Uploading Your Code
 
-To upload your Node.js application to our platform, follow these steps:
+For Node.js application upload to the platform:
 
 1. **Navigate to Code Upload**: Access the code upload section by creating a new function.
 2. **Choose File**: Select your packaged `.zip` or `.squashfs` file.
 3. **Select Language**: Choose Node.js as the language.
 4. **Specify Entry Point**: Ensure your `package.json` has the correct entry point defined.
 5. **Upload**: Submit your package for processing.
-
-Adhering to these guidelines will ensure that your Node.js application integrates smoothly with our platform.
