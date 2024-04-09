@@ -1,6 +1,6 @@
 ## Uploading Code: Two Convenient Modes
 
-When it comes to integrating your code with our platform, there are two flexible options tailored to meet unique needs. Whether looking to quickly upload a project or preferring to manually input code via the user interface, the platform supports both. Here is a closer look at these methods to determine which best aligns with your workflow.
+Integrating code with the platform offers two flexible options to accommodate different preferences. Whether the goal is to rapidly upload a complete project or to input code manually through the user interface, both methods are supported. Each approach has its benefits, depending on the workflow and requirements.
 
 ### File Upload
 
