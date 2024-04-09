@@ -1,56 +1,50 @@
 # Code Upload Documentation
 
-This guide provides a comprehensive overview of how to prepare and upload your code to our platform. You will be able to easily integrate your projects and get them running smoothly.
+This guide details the steps for preparing and uploading code to the platform, enabling straightforward project integration.
 
 ## Preparing Your Code
 
-Before uploading, it's essential to ensure your code is correctly prepared to meet our requirements. This includes selecting the right language, packaging your project, and defining the entry point.
+It is essential to prepare code to align with platform requirements, which involves selecting the appropriate programming language, packaging the project suitably, and defining an entry point.
 
 ![Execute Code](../../assets/images/console/upload.png)
 
 ### Selecting Your Language
 
-Currently, our platform supports two programming languages:
+The platform supports a range of programming languages, including:
 
 - **Python**
 - **Node.js**
 - **Other**
 
-Ensure your project is developed in one of these languages before proceeding with the upload process.
+Projects should be developed in a supported language to proceed with the upload process.
 
 ### Packaging Your Project
 
-Your code should be compressed into a `.zip` or `.squashfs` (squashfs) file for the upload. This step is crucial for a successful integration. Here are some tips for packaging your project:
+Code must be compressed into a .zip or .squashfs file for upload. Effective packaging ensures successful integration. Key packaging considerations include: Here are some tips for packaging a project:
 
-- Place your main file (e.g., `main.py` for Python projects or `run.sh` for Node.js projects) at the root of your package.
-- Ensure all necessary dependencies are included in your package. For Python, a `requirements.txt` file is recommended. For Node.js, include the `node_modules` folder or provide a `package.json` file.
+- Positioning the main file (e.g., main.py for Python or run.sh for Node.js) at the package's root.
+- Incorporating all necessary dependencies. For Python projects, including a `requirements.txt` file is advisable. For Node.js projects, the inclusion of the `node_modules` folder or a `package.json` file is necessary.
 
 ### Defining the Entry Point
 
-The entry point is the name of the script or file used to invoke your function, serving as the 'doorway' to your code. It's crucial to correctly specify this to ensure your code runs as intended.
+The entry point, the initial script or file triggering the function, needs precise specification to guarantee correct code execution.
 
 #### Python
-- Example: If your main file is `main.py` and it contains a function named `app`, your entry point would be `main:app`.
+- Example: For a main file named `main.py` with a function called app, the entry point would be `main:app`.
 
 #### Node.js
-- Example: If your primary file is `index.js`, your entry point is simply your `run.sh` file.
+- Example: For a primary file named `index.js`, the entry point is the `run.sh` file.
 
-Different languages and frameworks have unique conventions for entry points. It's essential to follow the specific guidance for your chosen language or framework.
+Different languages and frameworks have unique conventions for entry points. It's essential to follow the specific guidance for the chosen language or framework.
 
 ## Uploading Your Code
 
-Once your code is prepared, follow these steps to upload it to our platform:
+To upload code to the platform, the following steps are advised:
 
-1. Navigate to the code upload section on our platform by creating a new function.
-2. Choose your prepared `.zip` or `.squashfs` file.
-3. Select the language your code is written in.
-4. Specify the entry point for your code based on the guidelines provided above.
-5. Upload your code package.
+1. Access the code upload section by creating a new function.
+2. Choose the `.zip` or `.squashfs` file prepared earlier.
+3. Select the programming language of the code.
+4. Define the entry point according to the above guidelines.
+5. Proceed with the upload of the code package.
 
-After uploading, our platform will process your code and prepare it for execution. Ensure you've followed all the steps correctly to avoid any issues with your project's integration.
-
-## Conclusion
-
-Uploading your code to our platform is a straightforward process designed to be as smooth and user-friendly as possible. By preparing your code according to the guidelines outlined in this document, you'll ensure a seamless integration and a great start to using our services. 
-
-We're excited to see what you'll build!
+Post-upload, the platform processes the code for execution. Following these steps ensures integration without issues.

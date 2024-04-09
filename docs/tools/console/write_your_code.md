@@ -1,28 +1,28 @@
 # Write Your Code Documentation
 
-If you prefer coding directly on our platform, this guide is for you. Our integrated development environment (IDE) provides a seamless experience for writing, testing, and deploying your code. Here's how you can get started with writing your code directly on our platform.
+This guide is tailored for developers who opt to code directly within the platform's integrated development environment (IDE). The IDE offers a comprehensive environment for writing, testing, and deploying code efficiently.
 
 ## Getting Started with the IDE
 
-Our IDE offers a user-friendly interface, designed to accommodate both novice and experienced developers. Here’s how you can initiate the coding process:
+The IDE offers a user-friendly interface, designed to accommodate both novice and experienced developers. Here's how to begin coding directly on the platform:
 
 ![Execute Code](../../assets/images/console/ide.png)
 
 ### Select Your Language
 
-Initially, select the programming language for your project. Our platform currently supports the following languages:
+Start by choosing the programming language for your project. The platform supports various languages, including:
 
 - Python
 - Node.js
-- Other (please refer to our documentation for additional languages)
+- Other
 
 ## Writing Your Code
 
-To ensure seamless execution and interaction with our platform, your code must include an `app` function, which serves as the entry point.
+For optimal interaction with the platform, your code should feature an app function, serving as the primary entry point.
 
 ### The `app` Function
 
-- **Python**: In Python, your `app` function should be defined in any of the files, acting as the entry point of your application.
+- **Python**: In Python, the `app` function should be defined in any of the files, acting as the entry point of your application.
   
   ```python
   def app():
@@ -31,7 +31,7 @@ To ensure seamless execution and interaction with our platform, your code must i
   
   For detailed Python-specific guidelines, please see [Python Documentation](../languages/python/index.html).
 
-- **Node.js**: In Node.js, define an `app` function in your main file. This function will be invoked to start your application.
+- **Node.js**: In Node.js, the app function should be defined in the main file, initiating the application.
   
   ```javascript
   function app() {
@@ -51,5 +51,5 @@ After writing your code in the IDE:
 
 1. **Review and Test**: Ensure your code runs correctly within the IDE.
 2. **Upload**: Follow the platform-specific instructions to upload your code.
-3. **Execute**: Once uploaded, your code can be executed directly on our platform.
+3. **Execute**: After upload, the code is ready for execution directly on the platform.
 

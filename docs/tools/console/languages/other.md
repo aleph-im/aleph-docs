@@ -1,12 +1,12 @@
 ### Selecting Your Language
 
-Concerning Other section let's try with Rust program. Confirm that your project is developed in Rust.
+For the "Other" section, let's consider a Rust program. Ensure the project is developed in Rust.
 
 Here is an example [Rust Sample](https://github.com/aleph-im/aleph-vm/tree/main/examples/example_http_rust)
 
 ### Structuring Your Project
 
-Here’s a sample structure for a Rust project ready for packaging:
+A typical structure for a Rust project ready for packaging might look like this:
 
 ```plaintext
 my_rust_project/
@@ -17,13 +17,13 @@ my_rust_project/
 ├── Cargo.lock  # Ensures consistent builds.
 ```
 
-1. **Main File**: Place your main Rust file, such as `main.rs`, inside the `src` directory. This file is the entry point to your application.
-2. **Dependencies**: Include a `Cargo.toml` file in your project root. This file should list all dependencies needed for your project. After defining your `Cargo.toml`, running `cargo build` will generate a `target` directory and a `Cargo.lock` file, ensuring consistent builds.
-3. **Compilation**: Compile your project using `cargo build --release` to generate the executable in the `target/release` directory. For uploading, you only need the executable file, not the entire `target` directory.
+1. **Main File**: The main Rust file, main.rs, should reside in the src directory, serving as the application's entry point.
+2. **Dependencies**: The `Cargo.toml` file at the root lists all project dependencies. Defining `Cargo.toml` and executing cargo build generates a target directory and `Cargo.lock`, assuring build consistency.
+3. **Compilation**: Use `cargo build --release` to compile the project, creating an executable in `target/release`. For upload, include only the executable, excluding the entire `target` directory.
 
 ### Defining the Entry Point
 
-For Rust projects, the entry point is the `main` function in the `src/main.rs` file.
+The entry point for Rust projects is the `main` function in `src/main.rs`.
 
 ### Example Code
 
@@ -60,12 +60,10 @@ fn handle_connection(mut stream: TcpStream) {
 
 ### Uploading Your Code
 
-To upload your Rust application to the platform, follow these steps:
+To deploy your Rust application on the platform:
 
 1. **Navigate to Code Upload**: Access the code upload section by creating a new function.
 2. **Choose File**: Select your packaged file containing the compiled binary.
 3. **Select Language**: Choose Rust as the language.
 4. **Specify Entry Point**: The entry point is defined in your `Cargo.toml` and implemented in `src/main.rs`. 
 5. **Upload**: Submit your package for processing.
-
-By following these steps, your Rust application will be correctly packaged and configured for deployment on the platform.
