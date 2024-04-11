@@ -89,14 +89,14 @@ nav:
             - 'Generate Solana Indexers from IDL': tools/indexer/indexer-generator.md
             - 'EVM Indexer Guide': tools/indexer/evm-indexer.md
       - 'IPFS Pinning': tools/ipfs-pinning.md
-      - 'Console':
-          - 'Introduction': tools/console/index.md
-          - 'Upload': tools/console/upload.md
-          - 'Write your code': tools/console/write_your_code.md
+      - 'Web Console':
+          - 'Introduction': tools/webconsole/index.md
+          - 'Upload': tools/webconsole/upload.md
+          - 'Write your code': tools/webconsole/write_your_code.md
           - Languages:
-            - 'Python': tools/console/languages/python.md
-            - 'NodeJs': tools/console/languages/nodejs.md
-            - 'Other': tools/console/languages/other.md
+            - 'Python': tools/webconsole/languages/python.md
+            - 'NodeJs': tools/webconsole/languages/nodejs.md
+            - 'Other': tools/webconsole/languages/other.md
   - Libraries:
       - 'Typescript SDK':
           - 'Introduction': libraries/typescript-sdk/index.md
