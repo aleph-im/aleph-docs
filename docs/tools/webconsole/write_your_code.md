@@ -22,7 +22,7 @@ For optimal interaction with the platform, your code should feature an app funct
 
 ### The `app` Function
 
-- **Python**: In Python, the `app` function should be defined in any of the files, acting as the entry point of your application.
+- **Python**: In Python, the `app`, which is an ASGI Application, should be defined in any of the files, acting as the entry point of your application.
   
   ```python
   app = FlaskAPI()

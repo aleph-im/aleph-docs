@@ -17,9 +17,10 @@ my_project/
 │
 ├── main.py  # Your main FastAPI application file.
 │
-├── requirements.txt  # Lists all the dependencies for your project.
+├── requirements.txt  # Optional: Dependencies must be built locally, uploaded and referenced as an immutable volume
 │
-└── additional_files/  # Optional: Any additional files or directories.
+└── additional_files/  # Optional: Any additional files or directories. 
+    ├── __init__.py  # Optional: Init file.
     ├── models.py  # Optional: Defines data models.
     └── dependencies.py  # Optional: Contains any dependency functions.
 ```
@@ -34,8 +35,8 @@ my_project/
 
 Below is an example of how to create and compress your package using `squashfs`.
   ```
-  pip install -t temp/packages -r requirements.txt
-  mksquashfs temp/packages temp/packages.squashfs
+  pip install -t packages -r requirements.txt
+  mksquashfs packages packages.squashfs
   ```
 
 ### Defining the Entry Point
