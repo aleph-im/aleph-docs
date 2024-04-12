@@ -23,7 +23,10 @@ Projects should be developed in a supported language to proceed with the upload 
 Code must be compressed into a .zip or .squashfs file for upload. Effective packaging ensures successful integration. Key packaging considerations include: Here are some tips for packaging a project:
 
 - Positioning the main file (e.g., main.py for Python or run.sh for Node.js) at the package's root.
-- Incorporating all necessary dependencies. For Python projects, including a `requirements.txt` file is advisable. For Node.js projects, the inclusion of the `node_modules` folder or a `package.json` file is necessary.
+- For python projects:
+  - use a `requirements.txt` to build the dependencies of your program locally then, zip it into a `.squashfs` and upload it as a volume, mapped on `/opt/packages`.
+- Concerning Node.js projects:
+  - use a `package.json` to build the dependencies of your program locally then, zip it into a `.squashfs` and upload it as a volume, mapped on `/opt/node_modules`.
 
 ### Defining the Entry Point
 
