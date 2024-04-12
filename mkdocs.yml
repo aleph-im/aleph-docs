@@ -95,8 +95,6 @@ nav:
           - 'Write your code': tools/webconsole/write_your_code.md
           - Languages:
             - 'Python': tools/webconsole/languages/python.md
-            - 'NodeJs': tools/webconsole/languages/nodejs.md
-            - 'Other': tools/webconsole/languages/other.md
   - Libraries:
       - 'Typescript SDK':
           - 'Introduction': libraries/typescript-sdk/index.md
