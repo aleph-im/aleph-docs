@@ -30,7 +30,13 @@ my_project/
    fastapi==0.68.0
    uvicorn==0.15.0
    ```
-3. **Compression**: Compress your project directory into a `.zip` or `.squashfs` file, ensuring it includes `main.py` and `requirements.txt`.
+3. **Compression**: Compress your project directory into a `.zip` or `.squashfs` files - one for the project itself and another for the packages.
+
+Below is an example of how to create and compress your package using `squashfs`.
+  ```
+  pip install -t temp/packages -r requirements.txt
+  mksquashfs temp/packages temp/packages.squashfs
+  ```
 
 ### Defining the Entry Point
 
@@ -66,4 +72,13 @@ After preparing your code, follow the platform's upload process:
 4. **Specify Entry Point**: Enter `main:app` as the entry point.
 5. **Upload**: Complete the upload process.
 
-By following these steps and ensuring your FastAPI application is correctly prepared, you'll facilitate a seamless integration.
+## Set a volume
+After uploading your project, you need to manually push your dependencies into a dedicated volume.
+
+The dependencies will not be installed automatically, so you must install and upload them yourself.
+
+To do this, navigate to the Volume section and add a new volume at `/opt/packages`.
+
+**Make sure to use the correct name for the volume to avoid errors during deployment.**
+
+![Volume](../../../assets/images/console/volume.png)

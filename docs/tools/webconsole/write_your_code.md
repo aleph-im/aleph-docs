@@ -25,8 +25,8 @@ For optimal interaction with the platform, your code should feature an app funct
 - **Python**: In Python, the `app` function should be defined in any of the files, acting as the entry point of your application.
   
   ```python
-  def app():
-      # Your Python code here
+  app = FlaskAPI()
+  # Your Python code here
   ```
   
   For detailed Python-specific guidelines, please see [Python Documentation](../languages/python/index.html).
