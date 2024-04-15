@@ -135,6 +135,8 @@ nav:
           - 'Dependency volume': guides/python/dependency_volume.md
       - Rust:
           - 'Rust microVMs': guides/rust/rust_microvm.md
+  - Community:
+      - 'Projects': community/projects/index.md
 
 plugins:
   - redirects:
