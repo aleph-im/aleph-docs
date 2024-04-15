@@ -137,6 +137,7 @@ nav:
           - 'Rust microVMs': guides/rust/rust_microvm.md
 
 plugins:
+  - search
   - redirects:
       redirect_maps:
         'protocol/object_types/aggregates.md': 'protocol/object-types/aggregates.md'
