@@ -2,6 +2,7 @@ site_name: Aleph.im Documentation
 theme:
   name: material
   logo: assets/images/square-logo-color.png
+  custom_dir: overrides/
   palette:
 
     # Palette toggle for light mode
@@ -137,7 +138,8 @@ nav:
           - 'Rust microVMs': guides/rust/rust_microvm.md
   - Community:
       - 'Projects': community/projects/index.md
-
+hooks:
+  - version_hook.py
 plugins:
   - search
   - redirects:
