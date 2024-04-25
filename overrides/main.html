@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block footer %}
+{{ super() }}
+<footer class="md-footer">
+    <div class="md-footer-meta md-typeset">
+        <div class="md-footer-meta__inner md-grid">
+            <div class="md-copyright">
+                <div class="md-copyright__highlight">
+                    {# inserted by the version_hook.py #}
+                    Build version: {{config.extra.version}}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}
