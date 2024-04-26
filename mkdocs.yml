@@ -69,6 +69,7 @@ nav:
                 - 'Ubuntu 20.04': nodes/compute/installation/ubuntu-20.04.md
                 - 'Ubuntu 22.04': nodes/compute/installation/ubuntu-22.04.md
           - 'Troubleshooting': nodes/compute/troubleshooting.md
+          - 'Releases': nodes/compute/releases.md
       - 'Core':
           - 'Index': nodes/core/index.md
           - 'Backups': nodes/core/backups.md
