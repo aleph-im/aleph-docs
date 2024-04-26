@@ -53,6 +53,7 @@ dependencies = [
 lint = "mypy . && black --check . && isort --check . && ruff check ."
 typing = "mypy ."
 test = "pytest -vv"
+build = "hatch run mkdocs build --strict"
 
 [tool.black]
 target-version = ["py311"]
