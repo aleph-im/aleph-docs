@@ -82,7 +82,6 @@ nav:
       - 'Aleph Client':
             - 'Introduction': tools/aleph-client/index.md
             - 'Usage': tools/aleph-client/usage.md
-            - 'Documentation': tools/aleph-client/documentation.md
       - 'Aleph Tooling': tools/aleph-tooling.md
       - 'Multichain Indexer':
             - 'Introduction': tools/indexer/index.md
@@ -94,7 +93,9 @@ nav:
           - 'Upload': tools/webconsole/upload.md
           - 'Write your code': tools/webconsole/write_your_code.md
           - Languages:
+            - 'NodeJS': tools/webconsole/languages/nodejs.md
             - 'Python': tools/webconsole/languages/python.md
+            - 'Others': tools/webconsole/languages/other.md
   - Libraries:
       - 'Typescript SDK':
           - 'Introduction': libraries/typescript-sdk/index.md

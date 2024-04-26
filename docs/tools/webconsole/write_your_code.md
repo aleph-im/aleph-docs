@@ -29,7 +29,7 @@ For optimal interaction with the platform, your code should feature an app funct
   # Your Python code here
   ```
   
-  For detailed Python-specific guidelines, please see [Python Documentation](../languages/python/index.html).
+  For detailed Python-specific guidelines, please see [Python Documentation](./languages/python.md).
 
 - **Node.js**: In Node.js, the app function should be defined in the main file, initiating the application.
   
@@ -39,11 +39,11 @@ For optimal interaction with the platform, your code should feature an app funct
   }
   ```
   
-  Refer to [Node.js Documentation](../languages/nodejs/index.html) for more on Node.js best practices.
+  Refer to [Node.js Documentation](./languages/nodejs.md) for more on Node.js best practices.
 
 - **Other**: For languages other than Python and Node.js, ensure to define an equivalent entry function or method that complies with the execution standards of the respective language.
   
-  Consult [Other Languages Documentation](../languages/other/index.html) for specifics on other supported languages.
+   Consult [Other Languages Documentation](./languages/other.md) for specifics on other supported languages.
 
 ## Uploading and Executing Your Code
 
