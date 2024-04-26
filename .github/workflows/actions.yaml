@@ -40,6 +40,9 @@ jobs:
         run: |
           hatch run testing:test
 
+      - name: MkDocs serve warnings
+        run: |
+          hatch run testing:build
 
   build:
     runs-on: ubuntu-22.04
