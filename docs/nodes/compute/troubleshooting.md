@@ -76,6 +76,7 @@ The runtime of the new diagnostic VM appears to be improperly downloaded or corr
 
 ## 3) Missing Diagnostic VM Metrics
 ### Issue Summary
+
 The `diagnostic_vm_latency` metrics data is missing for your CRN, even though virtualization is reportedly operational.
 Users can check the raw network metrics data for their node on the [Message Explorer](https://explorer.aleph.im/messages?showAdvancedFilters=1&channels=aleph-scoring&type=POST&page=1).
 For more info on the data found there, see [Metrics](../reliability/metrics.md).
@@ -126,6 +127,7 @@ Check that both work on your node, on an URL similar to
 
 ## 4) IPv6 Unreachable
 ### Issue Summary
+
 When using IPv6 on a node, the network is unreachable.
 
 #### Symptoms
@@ -140,6 +142,7 @@ When using IPv6 on a node, the network is unreachable.
 - IPv6 connectivity issues with the network.
 
 ### Troubleshooting Steps
+
 1. **Check IPv6 Configuration:**
 
     - Ensure that IPv6 is enabled on the network interface.
@@ -174,3 +177,52 @@ When using IPv6 on a node, the network is unreachable.
 4. **Test Network Connectivity:**
 
     - Use `ping6` to ping the local IPv6 gateway or known IPv6 addresses like Google's DNS `2001:4860:4860::8888` to test connectivity.
+
+## 5) Persistent Storage Corruption
+### Issue Summary
+
+During operations, if the persistent storage test reveals data corruption, the system may be unable to properly read or validate data stored in the persistent volumes, potentially resulting in errors or data loss.
+
+#### Symptoms
+
+- Errors indicating that the data in persistent volumes is not valid JSON.
+- Persistent storage read failures logged during system checks.
+
+### Probable Cause
+
+The files on the disk used by the persistent volumes might have become corrupted, possibly due to abrupt shutdowns, hardware failures, or file system issues.
+
+### Troubleshooting Steps
+
+1. **Identify Corrupted Volumes:**
+
+    - Check the logs to identify which persistent volume files are causing the errors.
+
+2. **Remove Corrupted Volumes:**
+
+    - Navigate to the directory containing the corrupted volumes:
+        ```shell
+        cd /var/lib/aleph/vm/volumes/persistent/
+        ```
+    - Remove the corrupted files. Here are the commands to remove the identified corrupted volumes:
+        ```shell
+        sudo rm /var/lib/aleph/vm/volumes/persistent/63faf8b5db1cf8d965e6a464a0cb8062af8e7df131729e48738342d956f29ace/increment-storage.ext4
+        sudo rm /var/lib/aleph/vm/volumes/persistent/67705389842a0a1b95eaa408b009741027964edc805997475e95c505d642edd8/increment-storage.ext4
+        ```
+
+3. **Restart Services:**
+
+    - After removing the corrupted volume files, restart the affected services to trigger the recreation of the necessary storage files:
+        ```shell
+        sudo systemctl restart aleph-vm-supervisor.service
+        ```
+
+4. **Verify System Stability:**
+
+    - Monitor the system logs for new errors.
+    - Conduct tests to ensure that the persistent storage is functioning correctly.
+
+5. **Backup Regularly:**
+
+    - Implement regular backups of important data to minimize the impact of data corruption or loss.
+
