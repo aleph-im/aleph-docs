@@ -181,28 +181,28 @@ When using IPv6 on a node, the network is unreachable.
 ## 5) Persistent Storage Corruption
 ### Issue Summary
 
-During operations, if the persistent storage test reveals data corruption, the system may be unable to properly read or validate data stored in the persistent volumes, potentially resulting in errors or data loss.
+A Compute Resource Node exhibits issues with the `persistent_storage` feature.
 
 #### Symptoms
 
-- Errors indicating that the data in persistent volumes is not valid JSON.
-- Persistent storage read failures logged during system checks.
+- Errors in the `persistent_storage` field from the diagnostic on the index page of a CRN or on the `/status/check/fastapi` API endpoint.
+- The endpoint `/state/increment` on the diagnostic VM returns an error 500.
+- The field `diagnostic_vm_latency` is missing from the metrics.
 
 ### Probable Cause
 
-The files on the disk used by the persistent volumes might have become corrupted, possibly due to abrupt shutdowns, hardware failures, or file system issues.
+The diagnostic VM tests the capability of the VM to persist data on the host. This is done by incrementing a counter in a JSON file, itself stored in a persistent volume.
+
+When a diagnostic  virtual machine happens to be stopped while writing data to this file, it is possible to end up with a corrupt file that, for example, only contains part of the expected JSON data and cannot be parsed.
 
 ### Troubleshooting Steps
 
 1. **Identify Corrupted Volumes:**
 
-    - Check the logs to identify which persistent volume files are causing the errors.
-
+    - Identify the identifier of the two diagnostic VMs from the variables `CHECK_FASTAPI_VM_ID` and `LEGACY_CHECK_FASTAPI_VM_ID` in the [configuration of aleph-vm](https://github.com/aleph-im/aleph-vm/blob/main/src/aleph/vm/conf.py#L292-L293). 
+2. ** Stop the service**
 2. **Remove Corrupted Volumes:**
 
-    - Navigate to the directory containing the corrupted volumes:
-        ```shell
-        cd /var/lib/aleph/vm/volumes/persistent/
         ```
     - Remove the corrupted files. Here are the commands to remove the identified corrupted volumes:
         ```shell
@@ -219,10 +219,6 @@ The files on the disk used by the persistent volumes might have become corrupted
 
 4. **Verify System Stability:**
 
-    - Monitor the system logs for new errors.
-    - Conduct tests to ensure that the persistent storage is functioning correctly.
+Check the dashboard of the index page of the CRN or open the storage test endpoint on both VMs in the form `https://$YOUR_CRN_HOSTNAME/vm/$CHECK_FASTAPI_VM_ID/state/increment`
 
-5. **Backup Regularly:**
-
-    - Implement regular backups of important data to minimize the impact of data corruption or loss.
 
