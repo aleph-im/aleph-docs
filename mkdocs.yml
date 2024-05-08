@@ -23,6 +23,8 @@ theme:
     - navigation.tracking
     - navigation.sections
     - navigation.path
+    - navigation.tabs
+
 markdown_extensions:
   - admonition
   - pymdownx.highlight:
@@ -49,99 +51,101 @@ repo_url: https://github.com/aleph-im/aleph-docs
 edit_uri: edit/main/docs/
 
 nav:
-  - Overview: index.md
-  - 'Protocol':
-      - 'Chains': protocol/chains.md
-      - 'Messages': protocol/messages.md
-      - 'Permissions': protocol/permissions.md
-      - 'Object Types':
-          - 'Aggregates': protocol/object-types/aggregates.md
-          - 'Posts': protocol/object-types/posts.md
-          - 'Programs': protocol/object-types/programs.md
-          - 'Storage': protocol/object-types/storage.md
-  - Nodes:
-      - 'Compute':
-          - 'Index': nodes/compute/index.md
-          - 'Installations':
-                - 'Configure Caddy': nodes/compute/installation/configure-caddy.md
-                - 'Debian 11': nodes/compute/installation/debian-11.md
-                - 'Debian 12': nodes/compute/installation/debian-12.md
-                - 'Ubuntu 20.04': nodes/compute/installation/ubuntu-20.04.md
-                - 'Ubuntu 22.04': nodes/compute/installation/ubuntu-22.04.md
-          - 'Advanced':
-                - 'Local Testing': nodes/compute/advanced/local-testing.md
-          - 'Troubleshooting': nodes/compute/troubleshooting.md
-          - 'Releases': nodes/compute/releases.md
-      - 'Core':
-          - 'Index': nodes/core/index.md
-          - 'Backups': nodes/core/backups.md
-      - 'Reliability':
-          - 'Introduction': nodes/reliability/index.md
-          - 'Monitoring': nodes/reliability/monitoring.md
-          - 'Metrics': nodes/reliability/metrics.md
-          - 'Scores': nodes/reliability/scores.md
-          - 'Rewards': nodes/reliability/rewards.md
-  - 'Tools':
-      - 'Aleph Account': tools/aleph-account.md
-      - 'Aleph Client':
-            - 'Introduction': tools/aleph-client/index.md
-            - 'Usage': tools/aleph-client/usage.md
-      - 'Aleph Tooling': tools/aleph-tooling.md
-      - 'Multichain Indexer':
-            - 'Introduction': tools/indexer/index.md
-            - 'Generate Solana Indexers from IDL': tools/indexer/indexer-generator.md
-            - 'EVM Indexer Guide': tools/indexer/evm-indexer.md
-      - 'IPFS Pinning': tools/ipfs-pinning.md
+  - 'What Is Aleph.im?':
+    - 'Introduction to aleph.im': index.md
+    - 'How to use aleph.im': protocol/usage.md
+    - 'How to stake': tools/aleph-account.md
+    - 'Supported chains': protocol/chains.md
+    - 'The message protocol': protocol/messages.md
+    - 'Aleph.im in action':
+      - 'Use cases': community/use-cases.md
+      - 'Community projects': community/projects/index.md
+  - 'Node Operations':
+    - 'Core Channel Nodes (CCNs)':
+      - 'Introduction': nodes/core/index.md
+      - 'Backups': nodes/core/backups.md
+    - 'Compute Resource Nodes (CRNs)':
+      - 'Introduction': nodes/compute/index.md
+      - 'Installations':
+        - 'Configure Caddy': nodes/compute/installation/configure-caddy.md
+        - 'Debian 11': nodes/compute/installation/debian-11.md
+        - 'Debian 12': nodes/compute/installation/debian-12.md
+        - 'Ubuntu 20.04': nodes/compute/installation/ubuntu-20.04.md
+        - 'Ubuntu 22.04': nodes/compute/installation/ubuntu-22.04.md
+        - 'Troubleshooting': nodes/compute/troubleshooting.md
+      - 'Releases': nodes/compute/releases.md
+    - 'Reliability':
+      - 'Introduction': nodes/reliability/index.md
+      - 'Monitoring': nodes/reliability/monitoring.md
+      - 'Metrics': nodes/reliability/metrics.md
+      - 'Scores': nodes/reliability/scores.md
+      - 'Rewards': nodes/reliability/rewards.md
+  - 'Developer Hub':
+    - 'Tools':
+      - 'Aleph CLI':
+        - 'Getting started': tools/aleph-client/index.md
+        - 'Usage': tools/aleph-client/usage.md
       - 'Web Console':
-          - 'Introduction': tools/webconsole/index.md
-          - 'Upload': tools/webconsole/upload.md
-          - 'Write your code': tools/webconsole/write_your_code.md
-          - Languages:
-            - 'NodeJS': tools/webconsole/languages/nodejs.md
-            - 'Python': tools/webconsole/languages/python.md
-            - 'Others': tools/webconsole/languages/other.md
-  - Libraries:
-      - 'Typescript SDK':
-          - 'Introduction': libraries/typescript-sdk/index.md
-          - 'Account': libraries/typescript-sdk/accounts.md
-          - 'Aggregates': libraries/typescript-sdk/aggregates.md
-          - 'Instances': libraries/typescript-sdk/instances.md
-          - 'Posts': libraries/typescript-sdk/posts.md
-          - 'Troubleshooting': libraries/typescript-sdk/troubleshooting.md
-      - 'Python SDK':
-          - 'Introduction': libraries/python-sdk/index.md
-          - 'Account': libraries/python-sdk/accounts.md
-          - 'Forget': libraries/python-sdk/forget.md
-          - 'Errors': libraries/python-sdk/error.md
-          - Posts:
-                - 'Create': libraries/python-sdk/posts/create.md
-                - 'Query': libraries/python-sdk/posts/query.md
-          - 'Aggregates':
-              - 'Create': libraries/python-sdk/aggregates/create.md
-              - 'Query': libraries/python-sdk/aggregates/query.md
-              - 'Delegate': libraries/python-sdk/aggregates/delegate.md
-  - Computing:
-      - 'Index': computing/index.md
-      - Custom Domain:
-          - 'Add a Custom Domain': computing/custom_domain/setup.md
-      - Runtimes:
-          - 'Index': computing/runtimes/index.md
-          - 'Custom': computing/runtimes/custom.md
-          - 'Existing': computing/runtimes/existing.md
-      - Volumes:
+        - 'Getting started': tools/webconsole/index.md
+        - 'Upload': tools/webconsole/upload.md
+        - 'Write your code': tools/webconsole/write_your_code.md
+        - 'Languages':
+          - 'NodeJS': tools/webconsole/languages/nodejs.md
+          - 'Python': tools/webconsole/languages/python.md
+          - 'Others': tools/webconsole/languages/other.md
+      - 'Multichain Indexer':
+        - 'Introduction': tools/indexer/index.md
+        - 'Generate Solana indexers from IDL': tools/indexer/indexer-generator.md
+        - 'The EVM indexer guide': tools/indexer/evm-indexer.md
+    - 'Building dApps':
+      - 'Using Messages':
+        - 'Introduction': protocol/messages.md
+        - 'Aggregates': protocol/object-types/aggregates.md
+        - 'Posts': protocol/object-types/posts.md
+        - 'Programs': protocol/object-types/programs.md
+        - 'Storage': protocol/object-types/storage.md
+        - 'Permissions': protocol/permissions.md
+      - 'Deploying VMs':
+        - 'Introduction': computing/index.md
+        - 'Runtimes':
+          - 'What is a runtime?': computing/runtimes/index.md
+          - 'Custom runtimes': computing/runtimes/custom.md
+        - 'Volumes':
           - 'Immutable': computing/volumes/immutable.md
-          - Persistent: computing/volumes/persistent.md
-  - Tutorials:
-      - 'Testing microVMs': guides/testing_microvms.md
-      - 'Update a program': guides/update_a_program.md
-      - Python:
-          - 'Getting Started': guides/python/getting_started.md
-          - 'Advanced': guides/python/advanced.md
-          - 'Dependency volume': guides/python/dependency_volume.md
-      - Rust:
-          - 'Rust microVMs': guides/rust/rust_microvm.md
-  - Community:
-      - 'Projects': community/projects/index.md
+          - 'Persistent': computing/volumes/persistent.md
+        - 'Tutorials':
+          - 'Testing microVMs': guides/testing_microvms.md
+          - 'Update a program': guides/update_a_program.md
+          - 'Local Testing': nodes/compute/advanced/local-testing.md
+          - 'Python':
+            - 'Getting Started': guides/python/getting_started.md
+            - 'Advanced': guides/python/advanced.md
+            - 'Dependency volume': guides/python/dependency_volume.md
+          - 'Rust':
+            - 'Rust microVMs': guides/rust/rust_microvm.md
+      - 'IPFS Pinning': tools/ipfs-pinning.md
+      - 'Add a Custom Domain': computing/custom_domain/setup.md
+    - 'SDKs and APIs':
+      - 'Typescript SDK':
+        - 'Introduction': libraries/typescript-sdk/index.md
+        - 'Account': libraries/typescript-sdk/accounts.md
+        - 'Aggregates': libraries/typescript-sdk/aggregates.md
+        - 'Instances': libraries/typescript-sdk/instances.md
+        - 'Posts': libraries/typescript-sdk/posts.md
+        - 'Troubleshooting': libraries/typescript-sdk/troubleshooting.md
+      - 'Python SDK':
+        - 'Introduction': libraries/python-sdk/index.md
+        - 'Account': libraries/python-sdk/accounts.md
+        - 'Forget': libraries/python-sdk/forget.md
+        - 'Errors': libraries/python-sdk/error.md
+        - 'Posts':
+            - 'Create': libraries/python-sdk/posts/create.md
+            - 'Query': libraries/python-sdk/posts/query.md
+        - 'Aggregates':
+          - 'Create': libraries/python-sdk/aggregates/create.md
+          - 'Query': libraries/python-sdk/aggregates/query.md
+          - 'Delegate': libraries/python-sdk/aggregates/delegate.md
+
 hooks:
   - version_hook.py
 plugins:
@@ -161,5 +165,3 @@ plugins:
         'libraries/Aleph.im-Python-SDK/index.md': 'libraries/python-sdk/index.md'
 
         'nodes/compute/installation/configure_caddy.md': 'nodes/compute/installation/configure-caddy.md'
-
-
