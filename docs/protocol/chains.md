@@ -1,4 +1,4 @@
-## Chains
+# Supported Chains
 
 Multiple blockchains are supported when interacting with aleph.im.
 
