@@ -199,26 +199,33 @@ When a diagnostic  virtual machine happens to be stopped while writing data to t
 
 1. **Identify Corrupted Volumes:**
 
-    - Identify the identifier of the two diagnostic VMs from the variables `CHECK_FASTAPI_VM_ID` and `LEGACY_CHECK_FASTAPI_VM_ID` in the [configuration of aleph-vm](https://github.com/aleph-im/aleph-vm/blob/main/src/aleph/vm/conf.py#L292-L293). 
-2. ** Stop the service**
-2. **Remove Corrupted Volumes:**
+    - Identify the identifier of the two diagnostic VMs from the variables `CHECK_FASTAPI_VM_ID` and `LEGACY_CHECK_FASTAPI_VM_ID` in the [configuration of aleph-vm](https://github.com/aleph-im/aleph-vm/blob/main/src/aleph/vm/conf.py#L292-L293).
 
+2. **Stop the service:**
+
+    - Stop the service to avoid any further corruption:
+        ```shell
+        sudo systemctl stop aleph-vm-supervisor.service
         ```
+
+3. **Remove Corrupted Volumes:**
+
     - Remove the corrupted files. Here are the commands to remove the identified corrupted volumes:
         ```shell
         sudo rm /var/lib/aleph/vm/volumes/persistent/63faf8b5db1cf8d965e6a464a0cb8062af8e7df131729e48738342d956f29ace/increment-storage.ext4
         sudo rm /var/lib/aleph/vm/volumes/persistent/67705389842a0a1b95eaa408b009741027964edc805997475e95c505d642edd8/increment-storage.ext4
         ```
 
-3. **Restart Services:**
+4. **Restart Services:**
 
     - After removing the corrupted volume files, restart the affected services to trigger the recreation of the necessary storage files:
         ```shell
         sudo systemctl restart aleph-vm-supervisor.service
         ```
 
-4. **Verify System Stability:**
+5. **Verify System Stability:**
 
-Check the dashboard of the index page of the CRN or open the storage test endpoint on both VMs in the form `https://$YOUR_CRN_HOSTNAME/vm/$CHECK_FASTAPI_VM_ID/state/increment`
-
-
+    - Check the dashboard of the index page of the CRN or open the storage test endpoint on both VMs opening:
+        ```
+        https://$YOUR_CRN_HOSTNAME/vm/$CHECK_FASTAPI_VM_ID/state/increment
+        ```
