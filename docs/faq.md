@@ -1,4 +1,4 @@
-# Frequently Asked Questions (FAQ) about Aleph.im
+# Frequently Asked Questions (FAQ)
 
 ## I. ALEPH Staking
 
