@@ -59,8 +59,9 @@ nav:
     - 'Roadmap 2024': protocol/roadmap2024.md
     - 'The message protocol': protocol/messages.md
     - 'Aleph.im in action':
-      - 'Use cases': community/use-cases.md
+      - 'Blog & Partnerships': community/blog.md
       - 'Community projects': community/projects/index.md
+      - 'Potential use cases': community/use-cases.md
   - 'Node Operations':
     - 'Core Channel Nodes (CCNs)':
       - 'Introduction': nodes/core/index.md
