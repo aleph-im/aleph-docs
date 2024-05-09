@@ -1,7 +1,7 @@
 # Release process
 
 The _aleph-vm_ software orchestrates the execution of virtual machines on
-[aleph.im compute resource nodes](/nodes/compute/) using two hypervisors: 
+[aleph.im compute resource nodes](./index.md) using two hypervisors: 
 _QEMU_ and _Firecracker_. 
 This software is collaboratively developed by _aleph.im_ and the open-source community, 
 with the main repository located at [aleph-im/aleph-vm on GitHub](https://github.com/aleph-im/aleph-vm).
@@ -37,7 +37,7 @@ _aleph-vm_ is published in two formats:
 
 1. Packages built by GitHub Actions are tested on staging servers.
 2. A new git tag is assigned to the release.
-3. The new release is listed in the table used by the [node scoring](/nodes/reliability/scores).
+3. The new release is listed in the table used by the [node scoring](../reliability/scores.md).
 4. Draft release notes are prepared on the GitHub releases page.
 5. Packages are downloaded, unpacked, and attached to the release.
 6. Release notes are reviewed and published.
