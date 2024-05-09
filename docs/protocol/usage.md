@@ -34,6 +34,3 @@ Aleph.im offers a decentralized computing and storage platform that empowers use
 ### Wallet Transactions
 - **Transactions**: All transactions and interactions on twentrysix.cloud require a compatible wallet connected and enough $ALEPH to complete the transactions.
 - **Gas Fees**: Be aware of potential blockchain network fees (gas fees) that apply to transactions on the blockchain you are using.
-
-## Conclusion
-Aleph.im provides a robust platform for decentralized applications, leveraging blockchain technology to offer secure and scalable compute and storage solutions. By following this guide, you can start utilizing Aleph.im for your projects with a clear understanding of the operational procedures and cost implications. Remember, the decentralized nature of Aleph.im not only enhances security and flexibility but also promotes a more open and interoperable digital ecosystem.
