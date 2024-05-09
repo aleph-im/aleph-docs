@@ -102,11 +102,18 @@ Yes, follow our [Node Registration Guide](https://medium.com/aleph-im/aleph-im-n
 ### What are the staking tokenomics for node operators?
 Learn about node operator staking tokenomics [here](https://medium.com/aleph-im/aleph-im-staking-go-live-part-1-core-channel-nodes-and-node-operators-97bfcd43157d).
 
-— **OFFICIAL LINKS** —
-- [Aleph Website](https://aleph.im)
-- [Aleph Community Forum](https://community.aleph.im)
-- [Aleph GitHub](https://github.com/aleph-im)
-- [Aleph Twitter](https://twitter.com/aleph_im)
-- [Aleph LinkedIn](https://www.linkedin.com/company/aleph-im)
-- [Aleph Telegram](https://t.me/alephim)
-- [Twentysix Cloud Twitter](https://twitter.com/twentysixcloud)
+## IV. Official Links
+
+### Aleph
+
+- Web: [https://aleph.im](https://aleph.im)
+- Forum: [https://community.aleph.im](https://community.aleph.im)
+- Github: [https://github.com/aleph-im](https://github.com/aleph-im)
+- Twitter: [https://twitter.com/aleph_im](https://twitter.com/aleph_im)
+- Linkedin: [https://www.linkedin.com/company/aleph-im](https://www.linkedin.com/company/aleph-im)
+- Telegram: [https://t.me/alephim](https://t.me/alephim)
+
+### Twentysix Cloud
+
+- Web: [https://www.twentysix.cloud/](https://www.twentysix.cloud/)
+- Twitter: [https://twitter.com/twentysixcloud](https://twitter.com/twentysixcloud)
