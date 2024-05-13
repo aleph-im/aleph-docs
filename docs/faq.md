@@ -1,4 +1,27 @@
-# Frequently Asked Questions (FAQ)
+# Links & Frequently Asked Questions (FAQ)
+
+## 0. Official Links
+
+### Aleph
+
+- Web: [https://aleph.im](https://aleph.im)
+- Forum: [https://community.aleph.im](https://community.aleph.im)
+- Github: [https://github.com/aleph-im](https://github.com/aleph-im)
+- Twitter: [https://twitter.com/aleph_im](https://twitter.com/aleph_im)
+- Linkedin: [https://www.linkedin.com/company/aleph-im](https://www.linkedin.com/company/aleph-im)
+- Telegram: [https://t.me/alephim](https://t.me/alephim)
+
+### Twentysix Cloud
+
+- Web: [https://www.twentysix.cloud/](https://www.twentysix.cloud/)
+- Twitter: [https://twitter.com/twentysixcloud](https://twitter.com/twentysixcloud)
+
+### $ALEPH Token Contracts/Mint addresses
+
+- **Ethereum**: [`0x27702a26126e0b3702af63ee09ac4d1a084ef628`](https://etherscan.io/token/0x27702a26126e0b3702af63ee09ac4d1a084ef628)
+- **BNB Chain**: [`0x82d2f8e02afb160dd5a480a617692e62de9038c4`](https://bscscan.com/token/0x82d2f8e02afb160dd5a480a617692e62de9038c4)
+- **Avalanche**: [`0xc0Fbc4967259786C743361a5885ef49380473dCF`](https://snowtrace.io/address/0xc0Fbc4967259786C743361a5885ef49380473dCF)
+- **Solana**: [`3UCMiSnkcnkPE1pgQ5ggPCBv6dXgVUy16TmMUe1WpG9x`](https://solana.fm/address/3UCMiSnkcnkPE1pgQ5ggPCBv6dXgVUy16TmMUe1WpG9x)
 
 ## I. ALEPH Staking
 
@@ -82,12 +105,6 @@ Purchase ALEPH v2 on platforms such as Coinbase, KuCoin, Gate, LATOKEN, MEXC, Un
 ### What is Pay-As-You-Go?
 Pay-As-You-Go allows you to pay for resources as you use them on the Aleph.im network, eliminating the need to hold or stake large amounts of $ALEPH. This is currently available only on the Avalanche c-chain.
 
-### Where can I find ALEPH contracts on different blockchains?
-- **Ethereum**: `0x27702a26126e0b3702af63ee09ac4d1a084ef628`
-- **BNB Chain**: `0x82d2f8e02afb160dd5a480a617692e62de9038c4`
-- **Avalanche**: `0xc0Fbc4967259786C743361a5885ef49380473dCF`
-- **Solana**: `3UCMiSnkcnkPE1pgQ5ggPCBv6dXgVUy16TmMUe1WpG9x`
-
 ## III. Node Operators
 
 ### What is the minimum required hardware to run a Core Channel Node?
@@ -101,19 +118,3 @@ Yes, follow our [Node Registration Guide](https://medium.com/aleph-im/aleph-im-n
 
 ### What are the staking tokenomics for node operators?
 Learn about node operator staking tokenomics [here](https://medium.com/aleph-im/aleph-im-staking-go-live-part-1-core-channel-nodes-and-node-operators-97bfcd43157d).
-
-## IV. Official Links
-
-### Aleph
-
-- Web: [https://aleph.im](https://aleph.im)
-- Forum: [https://community.aleph.im](https://community.aleph.im)
-- Github: [https://github.com/aleph-im](https://github.com/aleph-im)
-- Twitter: [https://twitter.com/aleph_im](https://twitter.com/aleph_im)
-- Linkedin: [https://www.linkedin.com/company/aleph-im](https://www.linkedin.com/company/aleph-im)
-- Telegram: [https://t.me/alephim](https://t.me/alephim)
-
-### Twentysix Cloud
-
-- Web: [https://www.twentysix.cloud/](https://www.twentysix.cloud/)
-- Twitter: [https://twitter.com/twentysixcloud](https://twitter.com/twentysixcloud)
