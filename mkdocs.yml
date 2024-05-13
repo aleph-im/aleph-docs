@@ -55,7 +55,7 @@ nav:
     - 'Introduction to aleph.im': index.md
     - 'How to use aleph.im': protocol/usage.md
     - 'How to stake': tools/aleph-account.md
-    - 'FAQ': faq.md
+    - 'Links & FAQ': faq.md
     - 'Supported chains': protocol/chains.md
     - 'Roadmap 2024': protocol/roadmap2024.md
     - 'The message protocol': protocol/messages.md
