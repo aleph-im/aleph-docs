@@ -13,5 +13,5 @@
 | name | dist | runtime | filesystem |
 | --- | --- | --- | --- |
 | Official runtime with Debian 11, Python 3.9 & Node.js 14| debian | bd79839bf96e595a06da5ac0b6ba51dea6f7e2591bb913deccded04d831d29f4  | ext4 |
-|Official min. runtime for binaries x86_64 (Rust, Go, ...) | debian | bd79839bf96e595a06da5ac0b6ba51dea6f7e2591bb913deccded04d831d29f4  |  ext4 |
+|Official min. runtime for binaries x86_64 (Rust, Go, ...) | debian | 63f07193e6ee9d207b7d1fcf8286f9aee34e6f12f101d2ec77c1229f92964696  |  ext4 |
 | Official Node.js LTS runtime (with nvm support) | debian | 3c238dd3ffba73ab9b2cccb90a11e40e78aff396152de922a6d794a0a65a305e  |  ext4 |
