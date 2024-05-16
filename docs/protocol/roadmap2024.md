@@ -6,13 +6,14 @@ Our 2024 roadmap isn't just a list of goals; it's a strategic blueprint for adva
 ## Key Milestones
 
 ### Pay-as-You-Go Payment Model
+
 - **Objective**: Implement a flexible pay-as-you-go model for using compute and storage resources, payable in $ALEPH and stablecoins.
 - **Details**: 
-  - Users pay only for what they consume, calculated down to the millisecond.
-  - Payments are streamed directly to Compute Resource Node operators and the Aleph network, supporting 80% to operators and 20% as a network fee.
+    - Users pay only for what they consume, calculated down to the millisecond.
+    - Payments are streamed directly to Compute Resource Node operators and the Aleph network, supporting 80% to operators and 20% as a network fee.
 - **Example Usage**:
-  - Renting compute power from CRN “ABC” for $100 in $ALEPH results in $80 to the operator and $20 to the network.
-  - Payments in stablecoins are automatically converted to $ALEPH for network fees.
+    - Renting compute power from CRN “ABC” for $100 in $ALEPH results in $80 to the operator and $20 to the network.
+    - Payments in stablecoins are automatically converted to $ALEPH for network fees.
 
 ### Oracle Enhancements
 - **Objective**: Launch an advanced oracle system that fetches and indexes data from multiple sources for enhanced reliability and reduced manipulation risk.
