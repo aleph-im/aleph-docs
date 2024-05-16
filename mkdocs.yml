@@ -128,7 +128,6 @@ nav:
           - 'Index': computing/runtimes/index.md
           - 'Custom': computing/runtimes/custom.md
           - 'Existing': computing/runtimes/existing.md
-          - 'List': computing/runtimes/list.md
       - Volumes:
           - 'Immutable': computing/volumes/immutable.md
           - Persistent: computing/volumes/persistent.md
