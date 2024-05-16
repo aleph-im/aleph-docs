@@ -100,6 +100,7 @@ nav:
         - 'Introduction': tools/indexer/index.md
         - 'Generate Solana indexers from IDL': tools/indexer/indexer-generator.md
         - 'The EVM indexer guide': tools/indexer/evm-indexer.md
+      - 'Verifiable Random Functions': tools/vrf.md
     - 'Building dApps':
       - 'Using Messages':
         - 'Introduction': protocol/messages.md
