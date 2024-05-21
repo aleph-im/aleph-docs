@@ -169,3 +169,4 @@ plugins:
         'libraries/Aleph.im-Python-SDK/index.md': 'libraries/python-sdk/index.md'
 
         'nodes/compute/installation/configure_caddy.md': 'nodes/compute/installation/configure-caddy.md'
+        'computing/runtimes/existing.md': 'computing/runtimes/index.md#existing-runtimes'
