@@ -43,9 +43,10 @@ python3 deployment/deploy_vrf_vms.py
 
 If the deployment succeeds, the script will display links to the VMs on the aleph.im network. Example:
 
-> Executor VM: https://api2.aleph.im/api/v0/messages/558b0eeea54d80d2504b0287d047e0b78458d08022d3600bcf8478700dd0aac2
+```
+  Executor VM: https://api2.aleph.im/api/v0/messages/558b0eeea54d80d2504b0287d047e0b78458d08022d3600bcf8478700dd0aac2
   Coordinator VM: https://api2.aleph.im/api/v0/messages/d9eef54544338685a9b4034cc16e285520eb3cf0c199eeade1d6b290365c95d0
-
+```
 
 
 ### Use the coordinator in library mode
