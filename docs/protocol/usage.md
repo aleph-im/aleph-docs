@@ -1,36 +1,24 @@
 # Getting Started with Aleph.im: Usage and Cost Overview
 
-## Introduction
-Aleph.im offers a decentralized computing and storage platform that empowers users to deploy projects efficiently in a decentralized infrastructure. This guide will help you understand how to start using Aleph.im and detail the associated costs.
+## Choose your tools!
 
-## Step-by-Step Usage Guide
+Aleph.im offers a wide range of tools and services to help you build decentralized applications. Whether you need decentralized storage, compute power, or web3 integration, Aleph.im has you covered. Let's explore the key features and potential use cases of Aleph.im's infrastructure.
 
-### 1. Setting Up Your Wallet
-- **Requirements**: You need a digital wallet that supports one of the chains Aleph.im operates with. Make sure your wallet is funded with enough $ALEPH or other supported cryptocurrencies to cover your resource usage.
-- **Supported Chains**: Aleph.im supports multiple chains, ensuring flexibility depending on your wallet and preferred blockchain.
+### Compute Power
+- [**On-demand VMs/Serverless Functions**](../computing/index.md): Deploy virtual machines and serverless functions for your applications.
+- [**Permanent VPS**](../computing/index.md#instance-vms): Secure permanent virtual servers for ongoing needs.
+- **Confidential Compute**: Upcoming support for sensitive data processing using Trusted Execution Environments (TEEs).
+- [**Custom Runtimes**](../computing/runtimes/index.md): Create custom runtimes for specific programming languages and environments.
+- [**VRF Support**](../tools/vrf.md): Use Verifiable Random Functions for secure randomness in decentralized applications.
 
-### 2. Acquiring $ALEPH
-- **Purchasing $ALEPH**: You can acquire $ALEPH tokens on various exchanges or through decentralized exchange platforms like Uniswap, Trader Joe, and Jupiter on Solana.
-- **Exchanges**: Check the availability of $ALEPH on popular exchanges and choose based on your location and convenience.
+### Storage
+- [**Decentralized Storage**](../protocol/object-types/storage.md): Store data securely across a distributed network.
+- [**IPFS Integration**](../tools/ipfs-pinning.md): Use InterPlanetary File System for robust, cryptographically verifiable data storage.
 
-### 3. Accessing twentrysix.cloud
-- **Web Console**: twentrysix.cloud serves as the web console for deploying and managing your projects on Aleph.im. It offers an intuitive user interface to interact with the decentralized resources efficiently.
-- **Deployment**: Log in to twentrysix.cloud using your wallet. This platform will guide you through setting up and deploying your projects.
-
-### 4. Deploying New Projects
-- **Configuration**: Through twentrysix.cloud, configure the required resources for your project, such as compute power and storage needs.
-- **Deployment**: Follow the on-screen instructions to deploy your applications or storage setups.
-
-## Understanding the Costs
-
-### Resource Costs
-- **Pay-as-You-Go**: Aleph.im operates on a pay-as-you-go model, meaning you only pay for the resources you consume.
-- **Resource Metering**: Costs are calculated based on the amount of computing power and storage you use, metered to the millisecond.
-
-### Fee Structure
-- **Distribution**: When you pay for resources, 80% of the payment goes directly to the Compute Resource Node (CRN) operator, and 20% is allocated as a network fee to support the ongoing development and incentivization of node operators.
-- **Example**: If you pay $100 in $ALEPH for computing resources, $80 will go to the CRN operator and $20 to the Aleph.im network.
-
-### Wallet Transactions
-- **Transactions**: All transactions and interactions on twentrysix.cloud require a compatible wallet connected and enough $ALEPH to complete the transactions.
-- **Gas Fees**: Be aware of potential blockchain network fees (gas fees) that apply to transactions on the blockchain you are using.
+### Web3 Integration
+- [**Blockchain Interoperability**](../protocol/chains.md): Connect to Ethereum, Binance Smart Chain, and more.
+- **Reverse Oracle**: Interact with Aleph.im network using smart contracts & oracles.
+- [**Blockchain Indexing**](../tools/indexer/index.md): Index data from any blockchain network using Aleph.im's decentralized storage and compute capabilities.
+- **Token Payments**: Pay for resources using ALEPH tokens across various blockchains.
+- **Decentralized Identities**: Use decentralized identities for secure interactions with the network.
+- [**Wallet Support**](../protocol/chains.md): Interact with Aleph.im using popular wallet applications like Metamask.
