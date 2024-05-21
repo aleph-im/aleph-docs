@@ -70,7 +70,7 @@ Aleph.im provides a supported runtime to launch programs written in Python or bi
 - Python programs must support the [ASGI interface](https://asgi.readthedocs.io/en/latest/), described in the example below.
 - Binaries must listen for HTTP requests on port 8080
 
-You can find runtimes currently supported by aleph.im [here](../../computing/runtimes/existing.md).
+You can find runtimes currently supported by aleph.im [here](../../computing/runtimes/index.md#existing-runtimes).
 
 ### Volumes
 
