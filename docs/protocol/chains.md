@@ -27,12 +27,12 @@ functionalities are supported.
 
 | Chain     | Message signature | Wallet support | Token availability | Balance support | Staking support |
 |-----------|-------------------|----------------|--------------------|-----------------|-----------------|
-| Ethereum  | ✅                 | Metamask       | ✅                 | ✅              | ✅               |
-| Polygon   | ✅                 | Metamask       |                    |                |                 |
+| Ethereum  | ✅                 | Wallet Connect      | ✅                 | ✅              | ✅               |
+| Polygon   | ✅                 | Wallet Connect       |                    |                |                 |
 | Solana    | ✅                 |                | ✅                  | ❌             | ❌               |
 | Tezos     | ✅                 |                |                    |                |                 |
 | Cosmos    | ✅                 |                |                    |                |                 |
 | Nuls1     | Python only        |                |                    |                 |                 |
 | Nuls2     | Python only        |                |                    |                 |                 |
 | Substrate | ✅                 |                |                    |                |                 |
-| Avalanche | TypeScript only    |                |                    |                 |                 |
+| Avalanche | TypeScript only    | Wallet Connect               |                    |                 |                 |
