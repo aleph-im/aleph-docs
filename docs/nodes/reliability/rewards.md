@@ -78,7 +78,7 @@ Rewards for running a compute resource node (CRN) will follow the
 [Tokenomics update](https://medium.com/aleph-im/aleph-im-tokenomics-update-nov-2022-fd1027762d99) we published in
 November. 
 
-The rewards for running a performant CRN will range from 500 to 3000 tokens per month, depending on its location and the number of other nodes hosted on the same network. Running a performant node on a crowded network should result in a similar reward as today while decentralizing the network will result in higher rewards.
+The rewards for running a performant CRN will range from 250 to 1500 tokens per month, depending on its location and the number of other nodes hosted on the same network. Running a performant node on a crowded network should result in a similar reward as today while decentralizing the network will result in higher rewards.
 
 The reward of a CRN is the sum of a fixed amount and a decentralization bonus, multiplied by the score according to the
 20%-80% rule stated above.
@@ -88,7 +88,7 @@ decentralization\_score = (1 - \frac{nodes\_with\_identical\_asn}{total\_nodes})
 $$
 
 $$
-max\_rewards = 500 + decentralization\_score * 2500
+max\_rewards = 250 + decentralization\_score * 1250
 $$
 
 $$
