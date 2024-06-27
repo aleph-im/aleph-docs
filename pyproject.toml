@@ -23,7 +23,7 @@ classifiers = [
   "Topic :: System :: Distributed Computing",
 ]
 dependencies = [
-    "mkdocs-material==8.5.11",
+    "mkdocs-material==9.5.27",
     "mkdocs-redirects==1.2.1",
     "aioipfs==0.6.6",
     "async-timeout==4.0.3"

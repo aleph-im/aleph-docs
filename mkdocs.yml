@@ -154,6 +154,7 @@ hooks:
   - version_hook.py
 plugins:
   - search
+  - privacy
   - redirects:
       redirect_maps:
         'protocol/object_types/aggregates.md': 'protocol/object-types/aggregates.md'
