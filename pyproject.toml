@@ -23,7 +23,7 @@ classifiers = [
   "Topic :: System :: Distributed Computing",
 ]
 dependencies = [
-    "mkdocs-material==8.5.11",
+    "mkdocs-material==9.5.27",
     "mkdocs-redirects==1.2.1",
     "aioipfs==0.6.6",
     "async-timeout==4.0.3"
@@ -46,7 +46,7 @@ dependencies = [
     "ruff==0.3.4",
     "pytest==8.1.1",
     "mktestdocs==0.2.1",
-    "aleph-sdk-python==0.9.1",
+    "aleph-sdk-python==1.0.0rc1",
 ]
 
 [tool.hatch.envs.testing.scripts]
