@@ -1,6 +1,6 @@
 # How to backup a CCN
 
-The data stored by aleph.im Core Channel Nodes (CRN) is redundant and can be retrieved from the network in case of
+The data stored by aleph.im Core Channel Nodes (CCN) is redundant and can be retrieved from the network in case of
 emergencies. However, there are a few important factors to consider in order to minimize node downtime, safeguard
 reputation, and maximize rewards.
 
