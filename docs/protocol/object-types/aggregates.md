@@ -19,9 +19,9 @@ The contents of the two messages are merged. Keys already present in the origina
 keys will be added.
 
 Example:
-* Original aggregate content: `{"a": 1, "b": 2}`
-* Update: `{"b": 3, "c": 4}`
-* Result: `{"a": 1, "b": 3, "c": 4}`
+- Original aggregate content: `{"a": 1, "b": 2}`
+- Update: `{"b": 3, "c": 4}`
+- Result: `{"a": 1, "b": 3, "c": 4}`
 
 ## Retrieve aggregates
 
