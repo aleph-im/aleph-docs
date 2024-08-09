@@ -13,6 +13,7 @@ This requirement will be lifted in the future with confidential virtual machines
  * The [aleph-client](https://github.com/aleph-im/aleph-client/) command-line tool
  * The [sevctl](https://github.com/virtee/sevctl) tool from AMD
  * A [OpenSSH](https://www.openssh.com/) keypair
+ * An [IPFS Server](https://github.com/ipfs/kubo)
 
 ### aleph-client
 
@@ -53,3 +54,9 @@ apt install guestmount
 
 Note: Up to 119 dependencies and 178 MB of additional disk space will be used.
 
+## IPFS Server
+
+The encrypted filesystem you will create is close to 4 GB.
+
+In order to copy in on the aleph.im decentralized network, you will first
+need to make it available on IPFS.
