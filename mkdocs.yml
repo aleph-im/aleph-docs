@@ -127,8 +127,9 @@ nav:
             - 'Dependency volume': guides/python/dependency_volume.md
           - 'Rust':
             - 'Rust microVMs': guides/rust/rust_microvm.md
+      - 'Web3 Hosting': tools/web3-hosting.md
       - 'IPFS Pinning': tools/ipfs-pinning.md
-      - 'Add a Custom Domain': computing/custom_domain/setup.md
+      - 'Custom Domains': computing/custom_domain/setup.md
     - 'SDKs and APIs':
       - 'Typescript SDK':
         - 'Introduction': libraries/typescript-sdk/index.md
