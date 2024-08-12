@@ -130,6 +130,7 @@ nav:
       - 'IPFS Pinning': tools/ipfs-pinning.md
       - 'Add a Custom Domain': computing/custom_domain/setup.md
     - 'SDKs and APIs':
+      - 'Environments & Networks': libraries/networks.md
       - 'Typescript SDK':
         - 'Introduction': libraries/typescript-sdk/index.md
         - 'Account': libraries/typescript-sdk/accounts.md
