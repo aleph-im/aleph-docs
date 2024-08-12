@@ -27,7 +27,7 @@ pipx ensurepath
 Then install `aleph-client`: 
 ```shell
 pipx install aleph-client
-````
+```
 
 ### sevctl
 
