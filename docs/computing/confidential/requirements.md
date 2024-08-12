@@ -14,6 +14,7 @@ This requirement will be lifted in the future with confidential virtual machines
  * The [sevctl](https://github.com/virtee/sevctl) tool from AMD
  * A [OpenSSH](https://www.openssh.com/) keypair
  * An [IPFS Server](https://github.com/ipfs/kubo)
+ * Optional: [Qemu](https://www.qemu.org/) to test your VM locally
 
 ### aleph-client
 

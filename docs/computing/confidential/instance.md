@@ -1,5 +1,10 @@
 # Confidential instance creation
 
+This section explain how to allocate your VM on the Aleph Network and start it on a chosen CRN.
+
+## 0. Ensure you have uploaded your VM in the aleph network.
+See previous section: [Encrypted Virtual Machine image](./encrypted-disk.md)
+
 ## 1. Create your confidential Instance in Aleph.
 
 This will ask you how much CPU, RAM and Disk you want to use and on which node (CRN) to deploy it.
@@ -50,4 +55,6 @@ Then ssh into it
 ssh <user>@<ip>
 ```
 
-The default user  is `root` on Debian and `ubuntu` on Ubuntu.
+Where user is the user you added to your disk image.
+
+The default user is `root` on Debian and `ubuntu` on Ubuntu.
