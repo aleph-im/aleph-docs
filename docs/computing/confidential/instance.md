@@ -28,6 +28,26 @@ aleph  instance confidential-start <vmhash> <node url>
 
 ## 4. Your VM is now ready to use
 
-You can check the log of your VM or ssh to it 
+You can check the log of your VM or ssh into it.
 
-TODO: How, where ?
+### 4.1 Retrieve the logs of your VM
+
+Using the command:
+
+```shell
+aleph instance logs <vmhash> <node url>
+```
+
+### 4.2  SSH into your VM
+
+Retrieve its ip using the list command
+```shell
+aleph instance list
+```
+
+Then ssh into it
+```shell
+ssh <user>@<ip>
+```
+
+The default user  is `root` on Debian and `ubuntu` on Ubuntu.
