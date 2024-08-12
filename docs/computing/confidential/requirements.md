@@ -36,7 +36,9 @@ Install [Rust and Cargo](https://doc.rust-lang.org/cargo/getting-started/install
 ```shell
 curl https://sh.rustup.rs -sSf | sh
 ```
- 
+
+or on Ubuntu 24.04 `apt install cargo`
+
 Then install [sevctl](https://github.com/virtee/sevctl) using `cargo`:
 ```shell
 cargo install sevctl
