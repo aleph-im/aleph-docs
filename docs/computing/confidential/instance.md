@@ -10,7 +10,7 @@ See previous section: [Encrypted Virtual Machine image](./encrypted-disk.md)
 This will ask you how much CPU, RAM and Disk you want to use and on which node (CRN) to deploy it.
 
 ```shell
-aleph instance create --confidential --crn-url https://aleph8.agot.be/
+aleph instance create --confidential
 ```
 
 Be sure to write down the url of the CRN running the node and the hash of your VM 
