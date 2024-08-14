@@ -6,7 +6,7 @@ Aleph.im offers web3 hosting services via the [Twentysix Cloud Console](https://
 
 Aleph.im being GDPR-compliant, if you decide to delete your website, or some older versions of it (previous deployments), or if you stop holding the required amount of tokens to keep it online, your website will be automatically garbage collected after a grace period by our network.
 
-*Note: IPFS being a public P2P network, your files may still be available over the network if external IPFS nodes pinned them.*
+> Note: IPFS being a public P2P network, your files may still be available over the network if external IPFS nodes pinned them.
 
 ## Getting started
 
@@ -31,8 +31,7 @@ static-folder
 
 We are listing the officially supported frameworks on TwentySix's website creation page, but you can actually use any framework (and package manager, such as npm, pnpm, yarn, bun...) to create your website.
 
-*Note: Keep in mine that your website must only contain client-side components, as well as the dependencies used by it.
-For backend support, check out the section below.*
+> Note: Keep in mine that your website must only contain client-side components, as well as the dependencies used by it. For backend support, check out the section below.
 
 ### Build
 
@@ -43,7 +42,7 @@ npm install
 npm run build
 ```
 
-*Note: The name of the output folder depends on the framework, it's usually `out` or `dist`.*
+> Note: The name of the output folder depends on the framework, it's usually `out` or `dist`.
 
 ### Deploy
 
@@ -106,7 +105,7 @@ there are 2 current approchs you can implement:
 - Deploy your backend as a function, using our serverless solution.
 - Deploy your instance, setup your environment, and expose your APIs to the internet.
 
-*Note: You should setup your backend in advance, in order to integrate the needed endpoint urls inside your website later.*
+> Note: You should setup your backend in advance, in order to integrate the needed endpoint urls inside your website later.
 
 ### Auto-Deployment on Push
 
