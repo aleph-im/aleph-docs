@@ -60,7 +60,7 @@ TODO: Manage the previous versions of your website
 When your website is live on Aleph network, we provide you a gateway url to easily access it:
 `https://{ipfs-cid-v1}.ipfs.aleph.sh`
 
-You can also access it in a similar fashion using alternative gateways, since your website is hosted on the IPFS.
+You can also access it in a similar fashion using alternative gateways, since your website is hosted on IPFS.
 Find alternative gateways [here](https://ipfs.github.io/public-gateway-checker/).
 
 ### Custom Domains
@@ -106,7 +106,7 @@ there are 2 current approchs you can implement:
 - Deploy your backend as a function, using our serverless solution.
 - Deploy your instance, setup your environment, and expose your APIs to the internet.
 
-NOTE: You should setup your backend in advance, in order to integrate the needed endpoint urls inside your website later.
+*Note: You should setup your backend in advance, in order to integrate the needed endpoint urls inside your website later.*
 
 ### Auto-Deployment on Push
 
