@@ -1,7 +1,7 @@
 # Encrypted Virtual Machine image
 
-You must create a virtual machine disk image encrypted with a password of your choice to ensure confidentiality. This way, even the compute resource node running your instance will not be able to access, read or modify its content.
-
+A virtual machine disk image encrypted with a password only known by the user must be created to ensure confidentiality. 
+This way, even the compute resource node running the instance will not be able to access, read, or modify its content.
 ## Creating an Encrypted Virtual Machine Disk Image using the sample scripts
 
 Scripts are provided, they are specifically designed to create an encrypted VM image for confidential computing purposes.
@@ -18,15 +18,19 @@ The resulting disk image is designed to work seamlessly with the custom OVMF (Op
 
 Ensure you have the [requirements](./requirements.md) set up. 
 
-
-### 1. Retrieve the Scripts
+### 1. Retrieving the Scripts
 Download the necessary sample scripts from the following repository:<br>
 [Aleph VM Examples - Confidential Image](https://github.com/aleph-im/aleph-vm/tree/main/examples/example_confidential_image)
+
+```shell
+wget https://raw.githubusercontent.com/aleph-im/aleph-vm/main/examples/example_confidential_image/build_debian_image.sh
+wget https://raw.githubusercontent.com/aleph-im/aleph-vm/main/examples/example_confidential_image/setup_debian_rootfs.sh
+```
 
 These scripts are specifically designed to create an encrypted VM image for confidential computing purposes.
 
 ### 2. Customizing the VM
-It is advised to at least add one user with a password AND an SSH key in the sudo group.
+It is advised to at least add a user with both a password and an SSH key in the sudo group.
 
 You can customize your VM by modifying the `setup_debian_rootfs.sh` script. This script is executed within the VM’s chroot environment, allowing you to tailor the system according to your needs. This allows you to:
 
@@ -87,7 +91,7 @@ Run the build_debian_image.sh that will create the image with the encrypted disk
 The password option is the *secret* password key, with which the disk will be encrypted, you will need to pass it to launch the VM.  
 
 ```shell
-bash ./build_debian_image.sh  --rootfs-dir  $ROOT_DIR -o ~/destination-image.img --password your-password
+bash ./build_debian_image.sh --rootfs-dir  $ROOT_DIR -o ~/destination-image.img --password your-password
 ```
 
 > Tip: To debug the image creation, pass the `-x` option to bash in front of the script name.
@@ -113,7 +117,7 @@ To exit qemu : press `Ctrl + a`, then `x` and then `[Enter]`
 
 Make it your own:  add your user, ssh key, other program that you might need. Don't forget your encryption password! The aleph team can't help you if you lose it.
 
-### 6. Upload the disk image on IPFS
+### 6. Uploading the disk image on IPFS
 
 Upload the disk file you just created to ipfs. Either using an ipfs interface or via `curl`:
 
@@ -123,7 +127,7 @@ curl -L -X POST -F file=@destination-image.img "http://ipfs-2.aleph.im/api/v0/ad
 
 ### 7. Register the disk image on Aleph.im
 
-Pin the ipfs file in aleph via:
+Pin the ipfs file on aleph.im via:
 
 ```
 aleph file pin <ipfs hash>
@@ -136,3 +140,7 @@ Finally, get its ItemHash that is to be passed at the rootfs item hash:
 ```shell
 aleph file list
 ```
+
+---
+
+Next: [Creating the confidential instance](./instance.md)

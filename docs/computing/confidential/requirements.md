@@ -2,7 +2,8 @@
 
 ## System
 
-Creating a confidential virtual machine currently requires the creation of an encrypted disk on a machine you trust. This machine must run Linux on x86_64 (64 bit CPU, most recent PCs but not Mac).
+Creating a confidential virtual machine currently requires the creation of an encrypted disk on a machine you trust. 
+This machine must run Linux on x86_64 (64 bit CPU, most recent PCs but not Mac) and have IPv6 connectivity.
 
 The documentation below assumes a Linux system based on [Debian](https://www.debian.org/) or [Ubuntu](https://ubuntu.com/), but the procedure can be adjusted to other distributions. 
 
@@ -18,28 +19,23 @@ This requirement will be lifted in the future with confidential virtual machines
 
 ### aleph-client
 
-Install [pipx](https://github.com/pypa/pipx?tab=readme-ov-file#on-linux):
-```shell
-sudo apt update
-sudo apt install pipx
-pipx ensurepath
-```
-
-Then install `aleph-client`: 
-```shell
-pipx install aleph-client
-```
+The `aleph-client` command line tool can be installed
+following [the documentation here](../../tools/aleph-client/index.md).
 
 ### sevctl
 
-Install [Rust and Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html):
+Installing [Rust and Cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html):
 ```shell
 curl https://sh.rustup.rs -sSf | sh
 ```
 
-or on Ubuntu 24.04 `apt install cargo`
+or on Ubuntu 24.04:
 
-Then install [sevctl](https://github.com/virtee/sevctl) using `cargo`:
+```
+apt install cargo
+```
+
+The [sevctl](https://github.com/virtee/sevctl) tool can then be installed using `cargo`:
 ```shell
 cargo install sevctl
 set --export PATH ~.cargo/bin:$PATH
@@ -49,7 +45,7 @@ set --export PATH ~.cargo/bin:$PATH
 
 This tool is used to create the encrypted disk.
 
-On systems based on Debian/Ubuntu:
+On systems based on Debian/Ubuntu, it can be installed using:
 
 ```shell
 apt install guestmount
@@ -61,5 +57,9 @@ Note: Up to 119 dependencies and 178 MB of additional disk space will be used.
 
 The encrypted filesystem you will create is close to 4 GB.
 
-In order to copy in on the aleph.im decentralized network, you will first
-need to make it available on IPFS.
+In order to copy in on the aleph.im decentralized network, it is required to first
+make it available on [IPFS](https://ipfs.tech/).
+
+---
+
+Next: [Creating an encrypted filesystem](./encrypted-disk.md)

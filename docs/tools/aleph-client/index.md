@@ -1,6 +1,6 @@
-# Aleph Command Line Interface
+# Aleph.im Command-Line Interface
 
-Access all the features of aleph.im from your terminal using the 
+All the features of aleph.im can be accessed from a terminal using the 
 [aleph-client](https://github.com/aleph-im/aleph-client/) command-line interface.
 
 ## Requirements
@@ -20,15 +20,48 @@ brew install libsecp256k1
 
 ## Installation
 
-Install [aleph-client from PyPI](https://pypi.org/project/aleph-client/) using `pip`:
+We recommend using [pipx](https://github.com/pypa/pipx) to install Python based command-line tools on Linux and macOS
+systems.
+
+`pipx` installs tools in isolated environments, ensuring that it does not mess up with your system.
+Install `pipx` from [the `pipx` documentation](https://github.com/pypa/pipx?tab=readme-ov-file#on-linux)
+using `apt` or `brew`.
+
+Once `pipx` setup, [aleph-client from PyPI](https://pypi.org/project/aleph-client/) can be installed using:
 
 ```shell
+pipx install aleph-client
+```
+
+Advanced users may instead create a [Python virtual environment](https://docs.python.org/3/library/venv.html)
+and install `aleph-client` in it:
+
+```shell
+python3 -m venv my-virtual-environment
+source ./my-virtual-environment/activate
 pip install aleph-client
 ```
 
+In both cases, the command `aleph` should now be available to use.
+
+## Using Docker
+
+The tools is also available as a [OCI Image Format](https://specs.opencontainers.org/image-spec/)
+to use with [Docker](https://www.docker.com/) or [Podman](https://podman.io/).
+
+```shell
+docker run --rm -ti \
+    -v $(pwd)/data:/data \
+    ghcr.io/aleph-im/aleph-client/aleph-client:master \
+    --help
+```
+
+
+> ⚠️ This will use an ephemeral key that will be discarded when stopping the container.
+
 ## Usage
 
-Explore the available commands from the help menu:
+All available commands can be found from the help menu:
 ```shell
 aleph --help
                                                                                                 
@@ -56,14 +89,4 @@ aleph --help
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
-Or check out the [documentation page](usage.md).
-
-## Test using Docker
-
-Use the aleph.im client from within Docker or Podman with:
-
-```shell
-docker run --rm -ti -v $(pwd)/data:/data ghcr.io/aleph-im/aleph-client/aleph-client:master --help
-```
-
-> ⚠️ This will use an ephemeral key that will be discarded when stopping the container.
+And are documented on the [usage page](usage.md).

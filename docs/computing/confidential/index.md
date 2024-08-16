@@ -4,6 +4,6 @@ Aleph.im supports confidential virtual machines in beta, securised with AMD SEV.
 
 Both the memory (RAM) and the disk are fully encrypted by the CPU, such that no one can see what happens in a virtual machine from the outside.
 
-- [Requirements](./requirements.md)
-- [Encrypted disk image](./encrypted-disk.md)
-- [Instance creation on aleph.im](./instance.md)
+1. [Requirements](./requirements.md)
+2. [Encrypted disk image](./encrypted-disk.md)
+3. [Instance creation on aleph.im](./instance.md)
