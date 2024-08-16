@@ -45,13 +45,14 @@ Simply add your custom instructions at the end of the `setup_debian_rootfs.sh` s
 
 In this example, we use Debian 12.
 
-Your image need to have cloud-init installed in it for the network setup. It is recommended to start from the genericcloud image. Experiment with using the nocloud image then installing cloud-init have failed to work.
+It is recommended to start from the genericcloud image, as it contain cloud-init, which is used to setup the network when launching the VM.
 
 ```shell
 wget https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-genericcloud-amd64.qcow2
 ```
 
-Only the network part of cloud-init needs to be enabled.
+Note: Experiment with using the nocloud image then installing cloud-init have failed to work.
+The CRN rely on the feature of cloud-init being enabled (it is per default), other cloud-init feature can be disabled.
 
 ### 4. Extract the root filesystem
 
