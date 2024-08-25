@@ -11,7 +11,6 @@ The `content` field of a PROGRAM message must contain the following fields:
   "encoding": "plain | zip | tar.gzip",
   "entrypoint": "application",
   "ref": "str",
-  "ref": "str",
   "use_latest": true,
 },
 "on": {
