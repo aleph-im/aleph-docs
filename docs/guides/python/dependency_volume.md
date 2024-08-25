@@ -42,7 +42,7 @@ pip install -t my-packages -r requirements.txt
 Create a `squashfs` volume:
 
 ```shell
-mksquashfs /opt/packages packages.squashfs
+mksquashfs ./my-packages packages.squashfs
 ```
 
 ## Upload the dependency volume
