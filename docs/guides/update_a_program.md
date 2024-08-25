@@ -5,8 +5,8 @@ a new runtime, there are numerous reasons why you will update your program.
 
 In this tutorial, we will see how you can, and sometimes cannot, update programs deployed on the aleph.im network.
 
-There are two main solutions to update a program:
-1. Update the program directly
+There are two main solutions to update a program:\
+1. Update the program directly\
 2. Update one or more volumes of the program.
 
 ## Update a program
