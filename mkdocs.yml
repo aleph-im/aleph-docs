@@ -117,6 +117,11 @@ nav:
         - 'Volumes':
           - 'Immutable': computing/volumes/immutable.md
           - 'Persistent': computing/volumes/persistent.md
+        - 'Confidential instances':
+          - 'Introduction': computing/confidential/index.md
+          - 'Requirements': computing/confidential/requirements.md
+          - 'Encrypted disk image': computing/confidential/encrypted-disk.md
+          - 'Instance': computing/confidential/instance.md
         - 'Tutorials':
           - 'Testing microVMs': guides/testing_microvms.md
           - 'Update a program': guides/update_a_program.md
