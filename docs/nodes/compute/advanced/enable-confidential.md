@@ -22,6 +22,7 @@ In addition to the standard software requirements, the following must be configu
 To verify that your system supports AMD SEV, run the following command:  `sevctl ok`
 
 A successful output should include:
+
 ```[ PASS ]   - Secure Encrypted Virtualization (SEV)```
 For more details on enabling SEV and troubleshooting, refer to the official [AMD SEV documentation](https://www.amd.com/fr/developer/sev.html).
 
