@@ -13,6 +13,7 @@ Note that the [4004 Series Processors do not provide SEV](https://www.amd.com/en
 
 ## Additional Software Requirements
 In addition to the standard software requirements, the following must be configured:
+
 * **BIOS Configuration**: SEV support must be [enabled in the BIOS](https://www.amd.com/content/dam/amd/en/documents/epyc-technical-docs/tuning-guides/58207-using-sev-with-amd-epyc-processors.pdf) (refer to Section 2.1 of the document). (see Section 2.1).
 * **Kernel and Platform Support**: The operating system kernel must support SEV. For example, Ubuntu 24.04 includes this support by default.
 * **sevctl**: The [sevctl](https://github.com/virtee/sevctl) tool must be installed. This utility is included in the aleph-vm Debian package and is installed at `/opt/sevctl`.
