@@ -41,3 +41,4 @@ functionalities are supported.
 | Substrate | ✅                 |                           |                    |                 |                 |      |
 | Avalanche | ✅                 | Metamask & Wallet Connect | ✅                  |                 |                 | ✅    |
 | BASE      | Python only       | Metamask & Wallet Connect | ✅                  |                 |                 | ✅    |
+| BNB       | ✅                 | Metamask & Wallet Connect | ✅                  |                 |                 |      |
