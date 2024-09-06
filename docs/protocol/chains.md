@@ -23,17 +23,21 @@ functionalities are supported.
    Users can help securing the aleph.im network by holding tokens and _staking_ them on 
    [Core Channel Nodes](../nodes/core/index.md) they consider trustworthy. The aleph.im network
    interacts with blockchains to achieve this mechanism.
+6. **PAYG support**:
+   Users can pay for network resources in real-time by streaming tokens for the duration of their usage. When they open
+   a token stream, payments flow continuously as long as they use the resource. Once they close the stream, payments
+   stop, and the resource becomes inaccessible. This approach ensures users only pay for what they actively use,
+   offering a flexible and efficient payment method.
 
-
-| Chain     | Message signature | Wallet support | Token availability | Balance support | Staking support |
-|-----------|-------------------|----------------|--------------------|-----------------|-----------------|
-| Ethereum  | ✅                 | Metamask & Wallet Connect      | ✅                 | ✅              | ✅               |
-| Polygon   | ✅                 | Metamask & Wallet Connect       |                    |                |                 |
-| Solana    | ✅                 |                | ✅                  | ❌             | ❌               |
-| Tezos     | ✅                 |                |                    |                |                 |
-| Cosmos    | ✅                 |                |                    |                |                 |
-| Nuls1     | Python only       |                |                    |                 |                 |
-| Nuls2     | Python only       |                |                    |                 |                 |
-| Substrate | ✅                 |                |                    |                |                 |
-| Avalanche | ✅                 | Metamask & Wallet Connect               |   ✅                 |                 |                 |
-| BASE      | Python only       | Metamask & Wallet Connect               |   ✅                 |                 |                 |
+| Chain     | Message signature | Wallet support            | Token availability | Balance support | Staking support | PAYG |
+|-----------|-------------------|---------------------------|--------------------|-----------------|-----------------|------|
+| Ethereum  | ✅                 | Metamask & Wallet Connect | ✅                  | ✅               | ✅               |      |
+| Polygon   | ✅                 | Metamask & Wallet Connect |                    |                 |                 |      |
+| Solana    | ✅                 |                           | ✅                  | ❌               | ❌               |      |
+| Tezos     | ✅                 |                           |                    |                 |                 |      |
+| Cosmos    | ✅                 |                           |                    |                 |                 |      |
+| Nuls1     | Python only       |                           |                    |                 |                 |      |
+| Nuls2     | Python only       |                           |                    |                 |                 |      |
+| Substrate | ✅                 |                           |                    |                 |                 |      |
+| Avalanche | ✅                 | Metamask & Wallet Connect | ✅                  |                 |                 | ✅    |
+| BASE      | Python only       | Metamask & Wallet Connect | ✅                  |                 |                 | ✅    |
