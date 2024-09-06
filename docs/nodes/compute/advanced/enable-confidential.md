@@ -19,7 +19,7 @@ In addition to the standard software requirements, the following must be configu
 * **sevctl**: The [sevctl](https://github.com/virtee/sevctl) tool must be installed. This utility is included in the aleph-vm Debian package and is installed at `/opt/sevctl`.
 * **QEMU**: QEMU must be installed on the system. `apt install cloud-image-utils qemu-utils qemu-system-x86`
 
-To verify that your system supports AMD SEV, run the following command:  `sevctl ok`
+To verify that your system supports AMD SEV, run the following command:  `/opt/sevctl ok`
 
 A successful output should include:
 
