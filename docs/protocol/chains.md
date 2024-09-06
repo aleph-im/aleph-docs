@@ -32,7 +32,8 @@ functionalities are supported.
 | Solana    | ✅                 |                | ✅                  | ❌             | ❌               |
 | Tezos     | ✅                 |                |                    |                |                 |
 | Cosmos    | ✅                 |                |                    |                |                 |
-| Nuls1     | Python only        |                |                    |                 |                 |
-| Nuls2     | Python only        |                |                    |                 |                 |
+| Nuls1     | Python only       |                |                    |                 |                 |
+| Nuls2     | Python only       |                |                    |                 |                 |
 | Substrate | ✅                 |                |                    |                |                 |
-| Avalanche | TypeScript only    | Metamask & Wallet Connect               |                    |                 |                 |
+| Avalanche | ✅                 | Metamask & Wallet Connect               |   ✅                 |                 |                 |
+| BASE      | Python only       | Metamask & Wallet Connect               |   ✅                 |                 |                 |
