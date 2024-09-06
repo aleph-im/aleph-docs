@@ -22,6 +22,7 @@
 - **BNB Chain**: [`0x82d2f8e02afb160dd5a480a617692e62de9038c4`](https://bscscan.com/token/0x82d2f8e02afb160dd5a480a617692e62de9038c4)
 - **Avalanche**: [`0xc0Fbc4967259786C743361a5885ef49380473dCF`](https://snowtrace.io/address/0xc0Fbc4967259786C743361a5885ef49380473dCF)
 - **Solana**: [`3UCMiSnkcnkPE1pgQ5ggPCBv6dXgVUy16TmMUe1WpG9x`](https://solana.fm/address/3UCMiSnkcnkPE1pgQ5ggPCBv6dXgVUy16TmMUe1WpG9x)
+- **BASE**: [`0xc0Fbc4967259786C743361a5885ef49380473dCF`](https://basescan.org/token/0xc0Fbc4967259786C743361a5885ef49380473dCF)
 
 ## I. ALEPH Staking
 
