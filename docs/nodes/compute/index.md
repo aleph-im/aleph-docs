@@ -1,6 +1,6 @@
 # Introduction
 
-Aleph.im compute resource nodes are decentralized computing infrastructure components that form a vital part of the
+Aleph.im compute resource nodes (CRN) are decentralized computing infrastructure components that form a vital part of the
 aleph.im network. These nodes work collectively to provide distributed and secure computing power, storage, and other
 resources to users and applications on the platform.
 
