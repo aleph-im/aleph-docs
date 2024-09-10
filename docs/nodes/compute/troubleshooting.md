@@ -117,7 +117,7 @@ Check that both work on your node, on an URL similar to
 
 3. **Clear Cache:**
 
-    - See [SQUASHFS Errors in running diagnostic VM](#squashfs-errors-in-running-diagnostic-vm).
+    - See [SQUASHFS Errors in running diagnostic VM](#2-squashfs-errors-in-diagnostic-vm).
 
 4. **Contact Cloud Provider:**
 

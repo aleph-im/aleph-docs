@@ -61,4 +61,4 @@ outputs:
 ## Delegate write access to another account
 
 If you want to delegate write access to a specific key in your aggregates, you can
-use the security aggregate like explained in the [Python SDK's section on write access delegation](../python-sdk/aggregates/delegate.md#delegate-write-access-to-an-aggregate-key).
+use the security aggregate like explained in the [Python SDK's section on write access delegation](../python-sdk/aggregates/delegate.md).
