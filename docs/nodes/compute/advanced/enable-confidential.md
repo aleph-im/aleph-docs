@@ -1,6 +1,6 @@
 # Confidential computing
 
-This guide outlines how to enable [Confidential Computing](/computing/confidential/index.md) on a CRN.
+This guide outlines how to enable [Confidential Computing](../../../computing/confidential/index.md) on a CRN.
 
 ## Hardware requirement
 To enable Confidential Computing, your system must be equipped with 4th Generation AMD EPYC™ Processors that support Secure Encrypted Virtualization (SEV).

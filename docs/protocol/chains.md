@@ -40,5 +40,5 @@ functionalities are supported.
 | Nuls2     | Python only       |                           |                    |                 |                 |      |
 | Substrate | ✅                 |                           |                    |                 |                 |      |
 | Avalanche | ✅                 | Metamask & Wallet Connect | ✅                  |                 |                 | ✅    |
-| BASE      | Python only       | Metamask & Wallet Connect | ✅                  |                 |                 | ✅    |
+| BASE      | ✅                 | Metamask & Wallet Connect | ✅                  |                 |                 | ✅    |
 | BNB       | ✅                 | Metamask & Wallet Connect | ✅                  |                 |                 |      |
