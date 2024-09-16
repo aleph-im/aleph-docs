@@ -29,13 +29,13 @@ async def create_post(
 | Parameter      | Description                                                                                                       |
 |----------------|-------------------------------------------------------------------------------------------------------------------|
 | `post_content` | The data to store as a dictionary.<br> [More information](../../../protocol/object-types/posts.md#content-format) |
-| `post_type`    | An arbitrary content type that helps to describe the post_content. <br> ex: `ammend` / `blog` / `chat` `comment`. |
+| `post_type`    | An arbitrary content type that helps to describe the post_content. <br> ex: `amend` / `blog` / `chat` `comment`. |
 
 #### Optional arguments
 
 | Parameter        | Description                                                                                                                                                                                            |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ref`            | A searchable reference string of your choice to save to the `item_content.ref`. Can be the reference to another post, an address, transaction hash, etc. <br> Mostly used with the `ammend` post_type. |
+| `ref`            | A searchable reference string of your choice to save to the `item_content.ref`. Can be the reference to another post, an address, transaction hash, etc. <br> Mostly used with the `amend` post_type. |
 | `address`        | Address the Post should be associated with or the address that submitted the Post.                                                                                                                     |
 | `channel`        | The channel where the message will be posted.                                                                                                                                                          |
 | `inline`         | Flag to indicate if the content should be inlined in the message or not.                                                                                                                               |
