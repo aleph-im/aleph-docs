@@ -109,7 +109,7 @@ Metrics messages can be found:
 
 ### Using the Python SDK
 
-The [Python SDK](../../libraries/python-sdk/posts/query/) provides helpers to fetch the relevant messages.
+The [Python SDK](../../../libraries/python-sdk/posts/query/) provides helpers to fetch the relevant messages.
 ```python
 import asyncio
 from datetime import UTC, datetime, timedelta
