@@ -19,7 +19,7 @@ Be sure to write down the url of the CRN running the node and the hash of your V
 
 Using the command:
 ```shell
-aleph instance confidential-init-session <vmhash> <node url>
+aleph instance confidential-init-session <vmhash>
 ``` 
 
 > ℹ️ If this step fails, the instance must be rebooted using `aleph instance reboot <vmhash> <node url>` before
@@ -30,7 +30,7 @@ aleph instance confidential-init-session <vmhash> <node url>
 Using the command:
 
 ```shell
-aleph  instance confidential-start <vmhash> <node url>
+aleph  instance confidential-start <vmhash>
 ``` 
 
 > ℹ️ If this step fails, the instance must be rebooted using `aleph instance reboot <vmhash> <node url>` before
@@ -45,7 +45,7 @@ You can check the log of your VM or ssh into it.
 Using the command:
 
 ```shell
-aleph instance logs <vmhash> <node url>
+aleph instance logs <vmhash>
 ```
 
 ### SSH into your VM
