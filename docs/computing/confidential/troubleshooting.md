@@ -22,7 +22,7 @@ cloud-init[502]: Cloud-init v. 24.1.3-0ubuntu1~22.04.5 finished at Thu, 05 Sep 2
 Ubuntu 22.04.4 LTS dbnszzoulvoea7crseir75egj4xbm5zzzaaut2nbpknjadidp3ua ttyS0
 ```
 
-## Attempt launching the VM locally.
+## Attempt launching the VM locally
 
 If the VM fail to start, try launching your VM disk image locally in QEMU, this will allow to check if the disk image has been
 properly built.
