@@ -40,4 +40,4 @@ sudo qemu-system-x86_64 \
 
 > Note: Once you have entered your password you might have to wait a minute or so for the disk to decrypt and boot.
 
-To exit qemu : press `Ctrl + a`, then `x` and then `[Enter]`
+To exit qemu: press `Ctrl + a`, then `x` and then `[Enter]`
