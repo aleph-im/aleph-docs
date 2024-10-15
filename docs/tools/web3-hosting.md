@@ -6,17 +6,17 @@ Aleph.im offers web3 hosting services via the [Twentysix Cloud Console](https://
 
 Aleph.im being GDPR-compliant, if you decide to delete your website, or some older versions of it (previous deployments), or if you stop holding the required amount of tokens to keep it online, your website will be automatically garbage collected after a grace period by our network.
 
-> Note: IPFS being a public P2P network, your files may still be available over the network if external IPFS nodes pinned them.
+> ℹ️ IPFS being a public P2P network, your files may still be available over the network if external nodes pinned them.
 
 ## Getting started
 
 ### Prepare
 
-You just need to provide the root folder containing your static website's files.
+You need to provide a root folder containing your static website's files.
 
 #### Simple Static Website
 
-The minimal requirement is that your folder must contain an `index.html` file. This file will always be the entry point of your website.
+The minimal requirement is that your folder must contain an `index.html` file. This file will always be the entrypoint of your website.
 
 ```bash
 static-folder
@@ -31,32 +31,38 @@ static-folder
 
 We are listing the officially supported frameworks on TwentySix's website creation page, but you can actually use any framework (and package manager, such as npm, pnpm, yarn, bun...) to create your website.
 
-> Note: Keep in mine that your website must only contain client-side components, as well as the dependencies used by it. For backend support, check out the section below.
+> ℹ️ Keep in mine that your website, being a decentralized frontend, must only contain client-side components, as well as the dependencies used by it. For backend support, check out the section below.
 
-### Build
+##### Build
 
 When your project is ready, you can build and generate your static folder.
 Example using npm:
+
 ```bash
 npm install
 npm run build
 ```
 
-> Note: The name of the output folder depends on the framework, it's usually `out` or `dist`.
+> ℹ️ The name of the output folder depends on the framework used, it's usually `out` or `dist`.
 
 ### Deploy
 
-TODO: aleph-client commands / 26-cloud screenshots
+When your static folder is ready, you can deploy your website using the [Twentysix Cloud Console](https://console.twentysix.cloud/hosting/website/new/).
 
-### History
+![Deploy your website](../assets/images/console/deploy-website.png)
 
-TODO: Manage the previous versions of your website
+### History and Updates
+
+You can update your website or access/redeploy previous versions easily through your [Website Management Dashboard](https://console.twentysix.cloud/hosting/website/).
+
+![Update website and access history](../assets/images/console/update-website.png)
 
 ## Access Your Dapp
 
 ### Aleph Gateway Service
 
 When your website is live on Aleph network, we provide you a gateway url to easily access it:
+
 `https://{ipfs-cid-v1}.ipfs.aleph.sh`
 
 You can also access it in a similar fashion using alternative gateways, since your website is hosted on IPFS.
@@ -64,55 +70,65 @@ Find alternative gateways [here](https://ipfs.github.io/public-gateway-checker/)
 
 ### Custom Domains
 
-TODO: some details + link to docs page
+At deployment time, or later, you can link a custom domain to your website using:
+
+- [Aleph-Client](aleph-client/index.md)
+- [Twentysix Cloud Console](https://console.twentysix.cloud/settings/domain/new/)
 
 ### ENS Domains
 
-Since your website is hosted on IPFS, we are compatible with the ENS standard.<br>
-To make it usable with ENS resolver such as:
+Since your website is hosted on IPFS, it is compatible with ENS domains.<br>
+To resolve it:
 
-`https://{your-ens-name}.eth.limo`<br>
+- Access your domain page on [ens.domains](https://app.ens.domains/)
+- `Records` ➜ `Edit Records` ➜ `Other`
+- Setup `Content Hash` to: `ipfs://{ipfs-cid-v1}`
+
+![ENS record](../assets/images/console/ens-record.png)
+
+Your website will then be accessible via:
+
+`https://{ens-domain}.eth.limo`<br>
 or<br>
-`https://{your-ens-name}.eth.link`
-
-You need to setup the content hash field of your ENS with:<br>
-`ipfs://{ipfs-cid-v1}`
-
-Aleph is not compatible with IPNS, allowing you update automatically the live version of your dapp.
-We are planning to support it in the near future, and we are working on building our own Aleph-native alternative to Limo, which is currently not a decentralized and scalable service.
+`https://{ens-domain}.eth.link`
 
 ## Advanced Features
 
 ### Handle Redirections on IPFS
 
-By default, IPFS can't handle any fallback redirections.
-To do so, you should add a `_redirects` file into your dapp structure.
+By default, IPFS can't handle any fallback redirections, so we provide a `404 fallback` for all routes that are not found.
 
-For simple website, it should be located in the root folder.
-For framework-based website, it should be located in the `public` folder.
-Then at build time, it will be moved at the root.
-Check out the documentation for more details.
+If you want to add more specific redirections, you must create a `_redirects` file into your dapp:
 
-#### Useful Links
+- <b>Simple website</b>: It should be located in the root folder.
+- <b>Framework-based website</b>: it should be located in the `public` folder. At build time, it will be moved at the root.
+
+Check out the IPFS documentation below for more details.
+
+<b>Useful Links</b>
+
 - [IPFS docs](https://docs.ipfs.tech/how-to/websites-on-ipfs/redirects-and-custom-404s/)
 - [Specifications](https://specs.ipfs.tech/http-gateways/web-redirects-file/)
 
 ### Backend Support
 
-In order to add a backend to your website and to make it a real fullstack dapp,
-there are 2 current approchs you can implement:
+In order to add a backend to your website and to make it a complete fullstack dapp, there are currently 2 different approchs you can implement:
 
-- Deploy your backend as a function, using our serverless solution.
-- Deploy your instance, setup your environment, and expose your APIs to the internet.
+- [Deploy your backend as a function](webconsole/write_your_code.md) using our serverless solution.
+- [Deploy your instance](../computing/index.md) then setup your environment and expose your APIs to the internet.
 
-> Note: You should setup your backend in advance, in order to integrate the needed endpoint urls inside your website later.
+> ℹ️ You should setup your backend in advance, in order to integrate the needed endpoint urls inside your website after.
 
 ### Auto-Deployment on Push
 
-Coming soon...
+Coming soon.
 
-## Special Framework Requirements
+## Troubleshooting
 
-### Vite with aleph-sdk-ts
+### aleph-sdk-ts
 
-In order to build a Vite Dapp using aleph-sdk-ts, follow the instructions on [this page](../libraries/typescript-sdk/troubleshooting.md)
+When using the Typescript SDK, some frameworks can require a specific [setup](../libraries/typescript-sdk/troubleshooting.md).
+
+### Found an issue?
+
+If the documentation didn't help, you can [report an issue](https://github.com/aleph-im/support/issues).
