@@ -1,7 +1,38 @@
 # Troubleshooting Guide
 
-As of now, the SDK is in beta and we are working on improving it.
 If you encounter any issues, please let us know by creating an issue on the [GitHub repository](https://github.com/aleph-im/aleph-sdk-ts/issues).
+
+## Wagmi-compatible Web3Provider
+
+The SDK is based on Ethers, if you are using Wagmi instead, a quick setup is required.
+You can use this function to obtain a compatible Web3Provider:
+
+```typescript
+import { providers } from "ethers";
+import type { Account, Chain, Client, Transport } from "viem";
+import { useConnectorClient } from "wagmi";
+
+export function clientToSigner(client: Client<Transport, Chain, Account>) {
+  const { account, chain, transport } = client;
+  const network = {
+    chainId: chain.id,
+    name: chain.name,
+    ensAddress: chain.contracts?.ensRegistry?.address,
+  };
+  const provider = new providers.Web3Provider(transport, network);
+  // Uncomment next line if you want to load a specific wallet address beforehand
+  // provider.getSigner(account.address);
+  return provider;
+}
+
+export function useEtherProvider() {
+  const { data: client } = useConnectorClient();
+  if (!client) {
+    return;
+  }
+  return clientToSigner(client);
+}
+```
 
 ## Vite: Module externalized for browser compatibility
 
@@ -23,12 +54,10 @@ npm i vite-plugin-node-polyfills
 Then, add the plugin to your `vite.config.js`:
 
 ```javascript
-import { defineConfig } from 'vite'
-import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import { defineConfig } from "vite";
+import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 export default defineConfig({
-  plugins: [
-    nodePolyfills(),
-  ],
+  plugins: [nodePolyfills()],
 });
 ```
