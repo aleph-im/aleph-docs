@@ -1,7 +1,5 @@
 # Troubleshooting Guide
 
-If you encounter any issues, please let us know by creating an issue on the [GitHub repository](https://github.com/aleph-im/aleph-sdk-ts/issues).
-
 ## Wagmi-compatible Web3Provider
 
 The SDK is based on Ethers, if you are using Wagmi instead, a quick setup is required.
@@ -61,3 +59,7 @@ export default defineConfig({
   plugins: [nodePolyfills()],
 });
 ```
+
+## Found an issue?
+
+If the documentation didn't help, you can [report an issue](https://github.com/aleph-im/support/issues).
