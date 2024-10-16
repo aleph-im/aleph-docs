@@ -88,6 +88,7 @@ nav:
       - 'Aleph CLI':
         - 'Getting started': tools/aleph-client/index.md
         - 'Usage': tools/aleph-client/usage.md
+        - 'Troubleshooting': tools/aleph-client/troubleshooting.md
       - 'Web Console':
         - 'Getting started': tools/webconsole/index.md
         - 'Upload': tools/webconsole/upload.md
