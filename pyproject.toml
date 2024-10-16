@@ -15,6 +15,7 @@ authors = [
     {name = "Hugo Herter", email = "git@hugoherter.com"},
     {name = "Mike Hukiewitz", email = "mike.hukiewitz@robotter.ai"},
     {name = "Antonyjin", email = "antony.jin@epitech.eu"},
+    {name = "Arnaud S.", email = "binaryeyelabs@gmail.com"},
 ]
 classifiers = [
   "Development Status :: 4 - Beta",
