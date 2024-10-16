@@ -71,7 +71,6 @@ nav:
       - 'Introduction': nodes/compute/index.md
       - 'Installations':
         - 'Configure Caddy': nodes/compute/installation/configure-caddy.md
-        - 'Debian 11': nodes/compute/installation/debian-11.md
         - 'Debian 12': nodes/compute/installation/debian-12.md
         - 'Ubuntu 20.04': nodes/compute/installation/ubuntu-20.04.md
         - 'Ubuntu 22.04': nodes/compute/installation/ubuntu-22.04.md
@@ -124,6 +123,7 @@ nav:
           - 'Requirements': computing/confidential/requirements.md
           - 'Encrypted disk image': computing/confidential/encrypted-disk.md
           - 'Instance': computing/confidential/instance.md
+          - 'Troubleshooting': computing/confidential/troubleshooting.md
         - 'Tutorials':
           - 'Testing microVMs': guides/testing_microvms.md
           - 'Update a program': guides/update_a_program.md

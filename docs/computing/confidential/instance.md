@@ -2,6 +2,8 @@
 
 This section explain how to allocate your VM on the Aleph Network and start it on a chosen CRN.
 
+If you encounter any problem, check the [Confidential VM troubleshooting](./troubleshooting.md) guide
+
 ## Ensure you have uploaded your VM in the aleph network.
 See previous section: [Encrypted Virtual Machine image](./encrypted-disk.md)
 
