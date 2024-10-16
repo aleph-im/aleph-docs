@@ -30,13 +30,7 @@ Installing [Rust and Cargo](https://doc.rust-lang.org/cargo/getting-started/inst
 curl https://sh.rustup.rs -sSf | sh
 ```
 
-Or on Ubuntu 24.04:
-
-```shell
-apt install cargo
-```
-
-On some distributions (ex: Ubuntu), sevctl requires additional dependencies:
+Some packages may need to be installed on some systems (ex: Ubuntu) in order to build sevctl:
 
 ```shell
 apt install -y pkg-config libssl-dev asciidoctor
