@@ -1,8 +1,8 @@
-# Debian 12 Bookworm
+# Ubuntu 24.04 Noble Numbat
 
 ## 0. Introduction
 
-For production using official Debian 12 packages.
+For production using official Ubuntu 24.04 packages.
 
 ## 1. Requirements
 
@@ -24,34 +24,34 @@ You will need a public domain name with access to add TXT and wildcard records.
 
 ## 2. Installation
 
-Run the following commands as `root`:
+Run the following commands:
 
 First install the [VM-Connector](https://github.com/aleph-im/aleph-vm/tree/main/vm_connector) using Docker:
 
 ```shell
-apt update
-apt upgrade
-apt install -y docker.io apparmor-profiles
+sudo apt update
+sudo apt upgrade
+sudo apt install -y docker.io
 docker run -d -p 127.0.0.1:4021:4021/tcp --restart=always --name vm-connector alephim/vm-connector:alpha
 ```
 
-Then install the [VM-Supervisor](https://github.com/aleph-im/aleph-vm/tree/main/src/aleph/vm/orchestrator) using the official Debian 12 package.
+Then install the [VM-Supervisor](https://github.com/aleph-im/aleph-vm/tree/main/src/aleph/vm/orchestrator) using the official Ubuntu 24.04 package.
 The procedure is similar for updates.
 
 ```shell
 # Download the latest release
-curl -s https://api.github.com/repos/aleph-im/aleph-vm/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \" | sed '1p;d' | xargs wget -P /opt -
+curl -s https://api.github.com/repos/aleph-im/aleph-vm/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \" | sed '3p;d' | xargs sudo wget -P /opt -
 # Install it
-apt install /opt/aleph-vm.debian-12.deb
+sudo apt install /opt/aleph-vm.ubuntu-24.04.deb
 ```
 
 Reboot if required (new kernel, ...).
 
 ### Configuration
 
-Update the configuration in `/etc/aleph-vm/supervisor.env` using your favourite editor.
-
 #### Hostname
+
+Update the configuration in `/etc/aleph-vm/supervisor.env` using your favourite editor.
 
 You will want to insert your domain name in the form of:
 
@@ -98,7 +98,7 @@ That partition must meet the minimum requirements specified for a CRN.
 Finally, restart the service:
 
 ```shell
-systemctl restart aleph-vm-supervisor
+sudo systemctl restart aleph-vm-supervisor
 ```
 
 ## 3. Reverse Proxy
@@ -115,17 +115,17 @@ This is a simple configuration. For more options, check [CONFIGURE_CADDY](config
 Again, run these commands as `root`:
 
 ```shell
- apt install -y debian-keyring debian-archive-keyring apt-transport-https
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list
-apt update
-apt install caddy
+sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+sudo apt update
+sudo apt install caddy
 ```
 
 Then, after replacing the domain `vm.example.org` with your own, use configure Caddy:
 
 ```shell
-cat >/etc/caddy/Caddyfile <<EOL
+sudo cat >/etc/caddy/Caddyfile <<EOL
 {
     https_port 443
     on_demand_tls {
@@ -145,7 +145,7 @@ EOL
 Finally, restart Caddy to use the new configuration:
 
 ```shell
-systemctl restart caddy
+sudo systemctl restart caddy
 ```
 
 ## 4. Test
@@ -159,19 +159,19 @@ If you face an issue, check the logs of the different services for errors:
 VM-Supervisor:
 
 ```shell
-journalctl -f -u aleph-vm-supervisor.service
+sudo journalctl -f -u aleph-vm-supervisor.service
 ```
 
 Caddy:
 
 ```shell
-journalctl -f -u caddy.service
+sudo journalctl -f -u caddy.service
 ```
 
 VM-Connector:
 
 ```shell
-docker logs -f vm-connector
+sudo docker logs -f vm-connector
 ```
 
 ### Common errors

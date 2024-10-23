@@ -2,12 +2,12 @@
 
 ## 0. Introduction
 
-For production using official Debian packages.
+For production using official Ubuntu 22.04 packages.
 
 ## 1. Requirements
 
 - A [supported Linux server](https://github.com/aleph-im/aleph-vm/tree/main/src/aleph/vm/orchestrator#1-supported-platforms)
-- A public domain name from a registrar and top level domain you trust. 
+- A public domain name from a registrar and top level domain you trust.
 
 In order to run an official Aleph.im Compute Resource Node (CRN), you will also need the following resources:
 
@@ -27,6 +27,7 @@ You will need a public domain name with access to add TXT and wildcard records.
 Run the following commands:
 
 First install the [VM-Connector](https://github.com/aleph-im/aleph-vm/tree/main/vm_connector) using Docker:
+
 ```shell
 sudo apt update
 sudo apt upgrade
@@ -34,10 +35,13 @@ sudo apt install -y docker.io
 docker run -d -p 127.0.0.1:4021:4021/tcp --restart=always --name vm-connector alephim/vm-connector:alpha
 ```
 
-Then install the [VM-Supervisor](https://github.com/aleph-im/aleph-vm/tree/main/src/aleph/vm/orchestrator) using the official Debian package.
+Then install the [VM-Supervisor](https://github.com/aleph-im/aleph-vm/tree/main/src/aleph/vm/orchestrator) using the official Ubuntu 22.04 package.
 The procedure is similar for updates.
+
 ```shell
-sudo wget -P /opt https://github.com/aleph-im/aleph-vm/releases/download/0.4.1/aleph-vm.ubuntu-22.04.deb
+# Download the latest release
+curl -s https://api.github.com/repos/aleph-im/aleph-vm/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \" | sed '2p;d' | xargs sudo wget -P /opt -
+# Install it
 sudo apt install /opt/aleph-vm.ubuntu-22.04.deb
 ```
 
@@ -50,6 +54,7 @@ Reboot if required (new kernel, ...).
 Update the configuration in `/etc/aleph-vm/supervisor.env` using your favourite editor.
 
 You will want to insert your domain name in the form of:
+
 ```
 ALEPH_VM_DOMAIN_NAME=vm.example.org
 ```
@@ -58,14 +63,17 @@ ALEPH_VM_DOMAIN_NAME=vm.example.org
 
 The network configuration is detected automatically.
 
-The default network interface is detected automatically from the IP routes. 
+The default network interface is detected automatically from the IP routes.
 You can configure the default interface manually instead by adding:
+
 ```
 ALEPH_VM_NETWORK_INTERFACE=enp0s1
 ```
+
 (don't forget to replace `enp0s1` with the name of your default network interface).
 
 You can configure the DNS resolver manually by using one of the following options:
+
 ```
 ALEPH_VM_DNS_RESOLUTION=resolvectl
 ALEPH_VM_DNS_RESOLUTION=resolv.conf
@@ -73,10 +81,10 @@ ALEPH_VM_DNS_RESOLUTION=resolv.conf
 
 > 💡 You can instead specify the DNS resolvers used by the VMs using `ALEPH_VM_DNS_NAMESERVERS=["1.2.3.4", "5.6.7.8"]`.
 
-
 #### Volumes and partitions
 
 Two directories are used to store data from the network:
+
 - `/var/lib/aleph/vm` contains all the execution and persistent data.
 - `/var/cache/aleph/vm` contains data downloaded from the network.
 
@@ -88,6 +96,7 @@ That partition must meet the minimum requirements specified for a CRN.
 #### Applying changes
 
 Finally, restart the service:
+
 ```shell
 sudo systemctl restart aleph-vm-supervisor
 ```
@@ -96,7 +105,7 @@ sudo systemctl restart aleph-vm-supervisor
 
 We document how to use Caddy as a reverse proxy since it manages and renews HTTPS certificates automatically.
 
-Any other reverse-proxy (Nginx, HAProxy, Apache2, ...) should do the job as well, just make sure to renew the 
+Any other reverse-proxy (Nginx, HAProxy, Apache2, ...) should do the job as well, just make sure to renew the
 HTTPS/TLS certificates on time.
 
 First, create a domain name that points to the server on IPv4 (A) and IPv6 (AAAA).
@@ -104,6 +113,7 @@ First, create a domain name that points to the server on IPv4 (A) and IPv6 (AAAA
 This is a simple configuration. For more options, check [CONFIGURE_CADDY](configure-caddy.md).
 
 Again, run these commands as `root`:
+
 ```shell
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
@@ -113,6 +123,7 @@ sudo apt install caddy
 ```
 
 Then, after replacing the domain `vm.example.org` with your own, use configure Caddy:
+
 ```shell
 sudo cat >/etc/caddy/Caddyfile <<EOL
 {
@@ -127,33 +138,38 @@ vm.example.org:443 {
         # Forward Host header to the backend
         header_up Host {host}
     }
-} 
+}
 EOL
 ```
+
 Finally, restart Caddy to use the new configuration:
+
 ```shell
 sudo systemctl restart caddy
 ```
 
 ## 4. Test
 
-Open https://[YOUR DOMAIN] in a web browser, wait for diagnostic to complete and look for 
+Open https://[YOUR DOMAIN] in a web browser, wait for diagnostic to complete and look for
 
 > ![image](https://user-images.githubusercontent.com/404665/150202090-91a02536-4e04-4af2-967f-fe105d116e1f.png)
 
 If you face an issue, check the logs of the different services for errors:
 
 VM-Supervisor:
+
 ```shell
-sudo journalctl -f -u aleph-vm-supervisor.service 
+sudo journalctl -f -u aleph-vm-supervisor.service
 ```
 
 Caddy:
+
 ```shell
-sudo journalctl -f -u caddy.service 
+sudo journalctl -f -u caddy.service
 ```
 
 VM-Connector:
+
 ```shell
 sudo docker logs -f vm-connector
 ```
@@ -162,7 +178,7 @@ sudo docker logs -f vm-connector
 
 #### "Network interface eth0 does not exist"
 
-Did you update the configuration file `/etc/aleph-vm/supervisor.env` with `ALEPH_VM_NETWORK_INTERFACE` equal to 
+Did you update the configuration file `/etc/aleph-vm/supervisor.env` with `ALEPH_VM_NETWORK_INTERFACE` equal to
 the default network interface of your server ?
 
 #### "Aleph Connector unavailable"

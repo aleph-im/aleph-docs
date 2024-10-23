@@ -16,9 +16,9 @@ Every hour, the measurement program creates a random plan of when to connect to 
 
 The program connects to each node using a few different methods and measures the time taken to obtain a response for each measurement (latency).
 
- - HTTP or HTTPS
- - IPv4 and IPv6
- - Ping (ICMP) requests
+- HTTP or HTTPS
+- IPv4 and IPv6
+- Ping (ICMP) requests
 
 All durations are expressed in seconds (floating numbers).
 
@@ -41,34 +41,35 @@ Some metrics are common to all node types:
 
 1. **Base latency** (`base_latency`): The time to respond to a simple request, measured by calling `/api/v0/info/public.json` (no processing on that page).
 2. **Metrics latency** (`metrics_latency`): The time to fetch public node metrics, measured by calling `/metrics.json`
-[//]: # (3. The following variables from the metrics.json response:)
-[//]: # (    a. `pyaleph_status_sync_pending_txs_total`)
-[//]: # (    b. `pyaleph_status_sync_pending_messages_total`)
-[//]: # (    c. `pyaleph_status_chain_eth_height_remaining_total`)
+   [//]: # (3. The following variables from the metrics.json response:)
+   [//]: # ( a. `pyaleph_status_sync_pending_txs_total`)
+   [//]: # ( b. `pyaleph_status_sync_pending_messages_total`)
+   [//]: # ( c. `pyaleph_status_chain_eth_height_remaining_total`)
 3. **Aggregate latency** (`aggregate_latency`): The time to fetch a large aggregate, measured by calling `/api/v0/aggregates/0xa1B3bb7d2332383D96b7796B908fB7f7F3c2Be10.json?keys=corechannel&limit=50`. Accesses the database.
 4. **File download latency** (`file_download_latency`): The time to fetch a 6.7 kB file, measured by calling `/api/v0/storage/raw/50645d4ccfddb7540e7bb17ffa5609ec8a980e588e233f0e2c4451f6f9da6ebd`. Accesses the storage
 5. **Pending messages** (`pending_messages`): The number of messages in queue to be processed. Should be low except on new nodes still syncing.
 6. **Pending transactions** (`txs_total`): The number of archives to be fetched from IPFS and processed. Should be very low except on new nodes still syncing.
 7. **Ethereum height remaining** (`eth_height_remaining`): Number of [blocks](https://ethereum.org/en/developers/docs/blocks/) available on Ethereum that are newer than the newest archive processed.
- 
+
 Metrics are only valid if the HTTP response code is a success.
 
 The metrics for a CCN have the following form:
+
 ```json
 {
-    "measured_at":1680715202.614388,
-    "node_id":"5891b5b522d5df086d0ff0b110fbd9d21bb4fc7163af34d08286a2e846f6be03",
-    "url":"http://12.13.14.15:4024/",
-    "asn":12345,
-    "as_name":"INTERNET-SERVICE-PROVIDER, AD",
-    "version":"v0.5.0",
-    "base_latency":0.0545351505279541,
-    "metrics_latency":0.05013394355773926,
-    "aggregate_latency":0.03859257698059082,
-    "file_download_latency":0.04321122169494629,
-    "txs_total":0,
-    "pending_messages":3430570,
-    "eth_height_remaining":114822
+  "measured_at": 1680715202.614388,
+  "node_id": "5891b5b522d5df086d0ff0b110fbd9d21bb4fc7163af34d08286a2e846f6be03",
+  "url": "http://12.13.14.15:4024/",
+  "asn": 12345,
+  "as_name": "INTERNET-SERVICE-PROVIDER, AD",
+  "version": "v0.5.0",
+  "base_latency": 0.0545351505279541,
+  "metrics_latency": 0.05013394355773926,
+  "aggregate_latency": 0.03859257698059082,
+  "file_download_latency": 0.04321122169494629,
+  "txs_total": 0,
+  "pending_messages": 3430570,
+  "eth_height_remaining": 114822
 }
 ```
 
@@ -79,10 +80,11 @@ All measurements for Compute Resource Nodes are done in [IPv6](https://en.wikipe
 1. **Base latency** (`base_latency`): The time to respond to a simple request, measured by calling `/about/login` (no processing on that endpoint). Should return HTTP code `401 Unauthorized`.
 2. **Diagnostic VM latency** (`diagnostic_vm_latency`): The time to call a common user program and get a response, measured by calling `/vm/67705389842a0a1b95eaa408b009741027964edc805997475e95c505d642edd8`
 3. **Full check latency** (`full_check_latency`): The time to run a collection of checks on the node and get a response, measured by calling `/status/check/fastapi`.
-4. **Diagnostic VM Ping latency** (`diagnostic_vm_ping_latency`): The time returned by an [ICMP Ping](https://en.wikipedia.org/wiki/Ping_(networking_utility)) to the diagnostic virtual machine running on the node. This metric is only present if the VM is available via IPv6 (VM Egress IPv6). 
+4. **Diagnostic VM Ping latency** (`diagnostic_vm_ping_latency`): The time returned by an [ICMP Ping](<https://en.wikipedia.org/wiki/Ping_(networking_utility)>) to the diagnostic virtual machine running on the node. This metric is only present if the VM is available via IPv6 (VM Egress IPv6).
 5. **Base latency Ipv4** (`base_latency_ipv4`): The time same as `base_latency` above but using IPv4 instead of IPv6.
 
 The metrics for a CRN have the following form:
+
 ```json
 {
     "measured_at":1680715253.669524,
@@ -109,7 +111,8 @@ Metrics messages can be found:
 
 ### Using the Python SDK
 
-The [Python SDK](../../../libraries/python-sdk/posts/query/) provides helpers to fetch the relevant messages.
+The [Python SDK](../../libraries/python-sdk/posts/query.md) provides helpers to fetch the relevant messages.
+
 ```python
 import asyncio
 from datetime import UTC, datetime, timedelta
