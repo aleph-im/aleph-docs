@@ -14,15 +14,15 @@ $ aleph [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `about`: Display the informations of Aleph CLI
-* `account`: Manage account
-* `aggregate`: Manage aggregate messages on aleph.im
-* `domain`: Manage custom Domain (dns) on aleph.im
-* `file`: File uploading and pinning on IPFS and...
-* `instance`: Manage instances (VMs) on aleph.im network
-* `message`: Post, amend, watch and forget messages on...
-* `node`: Get node info on aleph.im network
-* `program`: Upload and update programs on aleph.im VM
+* [`about`](#aleph-about): Display the informations of Aleph CLI
+* [`account`](#aleph-account): Manage account
+* [`aggregate`](#aleph-aggregate): Manage aggregate messages on aleph.im
+* [`domain`](#aleph-domain): Manage custom Domain (dns) on aleph.im
+* [`file`](#aleph-file): File uploading and pinning on IPFS and aleph.im
+* [`instance`](#aleph-instance): Manage instances (VMs) on aleph.im network
+* [`message`](#aleph-message): Post, amend, watch and forget messages on aleph.im
+* [`node`](#aleph-node): Get node info on aleph.im network
+* [`program`](#aleph-program): Upload and update programs on aleph.im VM
 
 ## `aleph about`
 
@@ -40,7 +40,7 @@ $ aleph about [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `version`
+* [`version`](#aleph-about-version)
 
 ### `aleph about version`
 
@@ -70,16 +70,16 @@ $ aleph account [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `address`: Display your public address(es).
-* `balance`: Display your ALEPH balance.
-* `chain`: Display the currently active chain.
-* `config`: Configure current private key file and...
-* `create`: Create or import a private key.
-* `export-private-key`: Display your private key.
-* `list`: Display available private keys, along with...
-* `path`: Display the directory path where your...
-* `show`: Display current configuration.
-* `sign-bytes`: Sign a message using your private key.
+* [`address`](#aleph-account-address): Display your public address(es).
+* [`balance`](#aleph-account-balance): Display your ALEPH balance.
+* [`chain`](#aleph-account-chain): Display the currently active chain.
+* [`config`](#aleph-account-config): Configure current private key file and active chain (default selection)
+* [`create`](#aleph-account-create): Create or import a private key.
+* [`export-private-key`](#aleph-account-export-private-key): Display your private key.
+* [`list`](#aleph-account-list): Display available private keys, along with currenlty active chain and account (from config file).
+* [`path`](#aleph-account-path): Display the directory path where your private keys, config file, and other settings are stored.
+* [`show`](#aleph-account-show): Display current configuration.
+* [`sign-bytes`](#aleph-account-sign-bytes): Sign a message using your private key.
 
 ### `aleph account address`
 
@@ -94,7 +94,7 @@ $ aleph account address [OPTIONS]
 **Options**:
 
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--help`: Show this message and exit.
 
 ### `aleph account balance`
@@ -111,7 +111,7 @@ $ aleph account balance [OPTIONS]
 
 * `--address TEXT`: Address
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--chain [AVAX|BASE|BSC|CSDK|DOT|ETH|NEO|NULS|NULS2|SOL|TEZOS]`: Chain for the address
 * `--help`: Show this message and exit.
 
@@ -222,7 +222,7 @@ $ aleph account show [OPTIONS]
 **Options**:
 
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--help`: Show this message and exit.
 
 ### `aleph account sign-bytes`
@@ -239,7 +239,7 @@ $ aleph account sign-bytes [OPTIONS]
 
 * `--message TEXT`: Message to sign
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--chain [AVAX|BASE|BSC|CSDK|DOT|ETH|NEO|NULS|NULS2|SOL|TEZOS]`: Chain for the address
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
@@ -260,9 +260,9 @@ $ aleph aggregate [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `forget`: Forget all the messages composing an...
-* `get`: Fetch an aggregate by key and content.
-* `post`: Create or Update aggregate
+* [`forget`](#aleph-aggregate-forget): Forget all the messages composing an aggregate.
+* [`get`](#aleph-aggregate-get): Fetch an aggregate by key and content.
+* [`post`](#aleph-aggregate-post): Create or Update aggregate
 
 ### `aleph aggregate forget`
 
@@ -283,7 +283,7 @@ $ aleph aggregate forget [OPTIONS] KEY
 * `--reason TEXT`: A description of why the messages are being forgotten
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  [default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -305,7 +305,7 @@ $ aleph aggregate get [OPTIONS] KEY
 
 * `--address TEXT`: Address
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -331,7 +331,7 @@ $ aleph aggregate post [OPTIONS] KEY CONTENT
 * `--inline / --no-inline`: inline  [default: no-inline]
 * `--sync / --no-sync`: Sync response  [default: no-sync]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -351,10 +351,10 @@ $ aleph domain [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `add`: Add and link a Custom Domain.
-* `attach`: Attach resource to a Custom Domain.
-* `detach`: Unlink Custom Domain.
-* `info`: Show Custom Domain Details.
+* [`add`](#aleph-domain-add): Add and link a Custom Domain.
+* [`attach`](#aleph-domain-attach): Attach resource to a Custom Domain.
+* [`detach`](#aleph-domain-detach): Unlink Custom Domain.
+* [`info`](#aleph-domain-info): Show Custom Domain Details.
 
 ### `aleph domain add`
 
@@ -373,7 +373,7 @@ $ aleph domain add [OPTIONS] FQDN
 **Options**:
 
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--target [ipfs|program|instance]`: IPFS|PROGRAM|INSTANCE
 * `--item-hash TEXT`: Item hash
 * `--owner TEXT`: Owner address, default current account
@@ -397,7 +397,7 @@ $ aleph domain attach [OPTIONS] FQDN
 **Options**:
 
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--item-hash TEXT`: Item hash
 * `--catch-all-path TEXT`: Choose a relative path to catch all unmatched route or a 404 error
 * `--ask / --no-ask`: Prompt user for confirmation  [default: ask]
@@ -420,7 +420,7 @@ $ aleph domain detach [OPTIONS] FQDN
 **Options**:
 
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--ask / --no-ask`: Prompt user for confirmation  [default: ask]
 * `--help`: Show this message and exit.
 
@@ -441,7 +441,7 @@ $ aleph domain info [OPTIONS] FQDN
 **Options**:
 
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--help`: Show this message and exit.
 
 ## `aleph file`
@@ -460,11 +460,11 @@ $ aleph file [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `download`: Download a file on aleph.im.
-* `forget`: forget a file and his message on aleph.im.
-* `list`: List all files for a given address
-* `pin`: Persist a file from IPFS on aleph.im.
-* `upload`: Upload and store a file on aleph.im.
+* [`download`](#aleph-file-download): Download a file on aleph.im.
+* [`forget`](#aleph-file-forget): forget a file and his message on aleph.im.
+* [`list`](#aleph-file-list): List all files for a given address
+* [`pin`](#aleph-file-pin): Persist a file from IPFS on aleph.im.
+* [`upload`](#aleph-file-upload): Upload and store a file on aleph.im.
 
 ### `aleph file download`
 
@@ -508,7 +508,7 @@ $ aleph file forget [OPTIONS] ITEM_HASH [REASON]
 
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  [default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -526,7 +526,7 @@ $ aleph file list [OPTIONS]
 
 * `--address TEXT`: Address
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--pagination INTEGER`: Maximum number of files to return.  [default: 100]
 * `--page INTEGER`: Offset in pages.  [default: 1]
 * `--sort-order INTEGER`: Order in which files should be listed: -1 means most recent messages first, 1 means older messages first.  [default: -1]
@@ -551,7 +551,7 @@ $ aleph file pin [OPTIONS] ITEM_HASH
 
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  [default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--ref TEXT`: Checkout https://aleph-im.gitbook.io/aleph-js/api-resources-reference/posts
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
@@ -574,7 +574,7 @@ $ aleph file upload [OPTIONS] PATH
 
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  [default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--ref TEXT`: Checkout https://aleph-im.gitbook.io/aleph-js/api-resources-reference/posts
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
@@ -595,18 +595,18 @@ $ aleph instance [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `allocate`: Notify a CRN to start an instance (for...
-* `confidential`: Create (optional), start and unlock a...
-* `confidential-init-session`: Initialize a confidential communication...
-* `confidential-start`: Validate the authenticity of the VM and...
-* `create`: Create and register a new instance on...
-* `delete`: Delete an instance, unallocating all...
-* `erase`: Erase an instance stored or running on a CRN
-* `expire`: Expire an instance
-* `list`: List all instances associated to an account
-* `logs`: Retrieve the logs of an instance
-* `reboot`: Reboot an instance
-* `stop`: Stop an instance
+* [`allocate`](#aleph-instance-allocate): Notify a CRN to start an instance (for Pay-As-You-Go and confidential instances only)
+* [`confidential`](#aleph-instance-confidential): Create (optional), start and unlock a confidential VM (all-in-one command)
+* [`confidential-init-session`](#aleph-instance-confidential-init-session): Initialize a confidential communication session with the VM
+* [`confidential-start`](#aleph-instance-confidential-start): Validate the authenticity of the VM and start it
+* [`create`](#aleph-instance-create): Create and register a new instance on aleph.im
+* [`delete`](#aleph-instance-delete): Delete an instance, unallocating all resources associated with it.
+* [`erase`](#aleph-instance-erase): Erase an instance stored or running on a CRN
+* [`expire`](#aleph-instance-expire): Expire an instance
+* [`list`](#aleph-instance-list): List all instances associated to an account
+* [`logs`](#aleph-instance-logs): Retrieve the logs of an instance
+* [`reboot`](#aleph-instance-reboot): Reboot an instance
+* [`stop`](#aleph-instance-stop): Stop an instance
 
 ### `aleph instance allocate`
 
@@ -627,7 +627,7 @@ $ aleph instance allocate [OPTIONS] VM_ID
 * `--domain TEXT`: CRN domain on which the VM will be allocated
 * `--chain [AVAX|BASE|BSC|CSDK|DOT|ETH|NEO|NULS|NULS2|SOL|TEZOS]`: Chain you are using to pay for your instance
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -690,7 +690,7 @@ Requires at least a "ref" (message hash) and "mount" path. "use_latest" is True 
 Example: --immutable-volume ref=25a393222692c2f73489dc6710ae87605a96742ceef7b91de4d7ec34bb688d94,mount=/lib/python3.8/site-packages
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  [default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -715,7 +715,7 @@ $ aleph instance confidential-init-session [OPTIONS] VM_ID
 * `--policy INTEGER`: [default: 1]
 * `--keep-session / --no-keep-session`: Keeping the already initiated session
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -741,7 +741,7 @@ $ aleph instance confidential-start [OPTIONS] VM_ID
 * `--firmware-file TEXT`: Your private key. Cannot be used with --private-key-file
 * `--vm-secret TEXT`: Secret password to start the VM
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -787,7 +787,7 @@ Requires at least a "ref" (message hash) and "mount" path. "use_latest" is True 
 Example: --immutable-volume ref=25a393222692c2f73489dc6710ae87605a96742ceef7b91de4d7ec34bb688d94,mount=/lib/python3.8/site-packages
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  [default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--print-messages / --no-print-messages`: [default: no-print-messages]
 * `--verbose / --no-verbose`: [default: verbose]
 * `--debug / --no-debug`: [default: no-debug]
@@ -813,7 +813,7 @@ $ aleph instance delete [OPTIONS] ITEM_HASH
 * `--chain [AVAX|BASE|BSC|CSDK|DOT|ETH|NEO|NULS|NULS2|SOL|TEZOS]`: Chain for the address
 * `--crn-url TEXT`: Domain of the CRN where an associated VM is running. It ensures your VM will be stopped and erased on the CRN before the instance message is actually deleted
 * `--private-key TEXT`
-* `--private-key-file PATH`: [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--print-message / --no-print-message`: [default: no-print-message]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
@@ -837,7 +837,7 @@ $ aleph instance erase [OPTIONS] VM_ID
 * `--domain TEXT`: CRN domain on which the VM is stored or running
 * `--chain [AVAX|BASE|BSC|CSDK|DOT|ETH|NEO|NULS|NULS2|SOL|TEZOS]`: Chain you are using to pay for your instance
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--silent / --no-silent`: [default: no-silent]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
@@ -861,7 +861,7 @@ $ aleph instance expire [OPTIONS] VM_ID
 * `--domain TEXT`: CRN domain on which the VM is running
 * `--chain [AVAX|BASE|BSC|CSDK|DOT|ETH|NEO|NULS|NULS2|SOL|TEZOS]`: Chain you are using to pay for your instance
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -879,7 +879,7 @@ $ aleph instance list [OPTIONS]
 
 * `--address TEXT`: Owner address of the instance
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--chain [AVAX|BASE|BSC|CSDK|DOT|ETH|NEO|NULS|NULS2|SOL|TEZOS]`: Chain for the address
 * `--json / --no-json`: Print as json instead of rich table  [default: no-json]
 * `--debug / --no-debug`: [default: no-debug]
@@ -904,7 +904,7 @@ $ aleph instance logs [OPTIONS] VM_ID
 * `--domain TEXT`: CRN domain on which the VM is running
 * `--chain [AVAX|BASE|BSC|CSDK|DOT|ETH|NEO|NULS|NULS2|SOL|TEZOS]`: Chain you are using to pay for your instance
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -927,7 +927,7 @@ $ aleph instance reboot [OPTIONS] VM_ID
 * `--domain TEXT`: CRN domain on which the VM is running
 * `--chain [AVAX|BASE|BSC|CSDK|DOT|ETH|NEO|NULS|NULS2|SOL|TEZOS]`: Chain you are using to pay for your instance
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -950,7 +950,7 @@ $ aleph instance stop [OPTIONS] VM_ID
 * `--domain TEXT`: CRN domain on which the VM is running
 * `--chain [AVAX|BASE|BSC|CSDK|DOT|ETH|NEO|NULS|NULS2|SOL|TEZOS]`: Chain you are using to pay for your instance
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -970,13 +970,13 @@ $ aleph message [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `amend`: Amend an existing aleph.im message.
-* `find`
-* `forget`: Forget an existing aleph.im message.
-* `get`
-* `post`: Post a message on aleph.im.
-* `sign`: Sign an aleph message with a private key.
-* `watch`: Watch a hash for amends and print amend...
+* [`amend`](#aleph-message-amend): Amend an existing aleph.im message.
+* [`find`](#aleph-message-find)
+* [`forget`](#aleph-message-forget): Forget an existing aleph.im message.
+* [`get`](#aleph-message-get)
+* [`post`](#aleph-message-post): Post a message on aleph.im.
+* [`sign`](#aleph-message-sign): Sign an aleph message with a private key.
+* [`watch`](#aleph-message-watch): Watch a hash for amends and print amend hashes
 
 ### `aleph message amend`
 
@@ -995,7 +995,7 @@ $ aleph message amend [OPTIONS] ITEM_HASH
 **Options**:
 
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -1044,7 +1044,7 @@ $ aleph message forget [OPTIONS] HASHES
 * `--reason TEXT`: A description of why the messages are being forgotten.
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  [default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -1081,7 +1081,7 @@ $ aleph message post [OPTIONS]
 * `--ref TEXT`: Checkout https://aleph-im.gitbook.io/aleph-js/api-resources-reference/posts
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  [default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -1099,7 +1099,7 @@ $ aleph message sign [OPTIONS]
 
 * `--message TEXT`: Message to sign
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -1139,8 +1139,8 @@ $ aleph node [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `compute`: Get all compute node on aleph network
-* `core`: Get all core node on aleph
+* [`compute`](#aleph-node-compute): Get all compute node on aleph network
+* [`core`](#aleph-node-core): Get all core node on aleph
 
 ### `aleph node compute`
 
@@ -1194,9 +1194,9 @@ $ aleph program [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* `unpersist`: Stop a persistent virtual machine by...
-* `update`: Update the code of an existing program
-* `upload`: Register a program to run on aleph.im.
+* [`unpersist`](#aleph-program-unpersist): Stop a persistent virtual machine by making it non-persistent
+* [`update`](#aleph-program-update): Update the code of an existing program
+* [`upload`](#aleph-program-upload): Register a program to run on aleph.im.
 
 ### `aleph program unpersist`
 
@@ -1215,7 +1215,7 @@ $ aleph program unpersist [OPTIONS] ITEM_HASH
 **Options**:
 
 * `--private-key TEXT`
-* `--private-key-file PATH`: [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -1237,7 +1237,7 @@ $ aleph program update [OPTIONS] ITEM_HASH PATH
 **Options**:
 
 * `--private-key TEXT`
-* `--private-key-file PATH`: [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--print-message / --no-print-message`: [default: print-message]
 * `--debug / --no-debug`: [default: no-debug]
 * `--help`: Show this message and exit.
@@ -1264,7 +1264,7 @@ $ aleph program upload [OPTIONS] PATH ENTRYPOINT
 * `--vcpus INTEGER`: Number of virtual cpus to allocate.  [default: 1]
 * `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  [default: 30.0]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  [default: ~/.aleph-im/private-keys/ethereum.key]
+* `--private-key-file PATH`: Path to your private key file  [default: /home/olivier/.aleph-im/private-keys/sol2.key]
 * `--print-messages / --no-print-messages`: [default: no-print-messages]
 * `--print-code-message / --no-print-code-message`: [default: no-print-code-message]
 * `--print-program-message / --no-print-program-message`: [default: no-print-program-message]
