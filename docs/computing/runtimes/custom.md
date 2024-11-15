@@ -1,4 +1,4 @@
-# Custom Runtimes
+# Create Custom Runtimes
 
 Custom runtimes can be created by customizing the filesystem of Linux distributions or 
 [entirely from scratch](https://linuxfromscratch.org/lfs/).
@@ -46,9 +46,9 @@ nix-shell -p debootstrap squashfsTools
 ## 2. Obtain the build scripts
 
 Download the files `create_disk_image.sh`, `init0.sh` and `init1.py` from the 
-[official runtime](./index.md#official-runtime-with-debian-11-python-39-and-nodejs-14):
+[official runtime](./index.md#official-runtime):
 
-[https://github.com/aleph-im/aleph-vm/tree/main/runtimes/aleph-debian-11-python](https://github.com/aleph-im/aleph-vm/tree/main/runtimes/aleph-debian-11-python)
+[https://github.com/aleph-im/aleph-vm/tree/main/runtimes/aleph-debian-12-python](https://github.com/aleph-im/aleph-vm/tree/main/runtimes/aleph-debian-12-python)
 
 Customize these files to suit your needs.
 
