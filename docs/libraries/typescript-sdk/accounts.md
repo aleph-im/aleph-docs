@@ -19,7 +19,7 @@ Chains provide a `newAccount` function for testing purposes. Example using Ether
 ```typescript
 import { newAccount } from '@aleph-sdk/ethereum';
 
-const account = newAccount();
+const { account } = newAccount();
 ```
 
 ### Browser wallets

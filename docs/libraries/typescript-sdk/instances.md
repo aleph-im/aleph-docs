@@ -42,7 +42,7 @@ In this example, we will reserve ALEPH tokens by signing an aleph.im message.
 import { newAccount } from '@aleph-sdk/ethereum';
 import { authenticatedAlephHttpClient } from '@aleph-sdk/client';
 
-const account = newAccount();
+const { account } = newAccount();
 const client = authenticatedAlephHttpClient(account);
 // You need an SSH key to connect to the instance
 const sshKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC3...";

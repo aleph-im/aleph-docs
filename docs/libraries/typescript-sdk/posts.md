@@ -40,7 +40,7 @@ Creating a post is as simple as calling the `createPost` function on the client.
 import { newAccount } from '@aleph-sdk/ethereum';
 import { AuthenticatedAlephHttpClient } from '@aleph-sdk/client';
 
-const account = newAccount();
+const { account } = newAccount();
 const client = new AuthenticatedAlephHttpClient(account);
 const message = await client.createPost({
     content: { hello: "world" },
@@ -86,7 +86,7 @@ Example:
 import { newAccount } from '@aleph-sdk/ethereum';
 import { AuthenticatedAlephHttpClient } from '@aleph-sdk/client';
 
-const account = newAccount();
+const { account } = newAccount();
 const client = new AuthenticatedAlephHttpClient(account);
 const message = await client.createPost({
     content: { hello: "aleph" },
@@ -122,7 +122,7 @@ of the post you want to delete. You may also forget multiple posts at a time.
 import { newAccount } from '@aleph-sdk/ethereum';
 import { AuthenticatedAlephHttpClient } from '@aleph-sdk/client';
 
-const account = newAccount();
+const { account } = newAccount();
 const client = new AuthenticatedAlephHttpClient(account);
 const message = await client.forget({
     hashes: ["02afdbf33ff2c6ddb46349298a4598a8801cec61dbaa8f3a17ba9d1ad6dd8cb1"],
