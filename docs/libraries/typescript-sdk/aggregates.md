@@ -34,7 +34,7 @@ You need a valid account and instantiate an authenticated client:
 import { AuthenticatedAlephHttpClient } from '@aleph-sdk/client';
 import * as ethereum from '@aleph-sdk/ethereum';
 
-const account = ethereum.newAccount();
+const { account } = ethereum.newAccount();
 const client = new AuthenticatedAlephHttpClient(account);
 ```
 
