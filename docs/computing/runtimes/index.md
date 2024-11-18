@@ -67,7 +67,7 @@ Runtime used for functions
 | name                                                         | hash                                                                | filesystem |
 |--------------------------------------------------------------|---------------------------------------------------------------------|------------|
 | Official runtime with Debian 11, Python 3.9 & Node.js 14     | bd79839bf96e595a06da5ac0b6ba51dea6f7e2591bb913deccded04d831d29f4    | ext4       |
-| Official runtime with Debian 12, Python 3.11                 | 63f07193e6ee9d207b7d1fcf8286f9aee34e6f12f101d2ec77c1229f92964696    | ext4       |
+| **Official runtime with Debian 12, Python 3.11**             | 63f07193e6ee9d207b7d1fcf8286f9aee34e6f12f101d2ec77c1229f92964696    | ext4       |
 | Official Node.js LTS runtime (with nvm support) on Debian 11 | 3c238dd3ffba73ab9b2cccb90a11e40e78aff396152de922a6d794a0a65a305e    | ext4       |
 | Deprecated Debian runtime                                    | f873715dc2feec3833074bd4b8745363a0e0093746b987b4c8191268883b2463    | ext4       |
 
