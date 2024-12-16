@@ -10,6 +10,10 @@ Aleph.im being GDPR-compliant, if you decide to delete your website, or some old
 
 ## Getting started
 
+### Pricing
+
+In order to host a website on Aleph.im, you need to hold a small amount of $ALEPH token in your wallet. Those tokens are not locked or staked (no transaction required), and will not be spent, they just have to sit in your wallet as a guarantee. To run a cost simulation, check out the [deployment page](https://console.twentysix.cloud/hosting/website/new/).
+
 ### Prepare
 
 You need to provide a root folder containing your static website's files.
@@ -31,7 +35,7 @@ static-folder
 
 We are listing the officially supported frameworks on TwentySix's website creation page, but you can actually use any framework (and package manager, such as npm, pnpm, yarn, bun...) to create your website.
 
-> ℹ️ Keep in mine that your website, being a decentralized frontend, must only contain client-side components, as well as the dependencies used by it. For backend support, check out the section below.
+> ℹ️ Keep in mind that your website, being a decentralized frontend, must only contain client-side components, as well as the dependencies used by it. For backend support, check out the section below.
 
 ##### Build
 
@@ -118,6 +122,14 @@ In order to add a backend to your website and to make it a complete fullstack da
 - [Deploy your instance](../computing/index.md) then setup your environment and expose your APIs to the internet.
 
 > ℹ️ You should setup your backend in advance, in order to integrate the needed endpoint urls inside your website after.
+
+### AI Integration
+
+Now that your application is fully decentralized, you want to add some AI features to it?
+
+Forget about OpenAI and other centralized providers, [LibertAI](https://libertai.io/), a decentralized & privacy-first Aleph.im-based AI project, allows you to perform inferences, manage knowledge bases, and deploy AI agents easily.
+
+Have a look to the [official documentation](https://docs.libertai.io/).
 
 ### Auto-Deployment on Push
 
