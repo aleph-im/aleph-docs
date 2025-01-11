@@ -80,14 +80,6 @@ configuration. Be careful about rate limits if you enable `on_demand` TLS,
 see the [Caddy documentation on On-Demand TLS](https://caddyserver.com/docs/automatic-https#on-demand-tls).
 ```shell
 cat >/etc/caddy/Caddyfile <<EOL
-{
-    on_demand_tls {
-        interval 60s
-        burst    5
-    }
-}
-
-
 vm.yourdomain.org:443 {
     tls /etc/letsencrypt/live/vm.yourdomain.org/fullchain.pem /etc/letsencrypt/live/vm.yourdomain.org/privkey.pem
     reverse_proxy http://127.0.0.1:4020 {
