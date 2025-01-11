@@ -128,10 +128,6 @@ Then, after replacing the domain `vm.example.org` with your own, use configure C
 sudo cat >/etc/caddy/Caddyfile <<EOL
 {
     https_port 443
-    on_demand_tls {
-        interval 60s
-        burst    5
-    }
 }
 vm.example.org:443 {
     reverse_proxy http://127.0.0.1:4020 {
