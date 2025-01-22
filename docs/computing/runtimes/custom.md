@@ -46,7 +46,7 @@ nix-shell -p debootstrap squashfsTools
 ## 2. Obtain the build scripts
 
 Download the files `create_disk_image.sh`, `init0.sh` and `init1.py` from the 
-[official runtime](./index.md#official-runtime):
+[official runtime](./index.md#official-runtimes):
 
 [https://github.com/aleph-im/aleph-vm/tree/main/runtimes/aleph-debian-12-python](https://github.com/aleph-im/aleph-vm/tree/main/runtimes/aleph-debian-12-python)
 
