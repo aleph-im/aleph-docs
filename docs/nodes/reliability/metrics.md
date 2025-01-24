@@ -14,6 +14,8 @@ The metrics program is deployed on a collection of servers on different continen
 
 Every hour, the measurement program creates a random plan of when to connect to each node for measurements over the following hour. It then follows this plan, connecting to every node in the network over that hour.
 
+![metrics-schedule.png](metrics-schedule.png)
+
 The program connects to each node using a few different methods and measures the time taken to obtain a response for each measurement (latency).
 
 - HTTP or HTTPS
