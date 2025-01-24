@@ -5,9 +5,9 @@ applications on the network.
 
 Two execution models are available:
 
- - [Functions](/guides/python/getting_started/#understanding-alephim-programs) follow a serverless 
+ - [Functions](../guides/python/getting_started.md#understanding-alephim-programs) follow a serverless 
    approach to easily deploy and maintain applications.
- - [Instances](/guides/python/getting_started/#understanding-alephim-instances) are designed to 
+ - [Instances](../guides/python/getting_started.md#understanding-alephim-instances) are designed to 
    provide a persistent environment for users to interact with directly.
 
 In both cases, user workloads are executed inside virtual machines (VMs)

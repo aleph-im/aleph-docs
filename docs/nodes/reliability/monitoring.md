@@ -68,4 +68,4 @@ Examples:
 Additionally, the index page of Compute Resource Nodes provides a small graph that displays the values of these metrics
 after pressing the button "_Load metrics chart_" :
 
-![CRN metrics graph](metrics-graph.png)
+![CRN metrics graph](metrics-visualizer.png)

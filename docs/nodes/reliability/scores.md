@@ -15,6 +15,8 @@ The score is computed daily and is based on all past [metrics](metrics.md) about
 A new node starts with a score of `0%` and is expected to reach a score above `80%` after two or three weeks of operation
 when performing well. The score is based on the last two years of metrics, with recent metrics having a higher weight.
 
+![Illustration of the score if an ideal node over time (hours)](scoring-ideal-over-time.png)
+
 Percentiles are used when processing numeric metrics to ensure that the score is not affected by outliers.
 
 This provides a resistance against noise in metrics, making the score relatively stable over time. The value of the score is

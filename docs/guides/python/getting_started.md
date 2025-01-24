@@ -59,7 +59,7 @@ _on-demand_ boot extremely fast and can be launched on demand. They are perfect 
 that only run once in a while.
 _persistent_ functions on the other hand are constantly running, making them suited to run larger applications.
 
-An [On-demand VM](#on-demand-execution) is created on a [Compute Resource Node](../nodes/compute/index.md)
+An [On-demand VM](#on-demand-execution) is created on a [Compute Resource Node](../../nodes/compute/index.md)
 (CRN) and is destroyed once the program has finished executing. This is great
 for programs that are responding to user requests or API calls (using ASGI) and can shutdown
 after processing the event. They are also cheaper to run as they only require
