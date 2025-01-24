@@ -85,6 +85,7 @@ nav:
       - 'Metrics': nodes/reliability/metrics.md
       - 'Scores': nodes/reliability/scores.md
       - 'Rewards': nodes/reliability/rewards.md
+      - 'Troubleshooting': nodes/reliability/troubleshooting.md
   - 'Developer Hub':
     - 'Tools':
       - 'Aleph CLI':
