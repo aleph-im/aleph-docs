@@ -107,7 +107,46 @@ Metrics messages can be found:
 
 ### On the Message Explorer
 
+Browser the metrics messages on the [Aleph.im Explorer](https://explorer.aleph.im/messages?showAdvancedFilters=1&channels=aleph-scoring&sender=0x4D52380D3191274a04846c89c069E6C3F2Ed94e4).
+
 [https://explorer.aleph.im/messages?showAdvancedFilters=1&channels=aleph-scoring&sender=0x4D52380D3191274a04846c89c069E6C3F2Ed94e4](https://explorer.aleph.im/messages?showAdvancedFilters=1&channels=aleph-scoring&sender=0x4D52380D3191274a04846c89c069E6C3F2Ed94e4)
+
+![Node metrics explorer](metrics-explorer.png)
+
+### On the `Node-metrics` visualizer
+
+This service provides a web interface to visualize the last two weeks of metrics for a specific nodes, leveraging
+the node metrics API described below.
+
+[https://node-metrics.aleph.cloud/](https://node-metrics.aleph.cloud/)
+
+![Node metrics visualizer](metrics-visualizer.png)
+
+### Using the node metrics API
+
+The [node metrics API](https://docs.aleph.im/nodes/reliability/monitoring/#node-metrics) provides a convenient way to 
+obtain the last two weeks of metrics for a specific node instead of extracting the data from the metrics messages.
+
+The last two weeks of metrics of a specific node can be fetched from any Core Channel Node (CCN) by using the following
+endpoint: 
+
+ - For Core Channel Nodes: `/api/v0/core/${node.hash}/metrics`
+ - For Compute Resource Nodes: `/api/v0/compute/${node.hash}/metrics`
+
+Examples: 
+
+ - [https://official.aleph.cloud/api/v0/core/6c7578899ac475fbdc05c6a4711331c7590aa6b719f0c169941b99a10faf1136/metrics](https://official.aleph.cloud/api/v0/core/6c7578899ac475fbdc05c6a4711331c7590aa6b719f0c169941b99a10faf1136/metrics)
+ - [https://official.aleph.cloud/api/v0/compute/ec6ff7010de501b292333f390a46a227e349de6425fde4bd47d06ade82d3786c/metrics](https://official.aleph.cloud/api/v0/compute/ec6ff7010de501b292333f390a46a227e349de6425fde4bd47d06ade82d3786c/metrics)
+
+### Using the HTTP _messages_ API
+
+```shell
+curl "https://official.aleph.cloud/api/v0/messages.json?" \
+    "addresses=0x4D52380D3191274a04846c89c069E6C3F2Ed94e4&" \
+    "channels=aleph-scoring&" \
+    "startDate=1727775567&" \
+    "endDate=1727861984"
+```
 
 ### Using the Python SDK
 
@@ -143,16 +182,4 @@ for message in messages:
     print(message.item_hash)
 ```
 
-### Using the HTTP API
 
-```shell
-curl "https://official.aleph.cloud/api/v0/messages.json?" \
-    "addresses=0x4D52380D3191274a04846c89c069E6C3F2Ed94e4&" \
-    "channels=aleph-scoring&" \
-    "startDate=1727775567&" \
-    "endDate=1727861984"
-```
-
-### Using the node metrics API
-
-The [node metrics API](https://docs.aleph.im/nodes/reliability/monitoring/#node-metrics) provides a convenient way to obtain the last two weeks of metrics for a specific node instead of extracting the data from the metrics messages.
