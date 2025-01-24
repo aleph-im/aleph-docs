@@ -54,10 +54,16 @@ Each program is instantiated as a __virtual machine__ running on a Compute Resou
 Virtual machines are emulated computer systems with dedicated resources that run isolated from each other.
 Aleph.im Virtual Machines (VMs) are based on Linux.
 
-We support two types of VMs: microVMs and persistent VMs. 
-MicroVMs boot extremely fast and can be launched on demand. They are perfect for lightweight applications
+We support two types of allocation: _on-demand_ and _persistent_. 
+_on-demand_ boot extremely fast and can be launched on demand. They are perfect for lightweight applications
 that only run once in a while.
-Persistent VMs on the other hand are constantly running, making them suited to run larger applications.
+_persistent_ functions on the other hand are constantly running, making them suited to run larger applications.
+
+An [On-demand VM](#on-demand-execution) is created on a [Compute Resource Node](../nodes/compute/index.md)
+(CRN) and is destroyed once the program has finished executing. This is great
+for programs that are responding to user requests or API calls (using ASGI) and can shutdown
+after processing the event. They are also cheaper to run as they only require
+one tenth of the $ALEPH tokens to hold, compared to a [Persistent VM](#persistent-execution).
 
 ### Runtimes
 
