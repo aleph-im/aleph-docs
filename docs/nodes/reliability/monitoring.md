@@ -50,7 +50,7 @@ Again, this list is not exhaustive, and there are many other resource monitoring
 ## Node metrics
 
 Measurements of the performance and reliability of the nodes are published in the form of 
-[POST messages](../../protocol/object-types/posts.md) to the Aleph.im network.
+[POST messages](../../protocol/object-types/posts.md) to the Aleph.im network. See the [Metrics](./metrics.md) page for more information.
 
 You can find [the metrics and scoring messages on the Explorer](https://explorer.aleph.im/messages?showAdvancedFilters=1&channels=aleph-scoring&page=1&sender=0x4D52380D3191274a04846c89c069E6C3F2Ed94e4).
 
@@ -68,4 +68,4 @@ Examples:
 Additionally, the index page of Compute Resource Nodes provides a small graph that displays the values of these metrics
 after pressing the button "_Load metrics chart_" :
 
-![CRN metrics graph](metrics-graph.png)
+![CRN metrics graph](metrics-visualizer.png)

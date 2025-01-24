@@ -9,19 +9,21 @@ https://account.aleph.im), has enough ALEPH token staked on it and has a [score]
 
 The performance score of a CCN affects the rewards distributed to the operator and stakers of the node the following way:
 
-- No reward is distributed when the score is below 20% .
-- A direct proportion of the reward is distributed when the score is between 20% and 80%.
-- The complete reward is distributed when the score is equal to or greater than 80%
+ - No reward is distributed when the score is below 20% .
+ - A direct proportion of the reward is distributed when the score is between 20% and 80%.
+ - (x - 0.2) / 0.6
+ - The complete reward is distributed when the score is equal to or greater than 80%
 
 The second factor that affects the rewards of a CCN is its linking to
 [Compute Resource Nodes](../compute/index.md) (CRN). A CCN can have up to 5 CRNs linked to it, and the CCN will incur a penalty if it has less than 3 working CRNs linked.
 The penalty is of 10% of the rewards for each spot unfilled or filled with a defaulting CRN (score of 0), with a maximum penalty of 30%.
 
 This gives the following distribution:
-- From 3 to 5 CRNs linked = 100% of rewards
-- 2 CRNs linked = 90% of rewards
-- 1 CRN linked = 80% of rewards
-- 0 CRN linked = 70% of rewards
+
+ - From 3 to 5 CRNs linked = 100% of rewards
+ - 2 CRNs linked = 90% of rewards
+ - 1 CRN linked = 80% of rewards
+ - 0 CRN linked = 70% of rewards
 
 The rewards distributed does not depend on the score of other nodes in the network. Less token from the pool
 will be distributed when nodes do not perform well enough.
@@ -75,8 +77,7 @@ $$
 ## Compute Resource Nodes
 
 Rewards for running a compute resource node (CRN) will follow the
-[Tokenomics update](https://medium.com/aleph-im/aleph-im-tokenomics-update-nov-2022-fd1027762d99) we published in
-November. 
+[Tokenomics update](https://medium.com/aleph-im/aleph-im-tokenomics-update-nov-2022-fd1027762d99) we published in November 2022. 
 
 The rewards for running a performant CRN will range from 250 to 1500 tokens per month, depending on its location and the number of other nodes hosted on the same network. Running a performant node on a crowded network should result in a similar reward as today while decentralizing the network will result in higher rewards.
 
