@@ -80,24 +80,24 @@ aleph instance logs <vm-hash>
 
 ### Access Your VM via SSH
 
-1. **Find the Instance Details**:
+#### 1. **Find the Instance Details**
 
-   - **Via CLI**:
+- **Via CLI**:
 
-     ```shell
-     aleph instance list
-     ```
+```shell
+aleph instance list
+```
 
-   - **Via API**: Access the compute node's API at `https://<node-url>/about/executions/list`.
+- **Via API**: Access the compute node's API at `https://<node-url>/about/executions/list`.
 
-2. **Connect via SSH**:
+#### 2. **Connect via SSH**:
 
-   Use the retrieved IP address to SSH into your VM:
+Use the retrieved IP address to SSH into your VM:
 
-   ```shell
-   ssh <user>@<ip> [-i <path-to-ssh-key>]
-   ```
+```shell
+ssh <user>@<ip> [-i <path-to-ssh-key>]
+```
 
-   - **Default Users**:
-     - Debian: `root`
-     - Ubuntu: `ubuntu`
+- **Default Users**:
+    - Debian: `root`
+    - Ubuntu: `ubuntu`
