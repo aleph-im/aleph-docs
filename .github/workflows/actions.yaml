@@ -106,7 +106,7 @@ jobs:
           ITEM_HASH=$(aleph file pin ${{ env.ipfs_cid }} | jq -r '.item_hash')
           echo 'y' | aleph domain attach docs.aleph.im --item-hash $ITEM_HASH
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: aleph-docs
           path: site
