@@ -16,7 +16,7 @@ $ aleph [OPTIONS] COMMAND [ARGS]...
 
 * [`account`](#aleph-account): Manage accounts
 * [`message`](#aleph-message): Manage messages (post, amend, watch and forget) on aleph.im & twentysix.cloud
-* [`aggregate`](#aleph-aggregate): Manage aggregate messages on aleph.im & twentysix.cloud
+* [`aggregate`](#aleph-aggregate): Manage aggregate messages and permissions on aleph.im & twentysix.cloud
 * [`file`](#aleph-file): Manage files (upload and pin on IPFS) on aleph.im & twentysix.cloud
 * [`program`](#aleph-program): Manage programs (micro-VMs) on aleph.im & twentysix.cloud
 * [`instance`](#aleph-instance): Manage instances (VMs) on aleph.im & twentysix.cloud
@@ -385,7 +385,7 @@ $ aleph message sign [OPTIONS]
 
 ## `aleph aggregate`
 
-Manage aggregate messages on aleph.im & twentysix.cloud
+Manage aggregate messages and permissions on aleph.im & twentysix.cloud
 
 **Usage**:
 
@@ -399,13 +399,17 @@ $ aleph aggregate [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
-* [`forget`](#aleph-aggregate-forget): Forget all the messages composing an aggregate.
-* [`post`](#aleph-aggregate-post): Create or Update aggregate
-* [`get`](#aleph-aggregate-get): Fetch an aggregate by key and content.
+* [`forget`](#aleph-aggregate-forget): Delete an aggregate by key or subkeys
+* [`post`](#aleph-aggregate-post): Create or update an aggregate by key or subkey
+* [`get`](#aleph-aggregate-get): Fetch an aggregate by key or subkeys
+* [`list`](#aleph-aggregate-list): Display all aggregates associated to an account
+* [`authorize`](#aleph-aggregate-authorize): Grant specific publishing permissions to an address to act on behalf of this account
+* [`revoke`](#aleph-aggregate-revoke): Revoke all publishing permissions from an address acting on behalf of this account
+* [`permissions`](#aleph-aggregate-permissions): Display all permissions emitted by an account
 
 ### `aleph aggregate forget`
 
-Forget all the messages composing an aggregate.
+Delete an aggregate by key or subkeys
 
 **Usage**:
 
@@ -415,20 +419,25 @@ $ aleph aggregate forget [OPTIONS] KEY
 
 **Arguments**:
 
-* `KEY`: Aggregate item hash to be removed.  \[required]
+* `KEY`: Aggregate key to remove  \[required]
 
 **Options**:
 
-* `--reason TEXT`: A description of why the messages are being forgotten
+* `--subkeys TEXT`: Remove specified subkey(s) only. Must be a comma separated list. E.g. `key1` or `key1,key2`
+* `--address TEXT`: Target address. Defaults to current account address
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  \[default: ALEPH-CLOUDSOLUTIONS]
+* `--inline / --no-inline`: inline  \[default: no-inline]
+* `--sync / --no-sync`: Sync response  \[default: no-sync]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--print-message / --no-print-message`: \[default: no-print-message]
+* `--verbose / --no-verbose`: \[default: verbose]
 * `--debug / --no-debug`: \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph aggregate post`
 
-Create or Update aggregate
+Create or update an aggregate by key or subkey
 
 **Usage**:
 
@@ -438,23 +447,26 @@ $ aleph aggregate post [OPTIONS] KEY CONTENT
 
 **Arguments**:
 
-* `KEY`: Aggregate key to be created.  \[required]
-* `CONTENT`: Aggregate content (ex : {'c': 3, 'd': 4})  \[required]
+* `KEY`: Aggregate key to create/update  \[required]
+* `CONTENT`: Aggregate content, in json format and between single quotes. E.g. '{"a": 1, "b": 2}'. If a subkey is provided, also allow to pass a string content between quotes  \[required]
 
 **Options**:
 
-* `--address TEXT`: address
+* `--subkey TEXT`: Specified subkey where the content will be replaced
+* `--address TEXT`: Target address. Defaults to current account address
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  \[default: ALEPH-CLOUDSOLUTIONS]
 * `--inline / --no-inline`: inline  \[default: no-inline]
 * `--sync / --no-sync`: Sync response  \[default: no-sync]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--print-message / --no-print-message`: \[default: no-print-message]
+* `--verbose / --no-verbose`: \[default: verbose]
 * `--debug / --no-debug`: \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph aggregate get`
 
-Fetch an aggregate by key and content.
+Fetch an aggregate by key or subkeys
 
 **Usage**:
 
@@ -464,13 +476,106 @@ $ aleph aggregate get [OPTIONS] KEY
 
 **Arguments**:
 
-* `KEY`: Aggregate key to be fetched.  \[required]
+* `KEY`: Aggregate key to fetch  \[required]
 
 **Options**:
 
-* `--address TEXT`: Address
+* `--subkeys TEXT`: Fetch specified subkey(s) only. Must be a comma separated list. E.g. `key1` or `key1,key2`
+* `--address TEXT`: Target address. Defaults to current account address
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--verbose / --no-verbose`: \[default: verbose]
+* `--debug / --no-debug`: \[default: no-debug]
+* `--help`: Show this message and exit.
+
+### `aleph aggregate list`
+
+Display all aggregates associated to an account
+
+**Usage**:
+
+```console
+$ aleph aggregate list [OPTIONS]
+```
+
+**Options**:
+
+* `--address TEXT`: Target address. Defaults to current account address
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--json / --no-json`: Print as json instead of rich table  \[default: no-json]
+* `--verbose / --no-verbose`: \[default: verbose]
+* `--debug / --no-debug`: \[default: no-debug]
+* `--help`: Show this message and exit.
+
+### `aleph aggregate authorize`
+
+Grant specific publishing permissions to an address to act on behalf of this account
+
+**Usage**:
+
+```console
+$ aleph aggregate authorize [OPTIONS] ADDRESS
+```
+
+**Arguments**:
+
+* `ADDRESS`: Target address. Defaults to current account address  \[required]
+
+**Options**:
+
+* `--chain [ARB|AVAX|BASE|BLAST|BOB|BSC|CSDK|CYBER|DOT|ETH|FRAX|INK|LINEA|LISK|METIS|MODE|NEO|NULS|NULS2|OP|POL|SOL|TEZOS|WLD|ZORA]`: Only on specified chain
+* `--types TEXT`: Only for specified message types (comma separated list)
+* `--channels TEXT`: Only on specified channels (comma separated list)
+* `--post-types TEXT`: Only for specified post types (comma separated list)
+* `--aggregate-keys TEXT`: Only for specified aggregate keys (comma separated list)
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--print-message / --no-print-message`: \[default: no-print-message]
+* `--verbose / --no-verbose`: \[default: verbose]
+* `--debug / --no-debug`: \[default: no-debug]
+* `--help`: Show this message and exit.
+
+### `aleph aggregate revoke`
+
+Revoke all publishing permissions from an address acting on behalf of this account
+
+**Usage**:
+
+```console
+$ aleph aggregate revoke [OPTIONS] ADDRESS
+```
+
+**Arguments**:
+
+* `ADDRESS`: Target address. Defaults to current account address  \[required]
+
+**Options**:
+
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--print-message / --no-print-message`: \[default: no-print-message]
+* `--verbose / --no-verbose`: \[default: verbose]
+* `--debug / --no-debug`: \[default: no-debug]
+* `--help`: Show this message and exit.
+
+### `aleph aggregate permissions`
+
+Display all permissions emitted by an account
+
+**Usage**:
+
+```console
+$ aleph aggregate permissions [OPTIONS]
+```
+
+**Options**:
+
+* `--address TEXT`: Target address. Defaults to current account address
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--json / --no-json`: Print as json instead of rich table  \[default: no-json]
+* `--verbose / --no-verbose`: \[default: verbose]
 * `--debug / --no-debug`: \[default: no-debug]
 * `--help`: Show this message and exit.
 
@@ -632,8 +737,8 @@ $ aleph program [OPTIONS] COMMAND [ARGS]...
 * [`update`](#aleph-program-update): Update the code of an existing program (item hash will not change)
 * [`delete`](#aleph-program-delete): Delete a program
 * [`list`](#aleph-program-list): List all programs associated to an account
-* [`persist`](#aleph-program-persist): Recreate a non-persistent program as persistent (item hash will change)
-* [`unpersist`](#aleph-program-unpersist): Recreate a persistent program as non-persistent (item hash will change)
+* [`persist`](#aleph-program-persist): Recreate a non-persistent program as persistent (item hash will change).
+* [`unpersist`](#aleph-program-unpersist): Recreate a persistent program as non-persistent (item hash will change).
 * [`logs`](#aleph-program-logs): Display the logs of a program
 * [`runtime-checker`](#aleph-program-runtime-checker): Check versions used by a runtime (distribution, python, nodejs, etc)
 
@@ -805,7 +910,7 @@ $ aleph program list [OPTIONS]
 
 ### `aleph program persist`
 
-Recreate a non-persistent program as persistent (item hash will change)
+Recreate a non-persistent program as persistent (item hash will change). The program must be updatable and yours
 
 **Usage**:
 
@@ -829,7 +934,7 @@ $ aleph program persist [OPTIONS] ITEM_HASH
 
 ### `aleph program unpersist`
 
-Recreate a persistent program as non-persistent (item hash will change)
+Recreate a persistent program as non-persistent (item hash will change). The program must be updatable and yours
 
 **Usage**:
 
@@ -1262,7 +1367,7 @@ $ aleph domain add [OPTIONS] FQDN
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
 * `--target [ipfs|program|instance]`: IPFS|PROGRAM|INSTANCE
 * `--item-hash TEXT`: Item hash
-* `--owner TEXT`: Owner address, default current account
+* `--owner TEXT`: Owner address. Defaults to current account address
 * `--ask / --no-ask`: Prompt user for confirmation  \[default: ask]
 * `--help`: Show this message and exit.
 
@@ -1386,6 +1491,7 @@ $ aleph node core [OPTIONS]
 * `--json / --no-json`: Print as json instead of rich table  \[default: no-json]
 * `--active / --no-active`: Only show active nodes  \[default: no-active]
 * `--address TEXT`: Owner address to filter by
+* `--ccn-hash TEXT`: CCN hash to filter by
 * `--debug / --no-debug`: \[default: no-debug]
 * `--help`: Show this message and exit.
 
