@@ -1,10 +1,19 @@
 # Computing on Aleph.im
 
 Aleph.im offers a decentralized computing framework that allows users to run
-programs on the network. This is done by creating a virtual machine (VM) that
-executes the program.
+applications on the network.
 
-## Overview of VMs
+Two execution models are available:
+
+ - [Functions](../guides/python/getting_started.md#understanding-alephim-programs) follow a serverless 
+   approach to easily deploy and maintain applications.
+ - [Instances](../guides/python/getting_started.md#understanding-alephim-instances) are designed to 
+   provide a persistent environment for users to interact with directly.
+
+In both cases, user workloads are executed inside virtual machines (VMs)
+isolated from each other.
+
+## Overview of VMsS
 
 There are several types of VMs available on the network:
 

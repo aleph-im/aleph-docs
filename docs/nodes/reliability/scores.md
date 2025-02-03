@@ -1,52 +1,60 @@
 # Scores
 
-For each node, a global score is computed from the [metrics](metrics.md). The global score is computed as a value
-between 0 and 1, and is rounded to a percentage when displayed.
+Scores are computed for each node from the [metrics](metrics.md) and span a scale from 0 to 100%.
 
-A score below 20% indicates that the node is dysfunctional and should not be used.
-A score above 80% indicates that the node is fully functional and behaves well.
+- A score below 20% indicates that the node is dysfunctional and should not be used.
+- A score above 80% indicates that the node is fully functional and behaves well.
 
-The complete formula is based on the principles below. The formula is being tuned to take into account the reality of
+The computation algorithm is based on the principles below. It is being tuned to take into account the reality of
 the nodes of the network, and feedback from community and node operators in particular is welcome.
 
-## Aggregation over time
+## Objectives
 
-The score of a node is based on the previous four weeks of metrics and is published daily.
+The score is computed daily and is based on all past [metrics](metrics.md) about a node.
 
-This provides a resistance against noise in metrics, making the score more stable over time. The value of the score is
+A new node starts with a score of `0%` and is expected to reach a score above `80%` after two or three weeks of operation
+when performing well. The score is based on the last two years of metrics, with recent metrics having a higher weight.
+
+![Illustration of the score if an ideal node over time (hours)](scoring-ideal-over-time.png)
+
+Percentiles are used when processing numeric metrics to ensure that the score is not affected by outliers.
+
+This provides a resistance against noise in metrics, making the score relatively stable over time. The value of the score is
 therefore representative of the global behaviour of a node and is not expected to change quickly.
 
-The other consequence is that poor performance impacts the score for a long duration. A tolerance allows short downtime
-for maintenance without penalizing the score.
+This helps users to identify nodes that are reliable and performant, with a bonus for nodes that have been running well
+for a long time.
 
-For each numeric metric taken into consideration when computing the score, percentiles are compared to a reference
-value.
+## Methodology
+
+The score is computed using an SQL query on the metrics. The query can be run on the database of any
+[Core Channel Node](../core/index.md) (CCN). A Core Channel Node operated by aleph.im regularly 
+[publishes](#publishing) the scores.
 
 ## How the score is computed
 
-To illustrate, the `base_latency` of CRNs contributes to the node's score in the following manner:
+1. A multiplier is computed for every hour in the past, based on a combination of two geometric distributions. 
 
-1. The 25th percentile reflects the `base_latency` value below which 25% of the samples taken during the sampling period
-   fall.
-2. The 95th percentile reflects the `base_latency` value below which 95% of the samples taken during the sampling period
-   fall.
-3. If the node fails to respond, a default value of 100 seconds is assigned.
-4. A scaling factor of 1/2 is applied.
-5. The resulting value is bounded between zero and one.
+    $$geometric\_pmf(p, x) = (1 - p) \cdot p^{x - 1}$$
+    
+    $$
+      multipler = geometric\_pmf(p1, hours\_difference) \cdot m1 \\
+      + geometric\_pmf(p2, hours\_difference) \cdot m2
+    $$
+    
+    Here, $p1$ is adjusted to emphasize recent metrics, while $p2$ is tuned to favour older metrics.
 
-The final formula for the contribution of the `base_latency` in the score is:
+    Meanwhile, $m1$ and $m2$ serve as proportional multipliers to ensure the total remains within the range $[0..1]$.
+    
+    ![](scoring-multiplier.png)
 
-$$
-\sqrt{(1 - \frac{percentile(25)(base\_latency)}{2}) * (1 - \frac{percentile(95)(base\_latency)}{2})}
-$$
+2. For every hour, a partial score based on the metrics measured that hour. When multiple metrics are present, the 67th percentile is used (the worst third is ignored). The partial scores are multipled together and fractional exponents remove the bias from the multiplication. When the version of the software running that hour was invalid, the partial score is set to zero.
 
-By taking the 25th and 95th percentiles, the `base_latency` value is calculated in relation to the distribution of
-samples during the sampling period.
+3. The multiplier and partial scores are multiplied for every hour of the last years.
 
-The scaling factor of $1/2$ has been chosen based on the maximal ping time typically measured across the globe, which is
-around 0.7 seconds.
-A node with such latency would therefore have a maximal score up to 65 % in the case of a single source
-of metrics.
+    $$score = \sum_{h=-1}^{history} multiplier(h) * partial\_score(h) * version\_valid * tuning$$
+    
+    The $tuning$ a number tuned such that most nodes have a score between `80%` and `100%`.
 
 ## Publishing
 
@@ -54,20 +62,3 @@ Scores are published as a POST message on aleph.im, with the type `aleph-scoring
 
 You can [find the scores on the aleph.im Explorer](
 https://explorer.aleph.im/address/ETH/0x4D52380D3191274a04846c89c069E6C3F2Ed94e4).
-
-## Improving the score of your nodes
-
-### 1. Ensure that your node is up-to-date:
-
-- Run the latest version of the node software.
-- Install all system updates.
-
-### 2. Ensure that the node uses performant hardware
-
-Fast enough CPU ? Enough RAM ? Fast enough storage and bandwidth connectivity ?
-
-### 3. Decentralize the network
-
-While the decentralization of the network does not affect the reliability and performance score
-of nodes directly, it has a big effect when computing the rewards.
-See the rewards page for more info.
