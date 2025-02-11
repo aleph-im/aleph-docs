@@ -1,71 +1,103 @@
-# Confidential instance creation
+# Confidential Instance Creation
 
-This section explain how to allocate your VM on the Aleph Network and start it on a chosen CRN.
+This section outlines the process of creating a confidential instance on the Aleph Network.
 
-If you encounter any problem, check the [Confidential VM troubleshooting](./troubleshooting.md) guide
+## Prerequisites
 
-## Ensure you have uploaded your VM in the aleph network.
-See previous section: [Encrypted Virtual Machine image](./encrypted-disk.md)
+Before proceeding, ensure the following:
 
-## Create your confidential Instance in Aleph.
+1. **Upload your VM image**: Your encrypted VM image must be uploaded to the Aleph Network. Refer to the [Encrypted Virtual Machine Image](./encrypted-disk.md) guide for instructions.
+2. **CLI Documentation**: For a detailed guide, refer to the [CLI Reference](../../tools/aleph-client/usage.md), or use `--help` for a quick overview of a specific command.
+3. **Troubleshooting**: If issues arise, consult the [Confidential VM Troubleshooting](./troubleshooting.md) guide.
 
-This will ask you how much CPU, RAM and Disk you want to use and on which node (CRN) to deploy it.
+## Step-by-Step Guide
+
+### Method 1: Automatic Instance Creation
+
+The CLI provides a streamlined command to automate the entire creation process:
+
+```shell
+aleph instance confidential
+```
+
+This command handles instance creation, secure channel setup, and VM initialization.
+
+### Method 2: Manual Instance Creation
+
+For more control, follow these steps:
+
+#### 1. Create the Instance
+
+Launch the instance configuration process:
 
 ```shell
 aleph instance create --confidential
 ```
 
-Be sure to write down the url of the CRN running the node and the hash of your VM
+- **Payment**: Select a payment chain and payment method (hold, superfluid, nft).
+- **Resources**: Specify CPU, RAM, disk size and rootfs (your VM image hash).
+- **Deployment**: Choose a CRN (Compute Resource Node) for deployment.
 
-## Establish a secure channel to communicate with your VM
+**Important**: Record the CRN URL and VM hash for subsequent steps. Use `aleph instance list` if needed.
 
-Using the command:
-```shell
-aleph instance confidential-init-session <vmhash>
-``` 
+#### 2. Establish a Secure Communication Channel
 
-> ℹ️ If this step fails, the instance must be rebooted using `aleph instance reboot <vmhash> <node url>` before
-> a new attempt.
-
-## Validate the authenticity of you VM and start it
-
-Using the command:
+Initialize a secure session with your VM:
 
 ```shell
-aleph  instance confidential-start <vmhash>
-``` 
-
-> ℹ️ If this step fails, the instance must be rebooted using `aleph instance reboot <vmhash> <node url>` before
-> a new attempt.
-
-## Your VM is now ready to use
-
-You can check the log of your VM or ssh into it.
-
-### Retrieve the logs of your VM
-
-Using the command:
-
-```shell
-aleph instance logs <vmhash>
+aleph instance confidential-init-session <vm-hash>
 ```
 
-### SSH into your VM
+- **Troubleshooting**: If this step fails, reboot the instance using:
 
-The list of instances can be obtained, with their IP addresses, using:
+  ```shell
+  aleph instance reboot <vm-hash> <node-url>
+  ```
+
+  Then, retry establishing the session.
+
+#### 3. Validate and Start the VM
+
+Verify the VM's integrity and start it:
+
+```shell
+aleph instance confidential-start <vm-hash>
+```
+
+- **Troubleshooting**: On failure, reboot using the command above, then retry.
+
+## Post-Creation Steps
+
+Your VM is now ready to use.
+
+### Retrieve VM Logs
+
+Monitor your VM's activity:
+
+```shell
+aleph instance logs <vm-hash>
+```
+
+### Access Your VM via SSH
+
+#### 1. **Find the Instance Details**
+
+- **Via CLI**:
 
 ```shell
 aleph instance list
 ```
 
-Alternatively, the IPv6 address of an instance can be obtained from API of the compute node:
-```
-https://<node url>/about/executions/list
-```
+- **Via API**: Access the compute node's API at `https://<node-url>/about/executions/list`.
 
-It is then possible to connect to the virtual machine using SSH:
+#### 2. **Connect via SSH**:
+
+Use the retrieved IP address to SSH into your VM:
+
 ```shell
-ssh <user>@<ip>
+ssh <user>@<ip> [-i <path-to-ssh-key>]
 ```
 
-The default user `<user>` is by default `root` for Debian systems and `ubuntu` for Ubuntu.
+- **Default Users**:
+    - Debian: `root`
+    - Ubuntu: `ubuntu`
