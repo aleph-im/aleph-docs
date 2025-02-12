@@ -1,14 +1,21 @@
 # Confidential Instance Creation
 
-This section outlines the process of creating a confidential instance on the Aleph Network.
+This section outlines the process of starting a confidential instance on the Aleph Network.
+
+If issues arise following these steps, consult the [Confidential VM troubleshooting](./troubleshooting.md) guide.
+
+The **CLI Documentation** is also a precious source of information, see [CLI Reference](../../tools/aleph-client/usage.md), or use
+`--help` for a quick overview of a specific command.
 
 ## Prerequisites
 
 Before proceeding, ensure the following:
 
-1. **Upload your VM image**: Your encrypted VM image must be uploaded to the Aleph Network. Refer to the [Encrypted Virtual Machine Image](./encrypted-disk.md) guide for instructions.
-2. **CLI Documentation**: For a detailed guide, refer to the [CLI Reference](../../tools/aleph-client/usage.md), or use `--help` for a quick overview of a specific command.
-3. **Troubleshooting**: If issues arise, consult the [Confidential VM Troubleshooting](./troubleshooting.md) guide.
+1. **aleph-client and sevctl**: The aleph-client and sev-ctl must be installed. Refer
+   to [Requirements](./requirements.md)
+   for instructions
+2. **Upload your VM image**: Your encrypted VM image must be uploaded to the Aleph Network. Refer to
+   the [Encrypted Virtual Machine Image](./encrypted-disk.md) guide for instructions.
 
 ## Step-by-Step Guide
 
