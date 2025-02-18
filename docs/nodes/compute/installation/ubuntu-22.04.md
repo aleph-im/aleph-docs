@@ -16,7 +16,7 @@ In order to run an official Aleph.im Compute Resource Node (CRN), you will also 
   - Min. 12 core / 24 threads, 2.4ghz+ CPU (datacenter CPU for multiple concurrent loads)
 - RAM: 64GB
 - STORAGE: 1TB (NVMe SSD preferred, datacenter fast HDD possible under conditions, you’ll want a big and fast cache)
-- BANDWIDTH: Minimum of 500 MB/s
+- NETWORK: Minimum 500 MB/s symmetrical, dedicated IPv4, and /64 or larger IPv6 subnet.
 
 You will need a public domain name with access to add TXT and wildcard records.
 
@@ -47,11 +47,11 @@ sudo apt install /opt/aleph-vm.ubuntu-22.04.deb
 
 Reboot if required (new kernel, ...).
 
-### Configuration
-
-#### Hostname
+## 3. Configuration
 
 Update the configuration in `/etc/aleph-vm/supervisor.env` using your favourite editor.
+
+### Hostname
 
 You will want to insert your domain name in the form of:
 
@@ -59,9 +59,29 @@ You will want to insert your domain name in the form of:
 ALEPH_VM_DOMAIN_NAME=vm.example.org
 ```
 
-#### Network configuration
+### Network configuration
 
-The network configuration is detected automatically.
+#### IPv6 address pool
+
+The range of IPv6 addresses usable by the virtual machines must be specified manually.
+
+According to the IPv6 specifications, a system is expected to receive an IPv6 with a /64
+mask and all addresses inside that mask should simply be routed to the host.
+
+The option takes the form of:
+```
+ALEPH_VM_IPV6_ADDRESS_POOL="2a01:4f8:171:787::/64"
+```
+
+Assuming hosting provider follows the specification, the procedure is the following:
+
+1. Obtain the IPv6 address of your node.
+2. Remove the trailing number after `::` if present, for example `2a01:4f8:171:787::2/64` becomes `2a01:4f8:171:787::/64`.
+3. Add the IPv6 range you obtained under the setting `ALEPH_VM_IPV6_ADDRESS_POOL` in the configuration.
+
+
+
+#### Network Interface
 
 The default network interface is detected automatically from the IP routes.
 You can configure the default interface manually instead by adding:
@@ -72,6 +92,9 @@ ALEPH_VM_NETWORK_INTERFACE=enp0s1
 
 (don't forget to replace `enp0s1` with the name of your default network interface).
 
+
+#### Domain Name Servers
+
 You can configure the DNS resolver manually by using one of the following options:
 
 ```
@@ -81,7 +104,7 @@ ALEPH_VM_DNS_RESOLUTION=resolv.conf
 
 > 💡 You can instead specify the DNS resolvers used by the VMs using `ALEPH_VM_DNS_NAMESERVERS=["1.2.3.4", "5.6.7.8"]`.
 
-#### Volumes and partitions
+### Volumes and partitions
 
 Two directories are used to store data from the network:
 
@@ -93,7 +116,7 @@ That partition must meet the minimum requirements specified for a CRN.
 
 > 💡 This is required due to the software using hard links to optimize performance and disk usage.
 
-#### Applying changes
+### Applying changes
 
 Finally, restart the service:
 
@@ -101,7 +124,7 @@ Finally, restart the service:
 sudo systemctl restart aleph-vm-supervisor
 ```
 
-## 3. Reverse Proxy
+## 4. Reverse Proxy
 
 We document how to use Caddy as a reverse proxy since it manages and renews HTTPS certificates automatically.
 
@@ -144,7 +167,7 @@ Finally, restart Caddy to use the new configuration:
 sudo systemctl restart caddy
 ```
 
-## 4. Test
+## 5. Test
 
 Open https://[YOUR DOMAIN] in a web browser, wait for diagnostic to complete and look for
 
@@ -168,6 +191,12 @@ VM-Connector:
 
 ```shell
 sudo docker logs -f vm-connector
+```
+
+IPv6 connectivity can be checked by opening the path `/status/check/ipv6` on the CRN's URL after restarting the service.
+
+```
+https://vm.example.org/status/check/ipv6
 ```
 
 ### Common errors
