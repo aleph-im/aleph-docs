@@ -14,6 +14,7 @@ $ aleph [OPTIONS] COMMAND [ARGS]...
 
 **Commands**:
 
+* [`pricing`](#aleph-pricing): Display pricing for services available on aleph.im & twentysix.cloud
 * [`account`](#aleph-account): Manage accounts
 * [`message`](#aleph-message): Manage messages (post, amend, watch and forget) on aleph.im & twentysix.cloud
 * [`aggregate`](#aleph-aggregate): Manage aggregate messages and permissions on aleph.im & twentysix.cloud
@@ -23,6 +24,26 @@ $ aleph [OPTIONS] COMMAND [ARGS]...
 * [`domain`](#aleph-domain): Manage custom domain (DNS) on aleph.im & twentysix.cloud
 * [`node`](#aleph-node): Get node info on aleph.im & twentysix.cloud
 * [`about`](#aleph-about): Display the informations of Aleph CLI
+
+## `aleph pricing`
+
+Display pricing for services available on aleph.im & twentysix.cloud
+
+**Usage**:
+
+```console
+$ aleph pricing [OPTIONS] SERVICE:{storage|website|program|instance|confidential|gpu|all}
+```
+
+**Arguments**:
+
+* `SERVICE:{storage|website|program|instance|confidential|gpu|all}`: Service to display pricing for  \[required]
+
+**Options**:
+
+* `--compute-units INTEGER`: Compute units to display pricing for  \[default: 0]
+* `--debug / --no-debug`: \[default: no-debug]
+* `--help`: Show this message and exit.
 
 ## `aleph account`
 
@@ -684,7 +705,7 @@ $ aleph file forget [OPTIONS] ITEM_HASH [REASON]
 
 **Arguments**:
 
-* `ITEM_HASH`: Hash to forget  \[required]
+* `ITEM_HASH`: Hash(es) to forget. Must be a comma separated list. Example: `123...abc` or `123...abc,456...xyz`  \[required]
 * `[REASON]`: reason to forget  \[default: User deletion]
 
 **Options**:
@@ -761,15 +782,16 @@ $ aleph program create [OPTIONS] PATH ENTRYPOINT
 
 **Options**:
 
-* `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  \[default: ALEPH-CLOUDSOLUTIONS]
-* `--memory INTEGER`: Maximum memory (RAM) allocation on VM in MiB  \[default: 256]
-* `--vcpus INTEGER`: Number of virtual CPUs to allocate  \[default: 1]
-* `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  \[default: 30.0]
 * `--name TEXT`: Name for your program
 * `--runtime TEXT`: Hash of the runtime to use for your program. You can also create your own runtime and pin it. Currently defaults to `63f07193e6ee9d207b7d1fcf8286f9aee34e6f12f101d2ec77c1229f92964696` (Use `aleph program runtime-checker` to inspect it)
-* `--beta / --no-beta`: If true, you will be prompted to add message subscriptions to your program  \[default: no-beta]
-* `--persistent / --no-persistent`: \[default: no-persistent]
+* `--compute-units INTEGER`: Number of compute units to allocate. Compute units correspond to a tier that includes vcpus, memory, disk and gpu presets. For reference, run: `aleph pricing --help`
+* `--vcpus INTEGER`: Number of virtual CPUs to allocate
+* `--memory INTEGER`: Maximum memory (RAM) in MiB to allocate
+* `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  \[default: 30.0]
+* `--internet / --no-internet`: Enable internet access for your program. By default, internet access is disabled  \[default: no-internet]
 * `--updatable / --no-updatable`: Allow program updates. By default, only the source code can be modified without requiring redeployement (same item hash). When enabled (set to True), this option allows to update any other field. However, such modifications will require a program redeployment (new item hash)  \[default: no-updatable]
+* `--beta / --no-beta`: If true, you will be prompted to add message subscriptions to your program  \[default: no-beta]
+* `--persistent / --no-persistent`: Create your program as persistent. By default, programs are ephemeral (serverless): they only start when called and then shutdown after the defined timeout delay.  \[default: no-persistent]
 * `--skip-volume / --no-skip-volume`: Skip prompt to attach more volumes  \[default: no-skip-volume]
 * `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
 Requires at least `name`, `persistence`, `mount` and `size_mib`. For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
@@ -782,6 +804,8 @@ Requires at least `name`, `ref` (message hash) and `mount` path. `use_latest` is
 Example: --immutable-volume name=libs,ref=25a3...8d94,mount=/lib/python3.11/site-packages
 * `--skip-env-var / --no-skip-env-var`: Skip prompt to set environment variables  \[default: no-skip-env-var]
 * `--env-vars TEXT`: Environment variables to pass. They will be public and visible in the message, so don't include secrets. Must be a comma separated list. Example: `KEY=value` or `KEY=value,KEY=value`
+* `--address TEXT`: Address of the payer. In order to delegate the payment, your account must be authorized beforehand to publish on the behalf of this address. See the docs for more info: https://docs.aleph.im/protocol/permissions/
+* `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  \[default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
 * `--print-messages / --no-print-messages`: \[default: no-print-messages]
@@ -810,15 +834,16 @@ $ aleph program upload [OPTIONS] PATH ENTRYPOINT
 
 **Options**:
 
-* `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  \[default: ALEPH-CLOUDSOLUTIONS]
-* `--memory INTEGER`: Maximum memory (RAM) allocation on VM in MiB  \[default: 256]
-* `--vcpus INTEGER`: Number of virtual CPUs to allocate  \[default: 1]
-* `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  \[default: 30.0]
 * `--name TEXT`: Name for your program
 * `--runtime TEXT`: Hash of the runtime to use for your program. You can also create your own runtime and pin it. Currently defaults to `63f07193e6ee9d207b7d1fcf8286f9aee34e6f12f101d2ec77c1229f92964696` (Use `aleph program runtime-checker` to inspect it)
-* `--beta / --no-beta`: If true, you will be prompted to add message subscriptions to your program  \[default: no-beta]
-* `--persistent / --no-persistent`: \[default: no-persistent]
+* `--compute-units INTEGER`: Number of compute units to allocate. Compute units correspond to a tier that includes vcpus, memory, disk and gpu presets. For reference, run: `aleph pricing --help`
+* `--vcpus INTEGER`: Number of virtual CPUs to allocate
+* `--memory INTEGER`: Maximum memory (RAM) in MiB to allocate
+* `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  \[default: 30.0]
+* `--internet / --no-internet`: Enable internet access for your program. By default, internet access is disabled  \[default: no-internet]
 * `--updatable / --no-updatable`: Allow program updates. By default, only the source code can be modified without requiring redeployement (same item hash). When enabled (set to True), this option allows to update any other field. However, such modifications will require a program redeployment (new item hash)  \[default: no-updatable]
+* `--beta / --no-beta`: If true, you will be prompted to add message subscriptions to your program  \[default: no-beta]
+* `--persistent / --no-persistent`: Create your program as persistent. By default, programs are ephemeral (serverless): they only start when called and then shutdown after the defined timeout delay.  \[default: no-persistent]
 * `--skip-volume / --no-skip-volume`: Skip prompt to attach more volumes  \[default: no-skip-volume]
 * `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
 Requires at least `name`, `persistence`, `mount` and `size_mib`. For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
@@ -831,6 +856,8 @@ Requires at least `name`, `ref` (message hash) and `mount` path. `use_latest` is
 Example: --immutable-volume name=libs,ref=25a3...8d94,mount=/lib/python3.11/site-packages
 * `--skip-env-var / --no-skip-env-var`: Skip prompt to set environment variables  \[default: no-skip-env-var]
 * `--env-vars TEXT`: Environment variables to pass. They will be public and visible in the message, so don't include secrets. Must be a comma separated list. Example: `KEY=value` or `KEY=value,KEY=value`
+* `--address TEXT`: Address of the payer. In order to delegate the payment, your account must be authorized beforehand to publish on the behalf of this address. See the docs for more info: https://docs.aleph.im/protocol/permissions/
+* `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  \[default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
 * `--print-messages / --no-print-messages`: \[default: no-print-messages]
@@ -1029,6 +1056,7 @@ $ aleph instance [OPTIONS] COMMAND [ARGS]...
 * [`confidential-init-session`](#aleph-instance-confidential-init-session): Initialize a confidential communication session with the VM
 * [`confidential-start`](#aleph-instance-confidential-start): Validate the authenticity of the VM and start it
 * [`confidential`](#aleph-instance-confidential): Create (optional), start and unlock a confidential VM (all-in-one command)
+* [`gpu`](#aleph-instance-gpu): Create and register a new GPU instance on aleph.im
 
 ### `aleph instance create`
 
@@ -1044,19 +1072,22 @@ $ aleph instance create [OPTIONS]
 
 * `--payment-type [hold|superfluid|nft]`: Payment method, either holding tokens, NFTs, or Pay-As-You-Go via token streaming
 * `--payment-chain [AVAX|BASE|ETH|SOL]`: Chain you want to use to pay for your instance
-* `--hypervisor [qemu|firecracker]`: Hypervisor to use to launch your instance. Defaults to QEMU  \[default: qemu]
+* `--hypervisor [qemu|firecracker]`: Hypervisor to use to launch your instance. Always defaults to QEMU, since Firecracker is now deprecated for instances  \[default: qemu]
 * `--name TEXT`: Name of your new instance
 * `--rootfs TEXT`: Hash of the rootfs to use for your instance. Defaults to Ubuntu 22. You can also create your own rootfs and pin it
-* `--rootfs-size INTEGER`: Size of the rootfs to use for your instance. If not set, content.size of the --rootfs store message will be used
+* `--compute-units INTEGER`: Number of compute units to allocate. Compute units correspond to a tier that includes vcpus, memory, disk and gpu presets. For reference, run: `aleph pricing --help`
 * `--vcpus INTEGER`: Number of virtual CPUs to allocate
-* `--memory INTEGER`: Maximum memory (RAM) allocation on VM in MiB
+* `--memory INTEGER`: Maximum memory (RAM) in MiB to allocate
+* `--rootfs-size INTEGER`: Rootfs size in MiB to allocate
 * `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  \[default: 30.0]
 * `--ssh-pubkey-file PATH`: Path to a public ssh key to be added to the instance  \[default: /home/$USER/.ssh/id_rsa.pub]
+* `--address TEXT`: Address of the payer. In order to delegate the payment, your account must be authorized beforehand to publish on the behalf of this address. See the docs for more info: https://docs.aleph.im/protocol/permissions/
 * `--crn-hash TEXT`: Hash of the CRN to deploy to (only applicable for confidential and/or Pay-As-You-Go instances)
 * `--crn-url TEXT`: URL of the CRN to deploy to (only applicable for confidential and/or Pay-As-You-Go instances)
 * `--confidential / --no-confidential`: Launch a confidential instance (requires creating an encrypted volume)  \[default: no-confidential]
 * `--confidential-firmware TEXT`: Hash to UEFI Firmware to launch confidential instance  \[default: ba5bb13f3abca960b101a759be162b229e2b7e93ecad9d1307e54de887f177ff]
 * `--gpu / --no-gpu`: Launch an instance attaching a GPU to it  \[default: no-gpu]
+* `--premium / --no-premium`: Use Premium GPUs (VRAM > 48GiB)
 * `--skip-volume / --no-skip-volume`: Skip prompt to attach more volumes  \[default: no-skip-volume]
 * `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
 Requires at least `name`, `persistence`, `mount` and `size_mib`. For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
@@ -1078,7 +1109,8 @@ Example: --immutable-volume name=libs,ref=25a3...8d94,mount=/lib/python3.11/site
 
 ### `aleph instance delete`
 
-Delete an instance, unallocating all resources associated with it. Associated VM will be stopped and erased. Immutable volumes will not be deleted.
+Delete an instance, unallocating all resources associated with it. Associated VM will be stopped and erased.
+Immutable volumes will not be deleted.
 
 **Usage**:
 
@@ -1303,12 +1335,15 @@ $ aleph instance confidential [OPTIONS] [VM_ID]
 * `--payment-chain [AVAX|BASE|ETH|SOL]`: Chain you want to use to pay for your instance
 * `--name TEXT`: Name of your new instance
 * `--rootfs TEXT`: Hash of the rootfs to use for your instance. Defaults to Ubuntu 22. You can also create your own rootfs and pin it
-* `--rootfs-size INTEGER`: Size of the rootfs to use for your instance. If not set, content.size of the --rootfs store message will be used
+* `--compute-units INTEGER`: Number of compute units to allocate. Compute units correspond to a tier that includes vcpus, memory, disk and gpu presets. For reference, run: `aleph pricing --help`
 * `--vcpus INTEGER`: Number of virtual CPUs to allocate
-* `--memory INTEGER`: Maximum memory (RAM) allocation on VM in MiB
+* `--memory INTEGER`: Maximum memory (RAM) in MiB to allocate
+* `--rootfs-size INTEGER`: Rootfs size in MiB to allocate
 * `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  \[default: 30.0]
 * `--ssh-pubkey-file PATH`: Path to a public ssh key to be added to the instance  \[default: /home/$USER/.ssh/id_rsa.pub]
+* `--address TEXT`: Address of the payer. In order to delegate the payment, your account must be authorized beforehand to publish on the behalf of this address. See the docs for more info: https://docs.aleph.im/protocol/permissions/
 * `--gpu / --no-gpu`: Launch an instance attaching a GPU to it  \[default: no-gpu]
+* `--premium / --no-premium`: Use Premium GPUs (VRAM > 48GiB)
 * `--skip-volume / --no-skip-volume`: Skip prompt to attach more volumes  \[default: no-skip-volume]
 * `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
 Requires at least `name`, `persistence`, `mount` and `size_mib`. For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
@@ -1323,6 +1358,50 @@ Example: --immutable-volume name=libs,ref=25a3...8d94,mount=/lib/python3.11/site
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  \[default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--debug / --no-debug`: \[default: no-debug]
+* `--help`: Show this message and exit.
+
+### `aleph instance gpu`
+
+Create and register a new GPU instance on aleph.im
+
+**Usage**:
+
+```console
+$ aleph instance gpu [OPTIONS]
+```
+
+**Options**:
+
+* `--payment-chain [AVAX|BASE]`: Chain you want to use to pay for your instance
+* `--name TEXT`: Name of your new instance
+* `--rootfs TEXT`: Hash of the rootfs to use for your instance. Defaults to Ubuntu 22. You can also create your own rootfs and pin it
+* `--compute-units INTEGER`: Number of compute units to allocate. Compute units correspond to a tier that includes vcpus, memory, disk and gpu presets. For reference, run: `aleph pricing --help`
+* `--vcpus INTEGER`: Number of virtual CPUs to allocate
+* `--memory INTEGER`: Maximum memory (RAM) in MiB to allocate
+* `--rootfs-size INTEGER`: Rootfs size in MiB to allocate
+* `--premium / --no-premium`: Use Premium GPUs (VRAM > 48GiB)
+* `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  \[default: 30.0]
+* `--ssh-pubkey-file PATH`: Path to a public ssh key to be added to the instance  \[default: /home/$USER/.ssh/id_rsa.pub]
+* `--address TEXT`: Address of the payer. In order to delegate the payment, your account must be authorized beforehand to publish on the behalf of this address. See the docs for more info: https://docs.aleph.im/protocol/permissions/
+* `--crn-hash TEXT`: Hash of the CRN to deploy to (only applicable for confidential and/or Pay-As-You-Go instances)
+* `--crn-url TEXT`: URL of the CRN to deploy to (only applicable for confidential and/or Pay-As-You-Go instances)
+* `--skip-volume / --no-skip-volume`: Skip prompt to attach more volumes  \[default: no-skip-volume]
+* `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
+Requires at least `name`, `persistence`, `mount` and `size_mib`. For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
+Example: --persistent_volume name=data,persistence=host,size_mib=100,mount=/opt/data
+* `--ephemeral-volume TEXT`: Ephemeral volumes are allocated on the host machine when the VM is started and deleted when the VM is stopped.
+Requires at least `name`, `mount` and `size_mib`.
+Example: --ephemeral-volume name=temp,size_mib=100,mount=/tmp/data
+* `--immutable-volume TEXT`: Immutable volumes are pinned on the network and can be used by multiple VMs at the same time. They are read-only and useful for setting up libraries or other dependencies.
+Requires at least `name`, `ref` (message hash) and `mount` path. `use_latest` is True by default, to use the latest version of the volume, if it has been amended. See the docs for more info: https://docs.aleph.im/computing/volumes/immutable/
+Example: --immutable-volume name=libs,ref=25a3...8d94,mount=/lib/python3.11/site-packages
+* `--crn-auto-tac / --no-crn-auto-tac`: Automatically accept the Terms & Conditions of the CRN if you read them beforehand  \[default: no-crn-auto-tac]
+* `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  \[default: ALEPH-CLOUDSOLUTIONS]
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--print-message / --no-print-message`: \[default: no-print-message]
+* `--verbose / --no-verbose`: \[default: verbose]
 * `--debug / --no-debug`: \[default: no-debug]
 * `--help`: Show this message and exit.
 
