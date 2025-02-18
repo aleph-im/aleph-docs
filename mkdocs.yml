@@ -71,9 +71,7 @@ nav:
       - 'Introduction': nodes/compute/index.md
       - 'Installations':
         - 'Configure Caddy': nodes/compute/installation/configure-caddy.md
-        - 'Debian 11': nodes/compute/installation/debian-11.md
         - 'Debian 12': nodes/compute/installation/debian-12.md
-        - 'Ubuntu 20.04': nodes/compute/installation/ubuntu-20.04.md
         - 'Ubuntu 22.04': nodes/compute/installation/ubuntu-22.04.md
         - 'Ubuntu 24.04': nodes/compute/installation/ubuntu-24.04.md
         - 'Troubleshooting': nodes/compute/troubleshooting.md
@@ -182,6 +180,8 @@ plugins:
         'libraries/Aleph.im-Python-SDK/index.md': 'libraries/python-sdk/index.md'
 
         'nodes/compute/installation/configure_caddy.md': 'nodes/compute/installation/configure-caddy.md'
+        'nodes/compute/installation/debian-11.md': 'nodes/compute/installation/debian-12.md'
+        'nodes/compute/installation/ubuntu-20.04.md': 'nodes/compute/installation/ubuntu-24.04.md'
 
         'computing/runtimes/existing.md': 'computing/runtimes/index.md#existing-runtimes'
 
