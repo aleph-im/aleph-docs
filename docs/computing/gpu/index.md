@@ -57,12 +57,14 @@ ssh <user>@<ip> [-i <path-to-ssh-key>]
 
 #### 1. **Installation**
 
+##### **Debian**
+
 ```shell
 echo "deb http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware" >> /etc/apt/sources.list
 apt update -y && apt upgrade -y && apt autoremove -y
 ```
 
-> ℹ️ If you are prompted, press Enter for `Keep the local version currently installed`.
+> ℹ️ If prompted, press Enter for `Keep the local version currently installed`.
 
 Exit your vm and then reboot it with:
 
@@ -75,6 +77,16 @@ Re-connect to your VM via SSH and run the following:
 ```shell
 apt install linux-headers-$(uname -r) nvidia-driver software-properties-common -y
 ```
+
+##### **Ubuntu**
+
+```shell
+apt update -y && apt upgrade -y && apt autoremove -y
+apt install ubuntu-drivers-common --fix-missing -y
+ubuntu-drivers --gpgpu install
+```
+
+> ℹ️ If prompted, just press Enter.
 
 #### 2. **Verify the Installation**
 
@@ -97,8 +109,11 @@ Ensure you already have the NVIDIA drivers installed.
 
 #### 1. **Installation**
 
+The following commands are usable for both Debian and Ubuntu.
+
 ```shell
-wget https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/cuda-keyring_1.1-1_all.deb && dpkg -i cuda-keyring_1.1-1_all.deb && rm cuda-keyring_1.1-1_all.deb
+distrib=$(echo "$(lsb_release -si | tr '[:upper:]' '[:lower:]')$(lsb_release -sr | tr -d '.')")
+wget https://developer.download.nvidia.com/compute/cuda/repos/$distrib/x86_64/cuda-keyring_1.1-1_all.deb && dpkg -i cuda-keyring_1.1-1_all.deb && rm cuda-keyring_1.1-1_all.deb
 apt update -y && apt install cuda-toolkit -y
 echo "export PATH=/usr/local/cuda/bin:$PATH" >> ~/.bashrc && source ~/.bashrc
 ```
