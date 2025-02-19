@@ -1,4 +1,4 @@
-# Confidential computing
+# Enable Confidential computing
 
 This guide outlines how to enable [Confidential Computing](../../../computing/confidential/index.md) on a CRN.
 
