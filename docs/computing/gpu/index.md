@@ -15,6 +15,8 @@ The CLI provides a streamlined command to create a GPU instance. You will be pro
 aleph instance gpu
 ```
 
+![cli-create-gpu-instance](../../assets/images/gpu/cli-create-gpu-instance.png)
+
 Your VM is now ready to use.
 
 ### Retrieve VM Logs
@@ -49,7 +51,7 @@ ssh <user>@<ip> [-i <path-to-ssh-key>]
   - Debian: `root`
   - Ubuntu: `ubuntu`
 
-## GPU Configuration
+## Using the GPU inside your VM
 
 ### Install NVIDIA Linux Drivers
 
@@ -82,7 +84,7 @@ To simply check that the installation went well, run the following:
 nvidia-smi
 ```
 
-Alternatively, you can try to run [ollama](https://ollama.com/) with your GPU:
+Alternatively, you can try to run [ollama](https://ollama.com/) using the GPU:
 
 ```shell
 curl -fsSL https://ollama.com/install.sh | sh
