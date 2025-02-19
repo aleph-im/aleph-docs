@@ -125,6 +125,7 @@ nav:
           - 'Encrypted disk image': computing/confidential/encrypted-disk.md
           - 'Instance': computing/confidential/instance.md
           - 'Troubleshooting': computing/confidential/troubleshooting.md
+        - 'GPU instances': computing/gpu/index.md
         - 'Tutorials':
           - 'Testing microVMs': guides/testing_microvms.md
           - 'Update a program': guides/update_a_program.md
