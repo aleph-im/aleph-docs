@@ -75,7 +75,9 @@ nav:
         - 'Ubuntu 22.04': nodes/compute/installation/ubuntu-22.04.md
         - 'Ubuntu 24.04': nodes/compute/installation/ubuntu-24.04.md
         - 'Troubleshooting': nodes/compute/troubleshooting.md
-        - 'Confidential computing': nodes/compute/advanced/enable-confidential.md
+        - 'Enable PAYG': nodes/compute/advanced/enable-payg.md
+        - 'Enable Confidential computing': nodes/compute/advanced/enable-confidential.md
+        - 'Enable GPU support': nodes/compute/advanced/enable-gpu.md
       - 'Releases': nodes/compute/releases.md
     - 'Reliability':
       - 'Introduction': nodes/reliability/index.md

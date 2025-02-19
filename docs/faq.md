@@ -104,7 +104,7 @@ Twentysix Cloud is a cross-chain cloud solution that provides scalable, high-per
 Purchase ALEPH v2 on platforms such as Coinbase, KuCoin, Gate, LATOKEN, MEXC, Uniswap (Ethereum), Pancakeswap (BNB Chain), TraderJoe (Avalanche), and Raydium (Solana).
 
 ### What is Pay-As-You-Go?
-Pay-As-You-Go allows you to pay for resources as you use them on the Aleph.im network, eliminating the need to hold or stake large amounts of $ALEPH. This is currently available only on the Avalanche c-chain.
+Pay-As-You-Go allows you to pay for resources as you use them on the Aleph.im network, eliminating the need to hold or stake large amounts of $ALEPH. This is currently available  on BASE and Avalanche c-chain .
 
 ## III. Node Operators
 
