@@ -88,7 +88,7 @@ Alternatively, you can try to run [ollama](https://ollama.com/) using the GPU:
 
 ```shell
 curl -fsSL https://ollama.com/install.sh | sh
-ollama run deepseek-r1:1.5b "Why to use a decentralized cloud?" --verbose
+ollama run deepseek-r1:1.5b "Why use a decentralized cloud?" --verbose
 ```
 
 ### Install NVIDIA CUDA Toolkit
