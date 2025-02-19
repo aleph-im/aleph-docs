@@ -110,11 +110,18 @@ Should display something similar to
 [...]
 ```
 
-10. Confirm that the GPU are listed and supported on the CRN index page
-No additional modification is needed inside the aleph-vm configuration, apart from [enabling PAYG](./enable-payg.md).
-
-Start your aleph-vm supervisor, open the index page and it should list your GPU
+10. Enable GPU support in Aleph-VM
+In the CRN configuration `/etc/aleph-vm/supervisor.env`, enable the GPU support
 ```
+ALEPH_VM_ENABLE_GPU_SUPPORT=True
+```
+
+Don't forget to also set ALEPH_VM_PAYMENT_RECEIVER_ADDRESS and [enable PAYG](./enable-payg.md).
+
+11. Confirm that the GPU are listed and supported on the CRN index page.
+
+Start or restart your aleph-vm supervisor, open the index page, and it should list your GPU
+```also
 GPUs
 
    • NVIDIA | AD104GL [RTX 4000 SFF Ada Generation] is compatible ✅
