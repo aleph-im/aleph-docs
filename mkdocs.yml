@@ -70,12 +70,12 @@ nav:
     - 'Compute Resource Nodes (CRNs)':
       - 'Introduction': nodes/compute/index.md
       - 'Installations':
-        - 'Configure Caddy': nodes/compute/installation/configure-caddy.md
         - 'Debian 12': nodes/compute/installation/debian-12.md
         - 'Ubuntu 22.04': nodes/compute/installation/ubuntu-22.04.md
         - 'Ubuntu 24.04': nodes/compute/installation/ubuntu-24.04.md
         - 'Troubleshooting': nodes/compute/troubleshooting.md
         - 'Confidential computing': nodes/compute/advanced/enable-confidential.md
+        - 'Configure Caddy': nodes/compute/installation/configure-caddy.md
       - 'Releases': nodes/compute/releases.md
     - 'Reliability':
       - 'Introduction': nodes/reliability/index.md
