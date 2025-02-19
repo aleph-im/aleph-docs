@@ -110,3 +110,4 @@ EOL
 Finally, restart Caddy:
 ```shell
 sudo systemctl restart caddy
+```
