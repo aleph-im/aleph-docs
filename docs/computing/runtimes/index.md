@@ -92,11 +92,14 @@ Runtime used for functions
 #### QEMU Disk Image
 QEMU "runtimes" are regular disk image. The image uploaded to the network are the one directly provided by their respective project, specifically the cloud variant with cloud-init enabled.
 
-| name                 | hash                                                             | filesystem |
-|----------------------|------------------------------------------------------------------|------------|
-| Debian 11 “Bullseye” | f7e68c568906b4ebcd3cd3c4bfdff96c489cd2a9ef73ba2d7503f244dfd578de | disk img   |
-| Debian 12 “Bookworm” | b6ff5c3a8205d1ca4c7c3369300eeafff498b558f71b851aa2114afd0a532717 | disk img   |
-| Ubuntu 22.04 LTS     | 4a0f62da42f4478544616519e6f5d58adb1096e069b392b151d47c3609492d0c | disk img   |
+| name                        | hash                                                             | filesystem |
+|-----------------------------|------------------------------------------------------------------|------------|
+| ~~Debian 11 “Bullseye”~~ 1. | f7e68c568906b4ebcd3cd3c4bfdff96c489cd2a9ef73ba2d7503f244dfd578de | disk img   |
+| Debian 12 “Bookworm”        | b6ff5c3a8205d1ca4c7c3369300eeafff498b558f71b851aa2114afd0a532717 | disk img   |
+| Ubuntu 22.04 LTS            | 4a0f62da42f4478544616519e6f5d58adb1096e069b392b151d47c3609492d0c | disk img   |
+| Ubuntu 22.04 LTS            | 5330dcefe1857bcd97b7b7f24d1420a7d46232d53f27be280c8a7071d88bd84e | disk img   |
+
+1. This runtime is now deprecated for production usage but is kept for retro-compatibility.
 
 #### Confidential Computing Disk
 No runtime or disk image are provided at the moment for confidential computing.
