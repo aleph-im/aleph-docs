@@ -40,7 +40,8 @@ The procedure is similar for updates.
 
 ```shell
 # Download the latest release
-curl -s https://api.github.com/repos/aleph-im/aleph-vm/releases/latest | grep "browser_download_url.*deb" | cut -d : -f 2,3 | tr -d \" | sed '1p;d' | xargs wget -P /opt -
+release=$(curl -s https://api.github.com/repos/aleph-im/aleph-vm/releases/latest | awk -F'"' '/"tag_name":/ {print $4}')
+sudo wget -P /opt/ https://github.com/aleph-im/aleph-vm/releases/download/${release}/aleph-vm.debian-12.deb
 # Install it
 apt install /opt/aleph-vm.debian-12.deb
 ```
