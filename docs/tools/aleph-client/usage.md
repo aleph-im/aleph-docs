@@ -1090,7 +1090,7 @@ $ aleph instance create [OPTIONS]
 * `--compute-units INTEGER`: Number of compute units to allocate. Compute units correspond to a tier that includes vcpus, memory, disk and gpu presets. For reference, run: `aleph pricing --help`
 * `--vcpus INTEGER`: Number of virtual CPUs to allocate
 * `--memory INTEGER`: Maximum memory (RAM) in MiB to allocate
-* `--rootfs-size INTEGER RANGE`: Rootfs size in MiB to allocate  \[x<=1953125]
+* `--rootfs-size INTEGER RANGE`: Rootfs size in MiB to allocate. Set to 0 to use default tier value and to not get prompted  \[x<=1953125]
 * `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  \[default: 30.0]
 * `--ssh-pubkey-file PATH`: Path to a public ssh key to be added to the instance  \[default: /home/$USER/.ssh/id_rsa.pub]
 * `--address TEXT`: Address of the payer. In order to delegate the payment, your account must be authorized beforehand to publish on the behalf of this address. See the docs for more info: https://docs.aleph.im/protocol/permissions/
@@ -1352,7 +1352,7 @@ $ aleph instance confidential [OPTIONS] [VM_ID]
 * `--compute-units INTEGER`: Number of compute units to allocate. Compute units correspond to a tier that includes vcpus, memory, disk and gpu presets. For reference, run: `aleph pricing --help`
 * `--vcpus INTEGER`: Number of virtual CPUs to allocate
 * `--memory INTEGER`: Maximum memory (RAM) in MiB to allocate
-* `--rootfs-size INTEGER RANGE`: Rootfs size in MiB to allocate  \[x<=1953125]
+* `--rootfs-size INTEGER RANGE`: Rootfs size in MiB to allocate. Set to 0 to use default tier value and to not get prompted  \[x<=1953125]
 * `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  \[default: 30.0]
 * `--ssh-pubkey-file PATH`: Path to a public ssh key to be added to the instance  \[default: /home/$USER/.ssh/id_rsa.pub]
 * `--address TEXT`: Address of the payer. In order to delegate the payment, your account must be authorized beforehand to publish on the behalf of this address. See the docs for more info: https://docs.aleph.im/protocol/permissions/
@@ -1397,7 +1397,7 @@ $ aleph instance gpu [OPTIONS]
 * `--compute-units INTEGER`: Number of compute units to allocate. Compute units correspond to a tier that includes vcpus, memory, disk and gpu presets. For reference, run: `aleph pricing --help`
 * `--vcpus INTEGER`: Number of virtual CPUs to allocate
 * `--memory INTEGER`: Maximum memory (RAM) in MiB to allocate
-* `--rootfs-size INTEGER RANGE`: Rootfs size in MiB to allocate  \[x<=1953125]
+* `--rootfs-size INTEGER RANGE`: Rootfs size in MiB to allocate. Set to 0 to use default tier value and to not get prompted  \[x<=1953125]
 * `--premium / --no-premium`: Use Premium GPUs (VRAM > 48GiB)
 * `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  \[default: 30.0]
 * `--ssh-pubkey-file PATH`: Path to a public ssh key to be added to the instance  \[default: /home/$USER/.ssh/id_rsa.pub]
