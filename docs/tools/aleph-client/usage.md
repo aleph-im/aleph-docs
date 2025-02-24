@@ -794,25 +794,28 @@ $ aleph program create [OPTIONS] PATH ENTRYPOINT
 * `--persistent / --no-persistent`: Create your program as persistent. By default, programs are ephemeral (serverless): they only start when called and then shutdown after the defined timeout delay.  \[default: no-persistent]
 * `--skip-volume / --no-skip-volume`: Skip prompt to attach more volumes  \[default: no-skip-volume]
 * `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
-Requires at least `name`, `persistence`, `mount` and `size_mib`. For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
-Example: --persistent_volume name=data,persistence=host,size_mib=100,mount=/opt/data
+Requires at least `name`, `mount` path, and `size_mib`. To add multiple, reuse the same argument.
+Example: --persistent-volume name=data,mount=/opt/data,size_mib=1000.
+For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
 * `--ephemeral-volume TEXT`: Ephemeral volumes are allocated on the host machine when the VM is started and deleted when the VM is stopped.
-Requires at least `name`, `mount` and `size_mib`.
-Example: --ephemeral-volume name=temp,size_mib=100,mount=/tmp/data
+Requires at least `mount` path and `size_mib`. To add multiple, reuse the same argument.
+Example: --ephemeral-volume mount=/opt/tmp,size_mib=100
 * `--immutable-volume TEXT`: Immutable volumes are pinned on the network and can be used by multiple VMs at the same time. They are read-only and useful for setting up libraries or other dependencies.
-Requires at least `name`, `ref` (message hash) and `mount` path. `use_latest` is True by default, to use the latest version of the volume, if it has been amended. See the docs for more info: https://docs.aleph.im/computing/volumes/immutable/
-Example: --immutable-volume name=libs,ref=25a3...8d94,mount=/lib/python3.11/site-packages
+Requires at least `mount` path and `ref` (volume message hash). `use_latest` is True by default, to use the latest version of the volume, if it has been amended. To add multiple, reuse the same argument.
+Example: --immutable-volume mount=/opt/packages,ref=25a3...8d94.
+For more info, see the docs: https://docs.aleph.im/computing/volumes/immutable/
 * `--skip-env-var / --no-skip-env-var`: Skip prompt to set environment variables  \[default: no-skip-env-var]
 * `--env-vars TEXT`: Environment variables to pass. They will be public and visible in the message, so don't include secrets. Must be a comma separated list. Example: `KEY=value` or `KEY=value,KEY=value`
 * `--address TEXT`: Address of the payer. In order to delegate the payment, your account must be authorized beforehand to publish on the behalf of this address. See the docs for more info: https://docs.aleph.im/protocol/permissions/
+* `--payment-chain [AVAX|BASE|ETH|SOL]`: Chain you want to use to pay for your program
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  \[default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--print-messages / --no-print-messages`: \[default: no-print-messages]
-* `--print-code-message / --no-print-code-message`: \[default: no-print-code-message]
-* `--print-program-message / --no-print-program-message`: \[default: no-print-program-message]
-* `--verbose / --no-verbose`: \[default: verbose]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--print-messages / --no-print-messages`: Print the messages after creation  \[default: no-print-messages]
+* `--print-code-message / --no-print-code-message`: Print the code message after creation  \[default: no-print-code-message]
+* `--print-program-message / --no-print-program-message`: Print the program message after creation  \[default: no-print-program-message]
+* `--verbose / --no-verbose`: Display additional information  \[default: verbose]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph program upload`
@@ -846,25 +849,28 @@ $ aleph program upload [OPTIONS] PATH ENTRYPOINT
 * `--persistent / --no-persistent`: Create your program as persistent. By default, programs are ephemeral (serverless): they only start when called and then shutdown after the defined timeout delay.  \[default: no-persistent]
 * `--skip-volume / --no-skip-volume`: Skip prompt to attach more volumes  \[default: no-skip-volume]
 * `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
-Requires at least `name`, `persistence`, `mount` and `size_mib`. For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
-Example: --persistent_volume name=data,persistence=host,size_mib=100,mount=/opt/data
+Requires at least `name`, `mount` path, and `size_mib`. To add multiple, reuse the same argument.
+Example: --persistent-volume name=data,mount=/opt/data,size_mib=1000.
+For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
 * `--ephemeral-volume TEXT`: Ephemeral volumes are allocated on the host machine when the VM is started and deleted when the VM is stopped.
-Requires at least `name`, `mount` and `size_mib`.
-Example: --ephemeral-volume name=temp,size_mib=100,mount=/tmp/data
+Requires at least `mount` path and `size_mib`. To add multiple, reuse the same argument.
+Example: --ephemeral-volume mount=/opt/tmp,size_mib=100
 * `--immutable-volume TEXT`: Immutable volumes are pinned on the network and can be used by multiple VMs at the same time. They are read-only and useful for setting up libraries or other dependencies.
-Requires at least `name`, `ref` (message hash) and `mount` path. `use_latest` is True by default, to use the latest version of the volume, if it has been amended. See the docs for more info: https://docs.aleph.im/computing/volumes/immutable/
-Example: --immutable-volume name=libs,ref=25a3...8d94,mount=/lib/python3.11/site-packages
+Requires at least `mount` path and `ref` (volume message hash). `use_latest` is True by default, to use the latest version of the volume, if it has been amended. To add multiple, reuse the same argument.
+Example: --immutable-volume mount=/opt/packages,ref=25a3...8d94.
+For more info, see the docs: https://docs.aleph.im/computing/volumes/immutable/
 * `--skip-env-var / --no-skip-env-var`: Skip prompt to set environment variables  \[default: no-skip-env-var]
 * `--env-vars TEXT`: Environment variables to pass. They will be public and visible in the message, so don't include secrets. Must be a comma separated list. Example: `KEY=value` or `KEY=value,KEY=value`
 * `--address TEXT`: Address of the payer. In order to delegate the payment, your account must be authorized beforehand to publish on the behalf of this address. See the docs for more info: https://docs.aleph.im/protocol/permissions/
+* `--payment-chain [AVAX|BASE|ETH|SOL]`: Chain you want to use to pay for your program
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  \[default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--print-messages / --no-print-messages`: \[default: no-print-messages]
-* `--print-code-message / --no-print-code-message`: \[default: no-print-code-message]
-* `--print-program-message / --no-print-program-message`: \[default: no-print-program-message]
-* `--verbose / --no-verbose`: \[default: verbose]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--print-messages / --no-print-messages`: Print the messages after creation  \[default: no-print-messages]
+* `--print-code-message / --no-print-code-message`: Print the code message after creation  \[default: no-print-code-message]
+* `--print-program-message / --no-print-program-message`: Print the program message after creation  \[default: no-print-program-message]
+* `--verbose / --no-verbose`: Display additional information  \[default: verbose]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph program update`
@@ -884,11 +890,12 @@ $ aleph program update [OPTIONS] ITEM_HASH PATH
 
 **Options**:
 
-* `--private-key TEXT`
-* `--private-key-file PATH`: \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--print-message / --no-print-message`: \[default: no-print-message]
-* `--verbose / --no-verbose`: \[default: verbose]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--chain [AVAX|BASE|ETH|SOL]`: Chain you are using to pay for your program
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--print-message / --no-print-message`: Print the message after creation  \[default: no-print-message]
+* `--verbose / --no-verbose`: Display additional information  \[default: verbose]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph program delete`
@@ -909,11 +916,12 @@ $ aleph program delete [OPTIONS] ITEM_HASH
 
 * `--reason TEXT`: Reason for deleting the program  \[default: User deletion]
 * `--keep-code / --no-keep-code`: Keep the source code intact instead of deleting it  \[default: no-keep-code]
-* `--private-key TEXT`
-* `--private-key-file PATH`: \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--print-message / --no-print-message`: \[default: no-print-message]
-* `--verbose / --no-verbose`: \[default: verbose]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--chain [AVAX|BASE|ETH|SOL]`: Chain you are using to pay for your program
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--print-message / --no-print-message`: Print the message after deletion  \[default: no-print-message]
+* `--verbose / --no-verbose`: Display additional information  \[default: verbose]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph program list`
@@ -929,10 +937,11 @@ $ aleph program list [OPTIONS]
 **Options**:
 
 * `--address TEXT`: Owner address of the programs
+* `--chain [AVAX|BASE|ETH|SOL]`: Chain for the address
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
 * `--json / --no-json`: Print as json instead of rich table  \[default: no-json]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph program persist`
@@ -952,11 +961,12 @@ $ aleph program persist [OPTIONS] ITEM_HASH
 **Options**:
 
 * `--keep-prev / --no-keep-prev`: Keep the previous program intact instead of deleting it  \[default: no-keep-prev]
-* `--private-key TEXT`
-* `--private-key-file PATH`: \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--print-message / --no-print-message`: \[default: no-print-message]
-* `--verbose / --no-verbose`: \[default: verbose]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--chain [AVAX|BASE|ETH|SOL]`: Chain you are using to pay for your program
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--print-message / --no-print-message`: Print the message after persisting  \[default: no-print-message]
+* `--verbose / --no-verbose`: Display additional information  \[default: verbose]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph program unpersist`
@@ -976,11 +986,12 @@ $ aleph program unpersist [OPTIONS] ITEM_HASH
 **Options**:
 
 * `--keep-prev / --no-keep-prev`: Keep the previous program intact instead of deleting it  \[default: no-keep-prev]
-* `--private-key TEXT`
-* `--private-key-file PATH`: \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--print-message / --no-print-message`: \[default: no-print-message]
-* `--verbose / --no-verbose`: \[default: verbose]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--chain [AVAX|BASE|ETH|SOL]`: Chain you are using to pay for your program
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--print-message / --no-print-message`: Print the message after unpersisting  \[default: no-print-message]
+* `--verbose / --no-verbose`: Display additional information  \[default: verbose]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph program logs`
@@ -1001,11 +1012,11 @@ $ aleph program logs [OPTIONS] ITEM_HASH
 
 **Options**:
 
-* `--private-key TEXT`
-* `--private-key-file PATH`: \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--chain [AVAX|BASE|ETH|SOL]`: Chain you are using to pay for your program
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
 * `--domain TEXT`: URL of the CRN (Compute node) on which the program is running
-* `--chain [ARB|AVAX|BASE|BLAST|BOB|BSC|CSDK|CYBER|DOT|ETH|FRAX|INK|LINEA|LISK|METIS|MODE|NEO|NULS|NULS2|OP|POL|SOL|TEZOS|WLD|ZORA]`: Chain for the address
-* `--debug / --no-debug`: \[default: no-debug]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph program runtime-checker`
@@ -1024,10 +1035,11 @@ $ aleph program runtime-checker [OPTIONS] ITEM_HASH
 
 **Options**:
 
-* `--private-key TEXT`
-* `--private-key-file PATH`: \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--verbose / --no-verbose`: \[default: no-verbose]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--chain [AVAX|BASE|ETH|SOL]`: Chain for the address
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--verbose / --no-verbose`: Display additional information  \[default: no-verbose]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ## `aleph instance`
@@ -1078,7 +1090,7 @@ $ aleph instance create [OPTIONS]
 * `--compute-units INTEGER`: Number of compute units to allocate. Compute units correspond to a tier that includes vcpus, memory, disk and gpu presets. For reference, run: `aleph pricing --help`
 * `--vcpus INTEGER`: Number of virtual CPUs to allocate
 * `--memory INTEGER`: Maximum memory (RAM) in MiB to allocate
-* `--rootfs-size INTEGER`: Rootfs size in MiB to allocate
+* `--rootfs-size INTEGER RANGE`: Rootfs size in MiB to allocate  \[x<=1953125]
 * `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  \[default: 30.0]
 * `--ssh-pubkey-file PATH`: Path to a public ssh key to be added to the instance  \[default: /home/$USER/.ssh/id_rsa.pub]
 * `--address TEXT`: Address of the payer. In order to delegate the payment, your account must be authorized beforehand to publish on the behalf of this address. See the docs for more info: https://docs.aleph.im/protocol/permissions/
@@ -1090,21 +1102,23 @@ $ aleph instance create [OPTIONS]
 * `--premium / --no-premium`: Use Premium GPUs (VRAM > 48GiB)
 * `--skip-volume / --no-skip-volume`: Skip prompt to attach more volumes  \[default: no-skip-volume]
 * `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
-Requires at least `name`, `persistence`, `mount` and `size_mib`. For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
-Example: --persistent_volume name=data,persistence=host,size_mib=100,mount=/opt/data
+Requires at least `name`, `mount` path, and `size_mib`. To add multiple, reuse the same argument.
+Example: --persistent-volume name=data,mount=/opt/data,size_mib=1000.
+For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
 * `--ephemeral-volume TEXT`: Ephemeral volumes are allocated on the host machine when the VM is started and deleted when the VM is stopped.
-Requires at least `name`, `mount` and `size_mib`.
-Example: --ephemeral-volume name=temp,size_mib=100,mount=/tmp/data
+Requires at least `mount` path and `size_mib`. To add multiple, reuse the same argument.
+Example: --ephemeral-volume mount=/opt/tmp,size_mib=100
 * `--immutable-volume TEXT`: Immutable volumes are pinned on the network and can be used by multiple VMs at the same time. They are read-only and useful for setting up libraries or other dependencies.
-Requires at least `name`, `ref` (message hash) and `mount` path. `use_latest` is True by default, to use the latest version of the volume, if it has been amended. See the docs for more info: https://docs.aleph.im/computing/volumes/immutable/
-Example: --immutable-volume name=libs,ref=25a3...8d94,mount=/lib/python3.11/site-packages
+Requires at least `mount` path and `ref` (volume message hash). `use_latest` is True by default, to use the latest version of the volume, if it has been amended. To add multiple, reuse the same argument.
+Example: --immutable-volume mount=/opt/packages,ref=25a3...8d94.
+For more info, see the docs: https://docs.aleph.im/computing/volumes/immutable/
 * `--crn-auto-tac / --no-crn-auto-tac`: Automatically accept the Terms & Conditions of the CRN if you read them beforehand  \[default: no-crn-auto-tac]
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  \[default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--print-message / --no-print-message`: \[default: no-print-message]
-* `--verbose / --no-verbose`: \[default: verbose]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--print-message / --no-print-message`: Print the message after creation  \[default: no-print-message]
+* `--verbose / --no-verbose`: Display additional information  \[default: verbose]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph instance delete`
@@ -1127,10 +1141,10 @@ $ aleph instance delete [OPTIONS] ITEM_HASH
 * `--reason TEXT`: Reason for deleting the instance  \[default: User deletion]
 * `--chain [AVAX|BASE|ETH|SOL]`: Chain you are using to pay for your instance
 * `--domain TEXT`: Domain of the CRN where an associated VM is running. It ensures your VM will be stopped and erased on the CRN before the instance message is actually deleted
-* `--private-key TEXT`
-* `--private-key-file PATH`: \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--print-message / --no-print-message`: \[default: no-print-message]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
+* `--print-message / --no-print-message`: Print the message after deletion  \[default: no-print-message]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph instance list`
@@ -1150,7 +1164,7 @@ $ aleph instance list [OPTIONS]
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
 * `--chain [AVAX|BASE|ETH|SOL]`: Chain for the address
 * `--json / --no-json`: Print as json instead of rich table  \[default: no-json]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph instance reboot`
@@ -1173,7 +1187,7 @@ $ aleph instance reboot [OPTIONS] VM_ID
 * `--chain [AVAX|BASE|ETH|SOL]`: Chain you are using to pay for your instance
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph instance allocate`
@@ -1196,7 +1210,7 @@ $ aleph instance allocate [OPTIONS] VM_ID
 * `--chain [AVAX|BASE|ETH|SOL]`: Chain you are using to pay for your instance
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph instance logs`
@@ -1219,7 +1233,7 @@ $ aleph instance logs [OPTIONS] VM_ID
 * `--chain [AVAX|BASE|ETH|SOL]`: Chain you are using to pay for your instance
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph instance stop`
@@ -1242,7 +1256,7 @@ $ aleph instance stop [OPTIONS] VM_ID
 * `--chain [ARB|AVAX|BASE|BLAST|BOB|BSC|CSDK|CYBER|DOT|ETH|FRAX|INK|LINEA|LISK|METIS|MODE|NEO|NULS|NULS2|OP|POL|SOL|TEZOS|WLD|ZORA]`: Chain you are using to pay for your instance
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph instance confidential-init-session`
@@ -1263,11 +1277,11 @@ $ aleph instance confidential-init-session [OPTIONS] VM_ID
 
 * `--domain TEXT`: CRN domain on which the session will be initialized
 * `--chain [AVAX|BASE|ETH|SOL]`: Chain you are using to pay for your instance
-* `--policy INTEGER`: \[default: 1]
+* `--policy INTEGER`: Policy for the confidential session  \[default: 1]
 * `--keep-session / --no-keep-session`: Keeping the already initiated session
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph instance confidential-start`
@@ -1293,8 +1307,8 @@ $ aleph instance confidential-start [OPTIONS] VM_ID
 * `--vm-secret TEXT`: Secret password to start the VM
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--verbose / --no-verbose`: \[default: verbose]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--verbose / --no-verbose`: Display additional information  \[default: verbose]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph instance confidential`
@@ -1325,7 +1339,7 @@ $ aleph instance confidential [OPTIONS] [VM_ID]
 
 * `--crn-url TEXT`: URL of the CRN to deploy to (only applicable for confidential and/or Pay-As-You-Go instances)
 * `--crn-hash TEXT`: Hash of the CRN to deploy to (only applicable for confidential and/or Pay-As-You-Go instances)
-* `--policy INTEGER`: \[default: 1]
+* `--policy INTEGER`: Policy for the confidential session  \[default: 1]
 * `--confidential-firmware TEXT`: Hash to UEFI Firmware to launch confidential instance  \[default: ba5bb13f3abca960b101a759be162b229e2b7e93ecad9d1307e54de887f177ff]
 * `--firmware-hash TEXT`: Hash of the UEFI Firmware content, to validate measure (ignored if path is provided)  \[default: 89b76b0e64fe9015084fbffdf8ac98185bafc688bfe7a0b398585c392d03c7ee]
 * `--firmware-file TEXT`: Path to the UEFI Firmware content, to validate measure (instead of the hash)
@@ -1338,7 +1352,7 @@ $ aleph instance confidential [OPTIONS] [VM_ID]
 * `--compute-units INTEGER`: Number of compute units to allocate. Compute units correspond to a tier that includes vcpus, memory, disk and gpu presets. For reference, run: `aleph pricing --help`
 * `--vcpus INTEGER`: Number of virtual CPUs to allocate
 * `--memory INTEGER`: Maximum memory (RAM) in MiB to allocate
-* `--rootfs-size INTEGER`: Rootfs size in MiB to allocate
+* `--rootfs-size INTEGER RANGE`: Rootfs size in MiB to allocate  \[x<=1953125]
 * `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  \[default: 30.0]
 * `--ssh-pubkey-file PATH`: Path to a public ssh key to be added to the instance  \[default: /home/$USER/.ssh/id_rsa.pub]
 * `--address TEXT`: Address of the payer. In order to delegate the payment, your account must be authorized beforehand to publish on the behalf of this address. See the docs for more info: https://docs.aleph.im/protocol/permissions/
@@ -1346,24 +1360,28 @@ $ aleph instance confidential [OPTIONS] [VM_ID]
 * `--premium / --no-premium`: Use Premium GPUs (VRAM > 48GiB)
 * `--skip-volume / --no-skip-volume`: Skip prompt to attach more volumes  \[default: no-skip-volume]
 * `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
-Requires at least `name`, `persistence`, `mount` and `size_mib`. For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
-Example: --persistent_volume name=data,persistence=host,size_mib=100,mount=/opt/data
+Requires at least `name`, `mount` path, and `size_mib`. To add multiple, reuse the same argument.
+Example: --persistent-volume name=data,mount=/opt/data,size_mib=1000.
+For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
 * `--ephemeral-volume TEXT`: Ephemeral volumes are allocated on the host machine when the VM is started and deleted when the VM is stopped.
-Requires at least `name`, `mount` and `size_mib`.
-Example: --ephemeral-volume name=temp,size_mib=100,mount=/tmp/data
+Requires at least `mount` path and `size_mib`. To add multiple, reuse the same argument.
+Example: --ephemeral-volume mount=/opt/tmp,size_mib=100
 * `--immutable-volume TEXT`: Immutable volumes are pinned on the network and can be used by multiple VMs at the same time. They are read-only and useful for setting up libraries or other dependencies.
-Requires at least `name`, `ref` (message hash) and `mount` path. `use_latest` is True by default, to use the latest version of the volume, if it has been amended. See the docs for more info: https://docs.aleph.im/computing/volumes/immutable/
-Example: --immutable-volume name=libs,ref=25a3...8d94,mount=/lib/python3.11/site-packages
+Requires at least `mount` path and `ref` (volume message hash). `use_latest` is True by default, to use the latest version of the volume, if it has been amended. To add multiple, reuse the same argument.
+Example: --immutable-volume mount=/opt/packages,ref=25a3...8d94.
+For more info, see the docs: https://docs.aleph.im/computing/volumes/immutable/
 * `--crn-auto-tac / --no-crn-auto-tac`: Automatically accept the Terms & Conditions of the CRN if you read them beforehand  \[default: no-crn-auto-tac]
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  \[default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ### `aleph instance gpu`
 
 Create and register a new GPU instance on aleph.im
+
+Only compatible with Pay-As-You-Go
 
 **Usage**:
 
@@ -1379,7 +1397,7 @@ $ aleph instance gpu [OPTIONS]
 * `--compute-units INTEGER`: Number of compute units to allocate. Compute units correspond to a tier that includes vcpus, memory, disk and gpu presets. For reference, run: `aleph pricing --help`
 * `--vcpus INTEGER`: Number of virtual CPUs to allocate
 * `--memory INTEGER`: Maximum memory (RAM) in MiB to allocate
-* `--rootfs-size INTEGER`: Rootfs size in MiB to allocate
+* `--rootfs-size INTEGER RANGE`: Rootfs size in MiB to allocate  \[x<=1953125]
 * `--premium / --no-premium`: Use Premium GPUs (VRAM > 48GiB)
 * `--timeout-seconds FLOAT`: If vm is not called after [timeout_seconds] it will shutdown  \[default: 30.0]
 * `--ssh-pubkey-file PATH`: Path to a public ssh key to be added to the instance  \[default: /home/$USER/.ssh/id_rsa.pub]
@@ -1388,21 +1406,23 @@ $ aleph instance gpu [OPTIONS]
 * `--crn-url TEXT`: URL of the CRN to deploy to (only applicable for confidential and/or Pay-As-You-Go instances)
 * `--skip-volume / --no-skip-volume`: Skip prompt to attach more volumes  \[default: no-skip-volume]
 * `--persistent-volume TEXT`: Persistent volumes are allocated on the host machine and are not deleted when the VM is stopped.
-Requires at least `name`, `persistence`, `mount` and `size_mib`. For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
-Example: --persistent_volume name=data,persistence=host,size_mib=100,mount=/opt/data
+Requires at least `name`, `mount` path, and `size_mib`. To add multiple, reuse the same argument.
+Example: --persistent-volume name=data,mount=/opt/data,size_mib=1000.
+For more info, see the docs: https://docs.aleph.im/computing/volumes/persistent/
 * `--ephemeral-volume TEXT`: Ephemeral volumes are allocated on the host machine when the VM is started and deleted when the VM is stopped.
-Requires at least `name`, `mount` and `size_mib`.
-Example: --ephemeral-volume name=temp,size_mib=100,mount=/tmp/data
+Requires at least `mount` path and `size_mib`. To add multiple, reuse the same argument.
+Example: --ephemeral-volume mount=/opt/tmp,size_mib=100
 * `--immutable-volume TEXT`: Immutable volumes are pinned on the network and can be used by multiple VMs at the same time. They are read-only and useful for setting up libraries or other dependencies.
-Requires at least `name`, `ref` (message hash) and `mount` path. `use_latest` is True by default, to use the latest version of the volume, if it has been amended. See the docs for more info: https://docs.aleph.im/computing/volumes/immutable/
-Example: --immutable-volume name=libs,ref=25a3...8d94,mount=/lib/python3.11/site-packages
+Requires at least `mount` path and `ref` (volume message hash). `use_latest` is True by default, to use the latest version of the volume, if it has been amended. To add multiple, reuse the same argument.
+Example: --immutable-volume mount=/opt/packages,ref=25a3...8d94.
+For more info, see the docs: https://docs.aleph.im/computing/volumes/immutable/
 * `--crn-auto-tac / --no-crn-auto-tac`: Automatically accept the Terms & Conditions of the CRN if you read them beforehand  \[default: no-crn-auto-tac]
 * `--channel TEXT`: Aleph.im network channel where the message is or will be broadcasted  \[default: ALEPH-CLOUDSOLUTIONS]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--print-message / --no-print-message`: \[default: no-print-message]
-* `--verbose / --no-verbose`: \[default: verbose]
-* `--debug / --no-debug`: \[default: no-debug]
+* `--print-message / --no-print-message`: Print the message after creation  \[default: no-print-message]
+* `--verbose / --no-verbose`: Display additional information  \[default: verbose]
+* `--debug / --no-debug`: Enable debug logging  \[default: no-debug]
 * `--help`: Show this message and exit.
 
 ## `aleph domain`
@@ -1442,12 +1462,12 @@ $ aleph domain add [OPTIONS] FQDN
 
 **Options**:
 
-* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
 * `--target [ipfs|program|instance]`: IPFS|PROGRAM|INSTANCE
 * `--item-hash TEXT`: Item hash
 * `--owner TEXT`: Owner address. Defaults to current account address
 * `--ask / --no-ask`: Prompt user for confirmation  \[default: ask]
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
 * `--help`: Show this message and exit.
 
 ### `aleph domain attach`
@@ -1466,11 +1486,11 @@ $ aleph domain attach [OPTIONS] FQDN
 
 **Options**:
 
-* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
-* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
 * `--item-hash TEXT`: Item hash
 * `--catch-all-path TEXT`: Choose a relative path to catch all unmatched route or a 404 error
 * `--ask / --no-ask`: Prompt user for confirmation  \[default: ask]
+* `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
+* `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
 * `--help`: Show this message and exit.
 
 ### `aleph domain detach`
@@ -1489,9 +1509,9 @@ $ aleph domain detach [OPTIONS] FQDN
 
 **Options**:
 
+* `--ask / --no-ask`: Prompt user for confirmation  \[default: ask]
 * `--private-key TEXT`: Your private key. Cannot be used with --private-key-file
 * `--private-key-file PATH`: Path to your private key file  \[default: /home/$USER/.aleph-im/private-keys/ethereum.key]
-* `--ask / --no-ask`: Prompt user for confirmation  \[default: ask]
 * `--help`: Show this message and exit.
 
 ### `aleph domain info`
@@ -1549,9 +1569,9 @@ $ aleph node compute [OPTIONS]
 * `--active / --no-active`: Only show active nodes  \[default: no-active]
 * `--address TEXT`: Owner address to filter by
 * `--payg-receiver TEXT`: PAYG (Pay-As-You-Go) receiver address to filter by
-* `--crn-url TEXT`: CRN Url to filter by
+* `--crn-url TEXT`: CRN URL to filter by
 * `--crn-hash TEXT`: CRN hash to filter by
-* `--ccn-hash TEXT`: Linked CCN hash to filter by
+* `--ccn-hash TEXT`: CCN hash to filter by
 * `--debug / --no-debug`: \[default: no-debug]
 * `--help`: Show this message and exit.
 
