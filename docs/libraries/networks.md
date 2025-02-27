@@ -6,7 +6,7 @@ Aleph.im provides robust decentralized infrastructure to empower developers and 
 
 | Network | CCN APIs | Explorer |
 |---------|----------|----------|
-| **Mainnet** | • [https://api1.aleph.im](https://api1.aleph.im/)<br>• [https://api2.aleph.im](https://api2.aleph.im)<br>• [https://api3.aleph.im](https://api3.aleph.im/) | • [https://explorer.aleph.im](https://explorer.aleph.im/) |
+| **Mainnet** | • [https://api2.aleph.im](https://api2.aleph.im)<br>• [https://api3.aleph.im](https://api3.aleph.im/) | • [https://explorer.aleph.im](https://explorer.aleph.im/) |
 | **Testnet** | • [https://api.twentysix.testnet.network](https://api.twentysix.testnet.network/) | • [https://explorer.testnet.aleph.im](https://explorer.testnet.aleph.im/) |
 
 ## Choose A Network
