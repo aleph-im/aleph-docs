@@ -107,6 +107,11 @@ If you want to add more specific redirections, you must create a `_redirects` fi
 - <b>Simple website</b>: It should be located in the root folder.
 - <b>Framework-based website</b>: it should be located in the `public` folder. At build time, it will be moved at the root.
 
+A simple default that should work for most websites is to redirect all the traffic to the root using a `200` code (rewrite that doesn't change the URL in the visitor's browser) with:
+```txt
+/* /index.html 200
+```
+
 Check out the IPFS documentation below for more details.
 
 <b>Useful Links</b>
@@ -116,7 +121,7 @@ Check out the IPFS documentation below for more details.
 
 ### Backend Support
 
-In order to add a backend to your website and to make it a complete fullstack dapp, there are currently 2 different approchs you can implement:
+In order to add a backend to your website and to make it a complete fullstack dapp, there are currently 2 different approaches you can implement:
 
 - [Deploy your backend as a function](webconsole/write_your_code.md) using our serverless solution.
 - [Deploy your instance](../computing/index.md) then setup your environment and expose your APIs to the internet.
