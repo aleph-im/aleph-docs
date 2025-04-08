@@ -64,25 +64,27 @@ ALEPH_VM_DOMAIN_NAME=vm.example.org
 
 #### IPv6 address pool
 
-The range of IPv6 addresses usable by the virtual machines must be specified manually.
+The range of IPv6 addresses usable by the virtual machines must be specified manually. This is required to enable IPv6
+egress.
 
 According to the IPv6 specifications, a system is expected to receive an IPv6 with a /64
 mask and all addresses inside that mask should simply be routed to the host.
 
 The option takes the form of:
+
 ```
 ALEPH_VM_IPV6_ADDRESS_POOL="2a01:4f8:171:787::/64"
 ```
 
 Assuming hosting provider follows the specification, the procedure is the following:
 
-1. Obtain the IPv6 address of your node.
-2. Remove the trailing number after `::` if present, for example `2a01:4f8:171:787::2/64` becomes `2a01:4f8:171:787::/64`.
+1. Obtain the IPv6 address of your node, the one used by the ALEPH_VM_NETWORK_INTERFACE setting below. You can find it
+   via the `ip a` command.
+2. Remove the trailing number after `::` if present, for example `2a01:4f8:171:787::2/64` becomes
+   `2a01:4f8:171:787::/64`.
 3. Add the IPv6 range you obtained under the setting `ALEPH_VM_IPV6_ADDRESS_POOL` in the configuration.
 
-
-
-#### Network Interface
+#### Network Interface (optional)
 
 The default network interface is detected automatically from the IP routes.
 You can configure the default interface manually instead by adding:
