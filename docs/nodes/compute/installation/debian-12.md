@@ -64,25 +64,27 @@ ALEPH_VM_DOMAIN_NAME=vm.example.org
 
 #### IPv6 address pool
 
-The range of IPv6 addresses usable by the virtual machines must be specified manually.
+The range of IPv6 addresses usable by the virtual machines must be specified manually. This is required to enable IPv6
+egress.
 
 According to the IPv6 specifications, a system is expected to receive an IPv6 with a /64
 mask and all addresses inside that mask should simply be routed to the host.
 
 The option takes the form of:
+
 ```
 ALEPH_VM_IPV6_ADDRESS_POOL="2a01:4f8:171:787::/64"
 ```
 
 Assuming hosting provider follows the specification, the procedure is the following:
 
-1. Obtain the IPv6 address of your node.
-2. Remove the trailing number after `::` if present, for example `2a01:4f8:171:787::2/64` becomes `2a01:4f8:171:787::/64`.
+1. Obtain the IPv6 address of your node, the one used by the ALEPH_VM_NETWORK_INTERFACE setting below. You can find it
+   via the `ip a` command.
+2. Remove the trailing number after `::` if present, for example `2a01:4f8:171:787::2/64` becomes
+   `2a01:4f8:171:787::/64`.
 3. Add the IPv6 range you obtained under the setting `ALEPH_VM_IPV6_ADDRESS_POOL` in the configuration.
 
-
-
-#### Network Interface
+#### Network Interface (optional)
 
 The default network interface is detected automatically from the IP routes.
 You can configure the default interface manually instead by adding:
@@ -94,9 +96,12 @@ ALEPH_VM_NETWORK_INTERFACE=enp0s1
 (don't forget to replace `enp0s1` with the name of your default network interface).
 
 
-#### Domain Name Servers
 
-You can configure the DNS resolver manually by using one of the following options:
+#### Domain Name Servers (optional)
+
+The DNS server used by the VM are detected automatically and doesn't need to be set manually.
+
+But you can set the DNS resolver used for automatic detection  manually by using one of the following options:
 
 ```
 ALEPH_VM_DNS_RESOLUTION=resolvectl
@@ -139,7 +144,7 @@ This is a simple configuration. For more options, check [CONFIGURE_CADDY](config
 Again, run these commands as `root`:
 
 ```shell
- apt install -y debian-keyring debian-archive-keyring apt-transport-https
+apt install -y debian-keyring debian-archive-keyring apt-transport-https
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
 curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/apt/sources.list.d/caddy-stable.list
 apt update

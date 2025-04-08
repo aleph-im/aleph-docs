@@ -241,6 +241,18 @@ When a diagnostic virtual machine happens to be stopped while writing data to th
      https://$YOUR_CRN_HOSTNAME/vm/$CHECK_FASTAPI_VM_ID/state/increment
      ```
 
+## IPv6 egress not working
+Be sure you have set the `ALEPH_VM_IPV6_ADDRESS_POOL` configuration setting properly, check the IPv6 address pool section of your distribution installation guide.
+
+Be aware that IPv6 egress is not working everywhere and we are currently improving the IPv6 support to be compatible with more Hosting providers
+
+The following infra providers are known to works:
+* Hetzner
+* OVH
+
+The following infra providers are known not to works:
+* Scaleway
+
 ## Found an issue?
 
 If the documentation didn't help, you can [report an issue](https://github.com/aleph-im/support/issues).
