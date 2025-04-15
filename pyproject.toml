@@ -47,7 +47,7 @@ dependencies = [
     "ruff==0.3.4",
     "pytest==8.1.1",
     "mktestdocs==0.2.1",
-    "aleph-sdk-python==1.0.0rc1",
+    "aleph-sdk-python==2.0.0",
     "matplotlib",
     "numpy",
 ]
