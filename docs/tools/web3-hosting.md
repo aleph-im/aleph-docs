@@ -133,7 +133,9 @@ Have a look to the [official documentation](https://docs.libertai.io/).
 
 ### Auto-Deployment on Push
 
-Coming soon.
+We provide a [GitHub Action](https://github.com/marketplace/actions/aleph-web3-hosting) that you can use to automatically deploy your website based on conditions you define (on a new push to the `main` branch for example).\
+It can also be used to deploy previews on your PRs, with or without a domain name.\
+For more details & integration examples, please check the [GitHub Action page](https://github.com/marketplace/actions/aleph-web3-hosting).
 
 ## Troubleshooting
 
