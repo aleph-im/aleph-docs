@@ -33,7 +33,7 @@ functionalities are supported.
 |------------|------------------|---------------------------|-------------------|-----------------|-----------------|------|
 | Ethereum   | ✅                | Metamask & Wallet Connect | ✅                 | ✅               | ✅               | ❌    |
 | Polygon    | ✅                | Metamask & Wallet Connect | ❌                 | ❌               | ❌               | ❌    |
-| Solana     | ✅                | ❌                        | ✅                 | ❌               | ❌               | ❌    |
+| Solana     | ✅                | ❌                        | ✅                 | ✅               | ❌               | ❌    |
 | Tezos      | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
 | Cosmos     | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
 | Nuls1      | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
@@ -42,22 +42,22 @@ functionalities are supported.
 | Avalanche  | ✅                | Metamask & Wallet Connect | ✅                 | ✅               | ❌               | ✅    |
 | BASE       | ✅                | Metamask & Wallet Connect | ✅                 | ✅               | ❌               | ✅    |
 | BNB        | ✅                | Metamask & Wallet Connect | ❌                 | ❌               | ❌               | ❌    |
-| CSDK       | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| ECLIPSE    | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| ARBITRUM   | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| BLAST      | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| BOB        | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| BSC        | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| DOT        | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| CYBER      | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| FRAXTAL    | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| INK        | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| LINEA      | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| LISK       | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| METIS      | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| MODE       | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| NEO        | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| OPTIMISM   | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| SONIC      | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| WORLDCHAIN | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
-| ZORA       | ✅                | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| CSDK       | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| ECLIPSE    | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| ARBITRUM   | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| BLAST      | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| BOB        | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| BSC        | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| DOT        | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| CYBER      | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| FRAXTAL    | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| INK        | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| LINEA      | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| LISK       | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| METIS      | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| MODE       | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| NEO        | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| OPTIMISM   | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| SONIC      | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| WORLDCHAIN | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
+| ZORA       | Python only      | ❌                        | ❌                 | ❌               | ❌               | ❌    |
