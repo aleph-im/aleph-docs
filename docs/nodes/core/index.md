@@ -24,9 +24,9 @@ rewarded with ALEPH tokens for their contribution to the network, which further 
 
 ## Hardware requirements:
 
-- **Processor**: Recent cpu with at least 4 cores
+- **Processor**: Recent cpu with at least 8 cores (16 cores recommended)
 - **Memory**: 32 GB of RAM minimum (64 GB recommended)
-- **Storage**: 4+ TB HDD or SSD (ideally with at least the system on an SSD)
+- **Storage**: 4+ TB Fast HDD or SSD (ideally with at least the system on an SSD)
 - **Connectivity**: 100 MB upload bandwidth minimum (ideally 1 GB)
 
 ## Requirements
