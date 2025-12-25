@@ -11,6 +11,8 @@ Note that the [4004 Series Processors do not provide SEV](https://www.amd.com/en
 
 > ℹ️ The 4th Generation requirement stems from security vulnerabilities discovered in SEV on Zen3 and earlier architectures.
 
+> ℹ️ On Zen5 architecture ,the kernel version must be >= 6.5
+
 ## Additional Software Requirements
 In addition to the standard software requirements, the following must be configured:
 
