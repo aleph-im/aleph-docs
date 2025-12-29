@@ -30,7 +30,7 @@ Datacenter grade GPUs.
 
 | GPU Model    | vCPU | RAM    | vRAM  | Price approx ($ALEPH) | Price approx ($Credits) |
 |--------------|------|--------|--------|----------------------|-------------------------|
-| RTX 6000 ADA | 14   | 84 GB  | 96 GB  | 7.84 ALEPH/hour      | 120.75 Credits/hour     |
+| RTX PRO 6000 | 14   | 84 GB  | 96 GB  | 7.84 ALEPH/hour      | 120.75 Credits/hour     |
 | A100         | 16   | 96 GB  | 80 GB  | 8.96  ALEPH/hour     | 138    Credits/hour     |
 | H100         | 24   | 144 GB | 80 GB  | 13.44 ALEPH/hour     | 207    Credits/hour     |
 | H200         | 32   | 192 GB | 148 GB | 17.92 ALEPH/hour     | 276    Credits/hour     |
