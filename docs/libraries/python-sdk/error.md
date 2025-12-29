@@ -27,7 +27,7 @@ from aleph.sdk.client import AlephHttpClient
 async def main():
     async with AlephHttpClient() as client:
         message = await client.get_message_error(
-            "09bd7c17a79a2e9e9d80e1d680d98fc02382f60b7fee5767817d846650ac5e4b"
+            "d224e967a860847f6e74792ff9dfaa1d6b6f86666c220421f38e2e74ab23f177"
         )
         return message
 
