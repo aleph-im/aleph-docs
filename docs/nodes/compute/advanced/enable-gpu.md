@@ -12,13 +12,14 @@ At the time of writing the GPUs listed below are compatible with the feature, mo
 
 ### Standard GPUs
 
-| GPU Model    | vCPU | RAM   | vRAM  | Price approx    |
-|--------------|------|-------|-------|-----------------|
-| L40S         | 12   | 72 GB | 48 GB | 3.33 ALEPH/hour |
-| RTX 5090     | 8    | 48 GB | 36 GB | 2.24 ALEPH/hour |
-| RTX 4090     | 6    | 36 GB | 24 GB | 1.68 ALEPH/hour |
-| RTX 3090     | 4    | 24 GB | 24 GB | 1.12 ALEPH/hour |
-| RTX 4000 ADA | 3    | 18 GB | 20 GB | 0.84 ALEPH/hour |
+| GPU Model    | vCPU | RAM   | vRAM  | Price approx ($ALEPH) | Price approx ($Credits) |
+|--------------|------|-------|-------|-----------------------|-------------------------|
+| RTX 4000 ADA | 3    | 18 GB | 20 GB | 0.84 ALEPH/hour       | 12.938 Credits/hour     |
+| RTX 3090     | 4    | 24 GB | 24 GB | 1.12 ALEPH/hour       | 17.25  Credits/hour     |
+| RTX 4090     | 6    | 36 GB | 24 GB | 1.68 ALEPH/hour       | 25.875 Credits/hour     |
+| RTX 5090     | 8    | 48 GB | 36 GB | 2.24 ALEPH/hour       | 34.5   Credits/hour     |
+| RTX 6000 ADA | 11   | 66 GB | 48 GB | 3.08 ALEPH/hour       | 47.438 Credits/hour     |
+| L40S         | 12   | 72 GB | 48 GB | 3.36 ALEPH/hour       | 51.75  Credits/hour     |
 
 GPUs must be connected via PCIe 4.0 16x each.
 
@@ -27,10 +28,12 @@ GPUs must be connected via PCIe 4.0 16x each.
 
 Datacenter grade GPUs.
 
-| GPU Model | vCPU | RAM    | vRAM  | Price approx     |
-|-----------|------|--------|-------|------------------|
-| H100      | 24   | 144 GB | 80 GB | 13.33 ALEPH/hour |
-| A100      | 16   | 96 GB  | 80 GB | 8.89  ALEPH/hour |
+| GPU Model    | vCPU | RAM    | vRAM  | Price approx ($ALEPH) | Price approx ($Credits) |
+|--------------|------|--------|--------|----------------------|-------------------------|
+| RTX 6000 ADA | 14   | 84 GB  | 96 GB  | 7.84 ALEPH/hour      | 120.75 Credits/hour     |
+| A100         | 16   | 96 GB  | 80 GB  | 8.96  ALEPH/hour     | 138    Credits/hour     |
+| H100         | 24   | 144 GB | 80 GB  | 13.44 ALEPH/hour     | 207    Credits/hour     |
+| H200         | 32   | 192 GB | 148 GB | 17.92 ALEPH/hour     | 276    Credits/hour     |
 
 ## Switch Kernel modules for GPU
 It is possible to enable multiple GPUs on one CRN

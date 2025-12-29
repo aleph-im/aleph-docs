@@ -64,6 +64,12 @@ async def main():
 message, status = asyncio.run(main())
 ```
 
+output:
+
+```
+{'error_code': 101, 'details': None}
+```
+
 ## Error Codes
 
 Here is a list of error codes and their meanings:
