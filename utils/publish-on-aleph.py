@@ -47,7 +47,7 @@ async def publish_site(multiaddr: Multiaddr) -> CID:
 
 
 def main():
-    print(asyncio.run(publish_site(Multiaddr("/dns6/ipfs-2.aleph.im/tcp/443/https"))))
+    print(asyncio.run(publish_site(Multiaddr("/dns4/ipfs-2.aleph.im/tcp/443/https"))))
 
 
 if __name__ == "__main__":
